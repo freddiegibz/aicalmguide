@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase Successful - AI Guide</title>
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1216244347126516');
+    fbq('track', 'PageView');
+    fbq('track', 'Purchase', {value: 9.99, currency: 'USD'});
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1216244347126516&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #1e3a5f;
+            --color-primary-light: #2d5a8a;
+            --color-accent: #c9a227;
+            --color-accent-soft: #f5ecd7;
+            --color-text: #2d3748;
+            --color-text-light: #5a6778;
+            --color-bg-warm: #faf9f7;
+            --color-bg-cream: #f7f5f0;
+            --color-border: #e8e4dc;
+            --color-success: #3d8b5f;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: #ffffff;
+            color: var(--color-text);
+            line-height: 1.7;
+            font-size: 18px;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 0 28px;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-weight: 500;
+            color: var(--color-primary);
+        }
+
+        /* Header */
+        .site-header {
+            padding: 24px 0;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .site-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .site-logo {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+
+        /* Success Section */
+        .success-hero {
+            padding: 80px 0 60px;
+            text-align: center;
+            background: linear-gradient(180deg, var(--color-accent-soft) 0%, var(--color-bg-warm) 100%);
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background-color: var(--color-success);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 32px;
+            box-shadow: 0 4px 20px rgba(61, 139, 95, 0.3);
+        }
+
+        .success-icon::before {
+            content: "✓";
+            color: white;
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        .success-hero h1 {
+            font-size: clamp(32px, 5vw, 44px);
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .success-subtitle {
+            font-size: 20px;
+            color: var(--color-text-light);
+            margin-bottom: 40px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Content Sections */
+        section {
+            padding: 60px 0;
+        }
+
+        section h2 {
+            font-size: clamp(24px, 4vw, 32px);
+            margin-bottom: 16px;
+            line-height: 1.3;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            font-size: 18px;
+            color: var(--color-text-light);
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        /* Next Steps */
+        .steps-container {
+            display: grid;
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .step {
+            background: var(--color-bg-warm);
+            border-radius: 12px;
+            padding: 32px;
+            border: 1px solid var(--color-border);
+            text-align: center;
+        }
+
+        .step-number {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0 auto 20px;
+        }
+
+        .step h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: var(--color-primary);
+        }
+
+        .step p {
+            color: var(--color-text-light);
+            margin-bottom: 0;
+        }
+
+        /* CTA Button */
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+            color: #ffffff;
+            padding: 18px 44px;
+            font-size: 17px;
+            font-weight: 500;
+            text-decoration: none;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 14px rgba(30, 58, 95, 0.25);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(30, 58, 95, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            padding: 48px 0;
+            text-align: center;
+            font-size: 14px;
+            color: var(--color-text-light);
+            background-color: var(--color-primary);
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 767px) {
+            section {
+                padding: 50px 0;
+            }
+
+            .success-hero {
+                padding: 60px 0 40px;
+            }
+
+            .steps-container {
+                gap: 20px;
+            }
+
+            .step {
+                padding: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container">
+            <a href="index.html" class="site-logo">AI Guide</a>
+        </div>
+    </header>
+
+    <!-- Success Hero -->
+    <section class="success-hero">
+        <div class="container">
+            <div class="success-icon"></div>
+            <h1>Thank You for Your Purchase!</h1>
+            <p class="success-subtitle">Your AI Guide is on its way. You're about to discover how AI can make your daily life easier and more informed.</p>
+        </div>
+    </section>
+
+    <!-- What Happens Next -->
+    <section>
+        <div class="container">
+            <h2>What Happens Next</h2>
+            <p class="section-subtitle">Here's what you can expect in the coming minutes and hours</p>
+
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Check Your Email</h3>
+                    <p>You'll receive an email within the next 5 minutes with your download link and access instructions. Please check your spam folder if you don't see it in your inbox.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Download Your Guide</h3>
+                    <p>The email will contain a secure download link for your AI Guide. Save it somewhere safe - you'll want to refer back to it often.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Start Learning at Your Own Pace</h3>
+                    <p>Take your time with the guide. It's designed to be read in short sessions, so you can learn without feeling overwhelmed.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Get Personal Support (First 20 Buyers)</h3>
+                    <p>As one of our first 20 customers, you'll receive personal 1-1 support to help you apply what you learn. We'll be in touch soon!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reassurance -->
+    <section style="background-color: var(--color-bg-cream); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+        <div class="container">
+            <h2>You're in Good Hands</h2>
+            <p class="section-subtitle">Remember, this guide was written specifically for people like you</p>
+            <div style="max-width: 500px; margin: 0 auto; text-align: center; font-size: 19px; line-height: 1.7; color: var(--color-text-light;">
+                <p>You don't need to be technical or "get" all the hype. You just need clear, practical guidance that respects your intelligence and experience. That's exactly what you've invested in today.</p>
+                <p style="margin-top: 24px;"><strong>Welcome to using AI with confidence.</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section style="text-align: center; padding: 60px 0;">
+        <div class="container">
+            <h2>Questions? We're Here to Help</h2>
+            <p style="margin-bottom: 32px; color: var(--color-text-light);">If you have any questions about your purchase or need help getting started, don't hesitate to reach out.</p>
+            <a href="mailto:support@example.com" class="cta-button">Contact Support</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 AI Guide. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
