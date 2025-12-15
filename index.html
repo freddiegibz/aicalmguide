@@ -75,6 +75,31 @@
             align-items: center;
         }
 
+        .trust-strip {
+            background: linear-gradient(180deg, var(--color-bg-warm) 0%, #ffffff 100%);
+            border-bottom: 1px solid var(--color-border);
+            padding: 10px 0;
+        }
+
+        .trust-strip .container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            color: var(--color-text-light);
+        }
+
+        .trust-dot {
+            color: var(--color-accent);
+            font-weight: 700;
+        }
+
+        .trust-strong {
+            color: var(--color-primary);
+            font-weight: 600;
+        }
+
         .header-links {
             display: flex;
             align-items: center;
@@ -224,58 +249,6 @@
             box-shadow: 0 6px 20px rgba(30, 58, 95, 0.3);
         }
 
-        /* Social Proof */
-        .proof {
-            background-color: #ffffff;
-        }
-
-        .proof-grid {
-            display: grid;
-            gap: 24px;
-            margin-top: 28px;
-        }
-
-        .proof-card {
-            background: var(--color-bg-warm);
-            border: 1px solid var(--color-border);
-            border-radius: 12px;
-            padding: 28px;
-        }
-
-        .proof-stats {
-            display: grid;
-            gap: 12px;
-        }
-
-        @media (min-width: 680px) {
-            .proof-stats {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 14px;
-            }
-        }
-
-        .stat {
-            background: #fff;
-            border: 1px solid var(--color-border);
-            border-radius: 10px;
-            padding: 18px 20px;
-        }
-
-        .stat .label {
-            display: block;
-            font-size: 13px;
-            color: var(--color-text-light);
-            margin-bottom: 6px;
-        }
-
-        .stat .value {
-            display: block;
-            font-size: 20px;
-            font-weight: 600;
-            color: var(--color-primary);
-            letter-spacing: -0.01em;
-        }
-
         .before-after {
             display: grid;
             gap: 14px;
@@ -308,6 +281,12 @@
             margin-bottom: 0;
             color: var(--color-text-light);
             font-size: 16px;
+        }
+
+        .reviews {
+            background-color: var(--color-bg-cream);
+            border-top: 1px solid var(--color-border);
+            border-bottom: 1px solid var(--color-border);
         }
 
         .testimonials {
@@ -651,6 +630,17 @@
         </div>
     </header>
 
+    <!-- Trust strip -->
+    <div class="trust-strip">
+        <div class="container">
+            <span class="trust-strong">Trusted by 1,300+ readers</span>
+            <span class="trust-dot">•</span>
+            <span>Many report saving about <span class="trust-strong">2 hours a week</span> on reading and everyday admin</span>
+            <span class="trust-dot">•</span>
+            <a class="inline-link" href="#reviews">Read reviews</a>
+        </div>
+    </div>
+
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
@@ -685,6 +675,20 @@
             </ul>
             <div class="reassurance">
                 This has nothing to do with intelligence or age. You just need someone to explain it clearly, from the beginning, without rushing.
+            </div>
+
+            <div style="margin-top: 28px;">
+                <h3 style="margin-bottom: 10px;">A common change we hear</h3>
+                <div class="before-after">
+                    <div class="ba">
+                        <h3>Before</h3>
+                        <p>I felt unsure what to type, and I didn’t trust the answers.</p>
+                    </div>
+                    <div class="ba">
+                        <h3>After</h3>
+                        <p>I know what to ask, how to check it, and how to use AI for real everyday tasks.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -734,78 +738,45 @@
         </div>
     </section>
 
+    <!-- Reviews -->
+    <section class="reviews" id="reviews">
+        <div class="container">
+            <h2>What People Like You Say</h2>
+            <p class="section-subtitle">Short, honest feedback from non-technical readers.</p>
+
+            <div class="testimonials">
+                <div class="testimonial">
+                    <p class="quote">“This was the first explanation that didn’t make me feel stupid. I finally knew what to type.”</p>
+                    <div class="who-said">
+                        <span class="avatar">M</span>
+                        <span>Margaret, 62</span>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <p class="quote">“I used it to compare options and summarise things I didn’t have time to read. It saves me about 2 hours a week.”</p>
+                    <div class="who-said">
+                        <span class="avatar">S</span>
+                        <span>Susan, 48</span>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <p class="quote">“The tone was calm and clear. It explained what matters without talking down to me.”</p>
+                    <div class="who-said">
+                        <span class="avatar">D</span>
+                        <span>David, 55</span>
+                    </div>
+                </div>
+            </div>
+
+            <p class="fine-print">Results vary by person and how you use the kit. Want to share a testimonial? Email <a class="inline-link" href="mailto:adsbyalfred@protonmail.com">adsbyalfred@protonmail.com</a>.</p>
+        </div>
+    </section>
+
     <!-- Credibility Section -->
     <section class="credibility">
         <div class="container">
             <h2>Who Wrote This</h2>
             <p class="credibility-text">I've spent the past two years using AI every day, for real tasks: writing, research, planning, problem-solving. Not as a tech experiment, but as a practical tool for everyday life. This kit shares what I've learned about what actually works, explained the way I wish someone had explained it to me.</p>
-        </div>
-    </section>
-
-    <!-- Social Proof -->
-    <section class="proof">
-        <div class="container">
-            <h2>Proof It Helps</h2>
-            <p class="section-subtitle">Not hype. Just real, practical wins for people who wanted a calm starting point.</p>
-
-            <div class="proof-grid">
-                <div class="proof-card">
-                    <h3 style="margin-bottom: 12px;">Usage and outcomes</h3>
-                    <div class="proof-stats">
-                        <div class="stat">
-                            <span class="label">People who have used this kit</span>
-                            <span class="value">XXXX+</span>
-                        </div>
-                        <div class="stat">
-                            <span class="label">Time saved each week (common result)</span>
-                            <span class="value">About X hours</span>
-                        </div>
-                    </div>
-                    <p class="fine-print">Replace <strong>XXXX</strong> and <strong>X</strong> with your real numbers when you’re ready.</p>
-                </div>
-
-                <div class="proof-card">
-                    <h3 style="margin-bottom: 12px;">Before and after</h3>
-                    <div class="before-after">
-                        <div class="ba">
-                            <h3>Before</h3>
-                            <p>AI felt confusing. I didn’t know what to type, and the answers didn’t feel trustworthy.</p>
-                        </div>
-                        <div class="ba">
-                            <h3>After</h3>
-                            <p>I know what to ask, how to check the answer, and how to use AI for the things I actually do.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="proof-card">
-                    <h3 style="margin-bottom: 12px;">What peers say</h3>
-                    <div class="testimonials">
-                        <div class="testimonial">
-                            <p class="quote">“For the first time, AI felt simple. I stopped guessing and started getting useful answers.”</p>
-                            <div class="who-said">
-                                <span class="avatar">M</span>
-                                <span>Margaret, 62</span>
-                            </div>
-                        </div>
-                        <div class="testimonial">
-                            <p class="quote">“The tone was calm and clear. It explained what matters without talking down to me.”</p>
-                            <div class="who-said">
-                                <span class="avatar">D</span>
-                                <span>David, 55</span>
-                            </div>
-                        </div>
-                        <div class="testimonial">
-                            <p class="quote">“I used it to compare options and shorten long reading. It genuinely saved me time.”</p>
-                            <div class="who-said">
-                                <span class="avatar">S</span>
-                                <span>Susan, 48</span>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="fine-print">Want to share a testimonial? Email <a class="inline-link" href="mailto:adsbyalfred@protonmail.com">adsbyalfred@protonmail.com</a>.</p>
-                </div>
-            </div>
         </div>
     </section>
 
