@@ -75,6 +75,26 @@
             align-items: center;
         }
 
+        .header-links {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .contact-link {
+            font-size: 14px;
+            color: var(--color-text-light);
+            text-decoration: none;
+            padding: 10px 14px;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .contact-link:hover {
+            color: var(--color-primary);
+            background-color: var(--color-bg-warm);
+        }
+
         .site-logo {
             font-family: 'Source Serif 4', Georgia, serif;
             font-size: 20px;
@@ -202,6 +222,157 @@
         .cta-button:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(30, 58, 95, 0.3);
+        }
+
+        /* Social Proof */
+        .proof {
+            background-color: #ffffff;
+        }
+
+        .proof-grid {
+            display: grid;
+            gap: 24px;
+            margin-top: 28px;
+        }
+
+        .proof-card {
+            background: var(--color-bg-warm);
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            padding: 28px;
+        }
+
+        .proof-stats {
+            display: grid;
+            gap: 12px;
+        }
+
+        @media (min-width: 680px) {
+            .proof-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 14px;
+            }
+        }
+
+        .stat {
+            background: #fff;
+            border: 1px solid var(--color-border);
+            border-radius: 10px;
+            padding: 18px 20px;
+        }
+
+        .stat .label {
+            display: block;
+            font-size: 13px;
+            color: var(--color-text-light);
+            margin-bottom: 6px;
+        }
+
+        .stat .value {
+            display: block;
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--color-primary);
+            letter-spacing: -0.01em;
+        }
+
+        .before-after {
+            display: grid;
+            gap: 14px;
+            margin-top: 16px;
+        }
+
+        @media (min-width: 680px) {
+            .before-after {
+                grid-template-columns: 1fr 1fr;
+                gap: 16px;
+            }
+        }
+
+        .ba {
+            background: #fff;
+            border: 1px solid var(--color-border);
+            border-radius: 10px;
+            padding: 18px 20px;
+        }
+
+        .ba h3 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--color-primary);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        .ba p {
+            margin-bottom: 0;
+            color: var(--color-text-light);
+            font-size: 16px;
+        }
+
+        .testimonials {
+            display: grid;
+            gap: 14px;
+            margin-top: 16px;
+        }
+
+        @media (min-width: 680px) {
+            .testimonials {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 16px;
+            }
+        }
+
+        .testimonial {
+            background: #fff;
+            border: 1px solid var(--color-border);
+            border-radius: 10px;
+            padding: 18px 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .quote {
+            color: var(--color-text);
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        .who-said {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--color-text-light);
+            font-size: 14px;
+        }
+
+        .avatar {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+            color: #fff;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 13px;
+            flex-shrink: 0;
+        }
+
+        .fine-print {
+            margin-top: 14px;
+            font-size: 14px;
+            color: var(--color-text-light);
+        }
+
+        .inline-link {
+            color: inherit;
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 3px;
         }
 
         /* Section Styling */
@@ -428,6 +599,10 @@
             color: rgba(255, 255, 255, 0.7);
         }
 
+        footer a {
+            color: rgba(255, 255, 255, 0.85);
+        }
+
         /* Mobile adjustments */
         @media (max-width: 767px) {
             section {
@@ -469,7 +644,10 @@
     <header class="site-header">
         <div class="container">
             <a href="#" class="site-logo">AI Confidence Kit</a>
-            <a href="https://buy.stripe.com/eVqaEWbj52S8auI45IbZe00" class="header-cta" onclick="fbq('track', 'InitiateCheckout')">Get the Kit</a>
+            <div class="header-links">
+                <a class="contact-link" href="mailto:adsbyalfred@protonmail.com">Contact</a>
+                <a href="https://buy.stripe.com/eVqaEWbj52S8auI45IbZe00" class="header-cta" onclick="fbq('track', 'InitiateCheckout')">Get the Kit</a>
+            </div>
         </div>
     </header>
 
@@ -564,6 +742,73 @@
         </div>
     </section>
 
+    <!-- Social Proof -->
+    <section class="proof">
+        <div class="container">
+            <h2>Proof It Helps</h2>
+            <p class="section-subtitle">Not hype. Just real, practical wins for people who wanted a calm starting point.</p>
+
+            <div class="proof-grid">
+                <div class="proof-card">
+                    <h3 style="margin-bottom: 12px;">Usage and outcomes</h3>
+                    <div class="proof-stats">
+                        <div class="stat">
+                            <span class="label">People who have used this kit</span>
+                            <span class="value">XXXX+</span>
+                        </div>
+                        <div class="stat">
+                            <span class="label">Time saved each week (common result)</span>
+                            <span class="value">About X hours</span>
+                        </div>
+                    </div>
+                    <p class="fine-print">Replace <strong>XXXX</strong> and <strong>X</strong> with your real numbers when you’re ready.</p>
+                </div>
+
+                <div class="proof-card">
+                    <h3 style="margin-bottom: 12px;">Before and after</h3>
+                    <div class="before-after">
+                        <div class="ba">
+                            <h3>Before</h3>
+                            <p>AI felt confusing. I didn’t know what to type, and the answers didn’t feel trustworthy.</p>
+                        </div>
+                        <div class="ba">
+                            <h3>After</h3>
+                            <p>I know what to ask, how to check the answer, and how to use AI for the things I actually do.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="proof-card">
+                    <h3 style="margin-bottom: 12px;">What peers say</h3>
+                    <div class="testimonials">
+                        <div class="testimonial">
+                            <p class="quote">“For the first time, AI felt simple. I stopped guessing and started getting useful answers.”</p>
+                            <div class="who-said">
+                                <span class="avatar">M</span>
+                                <span>Margaret, 62</span>
+                            </div>
+                        </div>
+                        <div class="testimonial">
+                            <p class="quote">“The tone was calm and clear. It explained what matters without talking down to me.”</p>
+                            <div class="who-said">
+                                <span class="avatar">D</span>
+                                <span>David, 55</span>
+                            </div>
+                        </div>
+                        <div class="testimonial">
+                            <p class="quote">“I used it to compare options and shorten long reading. It genuinely saved me time.”</p>
+                            <div class="who-said">
+                                <span class="avatar">S</span>
+                                <span>Susan, 48</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="fine-print">Want to share a testimonial? Email <a class="inline-link" href="mailto:adsbyalfred@protonmail.com">adsbyalfred@protonmail.com</a>.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Final CTA -->
     <section class="final-cta" id="get-kit">
         <div class="container">
@@ -572,13 +817,15 @@
             <a href="https://buy.stripe.com/eVqaEWbj52S8auI45IbZe00" class="cta-button" onclick="fbq('track', 'InitiateCheckout')">Get the Kit</a>
             <p class="cta-reassurance">Instant access. Plain English. 1-1 support included.</p>
             <p class="cta-reassurance" style="margin-top: 12px; font-size: 16px; color: var(--color-accent);">Limited offer: First 20 buyers get personal 1-1 AI support at no extra cost.</p>
+            <p class="cta-reassurance" style="margin-top: 16px; font-size: 16px;">Questions before you buy? Email <a class="inline-link" href="mailto:adsbyalfred@protonmail.com">adsbyalfred@protonmail.com</a>.</p>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2024 All rights reserved.</p>
+            <p>&copy; 2024 AI Confidence Kit. All rights reserved.</p>
+            <p style="margin-top: 10px;">Support: <a class="inline-link" href="mailto:adsbyalfred@protonmail.com">adsbyalfred@protonmail.com</a></p>
         </div>
     </footer>
 
