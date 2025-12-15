@@ -65,8 +65,10 @@
 
         /* Header */
         .site-header {
-            padding: 24px 0;
-            border-bottom: 1px solid var(--color-border);
+            padding: 28px 0;
+            background-color: var(--color-bg-warm);
+            border-bottom: 2px solid var(--color-border);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
         }
 
         .site-header .container {
@@ -122,18 +124,20 @@
 
         .site-logo {
             font-family: 'Source Serif 4', Georgia, serif;
-            font-size: 20px;
+            font-size: 22px;
             font-weight: 600;
             color: var(--color-primary);
             text-decoration: none;
+            letter-spacing: -0.01em;
         }
 
         .header-cta {
             font-size: 14px;
+            font-weight: 600;
             color: var(--color-primary);
             text-decoration: none;
-            padding: 10px 20px;
-            border: 1px solid var(--color-primary);
+            padding: 11px 22px;
+            border: 2px solid var(--color-primary);
             border-radius: 6px;
             transition: all 0.2s ease;
         }
@@ -611,8 +615,12 @@
                 padding: 80px 0;
             }
 
+            .site-header {
+                padding: 20px 0;
+            }
+
             .site-logo {
-                font-size: 18px;
+                font-size: 19px;
             }
 
             .trust-strip {
@@ -635,7 +643,9 @@
 
             .header-cta {
                 font-size: 12px;
+                font-weight: 600;
                 padding: 8px 14px;
+                border-width: 2px;
                 white-space: nowrap;
             }
 
