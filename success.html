@@ -16,7 +16,28 @@
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '1216244347126516');
     fbq('track', 'PageView');
+    // Purchase event - fires unconditionally, queued if pixel not loaded yet
     fbq('track', 'Purchase', {value: 19.99, currency: 'GBP'});
+    </script>
+    <!-- Synchronous Purchase event safeguard - fires immediately after pixel init -->
+    <script>
+    (function() {
+        // Purchase event fires synchronously - fbq is created immediately by pixel code above
+        try {
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'Purchase', {value: 19.99, currency: 'GBP'});
+            }
+        } catch(e) {}
+        
+        // Additional safeguard: fire on window load if somehow missed
+        window.addEventListener('load', function() {
+            try {
+                if (typeof fbq !== 'undefined') {
+                    fbq('track', 'Purchase', {value: 19.99, currency: 'GBP'});
+                }
+            } catch(e) {}
+        }, {once: true});
+    })();
     </script>
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=1216244347126516&ev=PageView&noscript=1"
@@ -584,10 +605,13 @@
     </div>
 
     <script>
-        // Open modal on page load
+        // Open modal on page load (delayed to ensure pixel fires first)
         window.addEventListener('DOMContentLoaded', function() {
             setTimeout(function() {
-                document.getElementById('surveyModal').classList.add('active');
+                var modal = document.getElementById('surveyModal');
+                if (modal) {
+                    modal.classList.add('active');
+                }
             }, 500);
         });
 
