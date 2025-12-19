@@ -572,148 +572,6 @@
             color: var(--color-text-light);
         }
 
-        /* Modal Styles */
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.6);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .modal-overlay.active {
-            display: flex;
-        }
-
-        .modal-content {
-            background: #fff;
-            border-radius: 12px;
-            padding: 40px;
-            max-width: 500px;
-            width: 100%;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            position: relative;
-            animation: modalSlideIn 0.3s ease-out;
-        }
-
-        @keyframes modalSlideIn {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 16px;
-            right: 16px;
-            background: none;
-            border: none;
-            font-size: 28px;
-            color: var(--color-text-light);
-            cursor: pointer;
-            line-height: 1;
-            padding: 0;
-            width: 32px;
-            height: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            transition: all 0.2s ease;
-        }
-
-        .modal-close:hover {
-            background-color: var(--color-bg-warm);
-            color: var(--color-text);
-        }
-
-        .modal-title {
-            font-family: 'Source Serif 4', Georgia, serif;
-            font-size: 28px;
-            font-weight: 600;
-            color: var(--color-primary);
-            margin-bottom: 12px;
-        }
-
-        .modal-subtitle {
-            font-size: 16px;
-            color: var(--color-text-light);
-            margin-bottom: 24px;
-        }
-
-        .modal-offer {
-            background: linear-gradient(135deg, var(--color-accent-soft) 0%, #fff 100%);
-            border-left: 4px solid var(--color-accent);
-            padding: 20px 24px;
-            border-radius: 8px;
-            margin-bottom: 24px;
-        }
-
-        .modal-offer-text {
-            font-size: 17px;
-            color: var(--color-text);
-            margin-bottom: 16px;
-            line-height: 1.6;
-        }
-
-        .modal-code-box {
-            background: #fff;
-            border: 2px dashed var(--color-accent);
-            border-radius: 8px;
-            padding: 16px 20px;
-            text-align: center;
-            margin-bottom: 24px;
-        }
-
-        .modal-code-label {
-            font-size: 13px;
-            color: var(--color-text-light);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 8px;
-        }
-
-        .modal-code {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--color-primary);
-            font-family: 'Inter', monospace;
-            letter-spacing: 0.1em;
-        }
-
-        .modal-cta-button {
-            display: block;
-            width: 100%;
-            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
-            color: #ffffff;
-            padding: 16px 32px;
-            font-size: 17px;
-            font-weight: 500;
-            text-decoration: none;
-            border-radius: 8px;
-            border: none;
-            cursor: pointer;
-            transition: all 0.25s ease;
-            box-shadow: 0 4px 14px rgba(30, 58, 95, 0.25);
-            text-align: center;
-        }
-
-        .modal-cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(30, 58, 95, 0.3);
-        }
-
         /* Footer */
         footer {
             padding: 48px 0;
@@ -806,7 +664,7 @@
             <a href="#" class="site-logo">AI Confidence Kit</a>
             <div class="header-links">
                 <a class="contact-link" href="mailto:adsbyalfred@protonmail.com">Contact</a>
-                <a href="#" class="header-cta" onclick="event.preventDefault(); showEarlyAccessModal();">Get the Kit — £9.50</a>
+                <a class="contact-link" href="#get-kit">Get the Kit ↓</a>
             </div>
         </div>
     </header>
@@ -829,13 +687,10 @@
                 <div class="hero-text">
                     <span class="hero-badge">For Beginners, Written Plainly</span>
                     <h1>Use AI to Think Clearer, Decide Faster, and Get More Done</h1>
-                    <p class="hero-subheadline">A calm, practical guide that gives you real control over AI. Learn to use it as a thinking partner: someone to help you work through decisions, cut through information overload, and multiply what you can accomplish in a day.</p>
-                    <a href="#" class="cta-button" onclick="event.preventDefault(); showEarlyAccessModal();">Get the Kit — £9.50</a>
-                    <p style="margin-top: 14px; font-size: 15px; color: var(--color-text-light);">
-                        <s style="opacity: 0.6;">£18</s> <strong style="color: var(--color-primary);">£9.50</strong> — Early access price
-                    </p>
-                    <p style="margin-top: 8px; font-size: 14px; color: var(--color-text-light);">
-                        100% money-back guarantee — if it's not for you, email for a full refund.
+                    <p class="hero-subheadline">A plain-English guide to using AI as your thinking partner. No tech skills needed.</p>
+                    <a href="https://buy.stripe.com/eVqaEWbj52S8auI45IbZe00?prefilled_promo_code=EARLY50" class="cta-button" onclick="fbq('track', 'InitiateCheckout');">Get Instant Access — £9.50</a>
+                    <p style="margin-top: 12px; font-size: 14px; color: var(--color-text-light);">
+                        Digital download · 100% money-back guarantee
                     </p>
                 </div>
                 <div class="hero-book">
@@ -970,13 +825,9 @@
         <div class="container">
             <h2>Stop Watching. Start Using AI with Real Confidence.</h2>
             <p class="section-subtitle">Gain clarity. Take control. Make better decisions, faster.</p>
-            <a href="#" class="cta-button" onclick="event.preventDefault(); showEarlyAccessModal();">Get Instant Access — £9.50</a>
-            <p class="cta-reassurance" style="margin-top: 14px;">
-                <s style="opacity: 0.6;">£18</s> <strong style="color: var(--color-primary);">£9.50</strong> — Early access price
-            </p>
-            <p class="cta-reassurance" style="margin-top: 8px;">Digital eBook delivered instantly to your email.</p>
-            <p class="cta-reassurance" style="margin-top: 8px;">100% money-back guarantee — if it's not for you, email for a full refund.</p>
-            <p class="cta-reassurance" style="margin-top: 16px; font-size: 16px;">Questions before you buy? Email <a class="inline-link" href="mailto:adsbyalfred@protonmail.com">adsbyalfred@protonmail.com</a>.</p>
+            <a href="https://buy.stripe.com/eVqaEWbj52S8auI45IbZe00?prefilled_promo_code=EARLY50" class="cta-button" onclick="fbq('track', 'InitiateCheckout');">Get Instant Access — £9.50</a>
+            <p class="cta-reassurance" style="margin-top: 14px;">Digital download · 100% money-back guarantee</p>
+            <p class="cta-reassurance" style="margin-top: 16px; font-size: 15px;">Questions? <a class="inline-link" href="mailto:adsbyalfred@protonmail.com">adsbyalfred@protonmail.com</a></p>
         </div>
     </section>
 
@@ -988,44 +839,6 @@
         </div>
     </footer>
 
-    <!-- Early Access Modal -->
-    <div id="earlyAccessModal" class="modal-overlay" onclick="if(event.target === this) closeEarlyAccessModal();">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeEarlyAccessModal();" aria-label="Close">&times;</button>
-            <h2 class="modal-title">Early Access Offer</h2>
-            <div class="modal-offer">
-                <p class="modal-offer-text" style="margin-bottom: 8px;">
-                    <s style="opacity: 0.6; font-size: 20px;">£18</s>
-                    <strong style="font-size: 28px; color: var(--color-primary);">£9.50</strong>
-                    <span style="color: var(--color-accent); font-weight: 600; margin-left: 8px;">50% off</span>
-                </p>
-                <p style="font-size: 15px; color: var(--color-text-light); margin-bottom: 0;">+ 1-to-1 setup help included</p>
-            </div>
-            <a href="https://buy.stripe.com/eVqaEWbj52S8auI45IbZe00?prefilled_promo_code=EARLY50" class="modal-cta-button" onclick="fbq('track', 'InitiateCheckout');">Continue to Checkout</a>
-            <p style="text-align: center; margin-top: 16px; font-size: 14px; color: var(--color-text-light);">
-                Not right for you? Full refund, no questions asked.
-            </p>
-        </div>
-    </div>
-
-    <script>
-        function showEarlyAccessModal() {
-            document.getElementById('earlyAccessModal').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeEarlyAccessModal() {
-            document.getElementById('earlyAccessModal').classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        // Close modal on Escape key
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closeEarlyAccessModal();
-            }
-        });
-    </script>
 
 </body>
 </html>
