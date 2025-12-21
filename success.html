@@ -569,6 +569,65 @@
                             <span>Other</span>
                         </label>
                     </div>
+
+                    <div style="margin-top: 22px;">
+                        <p style="margin-bottom: 16px; font-size: 17px; color: var(--color-text); font-weight: 500;">
+                            If you could wave a magic wand and have this AI resource do ONE thing perfectly for you, what would it be?
+                        </p>
+
+                        <div class="survey-radio-group">
+                            <label>
+                                <input type="radio" name="magic_wand" value="Done-for-you AI prompts/templates to copy/paste" required>
+                                <span>Give me <strong>done-for-you AI prompts/templates</strong> I can copy/paste into my own tools</span>
+                            </label>
+                        </div>
+
+                        <div class="survey-radio-group">
+                            <label>
+                                <input type="radio" name="magic_wand" value="Step-by-step walkthroughs for my job/industry" required>
+                                <span>Show me <strong>step-by-step walkthroughs</strong> for using AI in my specific job or industry</span>
+                            </label>
+                        </div>
+
+                        <div class="survey-radio-group">
+                            <label>
+                                <input type="radio" name="magic_wand" value="Better workflows/systems built into my daily routine" required>
+                                <span>Help me design <strong>better workflows/systems</strong> so AI is built into my daily routine</span>
+                            </label>
+                        </div>
+
+                        <div class="survey-radio-group">
+                            <label>
+                                <input type="radio" name="magic_wand" value="Choose and set up the right AI tools" required>
+                                <span>Help me <strong>choose and set up the right AI tools</strong> (accounts, settings, plugins, etc.)</span>
+                            </label>
+                        </div>
+
+                        <div class="survey-radio-group">
+                            <label>
+                                <input type="radio" name="magic_wand" value="Ongoing updates and examples to keep up" required>
+                                <span>Ongoing <strong>updates and examples</strong> so I don’t fall behind as AI changes</span>
+                            </label>
+                        </div>
+
+                        <div class="survey-radio-group">
+                            <label>
+                                <input id="magicWandOtherRadio" type="radio" name="magic_wand" value="Other" required>
+                                <span>Other</span>
+                            </label>
+                        </div>
+
+                        <div id="magicWandOtherWrap" style="display:none; margin-top: 10px;">
+                            <input
+                                id="magicWandOtherText"
+                                name="magic_wand_other"
+                                type="text"
+                                maxlength="140"
+                                placeholder="Other (short text)"
+                                style="width: 100%; padding: 12px; border: 1px solid var(--color-border); border-radius: 8px; font-size: 15px;"
+                            />
+                        </div>
+                    </div>
                     
                     <div class="survey-buttons">
                         <button type="submit" class="survey-submit">Submit</button>
@@ -599,6 +658,31 @@
         function closeSurveyModal() {
             document.getElementById('surveyModal').classList.remove('active');
         }
+
+        // Q2 "Other" short text toggle (does not touch pixel logic)
+        (function() {
+            var otherRadio = document.getElementById('magicWandOtherRadio');
+            var otherWrap = document.getElementById('magicWandOtherWrap');
+            var otherText = document.getElementById('magicWandOtherText');
+            var form = document.getElementById('surveyForm');
+
+            if (!form || !otherRadio || !otherWrap || !otherText) return;
+
+            function syncOtherVisibility() {
+                var selected = form.querySelector('input[name="magic_wand"]:checked');
+                var isOther = selected && selected.value === 'Other';
+                otherWrap.style.display = isOther ? 'block' : 'none';
+                if (!isOther) otherText.value = '';
+            }
+
+            form.addEventListener('change', function(e) {
+                if (e.target && e.target.name === 'magic_wand') {
+                    syncOtherVisibility();
+                }
+            });
+
+            syncOtherVisibility();
+        })();
 
         // Handle form submission
         document.getElementById('surveyForm').addEventListener('submit', function(e) {
