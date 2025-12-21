@@ -531,88 +531,97 @@
                 <p class="survey-modal-subtitle">Help us understand what brought you here</p>
                 
                 <form id="surveyForm" class="survey-form" action="https://formspree.io/f/xrezbdlv" method="POST">
-                    <p style="margin-bottom: 16px; font-size: 17px; color: var(--color-text); font-weight: 500;">
-                        What was the main problem you were hoping this would help you solve?
-                    </p>
-                    
-                    <div class="survey-radio-group">
-                        <label>
-                            <input type="radio" name="problem" value="Use AI more easily in day-to-day work" required>
-                            <span>Use AI more easily in day-to-day work</span>
-                        </label>
-                    </div>
-                    
-                    <div class="survey-radio-group">
-                        <label>
-                            <input type="radio" name="problem" value="Clear instructions instead of experimenting" required>
-                            <span>Clear instructions instead of experimenting</span>
-                        </label>
-                    </div>
-                    
-                    <div class="survey-radio-group">
-                        <label>
-                            <input type="radio" name="problem" value="Catch up quickly and feel less behind" required>
-                            <span>Catch up quickly and feel less behind</span>
-                        </label>
-                    </div>
-                    
-                    <div class="survey-radio-group">
-                        <label>
-                            <input type="radio" name="problem" value="Save time on routine tasks" required>
-                            <span>Save time on routine tasks</span>
-                        </label>
-                    </div>
-                    
-                    <div class="survey-radio-group">
-                        <label>
-                            <input type="radio" name="problem" value="Other" required>
-                            <span>Other</span>
-                        </label>
+                    <!-- Step 1 -->
+                    <div id="surveyStep1">
+                        <p style="margin-bottom: 16px; font-size: 17px; color: var(--color-text); font-weight: 500;">
+                            What was the main problem you were hoping this would help you solve?
+                        </p>
+                        
+                        <div class="survey-radio-group">
+                            <label>
+                                <input type="radio" name="problem" value="Use AI more easily in day-to-day work" required>
+                                <span>Use AI more easily in day-to-day work</span>
+                            </label>
+                        </div>
+                        
+                        <div class="survey-radio-group">
+                            <label>
+                                <input type="radio" name="problem" value="Clear instructions instead of experimenting" required>
+                                <span>Clear instructions instead of experimenting</span>
+                            </label>
+                        </div>
+                        
+                        <div class="survey-radio-group">
+                            <label>
+                                <input type="radio" name="problem" value="Catch up quickly and feel less behind" required>
+                                <span>Catch up quickly and feel less behind</span>
+                            </label>
+                        </div>
+                        
+                        <div class="survey-radio-group">
+                            <label>
+                                <input type="radio" name="problem" value="Save time on routine tasks" required>
+                                <span>Save time on routine tasks</span>
+                            </label>
+                        </div>
+                        
+                        <div class="survey-radio-group">
+                            <label>
+                                <input type="radio" name="problem" value="Other" required>
+                                <span>Other</span>
+                            </label>
+                        </div>
+
+                        <div class="survey-buttons">
+                            <button id="surveyNextBtn" type="button" class="survey-submit">Next</button>
+                            <button type="button" class="survey-skip" onclick="closeSurveyModal()">Skip</button>
+                        </div>
                     </div>
 
-                    <div style="margin-top: 22px;">
+                    <!-- Step 2 -->
+                    <div id="surveyStep2" style="display:none;">
                         <p style="margin-bottom: 16px; font-size: 17px; color: var(--color-text); font-weight: 500;">
                             If you could wave a magic wand and have this AI resource do ONE thing perfectly for you, what would it be?
                         </p>
 
                         <div class="survey-radio-group">
                             <label>
-                                <input type="radio" name="magic_wand" value="Done-for-you AI prompts/templates to copy/paste" required>
+                                <input type="radio" name="magic_wand" value="Done-for-you AI prompts/templates to copy/paste" required disabled>
                                 <span>Give me <strong>done-for-you AI prompts/templates</strong> I can copy/paste into my own tools</span>
                             </label>
                         </div>
 
                         <div class="survey-radio-group">
                             <label>
-                                <input type="radio" name="magic_wand" value="Step-by-step walkthroughs for my job/industry" required>
+                                <input type="radio" name="magic_wand" value="Step-by-step walkthroughs for my job/industry" required disabled>
                                 <span>Show me <strong>step-by-step walkthroughs</strong> for using AI in my specific job or industry</span>
                             </label>
                         </div>
 
                         <div class="survey-radio-group">
                             <label>
-                                <input type="radio" name="magic_wand" value="Better workflows/systems built into my daily routine" required>
+                                <input type="radio" name="magic_wand" value="Better workflows/systems built into my daily routine" required disabled>
                                 <span>Help me design <strong>better workflows/systems</strong> so AI is built into my daily routine</span>
                             </label>
                         </div>
 
                         <div class="survey-radio-group">
                             <label>
-                                <input type="radio" name="magic_wand" value="Choose and set up the right AI tools" required>
+                                <input type="radio" name="magic_wand" value="Choose and set up the right AI tools" required disabled>
                                 <span>Help me <strong>choose and set up the right AI tools</strong> (accounts, settings, plugins, etc.)</span>
                             </label>
                         </div>
 
                         <div class="survey-radio-group">
                             <label>
-                                <input type="radio" name="magic_wand" value="Ongoing updates and examples to keep up" required>
+                                <input type="radio" name="magic_wand" value="Ongoing updates and examples to keep up" required disabled>
                                 <span>Ongoing <strong>updates and examples</strong> so I don’t fall behind as AI changes</span>
                             </label>
                         </div>
 
                         <div class="survey-radio-group">
                             <label>
-                                <input id="magicWandOtherRadio" type="radio" name="magic_wand" value="Other" required>
+                                <input id="magicWandOtherRadio" type="radio" name="magic_wand" value="Other" required disabled>
                                 <span>Other</span>
                             </label>
                         </div>
@@ -625,13 +634,15 @@
                                 maxlength="140"
                                 placeholder="Other (short text)"
                                 style="width: 100%; padding: 12px; border: 1px solid var(--color-border); border-radius: 8px; font-size: 15px;"
+                                disabled
                             />
                         </div>
-                    </div>
-                    
-                    <div class="survey-buttons">
-                        <button type="submit" class="survey-submit">Submit</button>
-                        <button type="button" class="survey-skip" onclick="closeSurveyModal()">Skip</button>
+                        
+                        <div class="survey-buttons">
+                            <button id="surveyBackBtn" type="button" class="survey-skip">Back</button>
+                            <button type="submit" class="survey-submit">Submit</button>
+                            <button type="button" class="survey-skip" onclick="closeSurveyModal()">Skip</button>
+                        </div>
                     </div>
                 </form>
             </div>
@@ -665,8 +676,12 @@
             var otherWrap = document.getElementById('magicWandOtherWrap');
             var otherText = document.getElementById('magicWandOtherText');
             var form = document.getElementById('surveyForm');
+            var step1 = document.getElementById('surveyStep1');
+            var step2 = document.getElementById('surveyStep2');
+            var nextBtn = document.getElementById('surveyNextBtn');
+            var backBtn = document.getElementById('surveyBackBtn');
 
-            if (!form || !otherRadio || !otherWrap || !otherText) return;
+            if (!form || !step1 || !step2 || !nextBtn || !backBtn || !otherRadio || !otherWrap || !otherText) return;
 
             function syncOtherVisibility() {
                 var selected = form.querySelector('input[name="magic_wand"]:checked');
@@ -675,12 +690,44 @@
                 if (!isOther) otherText.value = '';
             }
 
+            function setStep(stepNumber) {
+                if (stepNumber === 1) {
+                    step1.style.display = 'block';
+                    step2.style.display = 'none';
+                    // Disable step 2 inputs so required fields don't block step 1
+                    step2.querySelectorAll('input, button[type="submit"]').forEach(function(el) {
+                        if (el.tagName === 'INPUT') el.disabled = true;
+                    });
+                } else {
+                    step1.style.display = 'none';
+                    step2.style.display = 'block';
+                    // Enable step 2 inputs for submission
+                    step2.querySelectorAll('input').forEach(function(el) {
+                        el.disabled = false;
+                    });
+                    syncOtherVisibility();
+                }
+            }
+
             form.addEventListener('change', function(e) {
                 if (e.target && e.target.name === 'magic_wand') {
                     syncOtherVisibility();
                 }
             });
 
+            nextBtn.addEventListener('click', function() {
+                // Require Q1 selection before proceeding
+                var q1 = form.querySelector('input[name="problem"]:checked');
+                if (!q1) return;
+                setStep(2);
+            });
+
+            backBtn.addEventListener('click', function() {
+                setStep(1);
+            });
+
+            // Initialize
+            setStep(1);
             syncOtherVisibility();
         })();
 
