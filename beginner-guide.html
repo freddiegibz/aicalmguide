@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI for Complete Beginners - A Calm, Step-by-Step Guide</title>
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1216244347126516');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1216244347126516&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-bg: #FAFAF7;
+            --color-text: #222222;
+            --color-text-light: #555555;
+            --color-accent: #4A90A4;
+            --color-accent-light: #6BA8B8;
+            --color-border: #E0E0DC;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.7;
+            font-size: 18px;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            color: var(--color-text);
+            line-height: 1.3;
+        }
+
+        h1 {
+            font-size: clamp(28px, 5vw, 36px);
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: clamp(24px, 4vw, 30px);
+            margin-bottom: 20px;
+            margin-top: 60px;
+        }
+
+        h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            margin-top: 32px;
+        }
+
+        p {
+            margin-bottom: 16px;
+            font-size: 18px;
+            color: var(--color-text);
+        }
+
+        .hero {
+            padding: 60px 0 80px;
+            text-align: center;
+        }
+
+        .hero-subheadline {
+            font-size: 20px;
+            color: var(--color-text-light);
+            margin-bottom: 32px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-bullets {
+            list-style: none;
+            margin: 32px 0 40px;
+            text-align: left;
+            max-width: 550px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-bullets li {
+            padding: 12px 0 12px 32px;
+            position: relative;
+            font-size: 17px;
+            color: var(--color-text);
+        }
+
+        .hero-bullets li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--color-accent);
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--color-accent);
+            color: #ffffff;
+            padding: 18px 40px;
+            font-size: 18px;
+            font-weight: 500;
+            text-decoration: none;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s ease;
+            margin: 20px 0;
+        }
+
+        .cta-button:hover {
+            background: var(--color-accent-light);
+        }
+
+        section {
+            padding: 60px 0;
+        }
+
+        .section-content {
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .section-bullets {
+            list-style: none;
+            margin: 24px 0;
+        }
+
+        .section-bullets li {
+            padding: 14px 0 14px 32px;
+            position: relative;
+            font-size: 17px;
+            color: var(--color-text);
+        }
+
+        .section-bullets li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--color-accent);
+            font-size: 24px;
+            line-height: 1;
+        }
+
+        .numbered-list {
+            list-style: none;
+            margin: 24px 0;
+            counter-reset: step-counter;
+        }
+
+        .numbered-list li {
+            padding: 20px 0 20px 50px;
+            position: relative;
+            font-size: 17px;
+            color: var(--color-text);
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .numbered-list li:last-child {
+            border-bottom: none;
+        }
+
+        .numbered-list li::before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            position: absolute;
+            left: 0;
+            top: 20px;
+            width: 32px;
+            height: 32px;
+            background: var(--color-accent);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .trust-box {
+            background: #fff;
+            border: 2px solid var(--color-accent);
+            border-radius: 8px;
+            padding: 32px;
+            margin: 32px 0;
+        }
+
+        .trust-box p {
+            margin-bottom: 12px;
+        }
+
+        .trust-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .final-cta {
+            text-align: center;
+            padding: 80px 0;
+            background: #fff;
+            border-top: 1px solid var(--color-border);
+        }
+
+        footer {
+            padding: 48px 0;
+            text-align: center;
+            font-size: 14px;
+            color: var(--color-text-light);
+            border-top: 1px solid var(--color-border);
+        }
+
+        footer a {
+            color: var(--color-accent);
+        }
+
+        @media (max-width: 767px) {
+            .container {
+                padding: 0 24px;
+            }
+
+            .hero {
+                padding: 40px 0 60px;
+            }
+
+            h1 {
+                font-size: 26px;
+            }
+
+            .hero-subheadline {
+                font-size: 18px;
+            }
+
+            section {
+                padding: 50px 0;
+            }
+
+            h2 {
+                font-size: 24px;
+                margin-top: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>AI for Complete Beginners: A Calm Guide That Actually Makes Sense</h1>
+            <p class="hero-subheadline">No coding. No jargon. Just clear, step-by-step instructions that help you understand AI without feeling overwhelmed or stupid.</p>
+            
+            <ul class="hero-bullets">
+                <li>You'll learn what matters and what you can safely ignore</li>
+                <li>Your first session will feel manageable, not overwhelming</li>
+                <li>Every step is explained in plain English</li>
+                <li>You'll know exactly what to do next, without guessing</li>
+            </ul>
+
+            <a href="https://buy.stripe.com/eVqaEWbj52S8auI45IbZe00" class="cta-button" onclick="fbq('track', 'InitiateCheckout');">Get the Beginner's Guide</a>
+        </div>
+    </section>
+
+    <!-- Fear Normalisation Section -->
+    <section>
+        <div class="container">
+            <div class="section-content">
+                <h2>Feeling Confused About AI Doesn't Mean You're Behind</h2>
+                <p>If AI feels confusing, it's not because you're not smart enough. It's because most explanations assume you already know things you don't.</p>
+                <p>You're not missing something obvious. You're just reading explanations written for people who already understand the basics.</p>
+                <p>This guide starts from zero. It assumes you know nothing. It explains everything step by step, without skipping ahead or using words you haven't learned yet.</p>
+                <p>The problem isn't your intelligence. The problem is bad explanations. This guide fixes that.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- YouTube Contrast Section -->
+    <section>
+        <div class="container">
+            <div class="section-content">
+                <h2>Why YouTube Feels Overwhelming (And This Doesn't)</h2>
+                <p>YouTube tutorials jump around. They show shortcuts before you understand the basics. They use terms you don't know. They assume you'll figure things out.</p>
+                <p>This guide is different:</p>
+                <ul class="section-bullets">
+                    <li>YouTube = overwhelming and chaotic. This guide = structured and calm.</li>
+                    <li>YouTube = many paths, many options. This guide = one clear path, step by step.</li>
+                    <li>YouTube = fast-paced, assumes knowledge. This guide = slow, explains everything.</li>
+                    <li>YouTube = you figure it out. This guide = you follow along, no guessing.</li>
+                </ul>
+                <p>You don't need to watch ten videos and piece it together. You need one clear path that makes sense from start to finish.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- What You'll Learn Section -->
+    <section>
+        <div class="container">
+            <div class="section-content">
+                <h2>What You'll Learn (In Order, Step by Step)</h2>
+                <p>This guide follows a simple path. You don't choose your own adventure. You follow one clear sequence:</p>
+                
+                <ol class="numbered-list">
+                    <li><strong>What AI actually is (simple explanation)</strong><br>You'll understand what AI is in plain English. No technical terms. Just a clear explanation that makes sense.</li>
+                    
+                    <li><strong>What you can safely ignore</strong><br>Most guides try to teach you everything. This one tells you what to skip. You'll know what doesn't matter right now, so you can focus on what does.</li>
+                    
+                    <li><strong>How to start safely</strong><br>Your first steps won't feel risky or confusing. You'll know exactly what to do, where to click, and what to expect.</li>
+                    
+                    <li><strong>Your first practical use</strong><br>You'll complete one real task from start to finish. Not a demo. Not a practice exercise. Something you actually need.</li>
+                    
+                    <li><strong>How to continue without confusion</strong><br>You'll know how to keep learning without getting lost. You'll have a clear path forward, not more questions.</li>
+                </ol>
+
+                <p>No branching paths. No optional sections. Just one clear sequence that takes you from confused to confident.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust & Safety Section -->
+    <section>
+        <div class="container">
+            <div class="section-content">
+                <h2>This Guide Is Written for Complete Beginners</h2>
+                <p>This isn't a guide for people who already know things. It's written specifically for complete beginners who feel behind.</p>
+                <p>Every explanation assumes you're starting from zero. Every step is broken down. Every term is explained. Nothing is skipped.</p>
+                <p>If something feels too fast, it's explained again. If something needs context, it's provided. If something can be ignored, you're told to ignore it.</p>
+                
+                <div class="trust-box">
+                    <p><strong>Simple Refund Policy</strong></p>
+                    <p>If this feels too complicated, you can request a refund.</p>
+                    <p>No questions asked. No explanation needed. Just email us and we'll refund you.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="final-cta">
+        <div class="container">
+            <div class="section-content">
+                <h2>Start Learning AI Without the Confusion</h2>
+                <p>You don't need to feel behind. You don't need to figure it out yourself. You just need clear, step-by-step instructions that make sense.</p>
+                <p>This guide gives you exactly that. One clear path. Step by step. No guessing.</p>
+                <a href="https://buy.stripe.com/eVqaEWbj52S8auI45IbZe00" class="cta-button" onclick="fbq('track', 'InitiateCheckout');">Get the Beginner's Guide</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 AI Confidence Kit. All rights reserved.</p>
+            <p style="margin-top: 12px;">Questions? <a href="mailto:adsbyalfred@protonmail.com">adsbyalfred@protonmail.com</a></p>
+        </div>
+    </footer>
+
+</body>
+</html>
+
