@@ -27,6 +27,7 @@
     <style>
         :root {
             --color-bg: #FAFAF7;
+            --color-bg-alt: #FFFFFF;
             --color-text: #222222;
             --color-text-light: #555555;
             --color-accent: #4A90A4;
@@ -48,8 +49,50 @@
             font-size: 18px;
         }
 
+        /* Header */
+        header {
+            background: var(--color-bg-alt);
+            border-bottom: 1px solid var(--color-border);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--color-text);
+            text-decoration: none;
+        }
+
+        .header-cta {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--color-accent);
+            text-decoration: none;
+            padding: 8px 16px;
+            border: 1px solid var(--color-accent);
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .header-cta:hover {
+            background: var(--color-accent);
+            color: #fff;
+        }
+
         .container {
-            max-width: 700px;
+            max-width: 900px;
             margin: 0 auto;
             padding: 0 32px;
         }
@@ -85,8 +128,9 @@
         }
 
         .hero {
-            padding: 60px 0 80px;
+            padding: 80px 0 100px;
             text-align: center;
+            background: linear-gradient(180deg, var(--color-bg-alt) 0%, var(--color-bg) 100%);
         }
 
         .hero-subheadline {
@@ -143,11 +187,15 @@
         }
 
         section {
-            padding: 60px 0;
+            padding: 80px 0;
+        }
+
+        section.alt-bg {
+            background: var(--color-bg-alt);
         }
 
         .section-content {
-            max-width: 650px;
+            max-width: 750px;
             margin: 0 auto;
         }
 
@@ -226,9 +274,16 @@
 
         .final-cta {
             text-align: center;
-            padding: 80px 0;
-            background: #fff;
+            padding: 100px 0;
+            background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-alt) 100%);
             border-top: 1px solid var(--color-border);
+        }
+
+        .section-divider {
+            height: 1px;
+            background: var(--color-border);
+            margin: 0;
+            border: none;
         }
 
         footer {
@@ -248,8 +303,21 @@
                 padding: 0 24px;
             }
 
+            .header-content {
+                padding: 0 24px;
+            }
+
+            .logo {
+                font-size: 18px;
+            }
+
+            .header-cta {
+                font-size: 13px;
+                padding: 6px 12px;
+            }
+
             .hero {
-                padding: 40px 0 60px;
+                padding: 50px 0 70px;
             }
 
             h1 {
@@ -261,7 +329,7 @@
             }
 
             section {
-                padding: 50px 0;
+                padding: 60px 0;
             }
 
             h2 {
@@ -272,6 +340,14 @@
     </style>
 </head>
 <body>
+
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <a href="#" class="logo">AI Confidence Kit</a>
+            <a href="https://buy.stripe.com/eVqaEWbj52S8auI45IbZe00" class="header-cta" onclick="fbq('track', 'InitiateCheckout');">Get Started</a>
+        </div>
+    </header>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -291,7 +367,7 @@
     </section>
 
     <!-- Fear Normalisation Section -->
-    <section>
+    <section class="alt-bg">
         <div class="container">
             <div class="section-content">
                 <h2>Feeling Confused About AI Doesn't Mean You're Behind</h2>
@@ -322,7 +398,7 @@
     </section>
 
     <!-- What You'll Learn Section -->
-    <section>
+    <section class="alt-bg">
         <div class="container">
             <div class="section-content">
                 <h2>What You'll Learn (In Order, Step by Step)</h2>
