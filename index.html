@@ -194,8 +194,91 @@
         .hero-subheadline {
             font-size: 19px;
             color: var(--color-text-light);
-            margin-bottom: 28px;
+            margin-bottom: 24px;
             line-height: 1.65;
+        }
+
+        .hero-bullets-list {
+            list-style: none;
+            margin: 24px 0;
+            padding: 0;
+        }
+
+        .hero-bullets-list li {
+            padding: 10px 0 10px 28px;
+            position: relative;
+            font-size: 17px;
+            color: var(--color-text);
+            line-height: 1.6;
+        }
+
+        .hero-bullets-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--color-accent);
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        .hero-credibility {
+            font-size: 15px;
+            color: var(--color-text-light);
+            margin-top: 24px;
+            margin-bottom: 28px;
+            font-style: italic;
+        }
+
+        /* Sticky Mobile CTA Bar */
+        .sticky-cta-bar {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #fff;
+            border-top: 2px solid var(--color-primary);
+            box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            padding: 12px 20px;
+        }
+
+        .sticky-cta-bar-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .sticky-cta-text {
+            flex: 1;
+        }
+
+        .sticky-cta-text .price {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--color-primary);
+        }
+
+        .sticky-cta-text .label {
+            font-size: 13px;
+            color: var(--color-text-light);
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .sticky-cta-button {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+            color: #ffffff;
+            padding: 12px 24px;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 6px;
+            white-space: nowrap;
+            box-shadow: 0 2px 8px rgba(30, 58, 95, 0.3);
         }
 
         .hero-book {
@@ -671,6 +754,23 @@
             .hero-text p[style*="margin-top: 8px"] {
                 font-size: 12px !important;
             }
+
+            .hero-bullets-list li {
+                font-size: 15px;
+                padding: 8px 0 8px 24px;
+            }
+
+            .hero-credibility {
+                font-size: 14px;
+            }
+
+            .sticky-cta-bar {
+                display: block;
+            }
+
+            body {
+                padding-bottom: 70px;
+            }
         }
     </style>
 </head>
@@ -703,10 +803,19 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1>AI Doesn't Have to Feel Confusing</h1>
-                    <p class="hero-subheadline">We show you exactly what to type to get useful answers from ChatGPT — even if you're a complete beginner.</p>
-                    <p class="hero-supporting" style="font-size: 16px; color: var(--color-text-light); margin-top: -12px; margin-bottom: 28px;">No jargon. No tech skills. Just clear instructions.</p>
-                    <a href="https://buy.stripe.com/eVqaEWbj52S8auI45IbZe00?prefilled_promo_code=EARLY33" class="cta-button" onclick="fbq('track', 'InitiateCheckout');">Get Instant Access — £12.73</a>
+                    <h1>Never Wonder What to Type Into ChatGPT Again</h1>
+                    <p class="hero-subheadline">Use AI for real, everyday tasks in 10 minutes or less — even if you feel behind, confused, or "bad with tech."</p>
+                    
+                    <ul class="hero-bullets-list">
+                        <li>Copy-and-paste prompts — no thinking, no guessing</li>
+                        <li>Get useful results immediately (emails, questions, summaries)</li>
+                        <li>No jargon, no setup, no updates to keep up with</li>
+                        <li>Works even if you've "never been good with computers"</li>
+                    </ul>
+
+                    <p class="hero-credibility" style="font-size: 15px; color: var(--color-text-light); margin-top: 24px; margin-bottom: 28px; font-style: italic;">Designed specifically for beginners over 45 who want practical results, not tech theory.</p>
+
+                    <a href="https://buy.stripe.com/eVqaEWbj52S8auI45IbZe00?prefilled_promo_code=EARLY33" class="cta-button" onclick="fbq('track', 'InitiateCheckout');">Start Using ChatGPT Confidently Today — £12.73</a>
 
                     <p style="margin-top: 12px; font-size: 14px; color: var(--color-text-light);">
                         <s style="opacity: 0.6;">£19</s> <strong style="color: var(--color-primary);">£12.73</strong> — Early sale price
@@ -719,7 +828,7 @@
                 </div>
                 <div class="hero-book">
                     <div class="book-wrapper">
-                        <img src="bookcover.jpg" alt="AI Confidence Kit Book Cover">
+                        <img src="heroimage.png" alt="AI Confidence Kit">
                     </div>
                     <p class="book-caption">Get confident with AI in one afternoon. No experience required.</p>
                 </div>
@@ -849,7 +958,7 @@
         <div class="container">
             <h2>Stop Watching. Start Using AI with Real Confidence.</h2>
             <p class="section-subtitle">Gain clarity. Take control. Make better decisions, faster.</p>
-            <a href="https://buy.stripe.com/eVqaEWbj52S8auI45IbZe00?prefilled_promo_code=EARLY33" class="cta-button" onclick="fbq('track', 'InitiateCheckout');">Get Instant Access — £12.73</a>
+            <a href="https://buy.stripe.com/eVqaEWbj52S8auI45IbZe00?prefilled_promo_code=EARLY33" class="cta-button" onclick="fbq('track', 'InitiateCheckout');">Start Using ChatGPT Confidently Today — £12.73</a>
             <p class="cta-reassurance" style="margin-top: 14px;"><s style="opacity: 0.6;">£19</s> <strong style="color: var(--color-primary);">£12.73</strong> — Early sale price</p>
             <p class="cta-reassurance" style="margin-top: 8px;">Digital download · 100% money-back guarantee</p>
             <p class="cta-reassurance" style="margin-top: 16px; font-size: 15px;">Questions? <a class="inline-link" href="mailto:adsbyalfred@protonmail.com">adsbyalfred@protonmail.com</a></p>
@@ -863,6 +972,17 @@
             <p style="margin-top: 10px;">Support: <a class="inline-link" href="mailto:adsbyalfred@protonmail.com">adsbyalfred@protonmail.com</a></p>
         </div>
     </footer>
+
+    <!-- Sticky Mobile CTA Bar -->
+    <div class="sticky-cta-bar">
+        <div class="sticky-cta-bar-content">
+            <div class="sticky-cta-text">
+                <span class="label">Start Using ChatGPT Confidently Today</span>
+                <span class="price">£12.73</span>
+            </div>
+            <a href="https://buy.stripe.com/eVqaEWbj52S8auI45IbZe00?prefilled_promo_code=EARLY33" class="sticky-cta-button" onclick="fbq('track', 'InitiateCheckout');">Get Started</a>
+        </div>
+    </div>
 
 </body>
 </html>
