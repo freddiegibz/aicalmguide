@@ -587,144 +587,6 @@
             color: rgba(255, 255, 255, 0.85);
         }
 
-        /* Promo Code Modal */
-        .promo-modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.6);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .promo-modal-overlay.active {
-            display: flex;
-        }
-
-        .promo-modal-content {
-            background: #fff;
-            border-radius: 12px;
-            padding: 32px;
-            max-width: 500px;
-            width: 100%;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-            position: relative;
-        }
-
-        .promo-modal-close {
-            position: absolute;
-            top: 16px;
-            right: 16px;
-            background: none;
-            border: none;
-            font-size: 24px;
-            color: var(--color-text-light);
-            cursor: pointer;
-            line-height: 1;
-            padding: 0;
-            width: 32px;
-            height: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            transition: all 0.2s ease;
-        }
-
-        .promo-modal-close:hover {
-            background-color: var(--color-bg-warm);
-            color: var(--color-text);
-        }
-
-        .promo-modal-title {
-            font-family: 'Source Serif 4', Georgia, serif;
-            font-size: 24px;
-            font-weight: 600;
-            color: var(--color-primary);
-            margin-bottom: 12px;
-        }
-
-        .promo-modal-text {
-            font-size: 16px;
-            color: var(--color-text-light);
-            margin-bottom: 24px;
-            line-height: 1.6;
-        }
-
-        .promo-code-box {
-            background: var(--color-bg-warm);
-            border: 2px dashed var(--color-accent);
-            border-radius: 8px;
-            padding: 20px;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .promo-code-label {
-            font-size: 13px;
-            color: var(--color-text-light);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 10px;
-        }
-
-        .promo-code {
-            font-size: 28px;
-            font-weight: 700;
-            color: var(--color-primary);
-            font-family: 'Inter', monospace;
-            letter-spacing: 0.1em;
-            margin-bottom: 12px;
-        }
-
-        .copy-button {
-            background: var(--color-primary);
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 6px;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .copy-button:hover {
-            background: var(--color-primary-light);
-        }
-
-        .copy-button.copied {
-            background: var(--color-success);
-        }
-
-        .promo-modal-cta {
-            display: block;
-            width: 100%;
-            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
-            color: #ffffff;
-            padding: 16px 32px;
-            font-size: 17px;
-            font-weight: 600;
-            text-decoration: none;
-            border-radius: 8px;
-            border: none;
-            cursor: pointer;
-            transition: all 0.25s ease;
-            box-shadow: 0 4px 14px rgba(30, 58, 95, 0.25);
-            text-align: center;
-            margin-top: 16px;
-        }
-
-        .promo-modal-cta:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 6px 20px rgba(30, 58, 95, 0.3);
-        }
-
         /* Mobile adjustments */
         @media (max-width: 767px) {
             section {
@@ -809,22 +671,6 @@
             .hero-text p[style*="margin-top: 8px"] {
                 font-size: 12px !important;
             }
-
-            .promo-modal-content {
-                padding: 24px 20px;
-            }
-
-            .promo-modal-title {
-                font-size: 20px;
-            }
-
-            .promo-modal-text {
-                font-size: 15px;
-            }
-
-            .promo-code {
-                font-size: 24px;
-            }
         }
     </style>
 </head>
@@ -860,7 +706,7 @@
                     <h1>AI Doesn't Have to Feel Confusing</h1>
                     <p class="hero-subheadline">We show you exactly what to type to get useful answers from ChatGPT — even if you're a complete beginner.</p>
                     <p class="hero-supporting" style="font-size: 16px; color: var(--color-text-light); margin-top: -12px; margin-bottom: 28px;">No jargon. No tech skills. Just clear instructions.</p>
-                    <a href="#" class="cta-button" onclick="event.preventDefault(); showPromoModal(); fbq('track', 'InitiateCheckout');">Get Instant Access — £12.73</a>
+                    <a href="https://buy.stripe.com/eVqaEWbj52S8auI45IbZe00?prefilled_promo_code=EARLY33" class="cta-button" onclick="fbq('track', 'InitiateCheckout');">Get Instant Access — £12.73</a>
 
                     <p style="margin-top: 12px; font-size: 14px; color: var(--color-text-light);">
                         <s style="opacity: 0.6;">£19</s> <strong style="color: var(--color-primary);">£12.73</strong> — Early sale price
@@ -1003,7 +849,7 @@
         <div class="container">
             <h2>Stop Watching. Start Using AI with Real Confidence.</h2>
             <p class="section-subtitle">Gain clarity. Take control. Make better decisions, faster.</p>
-            <a href="#" class="cta-button" onclick="event.preventDefault(); showPromoModal(); fbq('track', 'InitiateCheckout');">Get Instant Access — £12.73</a>
+            <a href="https://buy.stripe.com/eVqaEWbj52S8auI45IbZe00?prefilled_promo_code=EARLY33" class="cta-button" onclick="fbq('track', 'InitiateCheckout');">Get Instant Access — £12.73</a>
             <p class="cta-reassurance" style="margin-top: 14px;"><s style="opacity: 0.6;">£19</s> <strong style="color: var(--color-primary);">£12.73</strong> — Early sale price</p>
             <p class="cta-reassurance" style="margin-top: 8px;">Digital download · 100% money-back guarantee</p>
             <p class="cta-reassurance" style="margin-top: 16px; font-size: 15px;">Questions? <a class="inline-link" href="mailto:adsbyalfred@protonmail.com">adsbyalfred@protonmail.com</a></p>
@@ -1017,74 +863,6 @@
             <p style="margin-top: 10px;">Support: <a class="inline-link" href="mailto:adsbyalfred@protonmail.com">adsbyalfred@protonmail.com</a></p>
         </div>
     </footer>
-
-    <!-- Promo Code Modal -->
-    <div id="promoModal" class="promo-modal-overlay" onclick="if(event.target === this) closePromoModal();">
-        <div class="promo-modal-content">
-            <button class="promo-modal-close" onclick="closePromoModal();" aria-label="Close">&times;</button>
-            <h2 class="promo-modal-title">Get 33% Off</h2>
-            <p class="promo-modal-text">Copy the code below to get 33% off the usual £19 price. Paste it at checkout to get your discount.</p>
-            
-            <div class="promo-code-box">
-                <div class="promo-code-label">Promo Code</div>
-                <div class="promo-code" id="promoCode">EARLY33</div>
-                <button class="copy-button" onclick="copyPromoCode()">Copy Code</button>
-            </div>
-
-            <a href="https://buy.stripe.com/eVqaEWbj52S8auI45IbZe00" class="promo-modal-cta">Continue to Checkout</a>
-            <p style="text-align: center; margin-top: 12px; font-size: 14px; color: var(--color-text-light);">
-                Paste the code at checkout to apply your discount
-            </p>
-        </div>
-    </div>
-
-    <script>
-        function showPromoModal() {
-            document.getElementById('promoModal').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closePromoModal() {
-            document.getElementById('promoModal').classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        function copyPromoCode() {
-            var code = document.getElementById('promoCode').textContent;
-            var button = document.querySelector('.copy-button');
-            var originalText = button.textContent;
-            
-            navigator.clipboard.writeText(code).then(function() {
-                button.textContent = 'Copied!';
-                button.classList.add('copied');
-                setTimeout(function() {
-                    button.textContent = originalText;
-                    button.classList.remove('copied');
-                }, 2000);
-            }).catch(function(err) {
-                // Fallback for older browsers
-                var textArea = document.createElement('textarea');
-                textArea.value = code;
-                document.body.appendChild(textArea);
-                textArea.select();
-                document.execCommand('copy');
-                document.body.removeChild(textArea);
-                button.textContent = 'Copied!';
-                button.classList.add('copied');
-                setTimeout(function() {
-                    button.textContent = originalText;
-                    button.classList.remove('copied');
-                }, 2000);
-            });
-        }
-
-        // Close modal on Escape key
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closePromoModal();
-            }
-        });
-    </script>
 
 </body>
 </html>
