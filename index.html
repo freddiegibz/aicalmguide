@@ -829,24 +829,39 @@
         }
 
         .checkout-modal-actions {
+            padding: 20px;
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            align-items: center;
+            gap: 10px;
         }
 
         .checkout-modal-primary-btn {
-            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+            background: var(--color-primary);
             color: #fff;
-            padding: 14px 24px;
-            font-size: 16px;
+            padding: 14px 28px;
+            font-size: 15px;
             font-weight: 600;
             border: none;
-            border-radius: 6px;
+            border-radius: 8px;
             cursor: pointer;
             text-align: center;
             text-decoration: none;
-            display: block;
-            box-shadow: 0 2px 8px rgba(30, 58, 95, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            transition: all 0.2s ease;
+        }
+
+        .checkout-modal-primary-btn:hover {
+            background: var(--color-primary-light);
+            transform: translateY(-1px);
+        }
+
+        .checkout-modal-primary-btn svg {
+            flex-shrink: 0;
         }
 
         .checkout-modal-primary-btn:hover {
@@ -870,17 +885,20 @@
         }
 
         .checkout-modal-skip {
-            margin-top: 8px;
             font-size: 13px;
             color: var(--color-text-light);
             text-align: center;
             cursor: pointer;
-            text-decoration: underline;
-            text-underline-offset: 3px;
+            background: none;
+            border: none;
+            padding: 0;
+            transition: color 0.2s ease;
         }
 
         .checkout-modal-skip:hover {
             color: var(--color-primary);
+            text-decoration: underline;
+            text-underline-offset: 3px;
         }
 
         /* Footer */
@@ -918,12 +936,13 @@
 
         .checkout-modal {
             background: #fff;
-            border-radius: 12px;
-            max-width: 500px;
+            border-radius: 16px;
+            max-width: 440px;
             width: 100%;
-            padding: 32px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 0;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.25);
             position: relative;
+            overflow: hidden;
         }
 
         .checkout-modal-close {
@@ -932,161 +951,229 @@
             right: 16px;
             background: none;
             border: none;
-            font-size: 24px;
+            font-size: 20px;
             color: var(--color-text-light);
             cursor: pointer;
-            width: 32px;
-            height: 32px;
+            width: 28px;
+            height: 28px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 4px;
+            border-radius: 50%;
             transition: all 0.2s ease;
+            z-index: 1;
         }
 
         .checkout-modal-close:hover {
-            background: var(--color-bg-warm);
+            background: rgba(0, 0, 0, 0.05);
             color: var(--color-text);
+        }
+
+        .checkout-modal-header {
+            padding: 28px 28px 20px;
+            text-align: center;
         }
 
         .checkout-modal-title {
             font-family: 'Source Serif 4', Georgia, serif;
-            font-size: 24px;
-            font-weight: 500;
-            color: var(--color-primary);
-            margin-bottom: 16px;
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--color-text);
+            margin-bottom: 8px;
         }
 
         .checkout-modal-body {
-            font-size: 16px;
-            color: var(--color-text);
-            line-height: 1.6;
-            margin-bottom: 24px;
+            font-size: 15px;
+            color: var(--color-text-light);
+            line-height: 1.5;
+            margin: 0;
         }
 
         .checkout-modal-bump {
-            background: var(--color-bg-warm);
+            margin: 0 20px;
+            background: linear-gradient(135deg, #f8f6f3 0%, #fff 100%);
             border: 2px solid var(--color-border);
-            border-radius: 8px;
+            border-radius: 12px;
             padding: 16px;
-            margin-bottom: 24px;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .checkout-modal-bump:hover {
+            border-color: var(--color-primary);
+            box-shadow: 0 4px 12px rgba(42, 100, 75, 0.1);
+        }
+
+        .checkout-modal-bump.selected {
+            border-color: var(--color-primary);
+            background: linear-gradient(135deg, rgba(42, 100, 75, 0.05) 0%, #fff 100%);
         }
 
         .checkout-modal-bump-label {
             display: flex;
             align-items: flex-start;
-            gap: 12px;
+            gap: 14px;
             cursor: pointer;
+        }
+
+        .checkout-modal-checkbox-wrap {
+            position: relative;
+            flex-shrink: 0;
         }
 
         .checkout-modal-checkbox {
-            width: 20px;
-            height: 20px;
-            margin-top: 2px;
-            flex-shrink: 0;
+            width: 22px;
+            height: 22px;
             cursor: pointer;
+            accent-color: var(--color-primary);
         }
 
-        .checkout-modal-bump-text {
+        .checkout-modal-bump-content {
             flex: 1;
+            min-width: 0;
+        }
+
+        .checkout-modal-bump-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 8px;
         }
 
         .checkout-modal-bump-title {
             font-weight: 600;
             color: var(--color-text);
+            font-size: 15px;
+            line-height: 1.3;
+        }
+
+        .checkout-modal-bump-price {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            flex-shrink: 0;
+        }
+
+        .checkout-modal-price-old {
+            font-size: 12px;
+            color: var(--color-text-light);
+            text-decoration: line-through;
+        }
+
+        .checkout-modal-price-new {
             font-size: 16px;
-            margin-bottom: 6px;
+            font-weight: 700;
+            color: var(--color-primary);
         }
 
         .checkout-modal-bump-description {
-            font-size: 14px;
-            color: var(--color-text);
-            line-height: 1.4;
-            margin-bottom: 6px;
+            font-size: 13px;
+            color: var(--color-text-light);
+            line-height: 1.45;
+            margin-bottom: 10px;
         }
 
         .checkout-modal-bump-meta {
-            font-size: 13px;
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .checkout-modal-meta-item {
+            font-size: 12px;
             color: var(--color-text-light);
-            margin-bottom: 8px;
-        }
-
-        .checkout-modal-price {
-            margin-left: 0;
-        }
-
-        .checkout-modal-price-main {
-            font-size: 16px;
-            color: var(--color-primary);
-            font-weight: 600;
-        }
-
-        .checkout-modal-price-original {
-            font-size: 13px;
-            color: var(--color-text-light);
-            margin-top: 2px;
         }
 
         .checkout-modal-price-note {
-            font-size: 13px;
+            display: none;
+            text-align: center;
+            padding: 12px 20px;
+            margin: 12px 20px 0;
+            background: rgba(42, 100, 75, 0.08);
+            border-radius: 8px;
+            font-size: 14px;
+            color: var(--color-text);
+        }
+
+        .checkout-modal-price-note.active {
+            display: block;
+        }
+
+        .checkout-modal-price-note s {
             color: var(--color-text-light);
-            margin-top: 4px;
+            margin-right: 4px;
+        }
+
+        .checkout-modal-price-note strong {
+            color: var(--color-primary);
+            font-weight: 600;
+        }
+
+        .checkout-modal-discount-badge {
+            display: inline-block;
+            background: var(--color-primary);
+            color: #fff;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: 4px;
+            margin-left: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .checkout-modal-reassurance {
-            font-size: 13px;
+            font-size: 12px;
             color: var(--color-text-light);
             text-align: center;
-            margin: 16px 0 0;
+            padding: 12px 20px 0;
             line-height: 1.4;
-        }
-
-        .checkout-modal-actions {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .checkout-modal-primary-btn {
-            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
-            color: #fff;
-            padding: 14px 24px;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            width: 100%;
-            transition: all 0.2s ease;
-        }
-
-        .checkout-modal-primary-btn:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(30, 58, 95, 0.3);
-        }
-
-        .checkout-modal-secondary-btn {
-            background: transparent;
-            color: var(--color-text-light);
-            padding: 10px;
-            border: none;
-            font-size: 15px;
-            cursor: pointer;
-            text-decoration: underline;
-            text-underline-offset: 3px;
-        }
-
-        .checkout-modal-secondary-btn:hover {
-            color: var(--color-primary);
         }
 
         @media (max-width: 767px) {
             .checkout-modal {
-                padding: 24px;
+                margin: 16px;
+                max-width: calc(100% - 32px);
+            }
+
+            .checkout-modal-header {
+                padding: 24px 24px 16px;
             }
 
             .checkout-modal-title {
-                font-size: 22px;
+                font-size: 20px;
+            }
+
+            .checkout-modal-body {
+                font-size: 14px;
+            }
+
+            .checkout-modal-bump {
+                margin: 0 16px;
+            }
+
+            .checkout-modal-bump-header {
+                flex-direction: column;
+                gap: 4px;
+            }
+
+            .checkout-modal-bump-price {
+                flex-direction: row;
+                gap: 8px;
+                align-items: center;
+            }
+
+            .checkout-modal-price-note {
+                margin: 12px 16px 0;
+            }
+
+            .checkout-modal-reassurance {
+                padding: 12px 16px 0;
+            }
+
+            .checkout-modal-actions {
+                padding: 16px;
             }
         }
 
@@ -1396,34 +1483,49 @@
     <!-- Pre-checkout Modal -->
     <div class="checkout-modal-overlay" id="checkoutModal">
         <div class="checkout-modal">
-            <h2 class="checkout-modal-title">Before You Check Out</h2>
-            <p class="checkout-modal-body">Would it help to have ready-written prompts you can copy and paste for common, everyday situations?</p>
+            <button class="checkout-modal-close" id="closeModalBtn" aria-label="Close">&times;</button>
             
-            <div class="checkout-modal-bump">
+            <div class="checkout-modal-header">
+                <h2 class="checkout-modal-title">Before You Check Out</h2>
+                <p class="checkout-modal-body">Would it help to have ready-written prompts you can copy and paste for common, everyday situations?</p>
+            </div>
+            
+            <div class="checkout-modal-bump" id="bumpCard">
                 <label class="checkout-modal-bump-label">
-                    <input type="checkbox" class="checkout-modal-checkbox" id="orderBumpCheckbox">
-                    <div class="checkout-modal-bump-text">
-                        <div class="checkout-modal-bump-title">Add the Real-Life Prompt Library</div>
-                        <div class="checkout-modal-bump-description">50 ready-written prompts for routine situations like emails, questions, summaries, and planning.</div>
-                        <div class="checkout-modal-bump-meta">Copy & paste · Instant download</div>
-                        <div class="checkout-modal-price">
-                            <div class="checkout-modal-price-main">+£4.00 (optional)</div>
-                            <div class="checkout-modal-price-original"><s>£5.99</s></div>
+                    <div class="checkout-modal-checkbox-wrap">
+                        <input type="checkbox" class="checkout-modal-checkbox" id="orderBumpCheckbox">
+                        <span class="checkout-modal-checkmark"></span>
+                    </div>
+                    <div class="checkout-modal-bump-content">
+                        <div class="checkout-modal-bump-header">
+                            <span class="checkout-modal-bump-title">Add the Real-Life Prompt Library</span>
+                            <span class="checkout-modal-bump-price">
+                                <s class="checkout-modal-price-old">£5.99</s>
+                                <span class="checkout-modal-price-new">+£4.00</span>
+                            </span>
                         </div>
-                        <div class="checkout-modal-price-note" id="priceNote" style="display: none;">
-                            <s style="opacity: 0.6;">£24.99</s> <strong style="color: var(--color-primary);">£16.74</strong> total — 33% early customer discount
+                        <p class="checkout-modal-bump-description">50 ready-written prompts for routine situations like emails, questions, summaries, and planning.</p>
+                        <div class="checkout-modal-bump-meta">
+                            <span class="checkout-modal-meta-item">📋 Copy & paste</span>
+                            <span class="checkout-modal-meta-item">⚡ Instant download</span>
                         </div>
                     </div>
                 </label>
             </div>
 
+            <div class="checkout-modal-price-note" id="priceNote">
+                Total: <s>£24.99</s> <strong>£16.74</strong> <span class="checkout-modal-discount-badge">33% off</span>
+            </div>
+
             <p class="checkout-modal-reassurance">If you don't select this, you'll continue with the AI Confidence Kit only.</p>
 
             <div class="checkout-modal-actions">
-                <button class="checkout-modal-primary-btn" id="continueCheckoutBtn">Continue to Secure Checkout</button>
+                <button class="checkout-modal-primary-btn" id="continueCheckoutBtn">
+                    <span>Continue to Secure Checkout</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
                 <p class="checkout-modal-skip" id="skipBumpBtn">No thanks — continue without this</p>
             </div>
-            <button class="checkout-modal-close" id="closeModalBtn" aria-label="Close">&times;</button>
         </div>
     </div>
 
@@ -1461,8 +1563,16 @@
             window.location.href = redirectUrl;
         }
 
+        const bumpCard = document.getElementById('bumpCard');
+        
         checkbox.addEventListener('change', function() {
-            priceNote.style.display = this.checked ? 'block' : 'none';
+            if (this.checked) {
+                priceNote.classList.add('active');
+                bumpCard.classList.add('selected');
+            } else {
+                priceNote.classList.remove('active');
+                bumpCard.classList.remove('selected');
+            }
         });
 
         continueBtn.addEventListener('click', redirectToCheckout);
