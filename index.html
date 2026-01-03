@@ -1705,11 +1705,12 @@
             }
         });
 
-        document.querySelectorAll('.cta-button, .sticky-cta-button').forEach(btn => {
-            if (btn.href && btn.href.includes('stripe.com')) {
-                btn.addEventListener('click', openModal);
-            }
-        });
+        // Modal temporarily disabled - CTAs link directly to Stripe
+        // document.querySelectorAll('.cta-button, .sticky-cta-button').forEach(btn => {
+        //     if (btn.href && btn.href.includes('stripe.com')) {
+        //         btn.addEventListener('click', openModal);
+        //     }
+        // });
 
         // Sticky CTA bar - show only after scrolling past hero
         const heroSection = document.querySelector('.hero');
