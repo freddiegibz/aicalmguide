@@ -829,76 +829,62 @@
         }
 
         .checkout-modal-actions {
-            padding: 20px;
+            padding: 0 24px 28px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 10px;
+            gap: 14px;
         }
 
         .checkout-modal-primary-btn {
             background: var(--color-primary);
             color: #fff;
-            padding: 14px 28px;
-            font-size: 15px;
+            padding: 16px 32px;
+            font-size: 17px;
             font-weight: 600;
             border: none;
-            border-radius: 8px;
+            border-radius: 10px;
             cursor: pointer;
             text-align: center;
             text-decoration: none;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 10px;
             width: 100%;
             transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(30, 58, 95, 0.25);
         }
 
         .checkout-modal-primary-btn:hover {
             background: var(--color-primary-light);
-            transform: translateY(-1px);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(30, 58, 95, 0.3);
+        }
+
+        .checkout-modal-primary-btn:active {
+            transform: translateY(0);
         }
 
         .checkout-modal-primary-btn svg {
             flex-shrink: 0;
         }
 
-        .checkout-modal-primary-btn:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(30, 58, 95, 0.3);
-        }
-
-        .checkout-modal-secondary-btn {
-            background: transparent;
-            color: var(--color-text-light);
-            padding: 12px;
-            font-size: 15px;
-            border: none;
-            cursor: pointer;
-            text-align: center;
-            text-decoration: underline;
-        }
-
-        .checkout-modal-secondary-btn:hover {
-            color: var(--color-primary);
-        }
-
         .checkout-modal-skip {
-            font-size: 13px;
+            font-size: 15px;
             color: var(--color-text-light);
             text-align: center;
             cursor: pointer;
             background: none;
             border: none;
-            padding: 0;
+            padding: 8px;
             transition: color 0.2s ease;
         }
 
         .checkout-modal-skip:hover {
             color: var(--color-primary);
             text-decoration: underline;
-            text-underline-offset: 3px;
+            text-underline-offset: 4px;
         }
 
         /* Footer */
@@ -937,7 +923,7 @@
         .checkout-modal {
             background: #fff;
             border-radius: 16px;
-            max-width: 440px;
+            max-width: 500px;
             width: 100%;
             padding: 0;
             box-shadow: 0 25px 80px rgba(0, 0, 0, 0.25);
@@ -947,15 +933,15 @@
 
         .checkout-modal-close {
             position: absolute;
-            top: 16px;
-            right: 16px;
+            top: 20px;
+            right: 20px;
             background: none;
             border: none;
-            font-size: 20px;
+            font-size: 22px;
             color: var(--color-text-light);
             cursor: pointer;
-            width: 28px;
-            height: 28px;
+            width: 32px;
+            height: 32px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -965,65 +951,73 @@
         }
 
         .checkout-modal-close:hover {
-            background: rgba(0, 0, 0, 0.05);
+            background: var(--color-bg-warm);
             color: var(--color-text);
         }
 
         .checkout-modal-header {
-            padding: 28px 28px 20px;
+            padding: 36px 32px 24px;
             text-align: center;
+            background: linear-gradient(180deg, var(--color-bg-warm) 0%, #fff 100%);
         }
 
         .checkout-modal-title {
             font-family: 'Source Serif 4', Georgia, serif;
-            font-size: 22px;
-            font-weight: 600;
+            font-size: 26px;
+            font-weight: 500;
             color: var(--color-text);
-            margin-bottom: 8px;
+            margin-bottom: 12px;
+            line-height: 1.3;
         }
 
         .checkout-modal-body {
-            font-size: 15px;
-            color: var(--color-text-light);
-            line-height: 1.5;
+            font-size: 16px;
+            color: var(--color-text);
+            line-height: 1.6;
             margin: 0;
+            max-width: 420px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .checkout-modal-bump {
-            margin: 0 20px;
-            background: linear-gradient(135deg, #f8f6f3 0%, #fff 100%);
+            margin: 0 24px 20px;
+            background: var(--color-bg-warm);
             border: 2px solid var(--color-border);
             border-radius: 12px;
-            padding: 16px;
+            padding: 20px;
             transition: all 0.2s ease;
             cursor: pointer;
         }
 
         .checkout-modal-bump:hover {
             border-color: var(--color-primary);
-            box-shadow: 0 4px 12px rgba(42, 100, 75, 0.1);
+            box-shadow: 0 4px 16px rgba(30, 58, 95, 0.12);
+            background: #fff;
         }
 
         .checkout-modal-bump.selected {
             border-color: var(--color-primary);
-            background: linear-gradient(135deg, rgba(42, 100, 75, 0.05) 0%, #fff 100%);
+            background: #fff;
+            box-shadow: 0 4px 16px rgba(30, 58, 95, 0.15);
         }
 
         .checkout-modal-bump-label {
             display: flex;
             align-items: flex-start;
-            gap: 14px;
+            gap: 16px;
             cursor: pointer;
         }
 
         .checkout-modal-checkbox-wrap {
             position: relative;
             flex-shrink: 0;
+            margin-top: 2px;
         }
 
         .checkout-modal-checkbox {
-            width: 22px;
-            height: 22px;
+            width: 26px;
+            height: 26px;
             cursor: pointer;
             accent-color: var(--color-primary);
         }
@@ -1037,15 +1031,28 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            gap: 12px;
-            margin-bottom: 8px;
+            gap: 16px;
+            margin-bottom: 12px;
+        }
+
+        .checkout-modal-bump-title-wrap {
+            flex: 1;
         }
 
         .checkout-modal-bump-title {
             font-weight: 600;
             color: var(--color-text);
-            font-size: 15px;
-            line-height: 1.3;
+            font-size: 17px;
+            line-height: 1.4;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .checkout-modal-bump-subtitle {
+            font-size: 14px;
+            color: var(--color-text-light);
+            font-weight: 400;
+            display: block;
         }
 
         .checkout-modal-bump-price {
@@ -1053,82 +1060,104 @@
             flex-direction: column;
             align-items: flex-end;
             flex-shrink: 0;
+            gap: 4px;
         }
 
         .checkout-modal-price-old {
-            font-size: 12px;
+            font-size: 13px;
             color: var(--color-text-light);
             text-decoration: line-through;
+            order: 2;
         }
 
         .checkout-modal-price-new {
-            font-size: 16px;
+            font-size: 18px;
             font-weight: 700;
             color: var(--color-primary);
+            order: 1;
         }
 
         .checkout-modal-bump-description {
-            font-size: 13px;
-            color: var(--color-text-light);
-            line-height: 1.45;
-            margin-bottom: 10px;
+            font-size: 15px;
+            color: var(--color-text);
+            line-height: 1.6;
+            margin-bottom: 14px;
         }
 
-        .checkout-modal-bump-meta {
+        .checkout-modal-bump-benefits {
             display: flex;
-            gap: 16px;
+            gap: 20px;
             flex-wrap: wrap;
+            padding-top: 12px;
+            border-top: 1px solid var(--color-border);
         }
 
-        .checkout-modal-meta-item {
-            font-size: 12px;
+        .checkout-modal-benefit-item {
+            font-size: 14px;
             color: var(--color-text-light);
+            font-weight: 500;
         }
 
         .checkout-modal-price-note {
             display: none;
             text-align: center;
-            padding: 12px 20px;
-            margin: 12px 20px 0;
-            background: rgba(42, 100, 75, 0.08);
-            border-radius: 8px;
-            font-size: 14px;
+            padding: 16px 24px;
+            margin: 0 24px 20px;
+            background: var(--color-bg-warm);
+            border: 1px solid var(--color-border);
+            border-radius: 10px;
+            font-size: 16px;
             color: var(--color-text);
         }
 
         .checkout-modal-price-note.active {
-            display: block;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .checkout-modal-price-note-label {
+            font-weight: 500;
+        }
+
+        .checkout-modal-price-note-amount {
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .checkout-modal-price-note s {
             color: var(--color-text-light);
-            margin-right: 4px;
+            font-weight: 400;
         }
 
         .checkout-modal-price-note strong {
             color: var(--color-primary);
-            font-weight: 600;
+            font-weight: 700;
+            font-size: 18px;
         }
 
         .checkout-modal-discount-badge {
             display: inline-block;
             background: var(--color-primary);
             color: #fff;
-            font-size: 11px;
+            font-size: 12px;
             font-weight: 600;
-            padding: 3px 8px;
-            border-radius: 4px;
-            margin-left: 8px;
+            padding: 4px 10px;
+            border-radius: 5px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
 
         .checkout-modal-reassurance {
-            font-size: 12px;
+            font-size: 14px;
             color: var(--color-text-light);
             text-align: center;
-            padding: 12px 20px 0;
-            line-height: 1.4;
+            padding: 0 24px 8px;
+            line-height: 1.5;
+            font-style: italic;
         }
 
         @media (max-width: 767px) {
@@ -1173,7 +1202,16 @@
             }
 
             .checkout-modal-actions {
-                padding: 16px;
+                padding: 0 16px 24px;
+            }
+
+            .checkout-modal-primary-btn {
+                font-size: 16px;
+                padding: 15px 28px;
+            }
+
+            .checkout-modal-skip {
+                font-size: 14px;
             }
         }
 
@@ -1477,8 +1515,8 @@
         <div class="sticky-cta-bar-content">
             <a href="https://buy.stripe.com/eVqaEWbj52S8auI45IbZe00?prefilled_promo_code=EARLY33" class="sticky-cta-button" onclick="fbq('track', 'InitiateCheckout');">Get Instant Access — £12.73</a>
             <p class="sticky-cta-guarantee">Instant delivery · 100% refund guarantee</p>
+            </div>
         </div>
-    </div>
 
     <!-- Pre-checkout Modal -->
     <div class="checkout-modal-overlay" id="checkoutModal">
@@ -1486,9 +1524,9 @@
             <button class="checkout-modal-close" id="closeModalBtn" aria-label="Close">&times;</button>
             
             <div class="checkout-modal-header">
-                <h2 class="checkout-modal-title">Before You Check Out</h2>
-                <p class="checkout-modal-body">Would it help to have ready-written prompts you can copy and paste for common, everyday situations?</p>
-            </div>
+                <h2 class="checkout-modal-title">One More Thing...</h2>
+                <p class="checkout-modal-body">Save time with 50 ready-written prompts you can copy and paste. No thinking required—just use them for your everyday tasks.</p>
+    </div>
             
             <div class="checkout-modal-bump" id="bumpCard">
                 <label class="checkout-modal-bump-label">
@@ -1498,26 +1536,33 @@
                     </div>
                     <div class="checkout-modal-bump-content">
                         <div class="checkout-modal-bump-header">
-                            <span class="checkout-modal-bump-title">Add the Real-Life Prompt Library</span>
-                            <span class="checkout-modal-bump-price">
-                                <s class="checkout-modal-price-old">£5.99</s>
+                            <div class="checkout-modal-bump-title-wrap">
+                                <span class="checkout-modal-bump-title">Add the Real-Life Prompt Library</span>
+                                <span class="checkout-modal-bump-subtitle">Save time with ready-to-use prompts</span>
+                            </div>
+                            <div class="checkout-modal-bump-price">
                                 <span class="checkout-modal-price-new">+£4.00</span>
-                            </span>
+                                <s class="checkout-modal-price-old">£5.99</s>
+                            </div>
                         </div>
-                        <p class="checkout-modal-bump-description">50 ready-written prompts for routine situations like emails, questions, summaries, and planning.</p>
-                        <div class="checkout-modal-bump-meta">
-                            <span class="checkout-modal-meta-item">📋 Copy & paste</span>
-                            <span class="checkout-modal-meta-item">⚡ Instant download</span>
+                        <p class="checkout-modal-bump-description">50 prompts already written for emails, questions, summaries, and planning. Simply copy, paste, and customize for your needs.</p>
+                        <div class="checkout-modal-bump-benefits">
+                            <span class="checkout-modal-benefit-item">Copy and paste ready</span>
+                            <span class="checkout-modal-benefit-item">Instant download</span>
                         </div>
                     </div>
                 </label>
             </div>
 
             <div class="checkout-modal-price-note" id="priceNote">
-                Total: <s>£24.99</s> <strong>£16.74</strong> <span class="checkout-modal-discount-badge">33% off</span>
+                <span class="checkout-modal-price-note-label">Your total:</span>
+                <span class="checkout-modal-price-note-amount">
+                    <s>£24.99</s> <strong>£16.74</strong>
+                </span>
+                <span class="checkout-modal-discount-badge">Save 33%</span>
             </div>
 
-            <p class="checkout-modal-reassurance">If you don't select this, you'll continue with the AI Confidence Kit only.</p>
+            <p class="checkout-modal-reassurance">This is completely optional. You'll get the AI Confidence Kit either way.</p>
 
             <div class="checkout-modal-actions">
                 <button class="checkout-modal-primary-btn" id="continueCheckoutBtn">
