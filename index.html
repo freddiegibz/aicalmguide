@@ -246,28 +246,16 @@
         .sticky-cta-bar-content {
             max-width: 1200px;
             margin: 0 auto;
-            display: flex;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            grid-template-rows: auto auto;
+            gap: 8px 12px;
             align-items: center;
-            justify-content: space-between;
-            gap: 12px;
-        }
-
-        .sticky-cta-button-wrapper {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            gap: 4px;
-        }
-
-        .sticky-cta-guarantee {
-            font-size: 12px;
-            color: var(--color-text-light);
-            text-align: right;
-            white-space: nowrap;
         }
 
         .sticky-cta-text {
-            flex: 1;
+            grid-column: 1;
+            grid-row: 1;
         }
 
         .sticky-cta-text .price {
@@ -281,6 +269,19 @@
             color: var(--color-text-light);
             display: block;
             margin-bottom: 2px;
+        }
+
+        .sticky-cta-button {
+            grid-column: 2;
+            grid-row: 1;
+        }
+
+        .sticky-cta-guarantee {
+            grid-column: 1 / -1;
+            grid-row: 2;
+            font-size: 12px;
+            color: var(--color-text-light);
+            text-align: center;
         }
 
         .sticky-cta-button {
@@ -995,10 +996,8 @@
                 <span class="label">Start Using ChatGPT Confidently Today</span>
                 <span class="price">£12.73</span>
             </div>
-            <div class="sticky-cta-button-wrapper">
-                <a href="https://buy.stripe.com/eVqaEWbj52S8auI45IbZe00?prefilled_promo_code=EARLY33" class="sticky-cta-button" onclick="fbq('track', 'InitiateCheckout');">Get Started</a>
-                <p class="sticky-cta-guarantee">Instant delivery · 100% refund guarantee</p>
-            </div>
+            <a href="https://buy.stripe.com/eVqaEWbj52S8auI45IbZe00?prefilled_promo_code=EARLY33" class="sticky-cta-button" onclick="fbq('track', 'InitiateCheckout');">Get Started</a>
+            <p class="sticky-cta-guarantee">Instant delivery · 100% refund guarantee</p>
         </div>
     </div>
 
