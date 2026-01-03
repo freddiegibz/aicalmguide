@@ -995,26 +995,50 @@
             font-weight: 600;
             color: var(--color-text);
             font-size: 16px;
-            margin-bottom: 4px;
+            margin-bottom: 6px;
         }
 
-        .checkout-modal-bump-subtext {
+        .checkout-modal-bump-description {
             font-size: 14px;
+            color: var(--color-text);
+            line-height: 1.4;
+            margin-bottom: 6px;
+        }
+
+        .checkout-modal-bump-meta {
+            font-size: 13px;
             color: var(--color-text-light);
             margin-bottom: 8px;
         }
 
         .checkout-modal-price {
+            margin-left: 0;
+        }
+
+        .checkout-modal-price-main {
             font-size: 16px;
             color: var(--color-primary);
             font-weight: 600;
-            margin-left: 0;
+        }
+
+        .checkout-modal-price-original {
+            font-size: 13px;
+            color: var(--color-text-light);
+            margin-top: 2px;
         }
 
         .checkout-modal-price-note {
             font-size: 13px;
             color: var(--color-text-light);
             margin-top: 4px;
+        }
+
+        .checkout-modal-reassurance {
+            font-size: 13px;
+            color: var(--color-text-light);
+            text-align: center;
+            margin: 16px 0 0;
+            line-height: 1.4;
         }
 
         .checkout-modal-actions {
@@ -1373,16 +1397,18 @@
     <div class="checkout-modal-overlay" id="checkoutModal">
         <div class="checkout-modal">
             <h2 class="checkout-modal-title">Before You Check Out</h2>
-            <p class="checkout-modal-body">Want to save time by using ready-made examples instead of writing anything yourself?</p>
+            <p class="checkout-modal-body">Would it help to have ready-written prompts you can copy and paste for common, everyday situations?</p>
             
             <div class="checkout-modal-bump">
                 <label class="checkout-modal-bump-label">
                     <input type="checkbox" class="checkout-modal-checkbox" id="orderBumpCheckbox">
                     <div class="checkout-modal-bump-text">
                         <div class="checkout-modal-bump-title">Add the Real-Life Prompt Library</div>
-                        <div class="checkout-modal-bump-subtext">Ready-to-use examples · Instant download</div>
+                        <div class="checkout-modal-bump-description">50 ready-written prompts for routine situations like emails, questions, summaries, and planning.</div>
+                        <div class="checkout-modal-bump-meta">Copy & paste · Instant download</div>
                         <div class="checkout-modal-price">
-                            <s style="opacity: 0.6; margin-right: 8px;">£5.99</s>+£4.00
+                            <div class="checkout-modal-price-main">+£4.00 (optional)</div>
+                            <div class="checkout-modal-price-original"><s>£5.99</s></div>
                         </div>
                         <div class="checkout-modal-price-note" id="priceNote" style="display: none;">
                             <s style="opacity: 0.6;">£24.99</s> <strong style="color: var(--color-primary);">£16.74</strong> total — 33% early customer discount
@@ -1390,6 +1416,8 @@
                     </div>
                 </label>
             </div>
+
+            <p class="checkout-modal-reassurance">If you don't select this, you'll continue with the AI Confidence Kit only.</p>
 
             <div class="checkout-modal-actions">
                 <button class="checkout-modal-primary-btn" id="continueCheckoutBtn">Continue to Secure Checkout</button>
