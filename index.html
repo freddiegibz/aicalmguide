@@ -172,45 +172,90 @@
             flex: 1;
         }
 
-        .hero-text-header {
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-            margin-bottom: 24px;
+        .hero-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 32px;
         }
 
         @media (min-width: 768px) {
-            .hero-text-header {
-                flex-direction: row;
-                align-items: flex-start;
-                gap: 32px;
+            .hero-layout {
+                grid-template-columns: 1.1fr 0.9fr;
+                gap: 48px;
+                align-items: center;
             }
         }
 
-        .hero-text-main {
-            flex: 1;
+        @media (min-width: 1024px) {
+            .hero-layout {
+                grid-template-columns: 1.2fr 0.8fr;
+                gap: 64px;
+            }
         }
 
-        .hero-book-image {
-            flex-shrink: 0;
+        .hero-copy {
+            order: 2;
+        }
+
+        @media (min-width: 768px) {
+            .hero-copy {
+                order: 1;
+            }
+        }
+
+        .hero-copy h1 {
+            margin-bottom: 12px;
+        }
+
+        .hero-copy .hero-subheadline {
+            margin-bottom: 16px;
+        }
+
+        .hero-price-info {
+            margin-top: 12px;
+            font-size: 14px;
+            color: var(--color-text-light);
+        }
+
+        .hero-price-info strong {
+            color: var(--color-primary);
+        }
+
+        .hero-guarantee {
+            margin-top: 6px;
+            font-size: 13px;
+            color: var(--color-text-light);
+        }
+
+        .hero-image {
+            order: 1;
             text-align: center;
         }
 
-        .hero-book-image img {
-            max-width: 200px;
+        @media (min-width: 768px) {
+            .hero-image {
+                order: 2;
+                text-align: center;
+            }
+        }
+
+        .hero-image img {
             width: 100%;
+            max-width: 220px;
             height: auto;
-            border-radius: 6px;
-            box-shadow: 0 12px 40px rgba(30, 58, 95, 0.15);
+            border-radius: 8px;
+            box-shadow: 0 20px 50px rgba(30, 58, 95, 0.2);
         }
 
         @media (min-width: 768px) {
-            .hero-book-image {
-                text-align: left;
+            .hero-image img {
+                max-width: 280px;
             }
+        }
 
-            .hero-book-image img {
-                max-width: 180px;
+        @media (min-width: 1024px) {
+            .hero-image img {
+                max-width: 320px;
             }
         }
 
@@ -242,7 +287,7 @@
 
         .hero-bullets-list {
             list-style: none;
-            margin: 24px 0;
+            margin: 8px 0 16px;
             padding: 0;
         }
 
@@ -1138,17 +1183,10 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <div class="hero-text-header">
-                        <div class="hero-text-main">
-                            <h1>Use ChatGPT Confidently — Without Guessing What to Type</h1>
-                            <p class="hero-subheadline">A beginner-friendly PDF guide with examples, explanations, and ready-to-use templates</p>
-                        </div>
-                        <div class="hero-book-image">
-                            <img src="bookcover.jpg" alt="AI Confidence Kit">
-                        </div>
-                    </div>
+            <div class="hero-layout">
+                <div class="hero-copy">
+                    <h1>Use ChatGPT Confidently — Without Guessing What to Type</h1>
+                    <p class="hero-subheadline">A beginner-friendly PDF guide with examples, explanations, and ready-to-use templates</p>
                     
                     <ul class="hero-bullets-list">
                         <li>Know what to type for real everyday tasks</li>
@@ -1157,14 +1195,15 @@
 
                     <a href="https://buy.stripe.com/eVqaEWbj52S8auI45IbZe00?prefilled_promo_code=EARLY33" class="cta-button" onclick="fbq('track', 'InitiateCheckout');">Start Using ChatGPT Confidently Today — £12.73</a>
 
-                    <p style="margin-top: 12px; font-size: 14px; color: var(--color-text-light);">
-                        <s style="opacity: 0.6;">£19</s> <strong style="color: var(--color-primary);">£12.73</strong> — Early sale price
+                    <p class="hero-price-info">
+                        <s style="opacity: 0.6;">£19</s> <strong>£12.73</strong> — Early sale price
                     </p>
-                    <p style="margin-top: 8px; font-size: 14px; color: var(--color-text-light);">
+                    <p class="hero-guarantee">
                         Digital download · 100% money-back guarantee
                     </p>
-
-                    
+                </div>
+                <div class="hero-image">
+                    <img src="bookcover.jpg" alt="AI Confidence Kit">
                 </div>
             </div>
         </div>
