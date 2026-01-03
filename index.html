@@ -252,6 +252,20 @@
             gap: 12px;
         }
 
+        .sticky-cta-button-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 4px;
+        }
+
+        .sticky-cta-guarantee {
+            font-size: 12px;
+            color: var(--color-text-light);
+            text-align: right;
+            white-space: nowrap;
+        }
+
         .sticky-cta-text {
             flex: 1;
         }
@@ -981,7 +995,10 @@
                 <span class="label">Start Using ChatGPT Confidently Today</span>
                 <span class="price">£12.73</span>
             </div>
-            <a href="https://buy.stripe.com/eVqaEWbj52S8auI45IbZe00?prefilled_promo_code=EARLY33" class="sticky-cta-button" onclick="fbq('track', 'InitiateCheckout');">Get Started</a>
+            <div class="sticky-cta-button-wrapper">
+                <a href="https://buy.stripe.com/eVqaEWbj52S8auI45IbZe00?prefilled_promo_code=EARLY33" class="sticky-cta-button" onclick="fbq('track', 'InitiateCheckout');">Get Started</a>
+                <p class="sticky-cta-guarantee">Instant delivery · 100% refund guarantee</p>
+            </div>
         </div>
     </div>
 
