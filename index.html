@@ -175,7 +175,7 @@
         .hero-layout {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 32px;
+            gap: 20px;
         }
 
         @media (min-width: 768px) {
@@ -194,21 +194,15 @@
         }
 
         .hero-copy {
-            order: 2;
-        }
-
-        @media (min-width: 768px) {
-            .hero-copy {
-                order: 1;
-            }
+            order: 1;
         }
 
         .hero-copy h1 {
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .hero-copy .hero-subheadline {
-            margin-bottom: 16px;
+            margin-bottom: 12px;
         }
 
         .hero-price-info {
@@ -228,28 +222,23 @@
         }
 
         .hero-image {
-            order: 1;
+            order: 2;
             text-align: center;
-        }
-
-        @media (min-width: 768px) {
-            .hero-image {
-                order: 2;
-                text-align: center;
-            }
         }
 
         .hero-image img {
             width: 100%;
-            max-width: 220px;
+            max-width: 140px;
             height: auto;
-            border-radius: 8px;
-            box-shadow: 0 20px 50px rgba(30, 58, 95, 0.2);
+            border-radius: 6px;
+            box-shadow: 0 12px 32px rgba(30, 58, 95, 0.18);
         }
 
         @media (min-width: 768px) {
             .hero-image img {
                 max-width: 280px;
+                border-radius: 8px;
+                box-shadow: 0 20px 50px rgba(30, 58, 95, 0.2);
             }
         }
 
@@ -1157,11 +1146,11 @@
                 font-size: 14px;
             }
 
-            .sticky-cta-bar {
+            .sticky-cta-bar.visible {
                 display: block;
             }
 
-            body {
+            body.sticky-bar-active {
                 padding-bottom: 56px;
             }
         }
@@ -1193,7 +1182,7 @@
                         <li>No jargon, no setup, no tech skills needed</li>
                     </ul>
 
-                    <a href="https://buy.stripe.com/eVqaEWbj52S8auI45IbZe00?prefilled_promo_code=EARLY33" class="cta-button" onclick="fbq('track', 'InitiateCheckout');">Start Using ChatGPT Confidently Today — £12.73</a>
+                    <a href="https://buy.stripe.com/eVqaEWbj52S8auI45IbZe00?prefilled_promo_code=EARLY33" class="cta-button" onclick="fbq('track', 'InitiateCheckout');">Get Instant Access — £12.73</a>
 
                     <p class="hero-price-info">
                         <s style="opacity: 0.6;">£19</s> <strong>£12.73</strong> — Early sale price
@@ -1342,7 +1331,7 @@
         <div class="container">
             <h2>Stop Watching. Start Using AI with Real Confidence.</h2>
             <p class="section-subtitle">Gain clarity. Take control. Make better decisions, faster.</p>
-            <a href="https://buy.stripe.com/eVqaEWbj52S8auI45IbZe00?prefilled_promo_code=EARLY33" class="cta-button" onclick="fbq('track', 'InitiateCheckout');">Start Using ChatGPT Confidently Today — £12.73</a>
+            <a href="https://buy.stripe.com/eVqaEWbj52S8auI45IbZe00?prefilled_promo_code=EARLY33" class="cta-button" onclick="fbq('track', 'InitiateCheckout');">Get Instant Access — £12.73</a>
             <p class="cta-reassurance" style="margin-top: 12px; font-size: 14px;">Instant delivery · 100% money-back guarantee</p>
             <p class="cta-reassurance" style="margin-top: 14px;"><s style="opacity: 0.6;">£19</s> <strong style="color: var(--color-primary);">£12.73</strong> — Early sale price</p>
             <p class="cta-reassurance" style="margin-top: 8px;">Digital download · 100% money-back guarantee</p>
@@ -1447,6 +1436,35 @@
                 btn.addEventListener('click', openModal);
             }
         });
+
+        // Sticky CTA bar - show only after scrolling past hero
+        const heroSection = document.querySelector('.hero');
+        const stickyCta = document.querySelector('.sticky-cta-bar');
+        
+        function toggleStickyBar() {
+            if (!heroSection || !stickyCta) return;
+            
+            const heroBottom = heroSection.getBoundingClientRect().bottom;
+            const windowWidth = window.innerWidth;
+            
+            // Only apply on mobile (under 768px)
+            if (windowWidth < 768) {
+                if (heroBottom < 0) {
+                    stickyCta.classList.add('visible');
+                    document.body.classList.add('sticky-bar-active');
+                } else {
+                    stickyCta.classList.remove('visible');
+                    document.body.classList.remove('sticky-bar-active');
+                }
+            } else {
+                stickyCta.classList.remove('visible');
+                document.body.classList.remove('sticky-bar-active');
+            }
+        }
+
+        window.addEventListener('scroll', toggleStickyBar);
+        window.addEventListener('resize', toggleStickyBar);
+        toggleStickyBar();
     </script>
 
 </body>
