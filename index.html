@@ -236,66 +236,39 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: #fff;
-            border-top: 2px solid var(--color-primary);
-            box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            border-top: 1px solid rgba(30, 58, 95, 0.15);
+            box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05);
             z-index: 1000;
-            padding: 12px 20px;
+            padding: 10px 20px;
         }
 
         .sticky-cta-bar-content {
             max-width: 1200px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr auto;
-            grid-template-rows: auto auto;
-            gap: 8px 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
             align-items: center;
-        }
-
-        .sticky-cta-text {
-            grid-column: 1;
-            grid-row: 1;
-        }
-
-        .sticky-cta-text .price {
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--color-primary);
-        }
-
-        .sticky-cta-text .label {
-            font-size: 11px;
-            color: var(--color-text-light);
-            display: block;
-            margin-bottom: 2px;
-            white-space: nowrap;
-            line-height: 1.3;
-        }
-
-        .sticky-cta-button {
-            grid-column: 2;
-            grid-row: 1;
-        }
-
-        .sticky-cta-guarantee {
-            grid-column: 1 / -1;
-            grid-row: 2;
-            font-size: 12px;
-            color: var(--color-text-light);
-            text-align: center;
         }
 
         .sticky-cta-button {
             background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
             color: #ffffff;
-            padding: 12px 24px;
-            font-size: 15px;
+            padding: 10px 20px;
+            font-size: 14px;
             font-weight: 600;
             text-decoration: none;
             border-radius: 6px;
             white-space: nowrap;
-            box-shadow: 0 2px 8px rgba(30, 58, 95, 0.3);
+            box-shadow: 0 2px 6px rgba(30, 58, 95, 0.2);
+        }
+
+        .sticky-cta-guarantee {
+            font-size: 10px;
+            color: var(--color-text-light);
+            text-align: center;
         }
 
         .hero-book {
@@ -673,6 +646,153 @@
             color: var(--color-text-light);
         }
 
+        /* Pre-checkout Modal */
+        .checkout-modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 10000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .checkout-modal-overlay.active {
+            display: flex;
+        }
+
+        .checkout-modal {
+            background: #fff;
+            border-radius: 8px;
+            max-width: 500px;
+            width: 100%;
+            padding: 32px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+            position: relative;
+        }
+
+        .checkout-modal-title {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 24px;
+            font-weight: 500;
+            color: var(--color-primary);
+            margin-bottom: 16px;
+        }
+
+        .checkout-modal-body {
+            font-size: 16px;
+            color: var(--color-text);
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .checkout-modal-bump {
+            background: var(--color-bg-warm);
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 24px;
+        }
+
+        .checkout-modal-checkbox-wrapper {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+
+        .checkout-modal-checkbox {
+            width: 20px;
+            height: 20px;
+            margin-top: 2px;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .checkout-modal-checkbox-label {
+            font-size: 16px;
+            color: var(--color-text);
+            font-weight: 500;
+            cursor: pointer;
+            flex: 1;
+        }
+
+        .checkout-modal-subtext {
+            font-size: 14px;
+            color: var(--color-text-light);
+            margin-left: 32px;
+            margin-bottom: 12px;
+        }
+
+        .checkout-modal-price {
+            margin-left: 32px;
+            font-size: 15px;
+            color: var(--color-text);
+        }
+
+        .checkout-modal-price .add-price {
+            font-weight: 600;
+            color: var(--color-primary);
+        }
+
+        .checkout-modal-price .original-price {
+            text-decoration: line-through;
+            opacity: 0.6;
+            margin-left: 8px;
+        }
+
+        .checkout-modal-price .total-price {
+            font-weight: 600;
+            color: var(--color-primary);
+            display: block;
+            margin-top: 4px;
+        }
+
+        .checkout-modal-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .checkout-modal-primary-btn {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+            color: #fff;
+            padding: 14px 24px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+            box-shadow: 0 2px 8px rgba(30, 58, 95, 0.3);
+        }
+
+        .checkout-modal-primary-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(30, 58, 95, 0.3);
+        }
+
+        .checkout-modal-secondary-btn {
+            background: transparent;
+            color: var(--color-text-light);
+            padding: 12px;
+            font-size: 15px;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: underline;
+        }
+
+        .checkout-modal-secondary-btn:hover {
+            color: var(--color-primary);
+        }
+
         /* Footer */
         footer {
             padding: 48px 0;
@@ -685,6 +805,175 @@
 
         footer a {
             color: rgba(255, 255, 255, 0.85);
+        }
+
+        /* Pre-checkout Modal */
+        .checkout-modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 10000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .checkout-modal-overlay.active {
+            display: flex;
+        }
+
+        .checkout-modal {
+            background: #fff;
+            border-radius: 12px;
+            max-width: 500px;
+            width: 100%;
+            padding: 32px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .checkout-modal-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--color-text-light);
+            cursor: pointer;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+
+        .checkout-modal-close:hover {
+            background: var(--color-bg-warm);
+            color: var(--color-text);
+        }
+
+        .checkout-modal-title {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 24px;
+            font-weight: 500;
+            color: var(--color-primary);
+            margin-bottom: 16px;
+        }
+
+        .checkout-modal-body {
+            font-size: 16px;
+            color: var(--color-text);
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .checkout-modal-bump {
+            background: var(--color-bg-warm);
+            border: 2px solid var(--color-border);
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 24px;
+        }
+
+        .checkout-modal-bump-label {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            cursor: pointer;
+        }
+
+        .checkout-modal-checkbox {
+            width: 20px;
+            height: 20px;
+            margin-top: 2px;
+            flex-shrink: 0;
+            cursor: pointer;
+        }
+
+        .checkout-modal-bump-text {
+            flex: 1;
+        }
+
+        .checkout-modal-bump-title {
+            font-weight: 600;
+            color: var(--color-text);
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+
+        .checkout-modal-bump-subtext {
+            font-size: 14px;
+            color: var(--color-text-light);
+            margin-bottom: 8px;
+        }
+
+        .checkout-modal-price {
+            font-size: 16px;
+            color: var(--color-primary);
+            font-weight: 600;
+            margin-left: 0;
+        }
+
+        .checkout-modal-price-note {
+            font-size: 13px;
+            color: var(--color-text-light);
+            margin-top: 4px;
+        }
+
+        .checkout-modal-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .checkout-modal-primary-btn {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+            color: #fff;
+            padding: 14px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.2s ease;
+        }
+
+        .checkout-modal-primary-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(30, 58, 95, 0.3);
+        }
+
+        .checkout-modal-secondary-btn {
+            background: transparent;
+            color: var(--color-text-light);
+            padding: 10px;
+            border: none;
+            font-size: 15px;
+            cursor: pointer;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        .checkout-modal-secondary-btn:hover {
+            color: var(--color-primary);
+        }
+
+        @media (max-width: 767px) {
+            .checkout-modal {
+                padding: 24px;
+            }
+
+            .checkout-modal-title {
+                font-size: 22px;
+            }
         }
 
         /* Mobile adjustments */
@@ -786,7 +1075,7 @@
             }
 
             body {
-                padding-bottom: 70px;
+                padding-bottom: 56px;
             }
         }
     </style>
@@ -809,17 +1098,17 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1>Never Wonder What to Type Into ChatGPT Again</h1>
-                    <p class="hero-subheadline">A beginner-friendly PDF guide with examples, explanations, and ready-to-use templates. Use ChatGPT for real tasks in 10 minutes — even if you feel behind or "bad with tech."</p>
+                    <h1>Use ChatGPT Confidently — Without Guessing What to Type</h1>
+                    <p class="hero-subheadline">A beginner-friendly PDF guide with examples, explanations, and ready-to-use templates</p>
+                    
+                    <div class="hero-book-image" style="text-align: center; margin: 24px 0;">
+                        <img src="bookcover.jpg" alt="AI Confidence Kit" style="max-width: 240px; width: 100%; height: auto; border-radius: 6px; box-shadow: 0 12px 40px rgba(30, 58, 95, 0.15);">
+                    </div>
                     
                     <ul class="hero-bullets-list">
-                        <li>Copy-and-paste prompts — no thinking, no guessing</li>
-                        <li>Get useful results immediately (emails, questions, summaries)</li>
-                        <li>No jargon, no setup, no updates to keep up with</li>
-                        <li>Works even if you've "never been good with computers"</li>
+                        <li>Know what to type for real everyday tasks</li>
+                        <li>No jargon, no setup, no tech skills needed</li>
                     </ul>
-
-                    <p class="hero-credibility" style="font-size: 15px; color: var(--color-text-light); margin-top: 24px; margin-bottom: 28px; font-style: italic;">Designed specifically for beginners over 45 who want practical results, not tech theory.</p>
 
                     <a href="https://buy.stripe.com/eVqaEWbj52S8auI45IbZe00?prefilled_promo_code=EARLY33" class="cta-button" onclick="fbq('track', 'InitiateCheckout');">Start Using ChatGPT Confidently Today — £12.73</a>
 
@@ -831,12 +1120,6 @@
                     </p>
 
                     
-                </div>
-                <div class="hero-book">
-                    <div class="book-wrapper">
-                        <img src="heroimage.png" alt="AI Confidence Kit">
-                    </div>
-                    <p class="book-caption">Get confident with AI in one afternoon. No experience required.</p>
                 </div>
             </div>
         </div>
@@ -994,14 +1277,93 @@
     <!-- Sticky Mobile CTA Bar -->
     <div class="sticky-cta-bar">
         <div class="sticky-cta-bar-content">
-            <div class="sticky-cta-text">
-                <span class="label">Start Using ChatGPT Confidently Today</span>
-                <span class="price">£12.73</span>
-            </div>
-            <a href="https://buy.stripe.com/eVqaEWbj52S8auI45IbZe00?prefilled_promo_code=EARLY33" class="sticky-cta-button" onclick="fbq('track', 'InitiateCheckout');">Get Started</a>
+            <a href="https://buy.stripe.com/eVqaEWbj52S8auI45IbZe00?prefilled_promo_code=EARLY33" class="sticky-cta-button" onclick="fbq('track', 'InitiateCheckout');">Get Instant Access — £12.73</a>
             <p class="sticky-cta-guarantee">Instant delivery · 100% refund guarantee</p>
         </div>
     </div>
+
+    <!-- Pre-checkout Modal -->
+    <div class="checkout-modal-overlay" id="checkoutModal">
+        <div class="checkout-modal">
+            <h2 class="checkout-modal-title">Before You Check Out</h2>
+            <p class="checkout-modal-body">Want to save time by using ready-made examples instead of writing anything yourself?</p>
+            
+            <div class="checkout-modal-bump">
+                <label class="checkout-modal-bump-label">
+                    <input type="checkbox" class="checkout-modal-checkbox" id="orderBumpCheckbox">
+                    <div class="checkout-modal-bump-text">
+                        <div class="checkout-modal-bump-title">Add the Real-Life Prompt Library</div>
+                        <div class="checkout-modal-bump-subtext">Ready-to-use examples · Instant download</div>
+                        <div class="checkout-modal-price">
+                            <s style="opacity: 0.6; margin-right: 8px;">£5.99</s>+£4.00
+                        </div>
+                        <div class="checkout-modal-price-note" id="priceNote" style="display: none;">
+                            <s style="opacity: 0.6;">£24.99</s> <strong style="color: var(--color-primary);">£16.74</strong> total — 33% early customer discount
+                        </div>
+                    </div>
+                </label>
+            </div>
+
+            <div class="checkout-modal-actions">
+                <button class="checkout-modal-primary-btn" id="continueCheckoutBtn">Continue to Secure Checkout</button>
+            </div>
+            <button class="checkout-modal-close" id="closeModalBtn" aria-label="Close">&times;</button>
+        </div>
+    </div>
+
+    <script>
+        // Stripe URL constants - INSERT YOUR STRIPE LINKS HERE
+        const CORE_STRIPE_LINK = 'https://buy.stripe.com/eVqaEWbj52S8auI45IbZe00?prefilled_promo_code=EARLY33';
+        const BUNDLE_STRIPE_LINK = 'https://buy.stripe.com/5kQ28qfzleAQ1YceKmbZe04?prefilled_promo_code=EARLY33';
+
+        const modal = document.getElementById('checkoutModal');
+        const checkbox = document.getElementById('orderBumpCheckbox');
+        const priceNote = document.getElementById('priceNote');
+        const continueBtn = document.getElementById('continueCheckoutBtn');
+        const closeBtn = document.getElementById('closeModalBtn');
+
+        function openModal(e) {
+            e.preventDefault();
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function redirectToCheckout() {
+            const isBundle = checkbox.checked;
+            const redirectUrl = isBundle ? BUNDLE_STRIPE_LINK : CORE_STRIPE_LINK;
+            
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'InitiateCheckout');
+            }
+            
+            window.location.href = redirectUrl;
+        }
+
+        checkbox.addEventListener('change', function() {
+            priceNote.style.display = this.checked ? 'block' : 'none';
+        });
+
+        continueBtn.addEventListener('click', redirectToCheckout);
+
+        closeBtn.addEventListener('click', closeModal);
+
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        document.querySelectorAll('.cta-button, .sticky-cta-button').forEach(btn => {
+            if (btn.href && btn.href.includes('stripe.com')) {
+                btn.addEventListener('click', openModal);
+            }
+        });
+    </script>
 
 </body>
 </html>
