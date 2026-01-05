@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Help Applying AI - AI Confidence Kit</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #1e3a5f;
+            --color-primary-light: #2d5a8a;
+            --color-text: #2d3748;
+            --color-text-light: #5a6778;
+            --color-bg: #fafaf7;
+            --color-bg-white: #ffffff;
+            --color-border: #e8e4dc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.7;
+            font-size: 18px;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 0 28px;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-weight: 500;
+            color: var(--color-primary);
+        }
+
+        /* Page Header */
+        .page-header {
+            padding: 80px 0 50px;
+            background-color: var(--color-bg-white);
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .page-header h1 {
+            font-size: clamp(28px, 4vw, 34px);
+            margin-bottom: 16px;
+            line-height: 1.3;
+        }
+
+        .page-header .subheadline {
+            font-size: 19px;
+            color: var(--color-text);
+            line-height: 1.6;
+        }
+
+        /* Content Sections */
+        section {
+            padding: 60px 0;
+            background-color: var(--color-bg-white);
+        }
+
+        section h2 {
+            font-size: clamp(24px, 3vw, 28px);
+            margin-bottom: 24px;
+            line-height: 1.3;
+        }
+
+        section p {
+            font-size: 18px;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            color: var(--color-text);
+        }
+
+        /* Context Section */
+        .context-section {
+            background-color: var(--color-bg);
+        }
+
+        .context-section p {
+            font-size: 17px;
+            line-height: 1.7;
+            color: var(--color-text);
+        }
+
+        /* Clarity Blocks */
+        .clarity-section {
+            background-color: var(--color-bg);
+        }
+
+        .clarity-section h2 {
+            font-size: clamp(22px, 3vw, 26px);
+            margin-bottom: 20px;
+        }
+
+        .clarity-list {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .clarity-list li {
+            font-size: 17px;
+            line-height: 1.7;
+            margin-bottom: 14px;
+            padding-left: 28px;
+            position: relative;
+        }
+
+        .clarity-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--color-primary);
+            font-weight: 600;
+            font-size: 24px;
+        }
+
+        /* Form Section */
+        .form-section {
+            background-color: var(--color-bg-white);
+            padding: 60px 0;
+        }
+
+        .form-section h2 {
+            font-size: clamp(24px, 3vw, 28px);
+            margin-bottom: 12px;
+        }
+
+        .form-section .intro-text {
+            font-size: 17px;
+            color: var(--color-text);
+            line-height: 1.7;
+            margin-bottom: 32px;
+        }
+
+        .form-embed-container {
+            width: 100%;
+            margin: 32px 0;
+            padding: 0;
+            background-color: var(--color-bg);
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .form-embed-container iframe {
+            display: block;
+            width: 100%;
+            min-height: 1734px;
+        }
+
+        /* Reassurance Footer */
+        .reassurance-footer {
+            background-color: var(--color-bg);
+            padding: 40px 0 60px;
+            text-align: center;
+        }
+
+        .reassurance-footer p {
+            font-size: 14px;
+            color: var(--color-text-light);
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 767px) {
+            .page-header {
+                padding: 60px 0 40px;
+            }
+
+            section {
+                padding: 50px 0;
+            }
+
+            .form-section {
+                padding: 50px 0;
+            }
+
+            .form-embed-container {
+                padding: 16px;
+                min-height: 300px;
+            }
+
+            .form-embed-placeholder {
+                padding: 40px 16px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Personal Help Applying AI</h1>
+            <p class="subheadline">If you'd like help applying AI to your own life or business, you can request one-to-one support below.</p>
+        </div>
+    </section>
+
+    <!-- Context Paragraph -->
+    <section class="context-section">
+        <div class="container">
+            <p>This is not a course or subscription.</p>
+            <p>I review each request personally and suggest what would be most useful based on what you're trying to do. If it looks like a good fit, I'll explain what I can help with and what it would cost.</p>
+            <p>There's no obligation to continue.</p>
+        </div>
+    </section>
+
+    <!-- What This Is For -->
+    <section class="clarity-section">
+        <div class="container">
+            <h2>What this is typically used for</h2>
+            <ul class="clarity-list">
+                <li>Applying AI to everyday work or personal tasks</li>
+                <li>Improving emails, documents, or written communication</li>
+                <li>Organising information or planning more clearly</li>
+                <li>Thinking through decisions with AI support</li>
+                <li>Setting up simple, repeatable ways to use AI confidently</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- What This Is Not -->
+    <section>
+        <div class="container">
+            <h2>What this is not</h2>
+            <ul class="clarity-list">
+                <li>Technical development or coding</li>
+                <li>Advanced AI training</li>
+                <li>Software installation or complex tools</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="form-section">
+        <div class="container">
+            <h2>Request personal help</h2>
+            <p class="intro-text">If you'd like to explore personal support, please share a few details below. This helps me understand what you're looking to achieve.</p>
+            
+            <div class="form-embed-container">
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSftr6Q9aXeJ9FPjIYduXgpmW-LTkUJXOX7C2YGYC9fQXeXP4g/viewform?embedded=true" width="100%" height="1734" frameborder="0" marginheight="0" marginwidth="0" style="border: none; border-radius: 4px;">Loading…</iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reassurance Footer -->
+    <div class="reassurance-footer">
+        <div class="container">
+            <p>Submitting this form does not commit you to anything. It simply starts a conversation.</p>
+        </div>
+    </div>
+
+</body>
+</html>
+
