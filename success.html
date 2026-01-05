@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Purchase Successful - AI Confidence Kit</title>
+    <title>Thank You - AI Confidence Kit</title>
     <!-- Meta Pixel Code -->
     <script>
     !function(f,b,e,v,n,t,s)
@@ -86,9 +86,9 @@
             text-decoration: none;
         }
 
-        /* Success Section */
-        .success-hero {
-            padding: 80px 0 60px;
+        /* Confirmation Section */
+        .confirmation-section {
+            padding: 60px 0 40px;
             text-align: center;
             background: linear-gradient(180deg, var(--color-accent-soft) 0%, var(--color-bg-warm) 100%);
         }
@@ -101,7 +101,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 32px;
+            margin: 0 auto 28px;
             box-shadow: 0 4px 20px rgba(61, 139, 95, 0.3);
         }
 
@@ -112,99 +112,153 @@
             font-weight: bold;
         }
 
-        .success-hero h1 {
-            font-size: clamp(32px, 5vw, 44px);
+        .confirmation-section h1 {
+            font-size: clamp(28px, 4vw, 36px);
             margin-bottom: 16px;
             line-height: 1.2;
         }
 
-        .success-subtitle {
-            font-size: 20px;
-            color: var(--color-text-light);
-            margin-bottom: 40px;
-            max-width: 500px;
+        .confirmation-subtext {
+            font-size: 18px;
+            color: var(--color-text);
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Primary Action */
+        .primary-action-section {
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .primary-download-btn {
+            display: inline-block;
+            background: var(--color-primary);
+            color: #ffffff;
+            padding: 20px 48px;
+            font-size: 19px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: all 0.25s ease;
+            box-shadow: 0 6px 20px rgba(30, 58, 95, 0.3);
+        }
+
+        .primary-download-btn:hover {
+            background: var(--color-primary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(30, 58, 95, 0.35);
+        }
+
+        /* Orientation Block */
+        .orientation-section {
+            padding: 50px 0;
+            background: var(--color-bg-warm);
+        }
+
+        .orientation-section h2 {
+            font-size: clamp(22px, 3vw, 28px);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .orientation-list {
+            max-width: 550px;
+            margin: 0 auto;
+            text-align: left;
+            font-size: 17px;
+            color: var(--color-text);
+            line-height: 1.7;
+        }
+
+        .orientation-list li {
+            margin-bottom: 12px;
+            padding-left: 8px;
+        }
+
+        /* Visual Divider */
+        .divider {
+            height: 1px;
+            background: var(--color-border);
+            margin: 60px 0;
+            max-width: 600px;
             margin-left: auto;
             margin-right: auto;
         }
 
-        /* Content Sections */
-        section {
-            padding: 60px 0;
+        /* Optional Next Steps */
+        .optional-section {
+            padding: 50px 0;
         }
 
-        section h2 {
-            font-size: clamp(24px, 4vw, 32px);
-            margin-bottom: 16px;
-            line-height: 1.3;
-            text-align: center;
-        }
-
-        .section-subtitle {
-            font-size: 18px;
-            color: var(--color-text-light);
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        /* Next Steps */
-        .steps-container {
-            display: grid;
-            gap: 24px;
-            margin-top: 40px;
-        }
-
-        .step {
+        .optional-card {
             background: var(--color-bg-warm);
+            border: 1px solid var(--color-border);
             border-radius: 12px;
             padding: 32px;
+            margin-bottom: 24px;
+        }
+
+        .optional-card.tier-2 {
+            border: 2px solid var(--color-border);
+        }
+
+        .optional-card.tier-3 {
+            background: #fff;
             border: 1px solid var(--color-border);
-            text-align: center;
+            opacity: 0.95;
         }
 
-        .step-number {
-            width: 48px;
-            height: 48px;
-            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            font-weight: 600;
-            margin: 0 auto 20px;
-        }
-
-        .step h3 {
-            font-size: 20px;
+        .optional-card h3 {
+            font-size: 22px;
             margin-bottom: 12px;
             color: var(--color-primary);
         }
 
-        .step p {
-            color: var(--color-text-light);
-            margin-bottom: 0;
+        .optional-card p {
+            font-size: 16px;
+            color: var(--color-text);
+            line-height: 1.6;
+            margin-bottom: 20px;
         }
 
-        /* CTA Button */
-        .cta-button {
+        .optional-card .subtext {
+            font-size: 14px;
+            color: var(--color-text-light);
+            margin-top: 12px;
+            font-style: italic;
+        }
+
+        .optional-btn {
             display: inline-block;
-            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+            background: var(--color-primary);
             color: #ffffff;
-            padding: 18px 44px;
-            font-size: 17px;
+            padding: 14px 32px;
+            font-size: 16px;
             font-weight: 500;
             text-decoration: none;
             border-radius: 8px;
-            border: none;
-            cursor: pointer;
             transition: all 0.25s ease;
-            box-shadow: 0 4px 14px rgba(30, 58, 95, 0.25);
+            box-shadow: 0 4px 12px rgba(30, 58, 95, 0.2);
         }
 
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(30, 58, 95, 0.3);
+        .optional-btn:hover {
+            background: var(--color-primary-light);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(30, 58, 95, 0.25);
+        }
+
+        .optional-btn.tier-3 {
+            background: transparent;
+            color: var(--color-primary);
+            border: 2px solid var(--color-primary);
+            box-shadow: none;
+        }
+
+        .optional-btn.tier-3:hover {
+            background: var(--color-primary);
+            color: #fff;
         }
 
         /* Footer */
@@ -215,236 +269,64 @@
             color: var(--color-text-light);
             background-color: var(--color-primary);
             color: rgba(255, 255, 255, 0.7);
+            margin-top: 60px;
         }
 
-        /* Survey Modal */
-        .survey-modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .survey-modal-overlay.active {
-            display: flex;
-        }
-
-        .survey-modal-content {
-            background: #fff;
-            border-radius: 12px;
-            padding: 24px;
-            max-width: 500px;
-            width: 100%;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-            position: relative;
-        }
-
-        .survey-modal-close {
-            position: absolute;
-            top: 16px;
-            right: 16px;
-            background: none;
-            border: none;
-            font-size: 24px;
-            color: var(--color-text-light);
-            cursor: pointer;
-            line-height: 1;
-            padding: 0;
-            width: 32px;
-            height: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            transition: all 0.2s ease;
-        }
-
-        .survey-modal-close:hover {
-            background-color: var(--color-bg-warm);
-            color: var(--color-text);
-        }
-
-        .survey-modal-title {
-            font-family: 'Source Serif 4', Georgia, serif;
-            font-size: 22px;
-            font-weight: 500;
-            color: var(--color-primary);
-            margin-bottom: 2px;
-            line-height: 1.2;
-        }
-
-        .survey-modal-subtitle {
-            font-size: 14px;
-            color: var(--color-text-light);
-            margin-bottom: 12px;
-            line-height: 1.3;
-        }
-
-        .survey-form {
-            margin-top: 12px;
-        }
-
-        .survey-radio-group {
-            margin-bottom: 8px;
-        }
-
-        .survey-radio-group label {
-            display: flex;
-            align-items: flex-start;
-            padding: 8px;
-            border: 1px solid var(--color-border);
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            font-size: 15px;
-            color: var(--color-text);
-            line-height: 1.4;
-        }
-
-        .survey-radio-group label:hover {
-            background-color: var(--color-bg-warm);
-            border-color: var(--color-primary);
-        }
-
-        .survey-radio-group input[type="radio"] {
-            margin-right: 12px;
-            margin-top: 2px;
-            flex-shrink: 0;
-        }
-
-        .survey-radio-group input[type="radio"]:checked + span {
-            color: var(--color-primary);
-            font-weight: 500;
-        }
-
-        .survey-buttons {
-            display: flex;
-            gap: 12px;
-            margin-top: 20px;
-        }
-
-        .survey-submit {
-            flex: 1;
-            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
-            color: #ffffff;
-            padding: 12px 20px;
-            font-size: 15px;
-            font-weight: 500;
-            border-radius: 8px;
-            border: none;
-            cursor: pointer;
-            transition: all 0.25s ease;
-        }
-
-        .survey-submit:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(30, 58, 95, 0.3);
-        }
-
-        .survey-skip {
-            padding: 14px 20px;
-            background: none;
-            color: var(--color-text-light);
-            border: 1px solid var(--color-border);
-            border-radius: 8px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .survey-skip:hover {
-            background-color: var(--color-bg-warm);
-            color: var(--color-text);
-        }
-
-        .survey-thanks {
-            display: none;
-            text-align: center;
-            padding: 20px 0;
-        }
-
-        .survey-thanks.active {
-            display: block;
+        footer a {
+            color: rgba(255, 255, 255, 0.85);
         }
 
         /* Mobile adjustments */
         @media (max-width: 767px) {
-            section {
-                padding: 50px 0;
+            .confirmation-section {
+                padding: 50px 0 30px;
             }
 
-            .success-hero {
-                padding: 60px 0 40px;
+            .primary-action-section {
+                padding: 40px 0;
             }
 
-            .steps-container {
-                gap: 20px;
+            .primary-download-btn {
+                font-size: 17px;
+                padding: 18px 36px;
+                display: block;
+                margin: 0 auto;
+                max-width: 90%;
             }
 
-            .step {
+            .orientation-section {
+                padding: 40px 0;
+            }
+
+            .orientation-list {
+                font-size: 16px;
+                padding: 0 20px;
+            }
+
+            .divider {
+                margin: 40px 0;
+            }
+
+            .optional-section {
+                padding: 40px 0;
+            }
+
+            .optional-card {
                 padding: 24px;
             }
 
-            .survey-modal-overlay {
-                padding: 10px;
-            }
-
-            .survey-modal-content {
-                padding: 12px 14px;
-                max-width: 100%;
-                margin: auto;
-            }
-
-            .survey-modal-title {
-                font-size: 18px;
-                margin-bottom: 2px;
-            }
-
-            .survey-modal-subtitle {
-                font-size: 13px;
-                margin-bottom: 8px;
-            }
-
-            .survey-form p {
-                font-size: 15px;
-                margin-bottom: 8px;
-            }
-
-            .survey-radio-group {
-                margin-bottom: 6px;
-            }
-
-            .survey-radio-group label {
-                padding: 6px;
-                font-size: 13px;
-            }
-
-            .survey-buttons {
-                flex-direction: column;
-                gap: 10px;
-                margin-top: 16px;
-            }
-
-            .survey-submit,
-            .survey-skip {
-                width: 100%;
-                padding: 10px 16px;
-                font-size: 14px;
-            }
-
-            .survey-modal-close {
-                top: 12px;
-                right: 12px;
-                width: 28px;
-                height: 28px;
+            .optional-card h3 {
                 font-size: 20px;
+            }
+
+            .optional-card p {
+                font-size: 15px;
+            }
+
+            .optional-btn {
+                width: 100%;
+                text-align: center;
+                padding: 14px 24px;
             }
         }
     </style>
@@ -458,62 +340,57 @@
         </div>
     </header>
 
-    <!-- Success Hero -->
-    <section class="success-hero">
+    <!-- Confirmation Section -->
+    <section class="confirmation-section">
         <div class="container">
             <div class="success-icon"></div>
-            <h1>Thank You for Your Purchase!</h1>
-            <p class="success-subtitle">Your AI Confidence Kit is on its way. You're about to discover how AI can make your daily life easier and more informed.</p>
+            <h1>Thank you for your purchase</h1>
+            <p class="confirmation-subtext">Your AI Confidence Kit is ready. You now have everything you need to start getting clearer, more useful answers from ChatGPT — without guessing.</p>
         </div>
     </section>
 
-    <!-- What Happens Next -->
-    <section>
+    <!-- Primary Action -->
+    <section class="primary-action-section">
         <div class="container">
-            <h2>What Happens Next</h2>
-            <p class="section-subtitle">Here's what you can expect in the coming minutes and hours</p>
+            <p style="font-size: 19px; color: var(--color-text); line-height: 1.6; max-width: 600px; margin: 0 auto;">
+                <strong>Check your email for the AI Confidence Kit</strong>
+            </p>
+        </div>
+    </section>
 
-            <div class="steps-container">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h3>Check Your Email</h3>
-                    <p>You'll receive an email within the next 5 minutes with your download link and access instructions. Please check your spam folder if you don't see it in your inbox.</p>
-                </div>
+    <!-- Orientation Block -->
+    <section class="orientation-section">
+        <div class="container">
+            <h2>What to do first</h2>
+            <p style="text-align: center; font-size: 17px; color: var(--color-text); margin-bottom: 20px;">Most people get the best results by:</p>
+            <ol class="orientation-list">
+                <li>Skimming the guide once</li>
+                <li>Trying one example straight away</li>
+                <li>Coming back whenever they want to improve an answer</li>
+            </ol>
+        </div>
+    </section>
 
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h3>Download Your Kit</h3>
-                    <p>The email will contain a secure download link for your AI Confidence Kit. Save it somewhere safe - you'll want to refer back to it often.</p>
-                </div>
+    <!-- Visual Divider -->
+    <div class="divider"></div>
 
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h3>Start Learning at Your Own Pace</h3>
-                    <p>Take your time with the kit. It's designed to be read in short sessions, so you can learn without feeling overwhelmed.</p>
-                </div>
-
+    <!-- Optional Next Steps -->
+    <section class="optional-section">
+        <div class="container">
+            <!-- Tier 2: Practical Guide -->
+            <div class="optional-card tier-2">
+                <h3>Want help applying this to real situations?</h3>
+                <p>If you'd like step-by-step examples showing how to use ChatGPT in common everyday and business situations, there's a short practical follow-up available.</p>
+                <a href="#" class="optional-btn">See the Practical Guide</a>
+                <p class="subtext">Completely optional · No technical setup</p>
             </div>
-        </div>
-    </section>
 
-    <!-- Reassurance -->
-    <section style="background-color: var(--color-bg-cream); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
-        <div class="container">
-            <h2>You're in Good Hands</h2>
-            <p class="section-subtitle">Remember, this kit was written specifically for people like you</p>
-            <div style="max-width: 500px; margin: 0 auto; text-align: center; font-size: 19px; line-height: 1.7; color: var(--color-text-light);">
-                <p>You don't need to be technical or "get" all the hype. You just need clear, practical guidance that respects your intelligence and experience. That's exactly what you've invested in today.</p>
-                <p style="margin-top: 24px;"><strong>Welcome to using AI with confidence.</strong></p>
+            <!-- Tier 3: Personal Help -->
+            <div class="optional-card tier-3">
+                <h3>Prefer someone to help you directly?</h3>
+                <p>If you'd like help applying this to your own life or business, limited one-to-one support is available.</p>
+                <a href="mailto:adsbyalfred@protonmail.com" class="optional-btn tier-3">Request Personal Help</a>
             </div>
-        </div>
-    </section>
-
-    <!-- Final CTA -->
-    <section style="text-align: center; padding: 60px 0;">
-        <div class="container">
-            <h2>Questions? We're Here to Help</h2>
-            <p style="margin-bottom: 32px; color: var(--color-text-light);">If you have any questions about your purchase or need help getting started, don't hesitate to reach out.</p>
-            <a href="mailto:support@example.com" class="cta-button">Contact Support</a>
         </div>
     </section>
 
@@ -524,258 +401,5 @@
         </div>
     </footer>
 
-    <!-- Survey Modal -->
-    <div id="surveyModal" class="survey-modal-overlay">
-        <div class="survey-modal-content">
-            <button class="survey-modal-close" onclick="closeSurveyModal()" aria-label="Close">&times;</button>
-            
-            <div id="surveyFormContainer">
-                <h2 class="survey-modal-title">Quick Question</h2>
-                <p class="survey-modal-subtitle">Help us understand what brought you here</p>
-                
-                <form id="surveyForm" class="survey-form" action="https://formspree.io/f/xrezbdlv" method="POST">
-                    <!-- Step 1 -->
-                    <div id="surveyStep1">
-                        <p style="margin-bottom: 16px; font-size: 17px; color: var(--color-text); font-weight: 500;">
-                            What was the main problem you were hoping this would help you solve?
-                        </p>
-                        
-                        <div class="survey-radio-group">
-                            <label>
-                                <input type="radio" name="problem" value="Use AI more easily in day-to-day work" required>
-                                <span>Use AI more easily in day-to-day work</span>
-                            </label>
-                        </div>
-                        
-                        <div class="survey-radio-group">
-                            <label>
-                                <input type="radio" name="problem" value="Clear instructions instead of experimenting" required>
-                                <span>Clear instructions instead of experimenting</span>
-                            </label>
-                        </div>
-                        
-                        <div class="survey-radio-group">
-                            <label>
-                                <input type="radio" name="problem" value="Catch up quickly and feel less behind" required>
-                                <span>Catch up quickly and feel less behind</span>
-                            </label>
-                        </div>
-                        
-                        <div class="survey-radio-group">
-                            <label>
-                                <input type="radio" name="problem" value="Save time on routine tasks" required>
-                                <span>Save time on routine tasks</span>
-                            </label>
-                        </div>
-                        
-                        <div class="survey-radio-group">
-                            <label>
-                                <input type="radio" name="problem" value="Other" required>
-                                <span>Other</span>
-                            </label>
-                        </div>
-
-                        <div class="survey-buttons">
-                            <button id="surveyNextBtn" type="button" class="survey-submit">Next</button>
-                            <button type="button" class="survey-skip" onclick="closeSurveyModal()">Skip</button>
-                        </div>
-                    </div>
-
-                    <!-- Step 2 -->
-                    <div id="surveyStep2" style="display:none;">
-                        <p style="margin-bottom: 16px; font-size: 17px; color: var(--color-text); font-weight: 500;">
-                            If this could help you with ONE thing right now, what would you want most?
-                        </p>
-
-                        <div class="survey-radio-group">
-                            <label>
-                                <input type="radio" name="magic_wand" value="Ready-to-use prompts I can copy and use immediately" required disabled>
-                                <span>Ready-to-use prompts I can copy and use immediately</span>
-                            </label>
-                        </div>
-
-                        <div class="survey-radio-group">
-                            <label>
-                                <input type="radio" name="magic_wand" value="Clear, step-by-step instructions for common tasks" required disabled>
-                                <span>Clear, step-by-step instructions for common tasks</span>
-                            </label>
-                        </div>
-
-                        <div class="survey-radio-group">
-                            <label>
-                                <input type="radio" name="magic_wand" value="Help using AI for my work or day-to-day tasks" required disabled>
-                                <span>Help using AI for my work or day-to-day tasks</span>
-                            </label>
-                        </div>
-
-                        <div class="survey-radio-group">
-                            <label>
-                                <input type="radio" name="magic_wand" value="Simple setup help so I don't get stuck at the start" required disabled>
-                                <span>Simple setup help so I don't get stuck at the start</span>
-                            </label>
-                        </div>
-
-                        <div class="survey-radio-group">
-                            <label>
-                                <input type="radio" name="magic_wand" value="Examples showing what good AI use actually looks like" required disabled>
-                                <span>Examples showing what good AI use actually looks like</span>
-                            </label>
-                        </div>
-
-                        <div class="survey-radio-group">
-                            <label>
-                                <input id="magicWandOtherRadio" type="radio" name="magic_wand" value="Other" required disabled>
-                                <span>Other</span>
-                            </label>
-                        </div>
-
-                        <div id="magicWandOtherWrap" style="display:none; margin-top: 10px;">
-                            <input
-                                id="magicWandOtherText"
-                                name="magic_wand_other"
-                                type="text"
-                                maxlength="140"
-                                placeholder="Other (short text)"
-                                style="width: 100%; padding: 12px; border: 1px solid var(--color-border); border-radius: 8px; font-size: 15px;"
-                                disabled
-                            />
-                        </div>
-                        
-                        <div class="survey-buttons">
-                            <button id="surveyBackBtn" type="button" class="survey-skip">Back</button>
-                            <button type="submit" class="survey-submit">Submit</button>
-                            <button type="button" class="survey-skip" onclick="closeSurveyModal()">Skip</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            
-            <div id="surveyThanks" class="survey-thanks">
-                <p style="font-size: 18px; color: var(--color-primary); margin-bottom: 8px;">Thank you!</p>
-                <p style="font-size: 15px; color: var(--color-text-light);">Your feedback helps us improve.</p>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // Open modal on page load (delayed to ensure pixel fires first)
-        window.addEventListener('DOMContentLoaded', function() {
-            setTimeout(function() {
-                var modal = document.getElementById('surveyModal');
-                if (modal) {
-                    modal.classList.add('active');
-                }
-            }, 500);
-        });
-
-        // Close modal function
-        function closeSurveyModal() {
-            document.getElementById('surveyModal').classList.remove('active');
-        }
-
-        // Q2 "Other" short text toggle (does not touch pixel logic)
-        (function() {
-            var otherRadio = document.getElementById('magicWandOtherRadio');
-            var otherWrap = document.getElementById('magicWandOtherWrap');
-            var otherText = document.getElementById('magicWandOtherText');
-            var form = document.getElementById('surveyForm');
-            var step1 = document.getElementById('surveyStep1');
-            var step2 = document.getElementById('surveyStep2');
-            var nextBtn = document.getElementById('surveyNextBtn');
-            var backBtn = document.getElementById('surveyBackBtn');
-
-            if (!form || !step1 || !step2 || !nextBtn || !backBtn || !otherRadio || !otherWrap || !otherText) return;
-
-            function syncOtherVisibility() {
-                var selected = form.querySelector('input[name="magic_wand"]:checked');
-                var isOther = selected && selected.value === 'Other';
-                otherWrap.style.display = isOther ? 'block' : 'none';
-                if (!isOther) otherText.value = '';
-            }
-
-            function setStep(stepNumber) {
-                if (stepNumber === 1) {
-                    step1.style.display = 'block';
-                    step2.style.display = 'none';
-                    // Disable step 2 inputs so required fields don't block step 1
-                    step2.querySelectorAll('input, button[type="submit"]').forEach(function(el) {
-                        if (el.tagName === 'INPUT') el.disabled = true;
-                    });
-                } else {
-                    step1.style.display = 'none';
-                    step2.style.display = 'block';
-                    // Enable step 2 inputs for submission
-                    step2.querySelectorAll('input').forEach(function(el) {
-                        el.disabled = false;
-                    });
-                    syncOtherVisibility();
-                }
-            }
-
-            form.addEventListener('change', function(e) {
-                if (e.target && e.target.name === 'magic_wand') {
-                    syncOtherVisibility();
-                }
-            });
-
-            nextBtn.addEventListener('click', function() {
-                // Require Q1 selection before proceeding
-                var q1 = form.querySelector('input[name="problem"]:checked');
-                if (!q1) return;
-                setStep(2);
-            });
-
-            backBtn.addEventListener('click', function() {
-                setStep(1);
-            });
-
-            // Initialize
-            setStep(1);
-            syncOtherVisibility();
-        })();
-
-        // Handle form submission
-        document.getElementById('surveyForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            var form = this;
-            var formData = new FormData(form);
-            
-            fetch(form.action, {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            })
-            .then(function(response) {
-                if (response.ok) {
-                    // Show thank you message
-                    document.getElementById('surveyFormContainer').style.display = 'none';
-                    document.getElementById('surveyThanks').classList.add('active');
-                    
-                    // Close modal after 2 seconds
-                    setTimeout(function() {
-                        closeSurveyModal();
-                    }, 2000);
-                }
-            })
-            .catch(function(error) {
-                // Silently close on error
-                closeSurveyModal();
-            });
-        });
-
-        // Close modal when clicking overlay
-        document.getElementById('surveyModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeSurveyModal();
-            }
-        });
-    </script>
-
 </body>
 </html>
-
-
-
