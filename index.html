@@ -901,8 +901,8 @@
             color: rgba(255, 255, 255, 0.85);
         }
 
-        /* Pre-checkout Modal */
-        .checkout-modal-overlay {
+        /* Discount Code Modal */
+        .discount-modal-overlay {
             display: none;
             position: fixed;
             top: 0;
@@ -916,14 +916,14 @@
             padding: 20px;
         }
 
-        .checkout-modal-overlay.active {
+        .discount-modal-overlay.active {
             display: flex;
         }
 
-        .checkout-modal {
+        .discount-modal {
             background: #fff;
             border-radius: 16px;
-            max-width: 500px;
+            max-width: 480px;
             width: 100%;
             padding: 0;
             box-shadow: 0 25px 80px rgba(0, 0, 0, 0.25);
@@ -931,7 +931,7 @@
             overflow: hidden;
         }
 
-        .checkout-modal-close {
+        .discount-modal-close {
             position: absolute;
             top: 20px;
             right: 20px;
@@ -950,27 +950,27 @@
             z-index: 1;
         }
 
-        .checkout-modal-close:hover {
+        .discount-modal-close:hover {
             background: var(--color-bg-warm);
             color: var(--color-text);
         }
 
-        .checkout-modal-header {
+        .discount-modal-header {
             padding: 36px 32px 24px;
             text-align: center;
             background: linear-gradient(180deg, var(--color-bg-warm) 0%, #fff 100%);
         }
 
-        .checkout-modal-title {
+        .discount-modal-title {
             font-family: 'Source Serif 4', Georgia, serif;
-            font-size: 26px;
+            font-size: 24px;
             font-weight: 500;
             color: var(--color-text);
             margin-bottom: 12px;
             line-height: 1.3;
         }
 
-        .checkout-modal-body {
+        .discount-modal-body {
             font-size: 16px;
             color: var(--color-text);
             line-height: 1.6;
@@ -978,6 +978,140 @@
             max-width: 420px;
             margin-left: auto;
             margin-right: auto;
+        }
+
+        .discount-code-box {
+            padding: 32px;
+            text-align: center;
+        }
+
+        .discount-code-label {
+            font-size: 15px;
+            color: var(--color-text-light);
+            margin-bottom: 16px;
+        }
+
+        .discount-code-display {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            background: var(--color-bg-warm);
+            border: 2px solid var(--color-border);
+            border-radius: 10px;
+            padding: 16px 20px;
+        }
+
+        .discount-code-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--color-primary);
+            letter-spacing: 2px;
+            font-family: 'Inter', monospace;
+        }
+
+        .discount-code-copy {
+            background: var(--color-primary);
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .discount-code-copy:hover {
+            background: var(--color-primary-light);
+        }
+
+        .discount-code-copy.copied {
+            background: var(--color-success);
+        }
+
+        .discount-code-note {
+            font-size: 14px;
+            color: var(--color-text-light);
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .discount-modal-actions {
+            padding: 0 32px 32px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .discount-modal-primary-btn {
+            background: var(--color-primary);
+            color: #fff;
+            padding: 16px 32px;
+            font-size: 17px;
+            font-weight: 600;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(30, 58, 95, 0.25);
+        }
+
+        .discount-modal-primary-btn:hover {
+            background: var(--color-primary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(30, 58, 95, 0.3);
+        }
+
+        .discount-modal-primary-btn:active {
+            transform: translateY(0);
+        }
+
+        .discount-modal-primary-btn svg {
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 767px) {
+            .discount-modal {
+                max-width: calc(100% - 32px);
+            }
+
+            .discount-modal-header {
+                padding: 28px 24px 20px;
+            }
+
+            .discount-modal-title {
+                font-size: 22px;
+            }
+
+            .discount-modal-body {
+                font-size: 15px;
+            }
+
+            .discount-code-box {
+                padding: 24px;
+            }
+
+            .discount-code-text {
+                font-size: 20px;
+            }
+
+            .discount-modal-actions {
+                padding: 0 24px 24px;
+            }
+
+            .discount-modal-primary-btn {
+                font-size: 16px;
+                padding: 14px 28px;
+            }
         }
 
         .checkout-modal-bump {
@@ -1415,7 +1549,7 @@
                         <li>No jargon, no setup — just clear, usable guidance</li>
                     </ul>
 
-                    <a href="https://buy.stripe.com/eVqaEWbj52S8auI45IbZe00?prefilled_promo_code=EARLY33" class="cta-button" onclick="fbq('track', 'InitiateCheckout');">Get Instant Access — £12.73</a>
+                    <a href="https://buy.stripe.com/eVqaEWbj52S8auI45IbZe00" class="cta-button" id="heroCtaBtn">Get Instant Access — £12.73</a>
 
                     <p class="hero-price-info">
                         <s style="opacity: 0.6;">£19</s>
@@ -1564,7 +1698,7 @@
         <div class="container">
             <h2>Stop Watching. Start Using AI with Real Confidence.</h2>
             <p class="section-subtitle">Gain clarity. Take control. Make better decisions, faster.</p>
-            <a href="https://buy.stripe.com/eVqaEWbj52S8auI45IbZe00?prefilled_promo_code=EARLY33" class="cta-button" onclick="fbq('track', 'InitiateCheckout');">Get Instant Access — £12.73</a>
+            <a href="https://buy.stripe.com/eVqaEWbj52S8auI45IbZe00" class="cta-button" id="sectionCtaBtn">Get Instant Access — £12.73</a>
             <p class="cta-reassurance" style="margin-top: 12px; font-size: 14px;">Instant delivery · 100% money-back guarantee</p>
             <p class="cta-reassurance" style="margin-top: 14px;"><s style="opacity: 0.6;">£19</s></p>
             <p class="cta-reassurance" style="margin-top: 8px;">Digital download · 100% money-back guarantee</p>
@@ -1583,134 +1717,99 @@
     <!-- Sticky Mobile CTA Bar -->
     <div class="sticky-cta-bar">
         <div class="sticky-cta-bar-content">
-            <a href="https://buy.stripe.com/eVqaEWbj52S8auI45IbZe00?prefilled_promo_code=EARLY33" class="sticky-cta-button" onclick="fbq('track', 'InitiateCheckout');">Get Instant Access — £12.73</a>
+            <a href="https://buy.stripe.com/eVqaEWbj52S8auI45IbZe00" class="sticky-cta-button" id="stickyCtaBtn">Get Instant Access — £12.73</a>
             <p class="sticky-cta-guarantee">Instant delivery · 100% refund guarantee</p>
             </div>
         </div>
 
-    <!-- Pre-checkout Modal -->
-    <div class="checkout-modal-overlay" id="checkoutModal">
-        <div class="checkout-modal">
-            <button class="checkout-modal-close" id="closeModalBtn" aria-label="Close">&times;</button>
+    <!-- Discount Code Modal -->
+    <div class="discount-modal-overlay" id="discountModal">
+        <div class="discount-modal">
+            <button class="discount-modal-close" id="closeDiscountModalBtn" aria-label="Close">&times;</button>
             
-            <div class="checkout-modal-header">
-                <h2 class="checkout-modal-title">One More Thing...</h2>
-                <p class="checkout-modal-body">Save time with 50 ready-written prompts you can copy and paste. No thinking required—just use them for your everyday tasks.</p>
-    </div>
+            <div class="discount-modal-header">
+                <h2 class="discount-modal-title">Early Customer Discount</h2>
+                <p class="discount-modal-body">As an early customer, you can save 35% on your purchase. Use the code below when you reach checkout.</p>
+            </div>
             
-            <div class="checkout-modal-bump" id="bumpCard">
-                <label class="checkout-modal-bump-label">
-                    <div class="checkout-modal-checkbox-wrap">
-                        <input type="checkbox" class="checkout-modal-checkbox" id="orderBumpCheckbox">
-                        <span class="checkout-modal-checkmark"></span>
-                    </div>
-                    <div class="checkout-modal-bump-content">
-                        <div class="checkout-modal-bump-header">
-                            <div class="checkout-modal-bump-title-wrap">
-                                <span class="checkout-modal-bump-title">Add the Real-Life Prompt Library</span>
-                                <span class="checkout-modal-bump-subtitle">Save time with ready-to-use prompts</span>
-                            </div>
-                            <div class="checkout-modal-bump-price">
-                                <span class="checkout-modal-price-new">+£4.00</span>
-                                <s class="checkout-modal-price-old">£5.99</s>
-                            </div>
-                        </div>
-                        <p class="checkout-modal-bump-description">50 prompts already written for emails, questions, summaries, and planning. Simply copy, paste, and customize for your needs.</p>
-                        <div class="checkout-modal-bump-benefits">
-                            <span class="checkout-modal-benefit-item">Copy and paste ready</span>
-                            <span class="checkout-modal-benefit-item">Instant download</span>
-                        </div>
-                    </div>
-                </label>
+            <div class="discount-code-box">
+                <p class="discount-code-label">Use this code at checkout:</p>
+                <div class="discount-code-display">
+                    <span class="discount-code-text" id="discountCode">EARLY</span>
+                    <button class="discount-code-copy" id="copyCodeBtn" aria-label="Copy code">Copy</button>
+                </div>
+                <p class="discount-code-note">Enter this code when you reach the checkout page to receive 35% off.</p>
             </div>
 
-            <div class="checkout-modal-price-note" id="priceNote">
-                <span class="checkout-modal-price-note-label">Your total:</span>
-                <span class="checkout-modal-price-note-amount">
-                    <s>£24.99</s> <strong>£16.74</strong>
-                </span>
-                <span class="checkout-modal-discount-badge">Save 33%</span>
-            </div>
-
-            <p class="checkout-modal-reassurance">This is completely optional. You'll get the AI Confidence Kit either way.</p>
-
-            <div class="checkout-modal-actions">
-                <button class="checkout-modal-primary-btn" id="continueCheckoutBtn">
-                    <span>Continue to Secure Checkout</span>
+            <div class="discount-modal-actions">
+                <a href="https://buy.stripe.com/eVqaEWbj52S8auI45IbZe00" class="discount-modal-primary-btn" id="continueToCheckoutBtn" onclick="if(typeof fbq !== 'undefined') fbq('track', 'InitiateCheckout');">
+                    <span>Continue to Checkout</span>
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </button>
-                <p class="checkout-modal-skip" id="skipBumpBtn">No thanks — continue without this</p>
+                </a>
             </div>
         </div>
     </div>
 
     <script>
-        // Stripe URL constants - INSERT YOUR STRIPE LINKS HERE
-        const CORE_STRIPE_LINK = 'https://buy.stripe.com/eVqaEWbj52S8auI45IbZe00?prefilled_promo_code=EARLY33';
-        const BUNDLE_STRIPE_LINK = 'https://buy.stripe.com/5kQ28qfzleAQ1YceKmbZe04?prefilled_promo_code=EARLY33';
+        // Discount Modal
+        const discountModal = document.getElementById('discountModal');
+        const closeDiscountBtn = document.getElementById('closeDiscountModalBtn');
+        const copyCodeBtn = document.getElementById('copyCodeBtn');
+        const discountCodeText = document.getElementById('discountCode');
 
-        const modal = document.getElementById('checkoutModal');
-        const checkbox = document.getElementById('orderBumpCheckbox');
-        const priceNote = document.getElementById('priceNote');
-        const continueBtn = document.getElementById('continueCheckoutBtn');
-        const skipBtn = document.getElementById('skipBumpBtn');
-        const closeBtn = document.getElementById('closeModalBtn');
-
-        function openModal(e) {
+        function openDiscountModal(e) {
             e.preventDefault();
-            modal.classList.add('active');
+            discountModal.classList.add('active');
             document.body.style.overflow = 'hidden';
         }
 
-        function closeModal() {
-            modal.classList.remove('active');
+        function closeDiscountModal() {
+            discountModal.classList.remove('active');
             document.body.style.overflow = '';
         }
 
-        function redirectToCheckout() {
-            const isBundle = checkbox.checked;
-            const redirectUrl = isBundle ? BUNDLE_STRIPE_LINK : CORE_STRIPE_LINK;
-            
-            if (typeof fbq !== 'undefined') {
-                fbq('track', 'InitiateCheckout');
-            }
-            
-            window.location.href = redirectUrl;
+        function copyDiscountCode() {
+            const code = discountCodeText.textContent;
+            navigator.clipboard.writeText(code).then(function() {
+                copyCodeBtn.textContent = 'Copied!';
+                copyCodeBtn.classList.add('copied');
+                setTimeout(function() {
+                    copyCodeBtn.textContent = 'Copy';
+                    copyCodeBtn.classList.remove('copied');
+                }, 2000);
+            });
         }
 
-        const bumpCard = document.getElementById('bumpCard');
-        
-        checkbox.addEventListener('change', function() {
-            if (this.checked) {
-                priceNote.classList.add('active');
-                bumpCard.classList.add('selected');
-            } else {
-                priceNote.classList.remove('active');
-                bumpCard.classList.remove('selected');
+        // Close modal handlers
+        if (closeDiscountBtn) {
+            closeDiscountBtn.addEventListener('click', closeDiscountModal);
+        }
+
+        if (discountModal) {
+            discountModal.addEventListener('click', function(e) {
+                if (e.target === discountModal) {
+                    closeDiscountModal();
+                }
+            });
+        }
+
+        // Copy code handler
+        if (copyCodeBtn) {
+            copyCodeBtn.addEventListener('click', copyDiscountCode);
+        }
+
+        // Open modal when CTAs are clicked
+        document.querySelectorAll('.cta-button, .sticky-cta-button').forEach(btn => {
+            if (btn.href && btn.href.includes('stripe.com')) {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    if (typeof fbq !== 'undefined') {
+                        fbq('track', 'InitiateCheckout');
+                    }
+                    openDiscountModal(e);
+                });
             }
         });
-
-        continueBtn.addEventListener('click', redirectToCheckout);
-
-        skipBtn.addEventListener('click', function() {
-            checkbox.checked = false;
-            redirectToCheckout();
-        });
-
-        closeBtn.addEventListener('click', closeModal);
-
-        modal.addEventListener('click', function(e) {
-            if (e.target === modal) {
-                closeModal();
-            }
-        });
-
-        // Modal temporarily disabled - CTAs link directly to Stripe
-        // document.querySelectorAll('.cta-button, .sticky-cta-button').forEach(btn => {
-        //     if (btn.href && btn.href.includes('stripe.com')) {
-        //         btn.addEventListener('click', openModal);
-        //     }
-        // });
 
         // Sticky CTA bar - show only after scrolling past hero
         const heroSection = document.querySelector('.hero');
