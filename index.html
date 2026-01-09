@@ -1751,6 +1751,16 @@
     </div>
 
     <script>
+        // Scroll to top on page load to prevent anchor scrolling
+        window.addEventListener('load', function() {
+            window.scrollTo(0, 0);
+        });
+        
+        // Also handle hash changes to prevent scrolling
+        if (window.location.hash) {
+            window.history.replaceState(null, null, ' ');
+        }
+
         // Discount Modal
         const discountModal = document.getElementById('discountModal');
         const closeDiscountBtn = document.getElementById('closeDiscountModalBtn');
