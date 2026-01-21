@@ -1785,20 +1785,12 @@
             </p>
         </div>
 
-        <!-- Order bump -->
-        <div class="order-bump-box">
-            <label class="order-bump-label">
-                <input type="checkbox" id="upsellToggle">
-                <span class="order-bump-content">
-                    <strong>One Time Offer: Add the 50 Ready-to-Use AI Messages Pack (£5.99)</strong><br>
-                    <small>Use AI confidently for daily tasks without thinking about prompts.</small>
-                </span>
-            </label>
-        </div>
-
+       
         <div class="discount-modal-actions">
-            <a href="#" 
-               class="discount-modal-primary-btn" 
+            <a href="https://buy.stripe.com/eVqaEWbj52S8auI45IbZe00"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="discount-modal-primary-btn"
                id="continueToCheckoutBtn">
                 <span>Continue to Checkout</span>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -1807,8 +1799,7 @@
                 </svg>
             </a>
         </div>
-    </div>
-</div>
+        
 
 
     <script>
@@ -1911,24 +1902,3 @@
         window.addEventListener('resize', toggleStickyBar);
         toggleStickyBar();
     </script>
-<script>
-    const BASE_LINK   = "https://buy.stripe.com/eVqaEWbj52S8auI45IbZe00"; // £19
-    const BUNDLE_LINK = "https://buy.stripe.com/5kQ28qfzleAQ1YceKmbZe04"; // £24 (£19 + £5)
-    
-    document.getElementById("continueToCheckoutBtn").addEventListener("click", function (e) {
-        e.preventDefault();
-    
-        // Meta tracking — preserved
-        if (typeof fbq !== "undefined") {
-            fbq("track", "InitiateCheckout");
-        }
-    
-        const upsellChecked = document.getElementById("upsellToggle").checked;
-        const targetUrl = upsellChecked ? BUNDLE_LINK : BASE_LINK;
-    
-        window.location.href = targetUrl;
-    });
-    </script>
-    
-</body>
-</html>
