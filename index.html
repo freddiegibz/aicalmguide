@@ -83,6 +83,49 @@
             border-bottom: 1px solid var(--color-border);
             padding: 10px 0;
         }
+        .order-bump-box {
+            margin: 18px 0 10px;
+            padding: 14px 16px;
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            background: #f9fafb;
+        }
+
+        .order-bump-label {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            cursor: pointer;
+        }
+
+        .order-bump-label input[type="checkbox"] {
+            margin-top: 3px;
+            width: 16px;
+            height: 16px;
+            accent-color: #111827; /* matches dark UI */
+            flex-shrink: 0;
+        }
+
+        .order-bump-content strong {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: #111827;
+            line-height: 1.4;
+        }
+
+        .order-bump-content small {
+            display: block;
+            margin-top: 4px;
+            font-size: 12px;
+            color: #4b5563;
+            line-height: 1.5;
+        }
+        .order-bump-box:hover {
+            border-color: #d1d5db;
+            background: #f3f4f6;
+        }
+
 
         .trust-strip .container {
             display: flex;
@@ -1561,7 +1604,7 @@
 
                     </ul>
 
-                    <a href="https://buy.stripe.com/eVqaEWbj52S8auI45IbZe00" class="cta-button" id="heroCtaBtn">Get Instant Access</a>
+                    <a href="https://buy.stripe.com/eVqaEWbj52S8auI45IbZe00" class="cta-button" id="heroCtaBtn">Get Instant Access - £12</a>
                     <p class="hero-guarantee">
                         Digital download · 100% money-back guarantee
                     </p>
@@ -1719,33 +1762,54 @@
             </div>
         </div>
 
-    <!-- Discount Code Modal -->
-    <div class="discount-modal-overlay" id="discountModal">
-        <div class="discount-modal">
-            <button class="discount-modal-close" id="closeDiscountModalBtn" aria-label="Close">&times;</button>
-            
-            <div class="discount-modal-header">
-                <h2 class="discount-modal-title">Early Customer Discount</h2>
-                <p class="discount-modal-body">As an early customer, you can save 35% on your purchase. Use the code below when you reach checkout.</p>
-    </div>
-            
-            <div class="discount-code-box">
-                <p class="discount-code-label">Use this code at checkout:</p>
-                <div class="discount-code-display">
-                    <span class="discount-code-text" id="discountCode">EARLY</span>
-                    <button class="discount-code-copy" id="copyCodeBtn" aria-label="Copy code">Copy</button>
-                </div>
-                <p class="discount-code-note">Enter this code when you reach the checkout page to receive 35% off.</p>
+   <!-- Discount Code Modal -->
+<div class="discount-modal-overlay" id="discountModal">
+    <div class="discount-modal">
+        <button class="discount-modal-close" id="closeDiscountModalBtn" aria-label="Close">&times;</button>
+        
+        <div class="discount-modal-header">
+            <h2 class="discount-modal-title">Early Customer Discount</h2>
+            <p class="discount-modal-body">
+                As an early customer, you can save 35% on your purchase. Use the code below when you reach checkout.
+            </p>
+        </div>
+        
+        <div class="discount-code-box">
+            <p class="discount-code-label">Use this code at checkout:</p>
+            <div class="discount-code-display">
+                <span class="discount-code-text" id="discountCode">EARLY</span>
+                <button class="discount-code-copy" id="copyCodeBtn" aria-label="Copy code">Copy</button>
             </div>
+            <p class="discount-code-note">
+                Enter this code when you reach the checkout page to receive 35% off.
+            </p>
+        </div>
 
-            <div class="discount-modal-actions">
-                <a href="https://buy.stripe.com/eVqaEWbj52S8auI45IbZe00" class="discount-modal-primary-btn" id="continueToCheckoutBtn" onclick="if(typeof fbq !== 'undefined') fbq('track', 'InitiateCheckout');">
-                    <span>Continue to Checkout</span>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </a>
-            </div>
+        <!-- Order bump -->
+        <div class="order-bump-box">
+            <label class="order-bump-label">
+                <input type="checkbox" id="upsellToggle">
+                <span class="order-bump-content">
+                    <strong>One Time Offer: Add the 50 Ready-to-Use AI Messages Pack (£5.99)</strong><br>
+                    <small>Use AI confidently for daily tasks without thinking about prompts.</small>
+                </span>
+            </label>
+        </div>
+
+        <div class="discount-modal-actions">
+            <a href="#" 
+               class="discount-modal-primary-btn" 
+               id="continueToCheckoutBtn">
+                <span>Continue to Checkout</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </a>
         </div>
     </div>
+</div>
+
 
     <script>
         // Scroll to top on page load to prevent anchor scrolling
@@ -1847,6 +1911,24 @@
         window.addEventListener('resize', toggleStickyBar);
         toggleStickyBar();
     </script>
-
+<script>
+    const BASE_LINK   = "https://buy.stripe.com/eVqaEWbj52S8auI45IbZe00"; // £19
+    const BUNDLE_LINK = "https://buy.stripe.com/5kQ28qfzleAQ1YceKmbZe04"; // £24 (£19 + £5)
+    
+    document.getElementById("continueToCheckoutBtn").addEventListener("click", function (e) {
+        e.preventDefault();
+    
+        // Meta tracking — preserved
+        if (typeof fbq !== "undefined") {
+            fbq("track", "InitiateCheckout");
+        }
+    
+        const upsellChecked = document.getElementById("upsellToggle").checked;
+        const targetUrl = upsellChecked ? BUNDLE_LINK : BASE_LINK;
+    
+        window.location.href = targetUrl;
+    });
+    </script>
+    
 </body>
 </html>
