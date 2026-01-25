@@ -264,6 +264,109 @@
             color: var(--color-text-light);
         }
 
+        .hero-addon-hint {
+            margin-top: 12px;
+            font-size: 14px;
+        }
+
+        .hero-addon-hint a {
+            color: var(--color-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .hero-addon-hint a:hover {
+            color: var(--color-primary-light);
+            text-decoration: underline;
+        }
+
+        /* Add-On Banner */
+        .addon-banner {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+            padding: 16px 0;
+        }
+
+        .addon-banner-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .addon-banner-text {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .addon-banner-label {
+            background: rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .addon-banner-title {
+            color: #ffffff;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .addon-banner-action {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .addon-banner-price {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .addon-banner-link {
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 6px;
+            transition: background 0.2s ease;
+        }
+
+        .addon-banner-link:hover {
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        @media (max-width: 600px) {
+            .addon-banner {
+                padding: 14px 0;
+            }
+
+            .addon-banner-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 12px;
+            }
+
+            .addon-banner-text {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .addon-banner-title {
+                font-size: 14px;
+            }
+        }
+
         .hero-image {
             order: 2;
             text-align: center;
@@ -765,6 +868,39 @@
             color: var(--color-text-light);
         }
 
+        .final-cta-options {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .final-cta-or {
+            font-size: 14px;
+            color: var(--color-text-light);
+            font-weight: 500;
+        }
+
+        .cta-button-secondary {
+            display: inline-block;
+            background: transparent;
+            color: var(--color-primary);
+            padding: 16px 32px;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 8px;
+            border: 2px solid var(--color-primary);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .cta-button-secondary:hover {
+            background: var(--color-primary);
+            color: #ffffff;
+        }
+
         /* Pre-checkout Modal */
         .checkout-modal-overlay {
             display: none;
@@ -944,8 +1080,8 @@
             color: rgba(255, 255, 255, 0.85);
         }
 
-        /* Discount Code Modal */
-        .discount-modal-overlay {
+        /* Order Bump Modal */
+        .order-modal-overlay {
             display: none;
             position: fixed;
             top: 0;
@@ -959,25 +1095,23 @@
             padding: 20px;
         }
 
-        .discount-modal-overlay.active {
+        .order-modal-overlay.active {
             display: flex;
         }
 
-        .discount-modal {
+        .order-modal {
             background: #fff;
-            border-radius: 16px;
-            max-width: 480px;
+            border-radius: 12px;
+            max-width: 400px;
             width: 100%;
-            padding: 0;
-            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.2);
             position: relative;
-            overflow: hidden;
         }
 
-        .discount-modal-close {
+        .order-modal-close {
             position: absolute;
-            top: 20px;
-            right: 20px;
+            top: 12px;
+            right: 12px;
             background: none;
             border: none;
             font-size: 22px;
@@ -993,167 +1127,462 @@
             z-index: 1;
         }
 
-        .discount-modal-close:hover {
+        .order-modal-close:hover {
             background: var(--color-bg-warm);
             color: var(--color-text);
         }
 
-        .discount-modal-header {
-            padding: 36px 32px 24px;
-            text-align: center;
-            background: linear-gradient(180deg, var(--color-bg-warm) 0%, #fff 100%);
+        /* Steps */
+        .order-step {
+            display: block;
         }
 
-        .discount-modal-title {
+        .order-step-hidden {
+            display: none;
+        }
+
+        .order-modal-header {
+            padding: 20px 24px 0;
+        }
+
+        .order-modal-title {
             font-family: 'Source Serif 4', Georgia, serif;
-            font-size: 24px;
+            font-size: 20px;
             font-weight: 500;
-            color: var(--color-text);
-            margin-bottom: 12px;
-            line-height: 1.3;
-        }
-
-        .discount-modal-body {
-            font-size: 16px;
-            color: var(--color-text);
-            line-height: 1.6;
-            margin: 0;
-            max-width: 420px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .discount-code-box {
-            padding: 32px;
-            text-align: center;
-        }
-
-        .discount-code-label {
-            font-size: 15px;
-            color: var(--color-text-light);
-            margin-bottom: 16px;
-        }
-
-        .discount-code-display {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            margin-bottom: 16px;
-            background: var(--color-bg-warm);
-            border: 2px solid var(--color-border);
-            border-radius: 10px;
-            padding: 16px 20px;
-        }
-
-        .discount-code-text {
-            font-size: 24px;
-            font-weight: 700;
             color: var(--color-primary);
-            letter-spacing: 2px;
-            font-family: 'Inter', monospace;
-        }
-
-        .discount-code-copy {
-            background: var(--color-primary);
-            color: #fff;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 6px;
-            font-size: 14px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .discount-code-copy:hover {
-            background: var(--color-primary-light);
-        }
-
-        .discount-code-copy.copied {
-            background: var(--color-success);
-        }
-
-        .discount-code-note {
-            font-size: 14px;
-            color: var(--color-text-light);
-            line-height: 1.5;
             margin: 0;
+            padding-right: 28px;
         }
 
-        .discount-modal-actions {
-            padding: 0 32px 32px;
+        .order-modal-content {
+            padding: 16px 24px 20px;
+        }
+
+        /* Order Item */
+        .order-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+        }
+
+        .order-item-main {
+            padding-bottom: 8px;
+        }
+
+        .order-item-info {
             display: flex;
             flex-direction: column;
-            align-items: center;
+            gap: 1px;
         }
 
-        .discount-modal-primary-btn {
-            background: var(--color-primary);
-            color: #fff;
-            padding: 16px 32px;
-            font-size: 17px;
-            font-weight: 600;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            text-align: center;
-            text-decoration: none;
+        .order-item-name {
+            font-weight: 500;
+            color: var(--color-text);
+            font-size: 15px;
+        }
+
+        .order-item-desc {
+            font-size: 13px;
+            color: var(--color-text-light);
+        }
+
+        .order-item-pricing {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            width: 100%;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 2px;
+        }
+
+        .order-item-price-original {
+            font-size: 13px;
+            color: var(--color-text-secondary);
+            text-decoration: line-through;
+        }
+
+        .order-item-price {
+            font-weight: 600;
+            color: var(--color-primary);
+            font-size: 15px;
+        }
+
+        /* Discount Badge */
+        .order-discount-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 6px 12px;
+            border-radius: 20px;
+            margin-top: 8px;
+            text-align: center;
+        }
+
+        /* Order Bump */
+        .order-bump {
+            background: var(--color-bg-warm);
+            border: 2px solid var(--color-border);
+            border-radius: 8px;
+            padding: 12px 14px;
+            margin: 12px 0;
             transition: all 0.2s ease;
-            box-shadow: 0 4px 12px rgba(30, 58, 95, 0.25);
         }
 
-        .discount-modal-primary-btn:hover {
-            background: var(--color-primary-light);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(30, 58, 95, 0.3);
+        .order-bump:hover {
+            border-color: var(--color-primary-light);
         }
 
-        .discount-modal-primary-btn:active {
-            transform: translateY(0);
+        .order-bump.selected {
+            border-color: var(--color-primary);
+            background: #fff;
         }
 
-        .discount-modal-primary-btn svg {
+        .order-bump-label {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            cursor: pointer;
+        }
+
+        .order-bump-label input[type="checkbox"] {
+            display: none;
+        }
+
+        .order-bump-checkbox {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--color-border);
+            border-radius: 4px;
+            flex-shrink: 0;
+            margin-top: 1px;
+            position: relative;
+            transition: all 0.2s ease;
+            background: #fff;
+        }
+
+        .order-bump-label input:checked + .order-bump-checkbox {
+            background: var(--color-primary);
+            border-color: var(--color-primary);
+        }
+
+        .order-bump-label input:checked + .order-bump-checkbox::after {
+            content: "✓";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .order-bump-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .order-bump-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 4px;
+        }
+
+        .order-bump-name {
+            font-weight: 500;
+            color: var(--color-text);
+            font-size: 14px;
+        }
+
+        .order-bump-pricing {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 1px;
             flex-shrink: 0;
         }
 
+        .order-bump-price-original {
+            font-size: 11px;
+            color: var(--color-text-secondary);
+            text-decoration: line-through;
+        }
+
+        .order-bump-price {
+            font-weight: 600;
+            color: var(--color-primary);
+            font-size: 14px;
+        }
+
+        .order-bump-desc {
+            font-size: 13px;
+            color: var(--color-text-light);
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        /* Order Total */
+        .order-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-top: 1px solid var(--color-border);
+            margin-bottom: 12px;
+        }
+
+        .order-total-label {
+            font-size: 15px;
+            color: var(--color-text);
+        }
+
+        .order-total-pricing {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .order-total-price-original {
+            font-size: 14px;
+            color: var(--color-text-secondary);
+            text-decoration: line-through;
+        }
+
+        .order-total-price {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--color-primary);
+        }
+
+        /* Primary CTA */
+        .order-modal-primary-btn {
+            display: block;
+            width: 100%;
+            background: var(--color-primary);
+            color: #fff;
+            padding: 14px 20px;
+            font-size: 15px;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(30, 58, 95, 0.2);
+        }
+
+        .order-modal-primary-btn:hover {
+            background: var(--color-primary-light);
+            box-shadow: 0 6px 16px rgba(30, 58, 95, 0.25);
+        }
+
+        /* Guarantee - Step 1 */
+        .order-modal-guarantee {
+            text-align: center;
+            font-size: 12px;
+            color: var(--color-text-light);
+            margin: 12px 0 0;
+        }
+
+        /* Bundle Option - Step 2 */
+        .order-bundle {
+            background: linear-gradient(180deg, var(--color-bg-warm) 0%, var(--color-accent-soft) 100%);
+            border: 1px solid var(--color-border);
+            border-radius: 10px;
+            padding: 16px;
+            position: relative;
+        }
+
+        .order-bundle-badge {
+            position: absolute;
+            top: -10px;
+            left: 16px;
+            background: var(--color-primary);
+            color: #fff;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+
+        .order-bundle-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 6px 0 12px;
+            gap: 8px;
+        }
+
+        .order-bundle-title {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 17px;
+            font-weight: 500;
+            color: var(--color-primary);
+        }
+
+        .order-bundle-pricing {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .order-bundle-price {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--color-primary);
+        }
+
+        .order-bundle-savings {
+            font-size: 11px;
+            font-weight: 600;
+            color: #fff;
+            background: var(--color-primary);
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+
+        .order-bundle-includes {
+            list-style: none;
+            margin: 0 0 14px;
+            padding: 0;
+        }
+
+        .order-bundle-includes li {
+            font-size: 13px;
+            color: var(--color-text);
+            padding: 3px 0 3px 18px;
+            position: relative;
+        }
+
+        .order-bundle-includes li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--color-primary);
+            font-weight: 600;
+            font-size: 12px;
+        }
+
+        /* Skip button - Step 2 */
+        .order-skip-btn {
+            display: block;
+            width: 100%;
+            background: none;
+            color: var(--color-text-light);
+            padding: 14px 20px;
+            font-size: 14px;
+            font-weight: 400;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.2s ease;
+            margin-top: 12px;
+        }
+
+        .order-skip-btn:hover {
+            color: var(--color-text);
+            text-decoration: underline;
+        }
+
+        /* Product links in modal */
+        .bundle-product-link {
+            color: var(--color-primary);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        .bundle-product-link:hover {
+            color: var(--color-primary-light);
+        }
+
+        .order-bump-link {
+            color: var(--color-primary);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            font-weight: 500;
+        }
+
+        .order-bump-link:hover {
+            color: var(--color-primary-light);
+        }
+
+        /* Product links in option cards */
+        .option-product-link {
+            color: inherit;
+            text-decoration: underline;
+            text-decoration-style: dotted;
+            text-underline-offset: 2px;
+        }
+
+        .option-product-link:hover {
+            color: var(--color-primary);
+            text-decoration-style: solid;
+        }
+
+        /* Mobile adjustments for modal */
         @media (max-width: 767px) {
-            .discount-modal {
-                max-width: calc(100% - 32px);
+            .order-modal-overlay {
+                padding: 16px;
+                align-items: center;
             }
 
-            .discount-modal-header {
-                padding: 28px 24px 20px;
+            .order-modal {
+                max-width: 100%;
             }
 
-            .discount-modal-title {
-                font-size: 22px;
+            .order-modal-header {
+                padding: 18px 20px 0;
             }
 
-            .discount-modal-body {
-                font-size: 15px;
+            .order-modal-title {
+                font-size: 18px;
             }
 
-            .discount-code-box {
-                padding: 24px;
+            .order-modal-content {
+                padding: 14px 20px 18px;
             }
 
-            .discount-code-text {
-                font-size: 20px;
+            .order-bump {
+                padding: 12px;
             }
 
-            .discount-modal-actions {
-                padding: 0 24px 24px;
+            .order-bump-header {
+                flex-wrap: wrap;
             }
 
-            .discount-modal-primary-btn {
+            .order-bump-name {
+                font-size: 13px;
+            }
+
+            .order-bump-desc {
+                font-size: 12px;
+            }
+
+            .order-bundle {
+                padding: 14px;
+            }
+
+            .order-bundle-header {
+                flex-wrap: wrap;
+            }
+
+            .order-bundle-title {
                 font-size: 16px;
-                padding: 14px 28px;
+            }
+
+            .order-modal-primary-btn {
+                padding: 13px 18px;
+                font-size: 14px;
+            }
+
+            .order-skip-btn {
+                padding: 12px 16px;
+                font-size: 13px;
             }
         }
 
@@ -1463,6 +1892,225 @@
         }
 
         /* Mobile adjustments */
+        /* Product Options Section */
+        .product-options {
+            padding: 90px 0;
+            background: linear-gradient(180deg, #ffffff 0%, var(--color-bg-warm) 100%);
+        }
+
+        .product-options h2 {
+            text-align: center;
+            margin-bottom: 12px;
+        }
+
+        .product-options .section-subtitle {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .option-card {
+            background: #ffffff;
+            border: 2px solid var(--color-border);
+            border-radius: 16px;
+            padding: 32px 28px;
+            position: relative;
+            transition: all 0.25s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .option-card:hover {
+            border-color: var(--color-primary-light);
+            box-shadow: 0 8px 32px rgba(30, 58, 95, 0.12);
+            transform: translateY(-4px);
+        }
+
+        .option-card.featured {
+            border: 3px solid var(--color-primary);
+            box-shadow: 0 8px 40px rgba(30, 58, 95, 0.15);
+            transform: scale(1.03);
+        }
+
+        .option-card.featured:hover {
+            transform: scale(1.03) translateY(-4px);
+        }
+
+        .option-badge {
+            position: absolute;
+            top: -12px;
+            left: 24px;
+            background: var(--color-bg-warm);
+            color: var(--color-primary);
+            font-size: 12px;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 20px;
+            border: 1px solid var(--color-border);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .option-badge.accent {
+            background: var(--color-primary);
+            color: #ffffff;
+            border-color: var(--color-primary);
+        }
+
+        .option-card h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+            margin-top: 8px;
+            color: var(--color-primary);
+        }
+
+        .option-description {
+            font-size: 15px;
+            color: var(--color-text-light);
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .option-features {
+            list-style: none;
+            margin: 0 0 24px 0;
+            padding: 0;
+            flex-grow: 1;
+        }
+
+        .option-features li {
+            padding: 8px 0 8px 24px;
+            position: relative;
+            font-size: 14px;
+            color: var(--color-text);
+            line-height: 1.5;
+        }
+
+        .option-features li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #3d8b5f;
+            font-weight: 600;
+        }
+
+        .option-price {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .price-current {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--color-primary);
+        }
+
+        .price-original {
+            font-size: 16px;
+            color: var(--color-text-light);
+            text-decoration: line-through;
+        }
+
+        .savings-tag {
+            background: #ecfdf5;
+            color: #047857;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 12px;
+        }
+
+        .option-btn {
+            display: block;
+            text-align: center;
+            padding: 14px 24px;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .option-btn.primary-option {
+            background: var(--color-primary);
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(30, 58, 95, 0.25);
+        }
+
+        .option-btn.primary-option:hover {
+            background: var(--color-primary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(30, 58, 95, 0.3);
+        }
+
+        .option-btn.featured-btn {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+            padding: 16px 24px;
+            font-size: 16px;
+        }
+
+        .option-btn.secondary-option {
+            background: transparent;
+            color: var(--color-primary);
+            border: 2px solid var(--color-primary);
+        }
+
+        .option-btn.secondary-option:hover {
+            background: var(--color-primary);
+            color: #ffffff;
+        }
+
+        .options-guarantee {
+            text-align: center;
+            margin-top: 32px;
+            font-size: 14px;
+            color: var(--color-text-light);
+        }
+
+        @media (max-width: 900px) {
+            .options-grid {
+                grid-template-columns: 1fr;
+                max-width: 420px;
+            }
+
+            .option-card.featured {
+                transform: none;
+                order: -1;
+            }
+
+            .option-card.featured:hover {
+                transform: translateY(-4px);
+            }
+        }
+
+        @media (max-width: 767px) {
+            .product-options {
+                padding: 60px 0;
+            }
+
+            .option-card {
+                padding: 28px 22px;
+            }
+
+            .option-card h3 {
+                font-size: 20px;
+            }
+
+            .price-current {
+                font-size: 24px;
+            }
+        }
+
         @media (max-width: 767px) {
             section {
                 padding: 70px 0;
@@ -1604,7 +2252,7 @@
 
                     </ul>
 
-                    <a href="https://buy.stripe.com/eVqaEWbj52S8auI45IbZe00" class="cta-button" id="heroCtaBtn">Get Instant Access - £14.25</a>
+                    <a href="https://buy.stripe.com/fZu4gygDpakA46k8lYbZe08" class="cta-button" id="heroCtaBtn">Get Instant Access - £14.59</a>
                     <p class="hero-guarantee">
                         Digital download · 100% money-back guarantee
                     </p>
@@ -1615,6 +2263,7 @@
             </div>
         </div>
     </section>
+
 
     <!-- Problem Section -->
     <section class="problem">
@@ -1733,15 +2382,18 @@
         </div>
     </section>
 
+
     <!-- Final CTA -->
     <section class="final-cta" id="get-kit">
         <div class="container">
             <h2>Stop Watching. Start Using AI with Real Confidence.</h2>
             <p class="section-subtitle">Gain clarity. Take control. Make better decisions, faster.</p>
-            <a href="https://buy.stripe.com/eVqaEWbj52S8auI45IbZe00" class="cta-button" id="sectionCtaBtn">Get Instant Access — £12.73</a>
-            <p class="cta-reassurance" style="margin-top: 12px; font-size: 14px;">Instant delivery · 100% money-back guarantee</p>
-            <p class="cta-reassurance" style="margin-top: 14px;"><s style="opacity: 0.6;">£19</s></p>
-            <p class="cta-reassurance" style="margin-top: 8px;">Digital download · 100% money-back guarantee</p>
+            
+            <div class="final-cta-options">
+                <a href="https://buy.stripe.com/fZu4gygDpakA46k8lYbZe08" class="cta-button" id="sectionCtaBtn">Get the Kit — £14.59</a>
+            </div>
+            
+            <p class="cta-reassurance" style="margin-top: 20px; font-size: 14px;">Instant delivery · 100% money-back guarantee</p>
             <p class="cta-reassurance" style="margin-top: 16px; font-size: 15px;">Questions? <a class="inline-link" href="mailto:adsbyalfred@protonmail.com">adsbyalfred@protonmail.com</a></p>
         </div>
     </section>
@@ -1749,7 +2401,7 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2024 AI Confidence Kit. All rights reserved.</p>
+            <p>&copy; 2025 AI Confidence Kit. All rights reserved.</p>
             <p style="margin-top: 10px;">Support: <a class="inline-link" href="mailto:adsbyalfred@protonmail.com">adsbyalfred@protonmail.com</a></p>
         </div>
     </footer>
@@ -1757,50 +2409,75 @@
     <!-- Sticky Mobile CTA Bar -->
     <div class="sticky-cta-bar">
         <div class="sticky-cta-bar-content">
-            <a href="https://buy.stripe.com/eVqaEWbj52S8auI45IbZe00" class="sticky-cta-button" id="stickyCtaBtn">Get Instant Access — £12.73</a>
+            <a href="https://buy.stripe.com/fZu4gygDpakA46k8lYbZe08" class="sticky-cta-button" id="stickyCtaBtn">Get Instant Access — £14.59</a>
             <p class="sticky-cta-guarantee">Instant delivery · 100% refund guarantee</p>
             </div>
         </div>
 
-   <!-- Discount Code Modal -->
-<div class="discount-modal-overlay" id="discountModal">
-    <div class="discount-modal">
-        <button class="discount-modal-close" id="closeDiscountModalBtn" aria-label="Close">&times;</button>
+   <!-- Order Modal - Step 1: Order Bump -->
+<div class="order-modal-overlay" id="orderModal">
+    <div class="order-modal">
+        <button class="order-modal-close" id="closeOrderModalBtn" aria-label="Close">&times;</button>
         
-        <div class="discount-modal-header">
-            <h2 class="discount-modal-title">Early Customer Discount</h2>
-            <p class="discount-modal-body">
-                As an early customer, you can save 25% on your purchase. Use the code below when you reach checkout.
-            </p>
-        </div>
-        
-        <div class="discount-code-box">
-            <p class="discount-code-label">Use this code at checkout:</p>
-            <div class="discount-code-display">
-                <span class="discount-code-text" id="discountCode">EARLY25</span>
-                <button class="discount-code-copy" id="copyCodeBtn" aria-label="Copy code">Copy</button>
+        <!-- Step 1: Order Bump -->
+        <div class="order-step" id="orderStep1">
+            <div class="order-modal-header">
+                <h2 class="order-modal-title">Complete Your Order</h2>
+                <div class="order-discount-badge">Early Customer Price — 25% Off</div>
             </div>
-            <p class="discount-code-note">
-                Enter this code when you reach the checkout page to receive 25% off.
-            </p>
-        </div>
+            
+            <div class="order-modal-content">
+                <!-- Current Order -->
+                <div class="order-item order-item-main">
+                    <div class="order-item-info">
+                        <span class="order-item-name">AI Confidence Kit</span>
+                        <span class="order-item-desc">The complete eBook</span>
+                    </div>
+                    <div class="order-item-pricing">
+                        <span class="order-item-price-original">£19.45</span>
+                        <span class="order-item-price">£14.59</span>
+                    </div>
+                </div>
 
-       
-        <div class="discount-modal-actions">
-            <a href="https://buy.stripe.com/eVqaEWbj52S8auI45IbZe00"
-               target="_blank"
-               rel="noopener noreferrer"
-               class="discount-modal-primary-btn"
-               id="continueToCheckoutBtn">
-                <span>Continue to Checkout</span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-            </a>
-        </div>
-        
+                <!-- Order Bump -->
+                <div class="order-bump" id="orderBump">
+                    <label class="order-bump-label">
+                        <input type="checkbox" id="bumpCheckbox">
+                        <div class="order-bump-checkbox"></div>
+                        <div class="order-bump-content">
+                            <div class="order-bump-header">
+                                <span class="order-bump-name">Add: 50 Ready-to-Use Messages</span>
+                                <div class="order-bump-pricing">
+                                    <span class="order-bump-price-original">£10</span>
+                                    <span class="order-bump-price">+£7.50</span>
+                                </div>
+                            </div>
+                            <p class="order-bump-desc">Pre-written messages for emails, planning, decisions. Just adjust and use. <a href="messages.html" target="_blank" class="order-bump-link">Learn more</a></p>
+                        </div>
+                    </label>
+                </div>
 
+                <!-- Order Total -->
+                <div class="order-total">
+                    <span class="order-total-label">Total:</span>
+                    <div class="order-total-pricing">
+                        <span class="order-total-price-original" id="orderTotalOriginal">£19.45</span>
+                        <span class="order-total-price" id="orderTotalPrice">£14.59</span>
+                    </div>
+                </div>
+
+                <!-- Primary CTA -->
+                <a href="https://buy.stripe.com/fZu4gygDpakA46k8lYbZe08" 
+                   class="order-modal-primary-btn" 
+                   id="checkoutBtn">
+                    Continue to Checkout
+                </a>
+
+                <p class="order-modal-guarantee">Full refund if it's not what you expected</p>
+            </div>
+        </div>
+    </div>
+</div>
 
     <script>
         // Scroll to top on page load to prevent anchor scrolling
@@ -1813,51 +2490,111 @@
             window.history.replaceState(null, null, ' ');
         }
 
-        // Discount Modal
-        const discountModal = document.getElementById('discountModal');
-        const closeDiscountBtn = document.getElementById('closeDiscountModalBtn');
-        const copyCodeBtn = document.getElementById('copyCodeBtn');
-        const discountCodeText = document.getElementById('discountCode');
+        // Order Bump Modal
+        const orderModal = document.getElementById('orderModal');
+        const closeOrderBtn = document.getElementById('closeOrderModalBtn');
+        const bumpCheckbox = document.getElementById('bumpCheckbox');
+        const orderBump = document.getElementById('orderBump');
+        const orderTotalPrice = document.getElementById('orderTotalPrice');
+        const orderTotalOriginal = document.getElementById('orderTotalOriginal');
+        const checkoutBtn = document.getElementById('checkoutBtn');
 
-        function openDiscountModal(e) {
+        // Stripe checkout URLs
+        const STRIPE_URLS = {
+            ebookOnly: 'https://buy.stripe.com/fZu4gygDpakA46k8lYbZe08',
+            ebookWithBump: 'https://buy.stripe.com/3cI6oG72P1O4dGU31EbZe09'
+        };
+
+        // Pricing (discounted prices)
+        const PRICES = {
+            ebook: 14.59,
+            messages: 7.50,
+            ebookOriginal: 19.45,
+            messagesOriginal: 10.00
+        };
+
+        function openOrderModal(e) {
             e.preventDefault();
-            discountModal.classList.add('active');
+            orderModal.classList.add('active');
             document.body.style.overflow = 'hidden';
+            
+            // Reset checkbox state
+            if (bumpCheckbox) {
+                bumpCheckbox.checked = false;
+                orderBump.classList.remove('selected');
+                updateOrderTotal();
+            }
         }
 
-        function closeDiscountModal() {
-            discountModal.classList.remove('active');
+        function closeOrderModal() {
+            orderModal.classList.remove('active');
             document.body.style.overflow = '';
         }
 
-        function copyDiscountCode() {
-            const code = discountCodeText.textContent;
-            navigator.clipboard.writeText(code).then(function() {
-                copyCodeBtn.textContent = 'Copied!';
-                copyCodeBtn.classList.add('copied');
-                setTimeout(function() {
-                    copyCodeBtn.textContent = 'Copy';
-                    copyCodeBtn.classList.remove('copied');
-                }, 2000);
-            });
+        function updateOrderTotal() {
+            const isBumpSelected = bumpCheckbox && bumpCheckbox.checked;
+            const total = isBumpSelected ? PRICES.ebook + PRICES.messages : PRICES.ebook;
+            const totalOriginal = isBumpSelected ? PRICES.ebookOriginal + PRICES.messagesOriginal : PRICES.ebookOriginal;
+            
+            if (orderTotalPrice) {
+                orderTotalPrice.textContent = '£' + total.toFixed(2);
+            }
+            
+            if (orderTotalOriginal) {
+                orderTotalOriginal.textContent = '£' + totalOriginal.toFixed(2);
+            }
+            
+            if (orderBump) {
+                if (isBumpSelected) {
+                    orderBump.classList.add('selected');
+                } else {
+                    orderBump.classList.remove('selected');
+                }
+            }
+            
+            // Update checkout button URL
+            if (checkoutBtn) {
+                checkoutBtn.href = isBumpSelected ? STRIPE_URLS.ebookWithBump : STRIPE_URLS.ebookOnly;
+            }
         }
 
         // Close modal handlers
-        if (closeDiscountBtn) {
-            closeDiscountBtn.addEventListener('click', closeDiscountModal);
+        if (closeOrderBtn) {
+            closeOrderBtn.addEventListener('click', closeOrderModal);
         }
 
-        if (discountModal) {
-            discountModal.addEventListener('click', function(e) {
-                if (e.target === discountModal) {
-                    closeDiscountModal();
+        if (orderModal) {
+            orderModal.addEventListener('click', function(e) {
+                if (e.target === orderModal) {
+                    closeOrderModal();
                 }
             });
         }
 
-        // Copy code handler
-        if (copyCodeBtn) {
-            copyCodeBtn.addEventListener('click', copyDiscountCode);
+        // Escape key closes modal
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && orderModal && orderModal.classList.contains('active')) {
+                closeOrderModal();
+            }
+        });
+
+        // Order bump checkbox handler
+        if (bumpCheckbox) {
+            bumpCheckbox.addEventListener('change', updateOrderTotal);
+        }
+
+        // Checkout button click tracking
+        if (checkoutBtn) {
+            checkoutBtn.addEventListener('click', function() {
+                const isBumpSelected = bumpCheckbox && bumpCheckbox.checked;
+                if (typeof fbq !== 'undefined') {
+                    fbq('track', 'InitiateCheckout', {
+                        content_name: isBumpSelected ? 'eBook + Messages' : 'eBook Only',
+                        value: isBumpSelected ? PRICES.ebook + PRICES.messages : PRICES.ebook,
+                        currency: 'GBP'
+                    });
+                }
+            });
         }
 
         // Open modal when CTAs are clicked
@@ -1866,9 +2603,24 @@
                 btn.addEventListener('click', function(e) {
                     e.preventDefault();
                     if (typeof fbq !== 'undefined') {
-                        fbq('track', 'InitiateCheckout');
+                        fbq('track', 'AddToCart');
                     }
-                    openDiscountModal(e);
+                    openOrderModal(e);
+                });
+            }
+        });
+
+        // Handle product option card buttons
+        document.querySelectorAll('.option-btn').forEach(btn => {
+            if (btn.href && btn.href.includes('stripe.com')) {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const optionType = btn.id;
+                    if (typeof fbq !== 'undefined') {
+                        fbq('track', 'AddToCart');
+                        fbq('trackCustom', 'ProductOptionSelected', { option: optionType });
+                    }
+                    openOrderModal(e);
                 });
             }
         });
@@ -1902,3 +2654,6 @@
         window.addEventListener('resize', toggleStickyBar);
         toggleStickyBar();
     </script>
+
+</body>
+</html>

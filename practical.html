@@ -3,7 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Practical Guide - Use ChatGPT in Real Situations</title>
+    <title>AI Confidence Course - Use AI Sensibly and Reliably</title>
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1216244347126516');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1216244347126516&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -15,7 +32,10 @@
             --color-text-light: #5a6778;
             --color-bg: #fafaf7;
             --color-bg-white: #ffffff;
+            --color-bg-cream: #f7f5f0;
             --color-border: #e8e4dc;
+            --color-accent: #c9a227;
+            --color-accent-soft: #f5ecd7;
         }
 
         * {
@@ -33,7 +53,7 @@
         }
 
         .container {
-            max-width: 700px;
+            max-width: 720px;
             margin: 0 auto;
             padding: 0 28px;
         }
@@ -47,20 +67,45 @@
         /* Header Section */
         .page-header {
             padding: 80px 0 60px;
-            background-color: var(--color-bg-white);
+            background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-white) 100%);
             border-bottom: 1px solid var(--color-border);
         }
 
         .page-header h1 {
-            font-size: clamp(28px, 4vw, 36px);
-            margin-bottom: 16px;
-            line-height: 1.3;
+            font-size: clamp(26px, 4vw, 34px);
+            margin-bottom: 20px;
+            line-height: 1.25;
         }
 
         .page-header .subheadline {
             font-size: 19px;
             color: var(--color-text);
             line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .target-outcome {
+            background: var(--color-bg-white);
+            border-left: 3px solid var(--color-primary);
+            padding: 18px 24px;
+            margin-top: 28px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .target-outcome-label {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-text-light);
+            margin-bottom: 6px;
+            font-weight: 500;
+        }
+
+        .target-outcome p {
+            font-size: 18px;
+            color: var(--color-primary);
+            font-style: italic;
+            margin: 0;
         }
 
         /* Content Sections */
@@ -69,170 +114,280 @@
             background-color: var(--color-bg-white);
         }
 
+        section.alt-bg {
+            background-color: var(--color-bg);
+        }
+
         section h2 {
-            font-size: clamp(24px, 3vw, 28px);
-            margin-bottom: 24px;
+            font-size: clamp(22px, 3vw, 26px);
+            margin-bottom: 20px;
             line-height: 1.3;
         }
 
         section p {
-            font-size: 18px;
+            font-size: 17px;
             line-height: 1.7;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             color: var(--color-text);
         }
 
-        /* Context Setting */
-        .context-section {
-            background-color: var(--color-bg);
+        /* Modules Section */
+        .modules-section {
+            background-color: var(--color-bg-white);
         }
 
-        /* Clarity Block */
-        .clarity-block {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin-top: 32px;
-        }
-
-        .clarity-column h3 {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 16px;
-            color: var(--color-primary);
-        }
-
-        .clarity-column ul {
-            list-style: none;
-        }
-
-        .clarity-column li {
-            font-size: 17px;
-            line-height: 1.7;
-            margin-bottom: 12px;
-            padding-left: 24px;
-            position: relative;
-        }
-
-        .clarity-column li::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: var(--color-primary);
-            font-weight: 600;
-        }
-
-        /* Situations List */
-        .situations-intro {
+        .modules-intro {
             font-size: 17px;
             color: var(--color-text-light);
-            margin-bottom: 24px;
-            font-style: italic;
+            margin-bottom: 36px;
         }
 
-        .situations-list {
-            list-style: none;
-            margin-top: 24px;
-        }
-
-        .situations-list li {
-            font-size: 18px;
-            line-height: 1.7;
-            margin-bottom: 16px;
-            padding-left: 28px;
-            position: relative;
-        }
-
-        .situations-list li::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: var(--color-primary);
-            font-weight: 600;
-            font-size: 24px;
-        }
-
-        /* How It Works */
-        .how-it-works ol {
-            list-style: none;
-            counter-reset: step-counter;
-            margin-top: 24px;
-        }
-
-        .how-it-works li {
-            counter-increment: step-counter;
-            font-size: 18px;
-            line-height: 1.7;
+        .module {
+            background: var(--color-bg);
+            border: 1px solid var(--color-border);
+            border-radius: 10px;
+            padding: 28px 28px 24px;
             margin-bottom: 20px;
-            padding-left: 48px;
-            position: relative;
         }
 
-        .how-it-works li::before {
-            content: counter(step-counter);
-            position: absolute;
-            left: 0;
+        .module-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .module-number {
+            background: var(--color-primary);
+            color: #fff;
             width: 32px;
             height: 32px;
-            background-color: var(--color-primary);
-            color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 14px;
             font-weight: 600;
-            font-size: 16px;
+            flex-shrink: 0;
         }
 
-        .how-it-works .closing-line {
-            margin-top: 32px;
-            font-size: 17px;
+        .module-title-group {
+            flex: 1;
+        }
+
+        .module-title {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 19px;
+            font-weight: 500;
+            color: var(--color-primary);
+            margin-bottom: 4px;
+        }
+
+        .module-time {
+            font-size: 13px;
+            color: var(--color-text-light);
+        }
+
+        .module-purpose {
+            font-size: 14px;
             color: var(--color-text-light);
             font-style: italic;
+            margin-bottom: 14px;
+            padding-left: 48px;
         }
 
-        /* Who This Is For */
-        .who-section {
-            background-color: var(--color-bg);
+        .module-content {
+            padding-left: 48px;
         }
 
-        .who-section h3 {
-            font-size: 19px;
+        .module-teaches {
+            margin-bottom: 14px;
+        }
+
+        .module-teaches-label {
+            font-size: 13px;
             font-weight: 600;
-            margin-bottom: 12px;
-            margin-top: 24px;
+            color: var(--color-text);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .module-teaches ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .module-teaches li {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 6px;
+            padding-left: 18px;
+            position: relative;
+            color: var(--color-text);
+        }
+
+        .module-teaches li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
             color: var(--color-primary);
         }
 
-        .who-section h3:first-child {
-            margin-top: 0;
+        .module-framework {
+            background: var(--color-bg-white);
+            border: 1px solid var(--color-border);
+            border-radius: 6px;
+            padding: 14px 18px;
+            margin-bottom: 14px;
         }
 
-        .who-section p {
+        .module-framework-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--color-text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 6px;
+        }
+
+        .module-framework p {
+            font-size: 15px;
+            color: var(--color-primary);
+            font-weight: 500;
+            margin: 0;
+        }
+
+        .module-shift {
+            border-top: 1px solid var(--color-border);
+            padding-top: 14px;
+            margin-top: 14px;
+        }
+
+        .module-shift-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--color-text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 6px;
+        }
+
+        .module-shift p {
+            font-size: 15px;
+            color: var(--color-text);
+            font-style: italic;
+            margin: 0;
+        }
+
+        /* Format Section */
+        .format-section {
+            background: var(--color-bg-cream);
+            border-top: 1px solid var(--color-border);
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .format-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-top: 24px;
+        }
+
+        .format-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .format-icon {
+            width: 20px;
+            height: 20px;
+            background: var(--color-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .format-icon::after {
+            content: "✓";
+            color: #fff;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .format-text {
+            font-size: 16px;
+            color: var(--color-text);
+        }
+
+        .format-feel {
+            margin-top: 32px;
+            padding: 20px 24px;
+            background: var(--color-bg-white);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .format-feel p {
+            font-size: 16px;
+            color: var(--color-text-light);
+            margin: 0;
+        }
+
+        .format-feel strong {
+            color: var(--color-primary);
+        }
+
+        /* Why This Works */
+        .why-section p {
             font-size: 17px;
             line-height: 1.7;
-            margin-bottom: 24px;
+        }
+
+        .why-box {
+            background: var(--color-bg);
+            border-left: 3px solid var(--color-accent);
+            padding: 20px 24px;
+            margin-top: 24px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .why-box p {
+            font-size: 17px;
+            color: var(--color-text);
+            margin: 0;
         }
 
         /* Price and CTA Section */
         .price-section {
-            background-color: var(--color-bg-white);
+            background: linear-gradient(180deg, var(--color-bg-white) 0%, var(--color-bg) 100%);
             text-align: center;
-            padding: 60px 0;
+            padding: 70px 0;
         }
 
         .price-display {
-            font-size: 24px;
+            font-size: 26px;
             font-weight: 500;
             color: var(--color-text);
+            margin-bottom: 12px;
+        }
+
+        .price-context {
+            font-size: 15px;
+            color: var(--color-text-light);
             margin-bottom: 32px;
         }
 
         .primary-cta {
             display: inline-block;
-            background: var(--color-primary);
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
             color: #ffffff;
-            padding: 18px 44px;
+            padding: 18px 48px;
             font-size: 18px;
             font-weight: 500;
             text-decoration: none;
@@ -242,7 +397,6 @@
         }
 
         .primary-cta:hover {
-            background: var(--color-primary-light);
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(30, 58, 95, 0.3);
         }
@@ -253,52 +407,42 @@
             margin-top: 16px;
         }
 
-        /* Divider */
-        .divider {
-            height: 1px;
-            background: var(--color-border);
-            margin: 60px 0;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Personal Help Section */
-        .personal-help-section {
-            background-color: var(--color-bg);
+        /* Bridge Section */
+        .bridge-section {
+            background: var(--color-bg);
+            padding: 50px 0;
             text-align: center;
-            padding: 60px 0;
+            border-top: 1px solid var(--color-border);
         }
 
-        .personal-help-section h2 {
-            font-size: clamp(22px, 3vw, 26px);
-            margin-bottom: 16px;
-        }
-
-        .personal-help-section p {
-            font-size: 17px;
-            color: var(--color-text);
-            line-height: 1.7;
-            max-width: 550px;
-            margin: 0 auto 28px;
-        }
-
-        .secondary-btn {
-            display: inline-block;
-            background: transparent;
-            color: var(--color-primary);
-            padding: 14px 32px;
+        .bridge-section p {
             font-size: 16px;
-            font-weight: 500;
-            text-decoration: none;
-            border: 2px solid var(--color-primary);
-            border-radius: 8px;
-            transition: all 0.25s ease;
+            color: var(--color-text-light);
+            max-width: 500px;
+            margin: 0 auto 20px;
         }
 
-        .secondary-btn:hover {
-            background: var(--color-primary);
-            color: #ffffff;
+        .bridge-link {
+            color: var(--color-primary);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        .bridge-link:hover {
+            color: var(--color-primary-light);
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            font-size: 14px;
+            background-color: var(--color-primary);
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        footer a {
+            color: rgba(255, 255, 255, 0.85);
         }
 
         /* Mobile adjustments */
@@ -311,9 +455,32 @@
                 padding: 50px 0;
             }
 
-            .clarity-block {
+            .module {
+                padding: 22px 20px 20px;
+            }
+
+            .module-header {
+                gap: 12px;
+            }
+
+            .module-number {
+                width: 28px;
+                height: 28px;
+                font-size: 13px;
+            }
+
+            .module-title {
+                font-size: 17px;
+            }
+
+            .module-purpose,
+            .module-content {
+                padding-left: 40px;
+            }
+
+            .format-grid {
                 grid-template-columns: 1fr;
-                gap: 32px;
+                gap: 16px;
             }
 
             .primary-cta {
@@ -324,9 +491,8 @@
                 margin: 0 auto;
             }
 
-            .secondary-btn {
-                font-size: 15px;
-                padding: 12px 28px;
+            .price-display {
+                font-size: 22px;
             }
         }
     </style>
@@ -336,106 +502,303 @@
     <!-- Page Header -->
     <section class="page-header">
         <div class="container">
-            <h1>Use ChatGPT Confidently in Real Situations You Actually Face</h1>
-            <p class="subheadline">A short, practical guide that shows you how to apply ChatGPT step by step in everyday personal and business situations — without guessing, jargon, or technical setup.</p>
-        </div>
-    </section>
-
-    <!-- Context Setting -->
-    <section class="context-section">
-        <div class="container">
-            <p>If you've used the AI Confidence Kit, you already know how to get better answers from ChatGPT.</p>
-            <p>This practical guide is for when you want help applying that knowledge to real situations — such as writing emails, organising information, or thinking through decisions — without having to figure it out yourself.</p>
-        </div>
-    </section>
-
-    <!-- What This Is -->
-    <section>
-        <div class="container">
-            <h2>What this is (and what it isn't)</h2>
-            <div class="clarity-block">
-                <div class="clarity-column">
-                    <h3>This is:</h3>
-                    <ul>
-                        <li>Short, guided lessons</li>
-                        <li>Real situations explained step by step</li>
-                        <li>Copy-and-adjust examples you can use immediately</li>
-                    </ul>
-                </div>
-                <div class="clarity-column">
-                    <h3>This is not:</h3>
-                    <ul>
-                        <li>A technical course</li>
-                        <li>Advanced AI training</li>
-                        <li>Software, tools, or dashboards</li>
-                    </ul>
-                </div>
+            <h1>Know When to Trust AI, How to Correct It, and How to Use It Sensibly</h1>
+            <p class="subheadline">A short course that builds reliable judgement — so you stop second-guessing yourself and start using AI with quiet confidence.</p>
+            
+            <div class="target-outcome">
+                <div class="target-outcome-label">The outcome</div>
+                <p>"I no longer hesitate or second-guess when using AI."</p>
             </div>
         </div>
     </section>
 
-    <!-- Situations Covered -->
-    <section class="context-section">
+    <!-- Context Section -->
+    <section class="alt-bg">
         <div class="container">
-            <h2>Situations this guide helps with</h2>
-            <p class="situations-intro">Each lesson focuses on a situation people commonly struggle with.</p>
-            <ul class="situations-list">
-                <li>Writing clear, natural emails</li>
-                <li>Asking better questions and getting clearer answers</li>
-                <li>Summarising long or confusing information</li>
-                <li>Planning and organising tasks or ideas</li>
-                <li>Thinking through decisions with more confidence</li>
-            </ul>
+            <p>You've read the AI Confidence Kit. You understand the basics.</p>
+            <p>But there's often a gap between understanding something and feeling certain you're doing it properly. This course closes that gap.</p>
+            <p style="font-weight: 500; color: var(--color-primary); font-style: italic;">"Am I actually doing this right?"</p>
+            <p style="margin-top: 20px;">That's the question it answers. Not by giving you more to learn, but by giving you clear rules to follow — and the judgement to know when something is working.</p>
         </div>
     </section>
 
-    <!-- How It Works -->
-    <section>
+    <!-- Modules Section -->
+    <section class="modules-section">
         <div class="container">
-            <h2>How it works</h2>
-            <div class="how-it-works">
-                <ol>
-                    <li>Choose a situation</li>
-                    <li>Use the provided example</li>
-                    <li>Adjust it slightly to fit what you need</li>
-                </ol>
-                <p class="closing-line">There's no setup, no accounts to create, and nothing technical to learn.</p>
+            <h2>What's Covered</h2>
+            <p class="modules-intro">Seven short modules. Each one addresses a specific difficulty people have with AI.</p>
+
+            <!-- Module 1 -->
+            <div class="module">
+                <div class="module-header">
+                    <div class="module-number">1</div>
+                    <div class="module-title-group">
+                        <div class="module-title">Mental Model Reset</div>
+                        <div class="module-time">10-15 minutes</div>
+                    </div>
+                </div>
+                <div class="module-purpose">Clear up the confusion.</div>
+                <div class="module-content">
+                    <div class="module-teaches">
+                        <div class="module-teaches-label">Teaches</div>
+                        <ul>
+                            <li>What AI actually is and isn't (plain English)</li>
+                            <li>Why confusion happens</li>
+                            <li>Why bad outputs are normal, not user failure</li>
+                        </ul>
+                    </div>
+                    <div class="module-framework">
+                        <div class="module-framework-label">Key idea</div>
+                        <p>AI is not smart or dumb — it's responsive to clarity.</p>
+                    </div>
+                    <div class="module-shift">
+                        <div class="module-shift-label">After this module</div>
+                        <p>"It wasn't me — I just needed the right frame of reference."</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Module 2 -->
+            <div class="module">
+                <div class="module-header">
+                    <div class="module-number">2</div>
+                    <div class="module-title-group">
+                        <div class="module-title">The Input-Output Law</div>
+                        <div class="module-time">Core skill</div>
+                    </div>
+                </div>
+                <div class="module-purpose">Get consistent results.</div>
+                <div class="module-content">
+                    <div class="module-teaches">
+                        <div class="module-teaches-label">Teaches</div>
+                        <ul>
+                            <li>Why vague inputs produce unstable outputs</li>
+                            <li>The 3 input types AI handles well: Clarification, Structuring, Drafting</li>
+                            <li>What NOT to ask AI to do</li>
+                        </ul>
+                    </div>
+                    <div class="module-framework">
+                        <div class="module-framework-label">Framework</div>
+                        <p>Context → Constraint → Goal</p>
+                    </div>
+                    <p style="font-size: 14px; color: var(--color-text-light); margin: 12px 0 0;">Simple. Reusable. Non-technical.</p>
+                    <div class="module-shift">
+                        <div class="module-shift-label">After this module</div>
+                        <p>"I understand why it works sometimes and not others."</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Module 3 -->
+            <div class="module">
+                <div class="module-header">
+                    <div class="module-number">3</div>
+                    <div class="module-title-group">
+                        <div class="module-title">Output Evaluation</div>
+                    </div>
+                </div>
+                <div class="module-purpose">Know what to trust.</div>
+                <div class="module-content">
+                    <div class="module-teaches">
+                        <div class="module-teaches-label">Teaches</div>
+                        <ul>
+                            <li>How to judge quickly if an answer is sound, partial, or hallucinated</li>
+                            <li>Red flags to watch for</li>
+                            <li>When to stop iterating</li>
+                        </ul>
+                    </div>
+                    <div class="module-framework">
+                        <div class="module-framework-label">Tool</div>
+                        <p>The 5-Question Sanity Check (very fast, internal)</p>
+                    </div>
+                    <div class="module-shift">
+                        <div class="module-shift-label">After this module</div>
+                        <p>"I can tell when an answer is sound and when it needs checking."</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Module 4 -->
+            <div class="module">
+                <div class="module-header">
+                    <div class="module-number">4</div>
+                    <div class="module-title-group">
+                        <div class="module-title">Error Recovery & Correction</div>
+                    </div>
+                </div>
+                <div class="module-purpose">Handle mistakes calmly.</div>
+                <div class="module-content">
+                    <div class="module-teaches">
+                        <div class="module-teaches-label">Teaches</div>
+                        <ul>
+                            <li>Why arguing with AI fails</li>
+                            <li>How to redirect instead</li>
+                            <li>How to salvage bad responses without starting over</li>
+                        </ul>
+                    </div>
+                    <div class="module-framework">
+                        <div class="module-framework-label">Framework</div>
+                        <p>Narrow → Reframe → Re-Anchor</p>
+                    </div>
+                    <p style="font-size: 14px; color: var(--color-text-light); margin: 12px 0 0;">No need to start over when something goes wrong.</p>
+                    <div class="module-shift">
+                        <div class="module-shift-label">After this module</div>
+                        <p>"If it goes wrong, I know how to get it back on track."</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Module 5 -->
+            <div class="module">
+                <div class="module-header">
+                    <div class="module-number">5</div>
+                    <div class="module-title-group">
+                        <div class="module-title">Everyday Use Cases</div>
+                    </div>
+                </div>
+                <div class="module-purpose">Put it into practice.</div>
+                <div class="module-content">
+                    <div class="module-teaches">
+                        <div class="module-teaches-label">Covers</div>
+                        <ul>
+                            <li>Writing emails and messages</li>
+                            <li>Thinking through decisions</li>
+                            <li>Planning days or weeks</li>
+                            <li>Understanding new topics</li>
+                            <li>Clarifying your own thoughts</li>
+                        </ul>
+                    </div>
+                    <p style="font-size: 15px; color: var(--color-text); margin: 14px 0 0;">Each case shows: safe input, what good output looks like, where to stop.</p>
+                    <div class="module-shift">
+                        <div class="module-shift-label">After this module</div>
+                        <p>"I know exactly when to use it and when not to bother."</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Module 6 -->
+            <div class="module">
+                <div class="module-header">
+                    <div class="module-number">6</div>
+                    <div class="module-title-group">
+                        <div class="module-title">Boundaries & Dependence Control</div>
+                    </div>
+                </div>
+                <div class="module-purpose">Use it appropriately.</div>
+                <div class="module-content">
+                    <div class="module-teaches">
+                        <div class="module-teaches-label">Teaches</div>
+                        <ul>
+                            <li>What AI should never decide for you</li>
+                            <li>How to keep your own thinking sharp</li>
+                            <li>When not to ask AI</li>
+                        </ul>
+                    </div>
+                    <p style="font-size: 14px; color: var(--color-text-light); margin: 14px 0 0;">Knowing when not to use AI is just as important as knowing when to use it.</p>
+                    <div class="module-shift">
+                        <div class="module-shift-label">After this module</div>
+                        <p>"I'm in control of when and how I use it."</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Module 7 -->
+            <div class="module">
+                <div class="module-header">
+                    <div class="module-number">7</div>
+                    <div class="module-title-group">
+                        <div class="module-title">The Confidence Loop</div>
+                        <div class="module-time">Integration</div>
+                    </div>
+                </div>
+                <div class="module-purpose">Make it second nature.</div>
+                <div class="module-content">
+                    <div class="module-teaches">
+                        <div class="module-teaches-label">Teaches</div>
+                        <ul>
+                            <li>A simple repeatable loop: Ask → Evaluate → Adjust → Move on</li>
+                            <li>How to build confidence through repetition, not learning more</li>
+                        </ul>
+                    </div>
+                    <div class="module-shift">
+                        <div class="module-shift-label">After this module</div>
+                        <p>"I have a reliable process I can repeat."</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Format Section -->
+    <section class="format-section">
+        <div class="container">
+            <h2>How It's Delivered</h2>
+            <div class="format-grid">
+                <div class="format-item">
+                    <div class="format-icon"></div>
+                    <span class="format-text">Short, focused sections</span>
+                </div>
+                <div class="format-item">
+                    <div class="format-icon"></div>
+                    <span class="format-text">Written in plain English</span>
+                </div>
+                <div class="format-item">
+                    <div class="format-icon"></div>
+                    <span class="format-text">Only essential examples</span>
+                </div>
+                <div class="format-item">
+                    <div class="format-icon"></div>
+                    <span class="format-text">No padded content</span>
+                </div>
+                <div class="format-item">
+                    <div class="format-icon"></div>
+                    <span class="format-text">Instant PDF download</span>
+                </div>
+            </div>
+            <div class="format-feel">
+                <p>Written to be <strong>clear, practical, and respectful of your time.</strong></p>
             </div>
         </div>
     </section>
 
-    <!-- Who This Is For -->
-    <section class="who-section">
+    <!-- Why This Works Section -->
+    <section>
         <div class="container">
-            <h2>Who this is for / not for</h2>
-            <h3>This is for you if:</h3>
-            <p>You want practical help using ChatGPT for everyday tasks and prefer clear guidance over experimentation.</p>
-            <h3>This is not for you if:</h3>
-            <p>You're looking for advanced AI theory or developer-level instruction.</p>
+            <h2>What Makes This Different</h2>
+            <p>This doesn't repeat the eBook. It picks up where the eBook leaves off — addressing the uncertainty that remains after you understand the basics.</p>
+            <p>It's not about doing more with AI. It's about feeling genuinely confident in what you're already doing.</p>
+            <div class="why-box">
+                <p>By the end, you'll have clear rules for when to trust AI, when to question it, and when to step back. That's what removes the hesitation.</p>
+            </div>
         </div>
     </section>
 
     <!-- Price and CTA -->
     <section class="price-section">
         <div class="container">
-            <div class="price-display">One-time purchase: £49</div>
-            <a href="https://buy.stripe.com/6oU6oG4UHakAcCQ59MbZe05" class="primary-cta" onclick="if(typeof fbq !== 'undefined') fbq('track', 'InitiateCheckout');">Get the Practical Guide</a>
-            <p class="cta-subtext">Instant access · No technical setup required</p>
+            <div class="price-display">£49</div>
+            <div class="price-context">One-time purchase · Instant PDF download</div>
+            <a href="https://buy.stripe.com/6oU6oG4UHakAcCQ59MbZe05" class="primary-cta" onclick="if(typeof fbq !== 'undefined') fbq('track', 'InitiateCheckout');">Get the Course</a>
+            <p class="cta-subtext">Full refund if it's not what you expected</p>
         </div>
     </section>
 
-    <!-- Divider -->
-    <div class="divider"></div>
-
-    <!-- Personal Help Section -->
-    <section class="personal-help-section">
+    <!-- Bridge Section -->
+    <section class="bridge-section">
         <div class="container">
-            <h2>Need help applying this to your own life or business?</h2>
-            <p>Some people prefer hands-on help applying AI to their specific situation. If that's you, personal support is available on a limited basis.</p>
-            <a href="help.html" class="secondary-btn">Request Personal Help</a>
+            <p>If you'd prefer to have this tailored to your specific situation, personal guidance is available.</p>
+            <a href="help.html" class="bridge-link">Learn about personal help</a>
         </div>
     </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 AI Confidence Kit. All rights reserved.</p>
+            <p style="margin-top: 10px;">Support: <a href="mailto:adsbyalfred@protonmail.com">adsbyalfred@protonmail.com</a></p>
+        </div>
+    </footer>
 
 </body>
 </html>
-
