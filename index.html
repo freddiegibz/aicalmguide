@@ -2921,6 +2921,11 @@
             orderModal.classList.add('active');
             document.body.style.overflow = 'hidden';
             
+            // Prevent email capture from showing while order modal is open
+            if (emailCaptureModal && emailCaptureModal.classList.contains('active')) {
+                closeEmailCaptureModal();
+            }
+            
             // Reset checkbox state
             if (bumpCheckbox) {
                 bumpCheckbox.checked = false;
@@ -3067,13 +3072,46 @@
         const emailCaptureSuccess = document.getElementById('emailCaptureSuccess');
         const emailInput = document.getElementById('emailInput');
         const emailSubmitBtn = document.getElementById('emailSubmitBtn');
+        
+        // Get order modal reference to check if it's open
+        const orderModalForEmailCheck = document.getElementById('orderModal');
 
         // Check if user has already seen/submitted the email capture
         const emailCaptureShown = sessionStorage.getItem('emailCaptureShown');
         const emailCaptureSubmitted = localStorage.getItem('emailCaptureSubmitted');
 
+        // Track if user is interacting with CTAs or order modal
+        let userInteractingWithCTA = false;
+        let ctaInteractionTimeout = null;
+
+        // Track CTA clicks and hover
+        document.querySelectorAll('.cta-button, .sticky-cta-button, .option-btn').forEach(btn => {
+            btn.addEventListener('mouseenter', function() {
+                userInteractingWithCTA = true;
+                if (ctaInteractionTimeout) clearTimeout(ctaInteractionTimeout);
+                ctaInteractionTimeout = setTimeout(function() {
+                    userInteractingWithCTA = false;
+                }, 2000); // Reset after 2 seconds
+            });
+
+            btn.addEventListener('click', function() {
+                userInteractingWithCTA = true;
+                if (ctaInteractionTimeout) clearTimeout(ctaInteractionTimeout);
+                ctaInteractionTimeout = setTimeout(function() {
+                    userInteractingWithCTA = false;
+                }, 5000); // Keep flag for 5 seconds after click
+            });
+        });
+
         function openEmailCaptureModal() {
-            if (emailCaptureModal && !emailCaptureShown && !emailCaptureSubmitted) {
+            // Don't show if order modal is open, user is interacting with CTAs, or already shown/submitted
+            const orderModalOpen = orderModalForEmailCheck && orderModalForEmailCheck.classList.contains('active');
+            
+            if (emailCaptureModal && 
+                !emailCaptureShown && 
+                !emailCaptureSubmitted && 
+                !orderModalOpen && 
+                !userInteractingWithCTA) {
                 emailCaptureModal.classList.add('active');
                 document.body.style.overflow = 'hidden';
                 sessionStorage.setItem('emailCaptureShown', 'true');
@@ -3090,8 +3128,15 @@
         // Exit-intent detection for desktop (mouse leaving viewport)
         let exitIntentTriggered = false;
         document.addEventListener('mouseout', function(e) {
-            if (!exitIntentTriggered && !emailCaptureShown && !emailCaptureSubmitted) {
-                // Check if mouse is leaving the viewport from the top
+            // Don't trigger if order modal is open or user is interacting with CTAs
+            const orderModalOpen = orderModalForEmailCheck && orderModalForEmailCheck.classList.contains('active');
+            
+            if (!exitIntentTriggered && 
+                !emailCaptureShown && 
+                !emailCaptureSubmitted && 
+                !orderModalOpen && 
+                !userInteractingWithCTA) {
+                // Check if mouse is leaving the viewport from the top (actual exit intent)
                 if (!e.toElement && !e.relatedTarget && e.clientY < 10) {
                     exitIntentTriggered = true;
                     openEmailCaptureModal();
@@ -3105,18 +3150,36 @@
 
         // Scroll depth trigger
         window.addEventListener('scroll', function() {
-            if (!scrollTriggered && !emailCaptureShown && !emailCaptureSubmitted) {
+            const orderModalOpen = orderModalForEmailCheck && orderModalForEmailCheck.classList.contains('active');
+            
+            if (!scrollTriggered && 
+                !emailCaptureShown && 
+                !emailCaptureSubmitted && 
+                !orderModalOpen && 
+                !userInteractingWithCTA) {
                 const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
                 if (scrollPercent >= 50) {
                     scrollTriggered = true;
-                    setTimeout(openEmailCaptureModal, 1000); // Delay 1 second after scroll
+                    setTimeout(function() {
+                        // Double-check conditions before showing
+                        const stillOrderModalOpen = orderModalForEmailCheck && orderModalForEmailCheck.classList.contains('active');
+                        if (!stillOrderModalOpen && !userInteractingWithCTA) {
+                            openEmailCaptureModal();
+                        }
+                    }, 1000); // Delay 1 second after scroll
                 }
             }
         });
 
         // Time on page trigger (30 seconds)
         setTimeout(function() {
-            if (!timeTriggered && !emailCaptureShown && !emailCaptureSubmitted) {
+            const orderModalOpen = orderModalForEmailCheck && orderModalForEmailCheck.classList.contains('active');
+            
+            if (!timeTriggered && 
+                !emailCaptureShown && 
+                !emailCaptureSubmitted && 
+                !orderModalOpen && 
+                !userInteractingWithCTA) {
                 timeTriggered = true;
                 openEmailCaptureModal();
             }
