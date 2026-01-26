@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thank You - AI Confidence Kit</title>
+    <title>You're In - AI Confidence Kit</title>
     <!-- Meta Pixel Code -->
     <script>
     !function(f,b,e,v,n,t,s)
@@ -16,8 +16,7 @@
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '1216244347126516');
     fbq('track', 'PageView');
-    // Purchase event - fires unconditionally on thank-you page load
-    fbq('track', 'Purchase', {value: 12.73, currency: 'GBP'});
+    fbq('track', 'Purchase', {value: 14.59, currency: 'GBP'});
     </script>
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=1216244347126516&ev=PageView&noscript=1"
@@ -30,14 +29,16 @@
         :root {
             --color-primary: #1e3a5f;
             --color-primary-light: #2d5a8a;
-            --color-accent: #c9a227;
-            --color-accent-soft: #f5ecd7;
             --color-text: #2d3748;
-            --color-text-light: #5a6778;
+            --color-text-light: #64748b;
+            --color-text-secondary: #94a3b8;
+            --color-bg: #ffffff;
+            --color-bg-soft: #f8fafc;
             --color-bg-warm: #faf9f7;
-            --color-bg-cream: #f7f5f0;
-            --color-border: #e8e4dc;
-            --color-success: #3d8b5f;
+            --color-border: #e2e8f0;
+            --color-border-light: #f1f5f9;
+            --color-success: #10b981;
+            --color-whatsapp: #25D366;
         }
 
         * {
@@ -48,357 +49,623 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background-color: #ffffff;
+            background-color: var(--color-bg);
             color: var(--color-text);
             line-height: 1.7;
-            font-size: 18px;
+            font-size: 17px;
         }
 
         .container {
-            max-width: 700px;
+            max-width: 720px;
             margin: 0 auto;
-            padding: 0 28px;
+            padding: 0 24px;
         }
 
         h1, h2, h3 {
             font-family: 'Source Serif 4', Georgia, serif;
             font-weight: 500;
             color: var(--color-primary);
+            line-height: 1.3;
         }
 
-        /* Header */
-        .site-header {
-            padding: 24px 0;
-            border-bottom: 1px solid var(--color-border);
-        }
-
-        .site-header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .site-logo {
-            font-family: 'Source Serif 4', Georgia, serif;
-            font-size: 20px;
-            font-weight: 600;
-            color: var(--color-primary);
-            text-decoration: none;
-        }
-
-        /* Confirmation Section */
-        .confirmation-section {
-            padding: 60px 0 40px;
+        /* ========================================
+           1. CONFIRMATION HEADER (Above the fold)
+           ======================================== */
+        .confirmation-header {
+            padding: 60px 0 48px;
             text-align: center;
-            background: linear-gradient(180deg, var(--color-accent-soft) 0%, var(--color-bg-warm) 100%);
+            background: var(--color-bg);
         }
 
-        .success-icon {
-            width: 80px;
-            height: 80px;
-            background-color: var(--color-success);
-            border-radius: 50%;
-            display: flex;
+        .confirmation-badge {
+            display: inline-flex;
             align-items: center;
-            justify-content: center;
-            margin: 0 auto 28px;
-            box-shadow: 0 4px 20px rgba(61, 139, 95, 0.3);
+            gap: 8px;
+            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+            color: #065f46;
+            font-size: 13px;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 24px;
+            margin-bottom: 24px;
         }
 
-        .success-icon::before {
-            content: "✓";
-            color: white;
-            font-size: 32px;
-            font-weight: bold;
+        .confirmation-badge svg {
+            width: 16px;
+            height: 16px;
         }
 
-        .confirmation-section h1 {
-            font-size: clamp(28px, 4vw, 36px);
+        .confirmation-header h1 {
+            font-size: clamp(28px, 5vw, 36px);
             margin-bottom: 16px;
-            line-height: 1.2;
+            color: var(--color-text);
         }
 
         .confirmation-subtext {
-            font-size: 18px;
-            color: var(--color-text);
-            line-height: 1.6;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* Primary Action */
-        .primary-action-section {
-            padding: 50px 0;
-            text-align: center;
-        }
-
-        .primary-download-btn {
-            display: inline-block;
-            background: var(--color-primary);
-            color: #ffffff;
-            padding: 20px 48px;
-            font-size: 19px;
-            font-weight: 600;
-            text-decoration: none;
-            border-radius: 10px;
-            transition: all 0.25s ease;
-            box-shadow: 0 6px 20px rgba(30, 58, 95, 0.3);
-        }
-
-        .primary-download-btn:hover {
-            background: var(--color-primary-light);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(30, 58, 95, 0.35);
-        }
-
-        /* Orientation Block */
-        .orientation-section {
-            padding: 50px 0;
-            background: var(--color-bg-warm);
-        }
-
-        .orientation-section h2 {
-            font-size: clamp(22px, 3vw, 28px);
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .orientation-list {
-            max-width: 550px;
-            margin: 0 auto;
-            text-align: left;
             font-size: 17px;
+            color: var(--color-text-light);
+            line-height: 1.6;
+            max-width: 540px;
+            margin: 0 auto;
+        }
+
+        .email-notice {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 20px;
+            padding: 14px 20px;
+            background: var(--color-bg-soft);
+            border: 1px solid var(--color-border);
+            border-radius: 10px;
+            font-size: 15px;
             color: var(--color-text);
-            line-height: 1.7;
-        }
-
-        .orientation-list li {
-            margin-bottom: 12px;
-            padding-left: 8px;
-        }
-
-        /* Visual Divider */
-        .divider {
-            height: 1px;
-            background: var(--color-border);
-            margin: 60px 0;
-            max-width: 600px;
+            max-width: 480px;
             margin-left: auto;
             margin-right: auto;
         }
 
-        /* Optional Next Steps */
-        .optional-section {
-            padding: 50px 0;
-        }
-
-        .optional-card {
-            background: var(--color-bg-warm);
-            border: 1px solid var(--color-border);
-            border-radius: 12px;
-            padding: 32px;
-            margin-bottom: 24px;
-        }
-
-        .optional-card.tier-2 {
-            border: 2px solid var(--color-border);
-        }
-
-        .optional-card.tier-3 {
-            background: #fff;
-            border: 1px solid var(--color-border);
-            opacity: 0.95;
-        }
-
-        .optional-card h3 {
-            font-size: 22px;
-            margin-bottom: 12px;
+        .email-notice svg {
+            width: 18px;
+            height: 18px;
             color: var(--color-primary);
+            flex-shrink: 0;
         }
 
-        .optional-card p {
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: var(--color-primary);
+            color: #fff;
+            padding: 16px 32px;
             font-size: 16px;
-            color: var(--color-text);
-            line-height: 1.6;
-            margin-bottom: 20px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 10px;
+            margin-top: 20px;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 14px rgba(30, 58, 95, 0.25);
         }
 
-        .optional-card .subtext {
-            font-size: 14px;
+        .download-btn:hover {
+            background: var(--color-primary-light);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(30, 58, 95, 0.3);
+        }
+
+        .download-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* ========================================
+           2. FOUNDER-LED VIDEO SECTION
+           ======================================== */
+        .video-section {
+            padding: 0 0 48px;
+        }
+
+        .video-container {
+            background: var(--color-bg-soft);
+            border-radius: 16px;
+            padding: 24px;
+            border: 1px solid var(--color-border-light);
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #000;
+            aspect-ratio: 9 / 16;
+        }
+
+        .video-wrapper video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            background: #000;
+        }
+
+        .video-caption {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 15px;
             color: var(--color-text-light);
-            margin-top: 12px;
             font-style: italic;
         }
 
-        .optional-btn {
-            display: inline-block;
-            background: var(--color-primary);
-            color: #ffffff;
-            padding: 14px 32px;
+        /* ========================================
+           3. CONSUMPTION INSTRUCTION BLOCK
+           ======================================== */
+        .consumption-section {
+            padding: 48px 0;
+            background: var(--color-bg-warm);
+        }
+
+        .consumption-section h2 {
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .consumption-list {
+            max-width: 520px;
+            margin: 0 auto;
+            list-style: none;
+        }
+
+        .consumption-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            margin-bottom: 16px;
             font-size: 16px;
-            font-weight: 500;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: all 0.25s ease;
-            box-shadow: 0 4px 12px rgba(30, 58, 95, 0.2);
+            color: var(--color-text);
+            line-height: 1.6;
         }
 
-        .optional-btn:hover {
-            background: var(--color-primary-light);
-            transform: translateY(-1px);
-            box-shadow: 0 6px 16px rgba(30, 58, 95, 0.25);
+        .consumption-list li:last-child {
+            margin-bottom: 0;
         }
 
-        .optional-btn.tier-3 {
-            background: transparent;
-            color: var(--color-primary);
-            border: 2px solid var(--color-primary);
-            box-shadow: none;
-        }
-
-        .optional-btn.tier-3:hover {
+        .consumption-icon {
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
             background: var(--color-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 2px;
+        }
+
+        .consumption-icon svg {
+            width: 12px;
+            height: 12px;
             color: #fff;
         }
 
-        /* Footer */
+        /* ========================================
+           4. SOFT TRANSITION
+           ======================================== */
+        .transition-section {
+            padding: 56px 0;
+            text-align: center;
+        }
+
+        .transition-section h2 {
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: var(--color-text);
+        }
+
+        .transition-copy {
+            font-size: 17px;
+            color: var(--color-text-light);
+            line-height: 1.8;
+            max-width: 480px;
+            margin: 0 auto;
+        }
+
+        /* ========================================
+           5. UPSELL SECTION A - Framework (£49)
+           ======================================== */
+        .upsell-section {
+            padding: 0 0 32px;
+        }
+
+        .upsell-card {
+            background: var(--color-bg-soft);
+            border: 1px solid var(--color-border);
+            border-radius: 14px;
+            padding: 32px;
+            margin-bottom: 20px;
+        }
+
+        .upsell-card h3 {
+            font-size: 21px;
+            margin-bottom: 14px;
+            color: var(--color-text);
+        }
+
+        .upsell-card p {
+            font-size: 16px;
+            color: var(--color-text-light);
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+
+        .upsell-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--color-primary);
+            color: #fff;
+            padding: 14px 28px;
+            font-size: 15px;
+            font-weight: 500;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: all 0.2s ease;
+        }
+
+        .upsell-btn:hover {
+            background: var(--color-primary-light);
+            transform: translateY(-1px);
+        }
+
+        .upsell-btn svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* ========================================
+           6. UPSELL SECTION B - Done-For-You
+           ======================================== */
+        .upsell-card.secondary {
+            background: #fff;
+            border: 1px solid var(--color-border);
+        }
+
+        .upsell-btn.secondary {
+            background: transparent;
+            color: var(--color-primary);
+            border: 2px solid var(--color-border);
+        }
+
+        .upsell-btn.secondary:hover {
+            border-color: var(--color-primary);
+            background: var(--color-bg-soft);
+        }
+
+        /* ========================================
+           7. WHATSAPP CONTACT SECTION
+           ======================================== */
+        .contact-section {
+            padding: 56px 0;
+            text-align: center;
+            border-top: 1px solid var(--color-border-light);
+            margin-top: 32px;
+        }
+
+        .contact-section h2 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: var(--color-text);
+            font-weight: 500;
+        }
+
+        .contact-copy {
+            font-size: 16px;
+            color: var(--color-text-light);
+            margin-bottom: 24px;
+        }
+
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: transparent;
+            color: var(--color-text);
+            border: 2px solid var(--color-border);
+            padding: 14px 28px;
+            font-size: 15px;
+            font-weight: 500;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: all 0.2s ease;
+        }
+
+        .whatsapp-btn:hover {
+            border-color: var(--color-whatsapp);
+            background: #f0fdf4;
+        }
+
+        .whatsapp-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--color-whatsapp);
+        }
+
+        /* ========================================
+           FOOTER
+           ======================================== */
         footer {
-            padding: 48px 0;
+            padding: 40px 0;
             text-align: center;
             font-size: 14px;
-            color: var(--color-text-light);
-            background-color: var(--color-primary);
-            color: rgba(255, 255, 255, 0.7);
-            margin-top: 60px;
+            color: var(--color-text-secondary);
+            border-top: 1px solid var(--color-border-light);
         }
 
         footer a {
-            color: rgba(255, 255, 255, 0.85);
+            color: var(--color-text-light);
+            text-decoration: none;
         }
 
-        /* Mobile adjustments */
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* ========================================
+           MOBILE ADJUSTMENTS
+           ======================================== */
         @media (max-width: 767px) {
-            .confirmation-section {
-                padding: 50px 0 30px;
+            .confirmation-header {
+                padding: 48px 0 40px;
             }
 
-            .primary-action-section {
-                padding: 40px 0;
+            .confirmation-header h1 {
+                font-size: 26px;
             }
 
-            .primary-download-btn {
-                font-size: 17px;
-                padding: 18px 36px;
-                display: block;
-                margin: 0 auto;
-                max-width: 90%;
-            }
-
-            .orientation-section {
-                padding: 40px 0;
-            }
-
-            .orientation-list {
+            .confirmation-subtext {
                 font-size: 16px;
-                padding: 0 20px;
             }
 
-            .divider {
-                margin: 40px 0;
+            .email-notice {
+                font-size: 14px;
+                padding: 12px 16px;
             }
 
-            .optional-section {
-                padding: 40px 0;
-            }
-
-            .optional-card {
-                padding: 24px;
-            }
-
-            .optional-card h3 {
-                font-size: 20px;
-            }
-
-            .optional-card p {
+            .download-btn {
+                width: 100%;
+                max-width: 280px;
+                padding: 14px 24px;
                 font-size: 15px;
             }
 
-            .optional-btn {
+            .video-container {
+                padding: 16px;
+                border-radius: 12px;
+                max-width: 320px;
+            }
+
+            .video-wrapper {
+                border-radius: 8px;
+            }
+
+            .video-caption {
+                font-size: 14px;
+            }
+
+            .consumption-section {
+                padding: 40px 0;
+            }
+
+            .consumption-section h2 {
+                font-size: 21px;
+            }
+
+            .consumption-list li {
+                font-size: 15px;
+            }
+
+            .transition-section {
+                padding: 44px 0;
+            }
+
+            .transition-section h2 {
+                font-size: 20px;
+            }
+
+            .transition-copy {
+                font-size: 16px;
+            }
+
+            .upsell-card {
+                padding: 24px;
+            }
+
+            .upsell-card h3 {
+                font-size: 19px;
+            }
+
+            .upsell-card p {
+                font-size: 15px;
+            }
+
+            .upsell-btn {
                 width: 100%;
-                text-align: center;
-                padding: 14px 24px;
+                justify-content: center;
+                padding: 16px 24px;
+            }
+
+            .contact-section {
+                padding: 44px 0;
+            }
+
+            .contact-section h2 {
+                font-size: 18px;
+            }
+
+            .whatsapp-btn {
+                width: 100%;
+                justify-content: center;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header -->
-    <header class="site-header">
+    <!-- 1. CONFIRMATION HEADER -->
+    <section class="confirmation-header">
         <div class="container">
-            <a href="index.html" class="site-logo">AI Confidence Kit</a>
-        </div>
-    </header>
-
-    <!-- Confirmation Section -->
-    <section class="confirmation-section">
-        <div class="container">
-            <div class="success-icon"></div>
-            <h1>Thank you for your purchase</h1>
-            <p class="confirmation-subtext">Your AI Confidence Kit is ready. You now have everything you need to start getting clearer, more useful answers from ChatGPT — without guessing.</p>
+            <div class="confirmation-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Purchase confirmed</span>
+            </div>
+            <h1>You're in. Here's what to do next.</h1>
+            <p class="confirmation-subtext">Thanks for your purchase. Watch the short message below before you start — it will help you get the most out of the guide.</p>
+            
+            <div class="email-notice">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                <span>Your kit should arrive in your email shortly</span>
+            </div>
+            
+            <a href="https://drive.google.com/file/d/1xkpWzq3kpDkVrEGYOLjKuX37F7aFqa93/view?usp=drive_link" class="download-btn" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                Download Now
+            </a>
         </div>
     </section>
 
-    <!-- Primary Action -->
-    <section class="primary-action-section">
+    <!-- 2. FOUNDER-LED VIDEO SECTION -->
+    <section class="video-section">
         <div class="container">
-            <p style="font-size: 19px; color: var(--color-text); line-height: 1.6; max-width: 600px; margin: 0 auto;">
-                <strong>Check your email for the AI Confidence Kit or download here: https://drive.google.com/file/d/1xkpWzq3kpDkVrEGYOLjKuX37F7aFqa93/view?usp=drive_link</strong>
+            <div class="video-container">
+                <div class="video-wrapper">
+                    <video 
+                        controls 
+                        autoplay 
+                        muted 
+                        playsinline
+                        poster="bookcover.jpg"
+                    >
+                        <source src="0126.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <p class="video-caption">This will only take a minute — but it'll save you a lot of confusion later.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. CONSUMPTION INSTRUCTION BLOCK -->
+    <section class="consumption-section">
+        <div class="container">
+            <h2>How to get the most value from what you just bought</h2>
+            <ul class="consumption-list">
+                <li>
+                    <span class="consumption-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                    </span>
+                    <span>Read the guide once, start to finish (under an hour)</span>
+                </li>
+                <li>
+                    <span class="consumption-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                    </span>
+                    <span>Don't try to memorise — just look for clarity</span>
+                </li>
+                <li>
+                    <span class="consumption-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                    </span>
+                    <span>If something suddenly feels obvious, that's the point</span>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 4. SOFT TRANSITION -->
+    <section class="transition-section">
+        <div class="container">
+            <h2>What usually comes next</h2>
+            <p class="transition-copy">
+                Most people understand the guide quickly.<br>
+                What tends to linger is a quiet question:<br>
+                <em>"Am I actually doing this right?"</em><br><br>
+                If that comes up for you, that's normal.
             </p>
         </div>
     </section>
 
-    <!-- Orientation Block -->
-    <section class="orientation-section">
+    <!-- 5. UPSELL SECTION A — Framework Product (£49) -->
+    <section class="upsell-section">
         <div class="container">
-            <h2>What to do first</h2>
-            <p style="text-align: center; font-size: 17px; color: var(--color-text); margin-bottom: 20px;">If you'd like help applying this to your own situation, you can <a href="help.html" style="color: var(--color-primary); text-decoration: underline;">request personal help here</a>.</p>
-            <p style="text-align: center; font-size: 17px; color: var(--color-text); margin-bottom: 20px;">Most people get the best results by:</p>
-            <ol class="orientation-list">
-                <li>Skimming the guide once</li>
-                <li>Trying one example straight away</li>
-                <li>Coming back whenever they want to improve an answer</li>
-            </ol>
-        </div>
-    </section>
-
-    <!-- Visual Divider -->
-    <div class="divider"></div>
-
-    <!-- Optional Next Steps -->
-    <section class="optional-section">
-        <div class="container">
-            <!-- Tier 2: Practical Guide -->
-            <div class="optional-card tier-2">
-                <h3>Want help applying this to real situations?</h3>
-                <p>If you'd like step-by-step examples showing how to use ChatGPT in common everyday and business situations, there's a short practical follow-up available.</p>
-                <a href="practical.html" class="optional-btn">See the Practical Guide</a>
-                <p class="subtext">Completely optional · No technical setup</p>
+            <div class="upsell-card">
+                <h3>Close the gap between understanding and confidence</h3>
+                <p>A short framework that gives you clear rules for when to trust AI, how to correct it, and how to use it sensibly — without second-guessing yourself.</p>
+                <a href="practical.html" class="upsell-btn">
+                    View the Framework
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
             </div>
 
-            <!-- Tier 3: Personal Help -->
-            <div class="optional-card tier-3">
-                <h3>Prefer someone to help you directly?</h3>
-                <p>If you'd like help applying this to your own life or business, limited one-to-one support is available.</p>
-                <a href="help.html" class="optional-btn tier-3">Request Personal Help</a>
+            <!-- 6. UPSELL SECTION B — Done-For-You -->
+            <div class="upsell-card secondary">
+                <h3>Want this set up for your exact situation?</h3>
+                <p>If you'd rather not figure this out alone, I offer a done-for-you setup: custom prompts, a weekly AI workflow, and a walkthrough so you know exactly how to apply it.</p>
+                <a href="help.html" class="upsell-btn secondary">
+                    See the Done-For-You Option
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- 7. WHATSAPP CONTACT SECTION -->
+    <section class="contact-section">
+        <div class="container">
+            <h2>Have a question before going further?</h2>
+            <p class="contact-copy">If you're unsure what's right for you, you can message me directly. No pressure.</p>
+            <a href="https://wa.me/447000000000" class="whatsapp-btn" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                </svg>
+                Message me on WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
     <footer>
         <div class="container">
-            <p>&copy; 2024 AI Confidence Kit. All rights reserved.</p>
+            <p>&copy; 2025 AI Confidence Kit. All rights reserved.</p>
+            <p style="margin-top: 8px;">
+                <a href="mailto:adsbyalfred@protonmail.com">adsbyalfred@protonmail.com</a>
+            </p>
         </div>
     </footer>
 
