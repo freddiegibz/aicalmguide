@@ -2314,6 +2314,253 @@
                 padding-bottom: 56px;
             }
         }
+
+        /* ========================================
+           EXIT-INTENT EMAIL CAPTURE MODAL
+           ======================================== */
+        .email-capture-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+            z-index: 10000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .email-capture-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .email-capture-modal {
+            background: #fff;
+            border-radius: 16px;
+            max-width: 480px;
+            width: 100%;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.25);
+            position: relative;
+            animation: emailModalSlideIn 0.3s ease-out;
+        }
+
+        @keyframes emailModalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .email-capture-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: var(--color-bg-warm);
+            border: none;
+            font-size: 18px;
+            color: var(--color-text-light);
+            cursor: pointer;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.2s ease;
+            z-index: 1;
+        }
+
+        .email-capture-close:hover {
+            background: var(--color-border);
+            color: var(--color-text);
+        }
+
+        .email-capture-content {
+            padding: 40px 32px 32px;
+            text-align: center;
+            display: block;
+        }
+
+        .email-capture-content.hidden {
+            display: none;
+        }
+
+        .email-capture-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, #f0f7ff 0%, #e0efff 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .email-capture-icon svg {
+            width: 32px;
+            height: 32px;
+            color: var(--color-primary);
+        }
+
+        .email-capture-title {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--color-text);
+            margin-bottom: 12px;
+        }
+
+        .email-capture-subtitle {
+            font-size: 16px;
+            color: var(--color-text-light);
+            line-height: 1.6;
+            margin-bottom: 28px;
+        }
+
+        .email-capture-form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .email-capture-input {
+            width: 100%;
+            padding: 14px 18px;
+            font-size: 16px;
+            border: 2px solid var(--color-border);
+            border-radius: 10px;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.2s ease;
+        }
+
+        .email-capture-input:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(30, 58, 95, 0.1);
+        }
+
+        .email-capture-submit {
+            width: 100%;
+            background: var(--color-primary);
+            color: #fff;
+            padding: 14px 24px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .email-capture-submit:hover {
+            background: var(--color-primary-light);
+            transform: translateY(-1px);
+        }
+
+        .email-capture-submit:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .email-capture-success {
+            display: none;
+            padding: 40px 32px;
+            text-align: center;
+        }
+
+        .email-capture-success.active {
+            display: block;
+        }
+
+        .email-capture-success-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .email-capture-success-icon svg {
+            width: 32px;
+            height: 32px;
+            color: #059669;
+        }
+
+        .email-capture-success-title {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--color-text);
+            margin-bottom: 12px;
+        }
+
+        .email-capture-success-text {
+            font-size: 16px;
+            color: var(--color-text-light);
+            line-height: 1.6;
+        }
+
+        .email-capture-privacy {
+            font-size: 12px;
+            color: var(--color-text-secondary);
+            margin-top: 16px;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 767px) {
+            .email-capture-overlay {
+                padding: 12px;
+                align-items: flex-end;
+            }
+
+            .email-capture-modal {
+                border-radius: 16px 16px 0 0;
+                max-width: 100%;
+                animation: emailModalSlideUp 0.3s ease-out;
+            }
+
+            @keyframes emailModalSlideUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(100%);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            .email-capture-content {
+                padding: 32px 24px 24px;
+            }
+
+            .email-capture-title {
+                font-size: 21px;
+            }
+
+            .email-capture-subtitle {
+                font-size: 15px;
+            }
+
+            .email-capture-input,
+            .email-capture-submit {
+                font-size: 15px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -2589,6 +2836,52 @@
     </div>
 </div>
 
+    <!-- Exit-Intent Email Capture Modal -->
+    <div class="email-capture-overlay" id="emailCaptureModal">
+        <div class="email-capture-modal">
+            <button class="email-capture-close" id="closeEmailModalBtn" aria-label="Close">&times;</button>
+            
+            <div class="email-capture-content" id="emailCaptureForm">
+                <div class="email-capture-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                </div>
+                <h2 class="email-capture-title">Not ready to buy yet?</h2>
+                <p class="email-capture-subtitle">Get the first chapter free and see if this is right for you.</p>
+                
+                <form class="email-capture-form" id="emailForm" action="https://formspree.io/f/mjgwrqod" method="POST">
+                    <input 
+                        type="email" 
+                        name="email" 
+                        class="email-capture-input" 
+                        placeholder="Enter your email address" 
+                        required
+                        id="emailInput"
+                    >
+                    <button type="submit" class="email-capture-submit" id="emailSubmitBtn">
+                        Send me the free chapter
+                    </button>
+                </form>
+                
+                <p class="email-capture-privacy">
+                    We respect your privacy. Unsubscribe at any time.
+                </p>
+            </div>
+
+            <div class="email-capture-success" id="emailCaptureSuccess">
+                <div class="email-capture-success-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                </div>
+                <h2 class="email-capture-success-title">Check your email</h2>
+                <p class="email-capture-success-text">We've sent you the first chapter. It should arrive in a few minutes.</p>
+            </div>
+        </div>
+    </div>
+
     <script>
         // Scroll to top on page load to prevent anchor scrolling
         window.addEventListener('load', function() {
@@ -2763,6 +3056,148 @@
         window.addEventListener('scroll', toggleStickyBar);
         window.addEventListener('resize', toggleStickyBar);
         toggleStickyBar();
+
+        // ========================================
+        // EXIT-INTENT EMAIL CAPTURE
+        // ========================================
+        const emailCaptureModal = document.getElementById('emailCaptureModal');
+        const closeEmailModalBtn = document.getElementById('closeEmailModalBtn');
+        const emailForm = document.getElementById('emailForm');
+        const emailCaptureForm = document.getElementById('emailCaptureForm');
+        const emailCaptureSuccess = document.getElementById('emailCaptureSuccess');
+        const emailInput = document.getElementById('emailInput');
+        const emailSubmitBtn = document.getElementById('emailSubmitBtn');
+
+        // Check if user has already seen/submitted the email capture
+        const emailCaptureShown = sessionStorage.getItem('emailCaptureShown');
+        const emailCaptureSubmitted = localStorage.getItem('emailCaptureSubmitted');
+
+        function openEmailCaptureModal() {
+            if (emailCaptureModal && !emailCaptureShown && !emailCaptureSubmitted) {
+                emailCaptureModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                sessionStorage.setItem('emailCaptureShown', 'true');
+            }
+        }
+
+        function closeEmailCaptureModal() {
+            if (emailCaptureModal) {
+                emailCaptureModal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        // Exit-intent detection for desktop (mouse leaving viewport)
+        let exitIntentTriggered = false;
+        document.addEventListener('mouseout', function(e) {
+            if (!exitIntentTriggered && !emailCaptureShown && !emailCaptureSubmitted) {
+                // Check if mouse is leaving the viewport from the top
+                if (!e.toElement && !e.relatedTarget && e.clientY < 10) {
+                    exitIntentTriggered = true;
+                    openEmailCaptureModal();
+                }
+            }
+        });
+
+        // Mobile triggers: scroll depth (50%) or time on page (30 seconds)
+        let scrollTriggered = false;
+        let timeTriggered = false;
+
+        // Scroll depth trigger
+        window.addEventListener('scroll', function() {
+            if (!scrollTriggered && !emailCaptureShown && !emailCaptureSubmitted) {
+                const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+                if (scrollPercent >= 50) {
+                    scrollTriggered = true;
+                    setTimeout(openEmailCaptureModal, 1000); // Delay 1 second after scroll
+                }
+            }
+        });
+
+        // Time on page trigger (30 seconds)
+        setTimeout(function() {
+            if (!timeTriggered && !emailCaptureShown && !emailCaptureSubmitted) {
+                timeTriggered = true;
+                openEmailCaptureModal();
+            }
+        }, 30000);
+
+        // Close modal handlers
+        if (closeEmailModalBtn) {
+            closeEmailModalBtn.addEventListener('click', closeEmailCaptureModal);
+        }
+
+        if (emailCaptureModal) {
+            emailCaptureModal.addEventListener('click', function(e) {
+                if (e.target === emailCaptureModal) {
+                    closeEmailCaptureModal();
+                }
+            });
+        }
+
+        // Escape key closes modal
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && emailCaptureModal && emailCaptureModal.classList.contains('active')) {
+                closeEmailCaptureModal();
+            }
+        });
+
+        // Form submission handler
+        if (emailForm) {
+            emailForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const formData = new FormData(emailForm);
+                const email = formData.get('email');
+
+                // Disable submit button
+                if (emailSubmitBtn) {
+                    emailSubmitBtn.disabled = true;
+                    emailSubmitBtn.textContent = 'Sending...';
+                }
+
+                // Submit to Formspree
+                fetch('https://formspree.io/f/mjgwrqod', {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        // Show success message
+                        emailCaptureForm.classList.add('hidden');
+                        emailCaptureSuccess.classList.add('active');
+                        localStorage.setItem('emailCaptureSubmitted', 'true');
+                        
+                        // Track conversion
+                        if (typeof fbq !== 'undefined') {
+                            fbq('track', 'Lead', {
+                                content_name: 'Email Capture',
+                                value: 0,
+                                currency: 'GBP'
+                            });
+                        }
+
+                        // Auto-close after 3 seconds
+                        setTimeout(function() {
+                            closeEmailCaptureModal();
+                        }, 3000);
+                    } else {
+                        throw new Error('Form submission failed');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    if (emailSubmitBtn) {
+                        emailSubmitBtn.disabled = false;
+                        emailSubmitBtn.textContent = 'Try again';
+                    }
+                    alert('Something went wrong. Please try again.');
+                });
+            });
+        }
     </script>
 
 </body>
