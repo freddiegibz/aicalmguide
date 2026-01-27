@@ -372,10 +372,24 @@
         }
 
         .hero-subheadline {
-            font-size: 19px;
+            font-size: 20px;
             color: var(--color-text-light);
             margin-bottom: 20px;
             line-height: 1.4;
+        }
+
+        .hero-body {
+            font-size: 17px;
+            color: var(--color-text);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .hero-social-proof {
+            font-size: 14px;
+            color: var(--color-text-light);
+            margin-bottom: 24px;
+            font-style: italic;
         }
 
         .hero-bullets-list {
@@ -2227,8 +2241,18 @@
             }
 
             .hero-subheadline {
-                font-size: 16px;
+                font-size: 17px;
                 line-height: 1.5;
+            }
+
+            .hero-body {
+                font-size: 15px;
+                line-height: 1.6;
+            }
+
+            .hero-social-proof {
+                font-size: 13px;
+                margin-bottom: 20px;
             }
 
             .hero-supporting {
@@ -2592,18 +2616,17 @@
         <div class="container">
             <div class="hero-layout">
                 <div class="hero-copy">
-                    <span class="hero-badge">For beginners, written plainly</span>
-                    <h1>Finally Understand How to Use AI, Without Feeling Lost or Left Behind</h1>
-                    <p class="hero-subheadline">A calm, practical guide that shows you exactly where to start with AI, how to get genuinely useful answers, and how to use it for everyday tasks like writing, planning, and decision-making.</p>
+                    <span class="hero-badge">No tech skills needed</span>
+                    <h1>AI Isn't Confusing. It's Just Explained Badly.</h1>
+                    <p class="hero-subheadline">A calm, practical starting point for people who feel left behind.</p>
                     
-                    <ul class="hero-bullets-list">
-                        <li>Start using AI confidently in under an hour</li>
+                    <p class="hero-body">If AI still feels like something other people understand — you're not behind. You just haven't had it explained properly. This short guide shows you where to start, what to ask, and how to actually get useful answers. Read it in under an hour.</p>
 
-                    </ul>
+                    <p class="hero-social-proof">Trusted by 1,300+ readers who wanted clarity, not complexity.</p>
 
-                    <a href="https://buy.stripe.com/fZu4gygDpakA46k8lYbZe08" class="cta-button" id="heroCtaBtn">Get Instant Access - £14.59</a>
+                    <a href="https://buy.stripe.com/fZu4gygDpakA46k8lYbZe08" class="cta-button" id="heroCtaBtn">Get the Guide — £14.59</a>
                     <p class="hero-guarantee">
-                        Digital download · 100% money-back guarantee
+                        Instant download · 100% money-back guarantee
                     </p>
                 </div>
                 <div class="hero-image">
@@ -2739,7 +2762,7 @@
             <p class="section-subtitle">Gain clarity. Take control. Make better decisions, faster.</p>
             
             <div class="final-cta-options">
-                <a href="https://buy.stripe.com/fZu4gygDpakA46k8lYbZe08" class="cta-button" id="sectionCtaBtn">Get the Kit — £14.59</a>
+                <a href="https://buy.stripe.com/fZu4gygDpakA46k8lYbZe08" class="cta-button" id="sectionCtaBtn">Get the Guide — £14.59</a>
             </div>
             
             <p class="cta-reassurance" style="margin-top: 20px; font-size: 14px;">Instant delivery · 100% money-back guarantee</p>
@@ -2758,7 +2781,7 @@
     <!-- Sticky Mobile CTA Bar -->
     <div class="sticky-cta-bar">
         <div class="sticky-cta-bar-content">
-            <a href="https://buy.stripe.com/fZu4gygDpakA46k8lYbZe08" class="sticky-cta-button" id="stickyCtaBtn">Get Instant Access — £14.59</a>
+            <a href="https://buy.stripe.com/fZu4gygDpakA46k8lYbZe08" class="sticky-cta-button" id="stickyCtaBtn">Get the Guide — £14.59</a>
             <p class="sticky-cta-guarantee">Instant delivery · 100% refund guarantee</p>
             </div>
         </div>
@@ -3084,6 +3107,12 @@
         let userInteractingWithCTA = false;
         let ctaInteractionTimeout = null;
 
+        // Track scroll activity for reading detection (40+ audience reads carefully)
+        let lastScrollTime = Date.now();
+        let scrollActivityDetected = false;
+        let userScrolledBackUp = false;
+        let maxScrollPosition = 0;
+
         // Track CTA clicks and hover
         document.querySelectorAll('.cta-button, .sticky-cta-button, .option-btn').forEach(btn => {
             btn.addEventListener('mouseenter', function() {
@@ -3107,11 +3136,21 @@
             // Don't show if order modal is open, user is interacting with CTAs, or already shown/submitted
             const orderModalOpen = orderModalForEmailCheck && orderModalForEmailCheck.classList.contains('active');
             
+            // Check if user is near final CTA section (within last 20% of page)
+            const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            const nearFinalCTA = scrollPercent >= 80;
+            
+            // Check if user has been actively scrolling recently (within last 3 seconds)
+            const timeSinceLastScroll = Date.now() - lastScrollTime;
+            const activelyReading = timeSinceLastScroll < 3000;
+            
             if (emailCaptureModal && 
                 !emailCaptureShown && 
                 !emailCaptureSubmitted && 
                 !orderModalOpen && 
-                !userInteractingWithCTA) {
+                !userInteractingWithCTA &&
+                !nearFinalCTA &&
+                !activelyReading) {
                 emailCaptureModal.classList.add('active');
                 document.body.style.overflow = 'hidden';
                 sessionStorage.setItem('emailCaptureShown', 'true');
@@ -3128,14 +3167,20 @@
         // Exit-intent detection for desktop (mouse leaving viewport)
         let exitIntentTriggered = false;
         document.addEventListener('mouseout', function(e) {
-            // Don't trigger if order modal is open or user is interacting with CTAs
+            // Don't trigger if order modal is open, user is interacting with CTAs, or actively reading
             const orderModalOpen = orderModalForEmailCheck && orderModalForEmailCheck.classList.contains('active');
+            const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            const nearFinalCTA = scrollPercent >= 80;
+            const timeSinceLastScroll = Date.now() - lastScrollTime;
+            const activelyReading = timeSinceLastScroll < 5000; // 5 seconds for exit intent
             
             if (!exitIntentTriggered && 
                 !emailCaptureShown && 
                 !emailCaptureSubmitted && 
                 !orderModalOpen && 
-                !userInteractingWithCTA) {
+                !userInteractingWithCTA &&
+                !nearFinalCTA &&
+                !activelyReading) {
                 // Check if mouse is leaving the viewport from the top (actual exit intent)
                 if (!e.toElement && !e.relatedTarget && e.clientY < 10) {
                     exitIntentTriggered = true;
@@ -3144,46 +3189,82 @@
             }
         });
 
-        // Mobile triggers: scroll depth (50%) or time on page (30 seconds)
+        // Mobile triggers: scroll depth (75%) or time on page (90 seconds) - conservative for 40+ audience
         let scrollTriggered = false;
         let timeTriggered = false;
+        let lastScrollTime = Date.now();
+        let scrollActivityDetected = false;
+        let userScrolledBackUp = false;
+        let maxScrollPosition = 0;
 
-        // Scroll depth trigger
+        // Track scroll activity to detect if user is actively reading
+        window.addEventListener('scroll', function() {
+            const currentScroll = window.scrollY;
+            const currentTime = Date.now();
+            
+            // Track if user scrolled back up (shows engagement, don't interrupt)
+            if (currentScroll < maxScrollPosition - 100) {
+                userScrolledBackUp = true;
+            }
+            maxScrollPosition = Math.max(maxScrollPosition, currentScroll);
+            
+            // Mark scroll activity
+            scrollActivityDetected = true;
+            lastScrollTime = currentTime;
+        });
+
+        // Scroll depth trigger - only at 75% and only if user hasn't scrolled back up
         window.addEventListener('scroll', function() {
             const orderModalOpen = orderModalForEmailCheck && orderModalForEmailCheck.classList.contains('active');
+            const timeSinceLastScroll = Date.now() - lastScrollTime;
             
+            // Only trigger if user has been idle for 5+ seconds (not actively reading)
             if (!scrollTriggered && 
                 !emailCaptureShown && 
                 !emailCaptureSubmitted && 
                 !orderModalOpen && 
-                !userInteractingWithCTA) {
+                !userInteractingWithCTA &&
+                !userScrolledBackUp &&
+                timeSinceLastScroll >= 5000) { // 5 seconds of no scrolling
+                
                 const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-                if (scrollPercent >= 50) {
+                
+                // Higher threshold - 75% instead of 50%
+                if (scrollPercent >= 75) {
                     scrollTriggered = true;
+                    // Longer delay - 3 seconds after reaching threshold
                     setTimeout(function() {
-                        // Double-check conditions before showing
+                        // Triple-check conditions before showing
                         const stillOrderModalOpen = orderModalForEmailCheck && orderModalForEmailCheck.classList.contains('active');
-                        if (!stillOrderModalOpen && !userInteractingWithCTA) {
+                        const stillNoScrollActivity = Date.now() - lastScrollTime >= 5000;
+                        
+                        if (!stillOrderModalOpen && 
+                            !userInteractingWithCTA && 
+                            !userScrolledBackUp &&
+                            stillNoScrollActivity) {
                             openEmailCaptureModal();
                         }
-                    }, 1000); // Delay 1 second after scroll
+                    }, 3000); // 3 second delay after reaching scroll threshold
                 }
             }
         });
 
-        // Time on page trigger (30 seconds)
+        // Time on page trigger - much longer for careful readers (90 seconds instead of 30)
         setTimeout(function() {
             const orderModalOpen = orderModalForEmailCheck && orderModalForEmailCheck.classList.contains('active');
+            const timeSinceLastScroll = Date.now() - lastScrollTime;
             
+            // Only show if user has been idle (not actively scrolling/reading)
             if (!timeTriggered && 
                 !emailCaptureShown && 
                 !emailCaptureSubmitted && 
                 !orderModalOpen && 
-                !userInteractingWithCTA) {
+                !userInteractingWithCTA &&
+                timeSinceLastScroll >= 10000) { // 10 seconds of no scroll activity
                 timeTriggered = true;
                 openEmailCaptureModal();
             }
-        }, 30000);
+        }, 90000); // 90 seconds instead of 30
 
         // Close modal handlers
         if (closeEmailModalBtn) {
