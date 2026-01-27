@@ -2282,19 +2282,6 @@
                 font-size: 16px;
             }
 
-            .trust-strip {
-                padding: 8px 0;
-            }
-
-            .trust-strip .container {
-                font-size: 12px;
-                gap: 6px;
-                line-height: 1.4;
-            }
-
-            .trust-dot {
-                display: none;
-            }
 
             .header-links {
                 gap: 8px;
@@ -2599,17 +2586,6 @@
             </div>
         </div>
     </header>
-
-    <!-- Trust strip -->
-    <div class="trust-strip">
-        <div class="container">
-            <span class="trust-strong">Trusted by 1,300+ readers</span>
-            <span class="trust-dot">•</span>
-            <span>Feeling <span class="trust-strong">more in control</span> and confident</span>
-            <span class="trust-dot">•</span>
-            <a class="inline-link" href="#reviews">Read reviews</a>
-        </div>
-    </div>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -3192,10 +3168,6 @@
         // Mobile triggers: scroll depth (75%) or time on page (90 seconds) - conservative for 40+ audience
         let scrollTriggered = false;
         let timeTriggered = false;
-        let lastScrollTime = Date.now();
-        let scrollActivityDetected = false;
-        let userScrolledBackUp = false;
-        let maxScrollPosition = 0;
 
         // Track scroll activity to detect if user is actively reading
         window.addEventListener('scroll', function() {
