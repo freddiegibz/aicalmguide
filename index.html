@@ -2444,6 +2444,70 @@
             gap: 12px;
         }
 
+        .discount-code-display {
+            background: var(--color-bg-soft);
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .discount-code-label-small {
+            display: block;
+            font-size: 13px;
+            color: var(--color-text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .discount-code-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: #fff;
+            border: 2px dashed var(--color-primary);
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .discount-code-value-large {
+            font-family: 'Inter', monospace;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--color-primary);
+            letter-spacing: 2px;
+        }
+
+        .discount-code-copy-btn {
+            background: var(--color-primary);
+            color: #fff;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .discount-code-copy-btn:hover {
+            background: var(--color-primary-light);
+        }
+
+        .discount-code-copy-btn.copied {
+            background: #059669;
+        }
+
+        .discount-code-hint-small {
+            font-size: 13px;
+            color: var(--color-text-light);
+        }
+
         .email-capture-input {
             width: 100%;
             padding: 14px 18px;
@@ -2839,43 +2903,31 @@
         <div class="email-capture-modal">
             <button class="email-capture-close" id="closeEmailModalBtn" aria-label="Close">&times;</button>
             
-            <div class="email-capture-content" id="emailCaptureForm">
+            <div class="email-capture-content">
                 <div class="email-capture-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M20 7l-8 5-8-5V5l8 5 8-5v2zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
                     </svg>
                 </div>
                 <h2 class="email-capture-title">A Reward for Reading Carefully</h2>
-                <p class="email-capture-subtitle">We notice you’ve taken the time to look through this guide. We value readers who are serious about understanding AI properly. As a reward for your time, we'd like to offer you an <strong>Early Reader Discount of 25%.</strong></p>
+                <p class="email-capture-subtitle">We notice you’ve taken the time to look through this guide. We value readers who are serious about understanding AI properly. As a reward for your time, here is an <strong>Early Reader Discount of 25%.</strong></p>
                 
-                <form class="email-capture-form" id="emailForm" action="https://formspree.io/f/mjgwrqod" method="POST">
-                    <input 
-                        type="email" 
-                        name="email" 
-                        class="email-capture-input" 
-                        placeholder="Enter your email to reveal your code" 
-                        required
-                        id="emailInput"
-                    >
-                    <button type="submit" class="email-capture-submit" id="emailSubmitBtn">
-                        Claim My 25% Discount →
-                    </button>
-                </form>
+                <div class="discount-code-display">
+                    <span class="discount-code-label-small">Your Discount Code:</span>
+                    <div class="discount-code-box">
+                        <span class="discount-code-value-large" id="modalDiscountCode">EARLY25</span>
+                        <button type="button" class="discount-code-copy-btn" id="modalCopyBtn">Copy Code</button>
+                    </div>
+                    <p class="discount-code-hint-small">Enter at checkout for 25% off your entire order.</p>
+                </div>
+
+                <a href="#get-kit" class="email-capture-submit" id="modalContinueBtn">
+                    Use My Discount Now →
+                </a>
                 
                 <p class="email-capture-privacy">
-                    No spam. Just your code and occasional AI clarity.
+                    Valid for a limited time for new readers.
                 </p>
-            </div>
-
-            <div class="email-capture-success" id="emailCaptureSuccess">
-                <div class="email-capture-success-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                        <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
-                </div>
-                <h2 class="email-capture-success-title">Your Discount is Ready</h2>
-                <p class="email-capture-success-text">Use code <strong style="color: var(--color-primary); font-size: 24px; display: block; margin: 10px 0;">EARLY25</strong> at checkout for 25% off your entire order.</p>
-                <p class="email-capture-privacy" style="margin-top: 20px;">We've also sent this to your email so you don't lose it.</p>
             </div>
         </div>
     </div>
@@ -3061,22 +3113,23 @@
         toggleStickyBar();
 
         // ========================================
-        // EXIT-INTENT EMAIL CAPTURE
+        // EXIT-INTENT DISCOUNT MODAL
         // ========================================
         const emailCaptureModal = document.getElementById('emailCaptureModal');
         const closeEmailModalBtn = document.getElementById('closeEmailModalBtn');
-        const emailForm = document.getElementById('emailForm');
-        const emailCaptureForm = document.getElementById('emailCaptureForm');
-        const emailCaptureSuccess = document.getElementById('emailCaptureSuccess');
-        const emailInput = document.getElementById('emailInput');
-        const emailSubmitBtn = document.getElementById('emailSubmitBtn');
+        const modalCopyBtn = document.getElementById('modalCopyBtn');
+        const modalDiscountCode = document.getElementById('modalDiscountCode');
+        const modalContinueBtn = document.getElementById('modalContinueBtn');
         
         // Get order modal reference to check if it's open
         const orderModalForEmailCheck = document.getElementById('orderModal');
 
-        // Check if user has already seen/submitted the email capture
+        // Check if user has already seen the discount
         const emailCaptureShown = sessionStorage.getItem('emailCaptureShown');
-        const emailCaptureSubmitted = localStorage.getItem('emailCaptureSubmitted');
+        
+        // We'll use a local timestamp to ensure no popups for the first 30 seconds
+        const pageLoadTime = Date.now();
+        const GRACE_PERIOD = 30000; // 30 seconds grace period
 
         // Track if user is interacting with CTAs or order modal
         let userInteractingWithCTA = false;
@@ -3108,7 +3161,10 @@
         });
 
         function openEmailCaptureModal() {
-            // Don't show if order modal is open, user is interacting with CTAs, or already shown/submitted
+            // Don't show during grace period (first 30 seconds)
+            if (Date.now() - pageLoadTime < GRACE_PERIOD) return;
+
+            // Don't show if order modal is open, user is interacting with CTAs, or already shown
             const orderModalOpen = orderModalForEmailCheck && orderModalForEmailCheck.classList.contains('active');
             
             // Check if user is near final CTA section (within last 20% of page)
@@ -3121,7 +3177,6 @@
             
             if (emailCaptureModal && 
                 !emailCaptureShown && 
-                !emailCaptureSubmitted && 
                 !orderModalOpen && 
                 !userInteractingWithCTA &&
                 !nearFinalCTA &&
@@ -3129,6 +3184,11 @@
                 emailCaptureModal.classList.add('active');
                 document.body.style.overflow = 'hidden';
                 sessionStorage.setItem('emailCaptureShown', 'true');
+                
+                // Track view
+                if (typeof fbq !== 'undefined') {
+                    fbq('trackCustom', 'DiscountModalShown');
+                }
             }
         }
 
@@ -3142,6 +3202,9 @@
         // Exit-intent detection for desktop (mouse leaving viewport)
         let exitIntentTriggered = false;
         document.addEventListener('mouseout', function(e) {
+            // Grace period check
+            if (Date.now() - pageLoadTime < GRACE_PERIOD) return;
+
             // Don't trigger if order modal is open, user is interacting with CTAs, or actively reading
             const orderModalOpen = orderModalForEmailCheck && orderModalForEmailCheck.classList.contains('active');
             const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
@@ -3151,7 +3214,6 @@
             
             if (!exitIntentTriggered && 
                 !emailCaptureShown && 
-                !emailCaptureSubmitted && 
                 !orderModalOpen && 
                 !userInteractingWithCTA &&
                 !nearFinalCTA &&
@@ -3186,13 +3248,15 @@
 
         // Scroll depth trigger - only at 75% and only if user hasn't scrolled back up
         window.addEventListener('scroll', function() {
+            // Grace period check
+            if (Date.now() - pageLoadTime < GRACE_PERIOD) return;
+
             const orderModalOpen = orderModalForEmailCheck && orderModalForEmailCheck.classList.contains('active');
             const timeSinceLastScroll = Date.now() - lastScrollTime;
             
             // Only trigger if user has been idle for 5+ seconds (not actively reading)
             if (!scrollTriggered && 
                 !emailCaptureShown && 
-                !emailCaptureSubmitted && 
                 !orderModalOpen && 
                 !userInteractingWithCTA &&
                 !userScrolledBackUp &&
@@ -3228,7 +3292,6 @@
             // Only show if user has been idle (not actively scrolling/reading)
             if (!timeTriggered && 
                 !emailCaptureShown && 
-                !emailCaptureSubmitted && 
                 !orderModalOpen && 
                 !userInteractingWithCTA &&
                 timeSinceLastScroll >= 10000) { // 10 seconds of no scroll activity
@@ -3257,58 +3320,30 @@
             }
         });
 
-        // Form submission handler
-        if (emailForm) {
-            emailForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                const formData = new FormData(emailForm);
-                const email = formData.get('email');
-
-                // Disable submit button
-                if (emailSubmitBtn) {
-                    emailSubmitBtn.disabled = true;
-                    emailSubmitBtn.textContent = 'Sending...';
-                }
-
-                // Submit to Formspree
-                fetch('https://formspree.io/f/mjgwrqod', {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                })
-                .then(response => {
-                    if (response.ok) {
-                        // Show success message
-                        emailCaptureForm.classList.add('hidden');
-                        emailCaptureSuccess.classList.add('active');
-                        localStorage.setItem('emailCaptureSubmitted', 'true');
-                        
-                        // Track conversion
-                        if (typeof fbq !== 'undefined') {
-                            fbq('track', 'Lead', {
-                                content_name: 'Discount Code Revealed',
-                                value: 0,
-                                currency: 'GBP'
-                            });
-                        }
-
-                        // Stay open longer so they can copy the code
-                        // Removed auto-close or set to long time
-                    } else {
-                        throw new Error('Form submission failed');
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    if (emailSubmitBtn) {
-                        emailSubmitBtn.disabled = false;
-                        emailSubmitBtn.textContent = 'Try again';
-                    }
-                    alert('Something went wrong. Please try again.');
+        // Copy button handler
+        if (modalCopyBtn && modalDiscountCode) {
+            modalCopyBtn.addEventListener('click', function() {
+                const code = modalDiscountCode.textContent;
+                navigator.clipboard.writeText(code).then(function() {
+                    modalCopyBtn.textContent = 'Copied!';
+                    modalCopyBtn.classList.add('copied');
+                    setTimeout(function() {
+                        modalCopyBtn.textContent = 'Copy Code';
+                        modalCopyBtn.classList.remove('copied');
+                    }, 2000);
                 });
+            });
+        }
+
+        // Continue button handler
+        if (modalContinueBtn) {
+            modalContinueBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                closeEmailCaptureModal();
+                const target = document.querySelector(modalContinueBtn.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
             });
         }
     </script>
