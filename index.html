@@ -2409,7 +2409,7 @@
         .email-capture-icon {
             width: 64px;
             height: 64px;
-            background: linear-gradient(135deg, #f0f7ff 0%, #e0efff 100%);
+            background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -2420,7 +2420,7 @@
         .email-capture-icon svg {
             width: 32px;
             height: 32px;
-            color: var(--color-primary);
+            color: #ea580c;
         }
 
         .email-capture-title {
@@ -2834,7 +2834,7 @@
     </div>
 </div>
 
-    <!-- Exit-Intent Email Capture Modal -->
+    <!-- Exit-Intent Discount Modal -->
     <div class="email-capture-overlay" id="emailCaptureModal">
         <div class="email-capture-modal">
             <button class="email-capture-close" id="closeEmailModalBtn" aria-label="Close">&times;</button>
@@ -2842,29 +2842,28 @@
             <div class="email-capture-content" id="emailCaptureForm">
                 <div class="email-capture-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                        <polyline points="22,6 12,13 2,6"></polyline>
+                        <path d="M20 7l-8 5-8-5V5l8 5 8-5v2zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
                     </svg>
                 </div>
-                <h2 class="email-capture-title">Not ready to buy yet?</h2>
-                <p class="email-capture-subtitle">Get the first chapter free and see if this is right for you.</p>
+                <h2 class="email-capture-title">A Reward for Reading Carefully</h2>
+                <p class="email-capture-subtitle">We notice you’ve taken the time to look through this guide. We value readers who are serious about understanding AI properly. As a reward for your time, we'd like to offer you an <strong>Early Reader Discount of 25%.</strong></p>
                 
                 <form class="email-capture-form" id="emailForm" action="https://formspree.io/f/mjgwrqod" method="POST">
                     <input 
                         type="email" 
                         name="email" 
                         class="email-capture-input" 
-                        placeholder="Enter your email address" 
+                        placeholder="Enter your email to reveal your code" 
                         required
                         id="emailInput"
                     >
                     <button type="submit" class="email-capture-submit" id="emailSubmitBtn">
-                        Send me the free chapter
+                        Claim My 25% Discount →
                     </button>
                 </form>
                 
                 <p class="email-capture-privacy">
-                    We respect your privacy. Unsubscribe at any time.
+                    No spam. Just your code and occasional AI clarity.
                 </p>
             </div>
 
@@ -2874,8 +2873,9 @@
                         <polyline points="20 6 9 17 4 12"></polyline>
                     </svg>
                 </div>
-                <h2 class="email-capture-success-title">Check your email</h2>
-                <p class="email-capture-success-text">We've sent you the first chapter. It should arrive in a few minutes.</p>
+                <h2 class="email-capture-success-title">Your Discount is Ready</h2>
+                <p class="email-capture-success-text">Use code <strong style="color: var(--color-primary); font-size: 24px; display: block; margin: 10px 0;">EARLY25</strong> at checkout for 25% off your entire order.</p>
+                <p class="email-capture-privacy" style="margin-top: 20px;">We've also sent this to your email so you don't lose it.</p>
             </div>
         </div>
     </div>
@@ -3289,16 +3289,14 @@
                         // Track conversion
                         if (typeof fbq !== 'undefined') {
                             fbq('track', 'Lead', {
-                                content_name: 'Email Capture',
+                                content_name: 'Discount Code Revealed',
                                 value: 0,
                                 currency: 'GBP'
                             });
                         }
 
-                        // Auto-close after 3 seconds
-                        setTimeout(function() {
-                            closeEmailCaptureModal();
-                        }, 3000);
+                        // Stay open longer so they can copy the code
+                        // Removed auto-close or set to long time
                     } else {
                         throw new Error('Form submission failed');
                     }
