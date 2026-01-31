@@ -2801,7 +2801,7 @@
             <p class="section-subtitle">Gain clarity. Take control. Make better decisions, faster.</p>
             
             <div class="final-cta-options">
-                <a href="https://buy.stripe.com/28EbJ072P78o46k7hUbZe0a" class="cta-button" id="sectionCtaBtn">Get the Guide — £14.59</a>
+                <a href="https://buy.stripe.com/28EbJ072P78o46k7hUbZe0a" class="cta-button" id="sectionCtaBtn">Get the Guide — £19</a>
             </div>
             
             <p class="cta-reassurance" style="margin-top: 20px; font-size: 14px;">Instant delivery · 100% money-back guarantee</p>
@@ -2820,7 +2820,7 @@
     <!-- Sticky Mobile CTA Bar -->
     <div class="sticky-cta-bar">
         <div class="sticky-cta-bar-content">
-            <a href="https://buy.stripe.com/28EbJ072P78o46k7hUbZe0a" class="sticky-cta-button" id="stickyCtaBtn">Get the Guide — £14.59</a>
+            <a href="https://buy.stripe.com/28EbJ072P78o46k7hUbZe0a" class="sticky-cta-button" id="stickyCtaBtn">Get the Guide — £19</a>
             <p class="sticky-cta-guarantee">Instant delivery · 100% refund guarantee</p>
             </div>
         </div>
@@ -2834,7 +2834,6 @@
         <div class="order-step" id="orderStep1">
             <div class="order-modal-header">
                 <h2 class="order-modal-title">Complete Your Order</h2>
-                <div class="order-discount-badge">Early Customer Price — 25% Off</div>
             </div>
             
             <div class="order-modal-content">
@@ -2845,8 +2844,7 @@
                         <span class="order-item-desc">The complete eBook</span>
                     </div>
                     <div class="order-item-pricing">
-                        <span class="order-item-price-original">£19.45</span>
-                        <span class="order-item-price">£14.59</span>
+                        <span class="order-item-price">£19</span>
                     </div>
                 </div>
 
@@ -2859,7 +2857,6 @@
                             <div class="order-bump-header">
                                 <span class="order-bump-name">Add: 50 Ready-to-Use AI Messages</span>
                                 <div class="order-bump-pricing">
-                                    <span class="order-bump-price-original">£10</span>
                                     <span class="order-bump-price">+£7.50</span>
                                 </div>
                             </div>
@@ -2872,8 +2869,7 @@
                 <div class="order-total">
                     <span class="order-total-label">Total:</span>
                     <div class="order-total-pricing">
-                        <span class="order-total-price-original" id="orderTotalOriginal">£19.45</span>
-                        <span class="order-total-price" id="orderTotalPrice">£14.59</span>
+                        <span class="order-total-price" id="orderTotalPrice">£19</span>
                     </div>
                 </div>
 
@@ -2949,7 +2945,6 @@
         const bumpCheckbox = document.getElementById('bumpCheckbox');
         const orderBump = document.getElementById('orderBump');
         const orderTotalPrice = document.getElementById('orderTotalPrice');
-        const orderTotalOriginal = document.getElementById('orderTotalOriginal');
         const checkoutBtn = document.getElementById('checkoutBtn');
 
         // Stripe checkout URLs
@@ -2958,12 +2953,10 @@
             ebookWithBump: 'https://buy.stripe.com/28EeVc72PfEUbyM9q2bZe0b'
         };
 
-        // Pricing (discounted prices)
+        // Pricing
         const PRICES = {
-            ebook: 14.59,
-            messages: 7.50,
-            ebookOriginal: 19.45,
-            messagesOriginal: 10.00
+            ebook: 19,
+            messages: 7.50
         };
 
         function openOrderModal(e) {
@@ -2992,14 +2985,9 @@
         function updateOrderTotal() {
             const isBumpSelected = bumpCheckbox && bumpCheckbox.checked;
             const total = isBumpSelected ? PRICES.ebook + PRICES.messages : PRICES.ebook;
-            const totalOriginal = isBumpSelected ? PRICES.ebookOriginal + PRICES.messagesOriginal : PRICES.ebookOriginal;
             
             if (orderTotalPrice) {
                 orderTotalPrice.textContent = '£' + total.toFixed(2);
-            }
-            
-            if (orderTotalOriginal) {
-                orderTotalOriginal.textContent = '£' + totalOriginal.toFixed(2);
             }
             
             if (orderBump) {
