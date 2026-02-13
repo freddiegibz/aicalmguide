@@ -174,7 +174,24 @@
         }
 
         .hero-layout {
-            display: block;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .hero-layout {
+                grid-template-columns: 1.1fr 0.9fr;
+                gap: 48px;
+                align-items: center;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero-layout {
+                grid-template-columns: 1.2fr 0.8fr;
+                gap: 64px;
+            }
         }
 
         .hero-copy {
@@ -2639,10 +2656,10 @@
             <div class="hero-layout">
                 <div class="hero-copy">
                     <span class="hero-badge">No tech skills needed</span>
-                    <h1>AI Isn't Confusing. It's Just Explained Badly.</h1>
-                    <p class="hero-subheadline">A calm, practical starting point in a world where technology has moved faster than explanations.</p>
+                    <h1>Use AI confidently in your daily life, without being technical</h1>
+                    <p class="hero-subheadline">A short, non-technical guide that shows you where AI is useful, where it isn't, and how to get better results immediately.</p>
                     
-                    <p class="hero-body">If AI still feels like something other people understand, you're not behind. You just haven't had it explained properly. This short guide shows you where to start, what to ask, and how to actually get useful answers. Feel noticeably more confident in under an hour.</p>
+                    <p class="hero-body">If you've tried AI and felt underwhelmed, confused, or unsure where it actually fits, this guide gives you clear fundamentals and practical examples — so you can use it properly without wasting time on tutorials or hype.</p>
 
                     <p class="hero-social-proof">Trusted by 1,300+ readers who wanted clarity, not complexity.</p>
 
@@ -2650,6 +2667,9 @@
                     <p class="hero-guarantee">
                         Instant download · 100% money-back guarantee
                     </p>
+                </div>
+                <div class="hero-image">
+                    <img src="productimage.jpg" alt="AI Confidence Kit">
                 </div>
             </div>
         </div>
