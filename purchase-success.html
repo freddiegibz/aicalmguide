@@ -417,6 +417,164 @@
         }
 
         /* ========================================
+           SEGMENTATION MODAL
+           ======================================== */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: #ffffff;
+            border-radius: 16px;
+            max-width: 520px;
+            width: 100%;
+            padding: 40px 36px;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.25);
+            animation: modalSlideIn 0.3s ease-out;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-content h2 {
+            font-size: 24px;
+            margin-bottom: 12px;
+            text-align: center;
+            color: var(--color-text);
+        }
+
+        .modal-subtitle {
+            font-size: 16px;
+            color: var(--color-text-light);
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .option-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 28px;
+        }
+
+        .option-label {
+            display: flex;
+            align-items: center;
+            padding: 18px 20px;
+            background: var(--color-bg-soft);
+            border: 2px solid var(--color-border);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .option-label:hover {
+            border-color: var(--color-primary);
+            background: #fff;
+        }
+
+        .option-input {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .option-input:checked + .option-label {
+            border-color: var(--color-primary);
+            background: #fff;
+            box-shadow: 0 4px 12px rgba(30, 58, 95, 0.12);
+        }
+
+        .option-radio {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--color-border);
+            border-radius: 50%;
+            margin-right: 14px;
+            flex-shrink: 0;
+            position: relative;
+            transition: all 0.2s ease;
+        }
+
+        .option-input:checked + .option-label .option-radio {
+            border-color: var(--color-primary);
+            background: var(--color-primary);
+        }
+
+        .option-radio::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            width: 8px;
+            height: 8px;
+            background: #fff;
+            border-radius: 50%;
+            transition: transform 0.2s ease;
+        }
+
+        .option-input:checked + .option-label .option-radio::after {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .option-text {
+            font-size: 16px;
+            color: var(--color-text);
+            font-weight: 500;
+        }
+
+        .modal-submit-btn {
+            width: 100%;
+            background: var(--color-primary);
+            color: #fff;
+            padding: 16px 32px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 14px rgba(30, 58, 95, 0.25);
+        }
+
+        .modal-submit-btn:hover:not(:disabled) {
+            background: var(--color-primary-light);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(30, 58, 95, 0.3);
+        }
+
+        .modal-submit-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* ========================================
            MOBILE ADJUSTMENTS
            ======================================== */
         @media (max-width: 767px) {
@@ -512,10 +670,63 @@
                 width: 100%;
                 justify-content: center;
             }
+
+            .modal-content {
+                padding: 32px 24px;
+                max-width: 100%;
+            }
+
+            .modal-content h2 {
+                font-size: 21px;
+            }
+
+            .modal-subtitle {
+                font-size: 15px;
+            }
+
+            .option-label {
+                padding: 16px 18px;
+            }
+
+            .option-text {
+                font-size: 15px;
+            }
         }
     </style>
 </head>
 <body>
+
+    <!-- Segmentation Modal -->
+    <div class="modal-overlay" id="segmentModal">
+        <div class="modal-content">
+            <h2>What would help you most right now?</h2>
+            <p class="modal-subtitle">Now that you've got the guide, let's make this practical.</p>
+            
+            <form action="https://formspree.io/f/mlgwnvkk" method="POST" id="segmentForm">
+                <div class="option-group">
+                    <input type="radio" name="goal" value="I want useful results immediately" id="option1" class="option-input" required>
+                    <label for="option1" class="option-label">
+                        <span class="option-radio"></span>
+                        <span class="option-text">I want useful results immediately.</span>
+                    </label>
+
+                    <input type="radio" name="goal" value="I want to stop second-guessing myself" id="option2" class="option-input">
+                    <label for="option2" class="option-label">
+                        <span class="option-radio"></span>
+                        <span class="option-text">I want to stop second-guessing myself.</span>
+                    </label>
+
+                    <input type="radio" name="goal" value="I want this to feel simple and manageable" id="option3" class="option-input">
+                    <label for="option3" class="option-label">
+                        <span class="option-radio"></span>
+                        <span class="option-text">I want this to feel simple and manageable.</span>
+                    </label>
+                </div>
+
+                <button type="submit" class="modal-submit-btn" id="submitBtn">Continue</button>
+            </form>
+        </div>
+    </div>
 
     <!-- 1. CONFIRMATION HEADER -->
     <section class="confirmation-header">
@@ -668,6 +879,69 @@
             </p>
         </div>
     </footer>
+
+    <script>
+        // Show segmentation modal on page load
+        window.addEventListener('load', function() {
+            const modal = document.getElementById('segmentModal');
+            const form = document.getElementById('segmentForm');
+            const submitBtn = document.getElementById('submitBtn');
+            
+            // Check if user has already completed segmentation
+            const hasSegmented = sessionStorage.getItem('hasSegmented');
+            
+            if (!hasSegmented) {
+                // Show modal after a brief delay
+                setTimeout(function() {
+                    modal.classList.add('active');
+                }, 500);
+            }
+            
+            // Handle form submission
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Disable submit button
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Submitting...';
+                
+                // Get form data
+                const formData = new FormData(form);
+                
+                // Submit to Formspree
+                fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        // Store the selected goal
+                        const selectedGoal = formData.get('goal');
+                        sessionStorage.setItem('userGoal', selectedGoal);
+                        sessionStorage.setItem('hasSegmented', 'true');
+                        
+                        // Close modal
+                        modal.classList.remove('active');
+                        
+                        // Optional: You can trigger different upsells based on the goal
+                        // Example: redirect or show specific content
+                        console.log('User selected:', selectedGoal);
+                    } else {
+                        throw new Error('Form submission failed');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Something went wrong. Please try again.');
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Continue';
+                });
+            });
+        });
+    </script>
 
 </body>
 </html>
