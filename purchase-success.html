@@ -543,6 +543,13 @@
             margin-bottom: 32px;
         }
 
+        .modal-intro-body {
+            font-size: 16px;
+            color: var(--color-text);
+            line-height: 1.6;
+            margin-bottom: 14px;
+        }
+
         .option-group {
             display: flex;
             flex-direction: column;
@@ -1025,8 +1032,18 @@
     <!-- Segmentation Modal -->
     <div class="modal-overlay" id="segmentModal">
         <div class="modal-content">
+            <!-- Step 0: Intro - Validate purchase, soften transition -->
+            <div class="modal-step active" id="step0">
+                <h2>Before you begin…</h2>
+                <p class="modal-intro-body">You've made a solid decision.</p>
+                <p class="modal-intro-body">The guide you've just purchased is enough to give you clarity and a proper starting point.</p>
+                <p class="modal-intro-body">Before we send you through, there's one quick question. It helps us point you toward the most useful next step — if you want one.</p>
+                <p class="modal-intro-body" style="margin-bottom: 28px;">It takes a few seconds.</p>
+                <button type="button" class="modal-submit-btn" id="introContinueBtn">Continue</button>
+            </div>
+
             <!-- Step 1: Goal Selection -->
-            <div class="modal-step active" id="step1">
+            <div class="modal-step" id="step1">
                 <h2>What would help you most right now?</h2>
                 <p class="modal-subtitle">Let's make this practical.</p>
                 
@@ -1282,11 +1299,20 @@
             const modal = document.getElementById('segmentModal');
             const form = document.getElementById('segmentForm');
             const submitBtn = document.getElementById('submitBtn');
+            const step0 = document.getElementById('step0');
             const step1 = document.getElementById('step1');
             const step2 = document.getElementById('step2');
             const productOffer = document.getElementById('productOffer');
+            const introContinueBtn = document.getElementById('introContinueBtn');
 
             if (!modal) return;
+
+            if (introContinueBtn) {
+                introContinueBtn.addEventListener('click', function() {
+                    step0.classList.remove('active');
+                    step1.classList.add('active');
+                });
+            }
 
             var hasSegmented = false;
             try {
