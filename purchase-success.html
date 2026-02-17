@@ -601,13 +601,10 @@
         }
 
         .product-price {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 24px;
-            padding: 16px 20px;
+            padding: 20px;
             background: var(--color-bg-soft);
             border-radius: 10px;
+            margin-bottom: 24px;
         }
 
         .price-label {
@@ -616,12 +613,6 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
             font-weight: 600;
-        }
-
-        .price-amount {
-            font-size: 28px;
-            font-weight: 600;
-            color: var(--color-primary);
         }
 
         .product-cta {
@@ -679,6 +670,102 @@
             border-left: 3px solid var(--color-primary);
             border-radius: 6px;
             font-style: italic;
+        }
+
+        .reward-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+            color: #065f46;
+            font-size: 13px;
+            font-weight: 600;
+            padding: 10px 16px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+            justify-content: center;
+        }
+
+        .reward-badge svg {
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+        }
+
+        .reward-headline {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .product-price-row {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .price-original {
+            font-size: 18px;
+            color: var(--color-text-light);
+            text-decoration: line-through;
+            font-weight: 500;
+        }
+
+        .price-amount {
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--color-success);
+        }
+
+        .discount-code-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 14px 18px;
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border: 2px dashed #b45309;
+            border-radius: 10px;
+            margin-bottom: 24px;
+        }
+
+        .discount-code-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #92400e;
+        }
+
+        .discount-code-value {
+            font-size: 18px;
+            font-weight: 700;
+            color: #92400e;
+            letter-spacing: 1px;
+        }
+
+        .discount-code-copy {
+            font-size: 13px;
+            font-weight: 600;
+            color: #92400e;
+            background: #fff;
+            border: 1px solid #b45309;
+            padding: 6px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .discount-code-copy:hover {
+            background: #fef3c7;
+        }
+
+        .discount-code-copy.copied {
+            background: #10b981;
+            color: #fff;
+            border-color: #10b981;
         }
 
         /* ========================================
@@ -809,6 +896,14 @@
 
             .price-amount {
                 font-size: 24px;
+            }
+
+            .reward-headline {
+                font-size: 16px;
+            }
+
+            .discount-code-box {
+                flex-wrap: wrap;
             }
 
             .buy-btn {
@@ -1012,30 +1107,35 @@
     </footer>
 
     <script>
-        // Product data based on user selection
+        // Product data based on user selection (33% off with LOYALTY33)
         const products = {
             immediate: {
                 name: 'AI Quick Wins Blueprint',
                 description: 'A simple 7-day action plan showing you exactly what to try first with AI — in what order, for what purpose, and what a good result looks like. No experimentation. No guesswork. Just structured, immediate wins you can see within days.',
-                price: '£17',
+                priceOriginal: '£17',
+                price: '£11.39',
                 url: 'https://buy.stripe.com/eVq9AS72PeAQ8mA59MbZe0k',
                 congruence: 'You said you want useful results immediately — this gives you a clear 7-day plan with structured wins you can see within days.'
             },
             confidence: {
                 name: 'AI Judgement Framework',
                 description: 'A practical framework that teaches you when to trust AI, when to double-check it, and how to correct responses calmly and effectively. Clear rules. Plain English. Designed to remove hesitation and second-guessing.',
-                price: '£29',
+                priceOriginal: '£29',
+                price: '£19.43',
                 url: 'https://buy.stripe.com/9B68wO2MzfEUgT61XAbZe0h',
                 congruence: 'You said you want to stop second-guessing yourself — this framework gives you clear rules for when to trust AI and when to double-check it.'
             },
             simple: {
                 name: 'The Everyday AI System',
                 description: 'A simple repeatable process for using AI in everyday life — from emails and planning to clarifying decisions. Learn a reliable Ask → Evaluate → Adjust approach so AI becomes something you use comfortably, not cautiously.',
-                price: '£27',
+                priceOriginal: '£27',
+                price: '£18.09',
                 url: 'https://buy.stripe.com/eVq9AS72PeAQ8mA59MbZe0k',
                 congruence: 'You said you want this to feel simple and manageable — this gives you a repeatable process you can use comfortably every day.'
             }
         };
+
+        const DISCOUNT_CODE = 'LOYALTY33';
 
         // Show segmentation modal on page load
         window.addEventListener('load', function() {
@@ -1099,21 +1199,39 @@
             function showProductOffer(goal) {
                 const product = products[goal];
                 
-                // Build product offer HTML
+                // Build product offer HTML with reward framing
                 productOffer.innerHTML = `
                     <div class="product-offer">
+                        <div class="reward-badge">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                            </svg>
+                            <span>Your reward for purchasing — 33% off</span>
+                        </div>
+                        
+                        <p class="reward-headline">You've earned this. Here's your exclusive deal.</p>
+                        
                         <p class="congruence-text">${product.congruence}</p>
                         
                         <h3>${product.name}</h3>
                         <p class="product-description">${product.description}</p>
                         
                         <div class="product-price">
-                            <span class="price-label">One-time</span>
-                            <span class="price-amount">${product.price}</span>
+                            <span class="price-label">Your price (33% off)</span>
+                            <div class="product-price-row">
+                                <span class="price-original">${product.priceOriginal}</span>
+                                <span class="price-amount">${product.price}</span>
+                            </div>
+                            <div class="discount-code-box">
+                                <span class="discount-code-label">Your code:</span>
+                                <span class="discount-code-value" id="discountCode">${DISCOUNT_CODE}</span>
+                                <button type="button" class="discount-code-copy" onclick="copyDiscountCode()">Copy</button>
+                            </div>
+                            <p style="font-size: 13px; color: var(--color-text-light); margin-top: 8px;">Enter <strong>LOYALTY33</strong> at checkout</p>
                         </div>
                         
                         <div class="product-cta">
-                            <a href="${product.url}" class="buy-btn">Add to my order</a>
+                            <a href="${product.url}" class="buy-btn">Claim my discount</a>
                             <button class="skip-btn" onclick="closeModal()">No thanks, I'll stick with the guide</button>
                         </div>
                     </div>
@@ -1123,6 +1241,21 @@
                 step1.classList.remove('active');
                 step2.classList.add('active');
             }
+
+            window.copyDiscountCode = function() {
+                const codeEl = document.getElementById('discountCode');
+                const btn = document.querySelector('.discount-code-copy');
+                if (codeEl && btn) {
+                    navigator.clipboard.writeText(DISCOUNT_CODE).then(function() {
+                        btn.textContent = 'Copied!';
+                        btn.classList.add('copied');
+                        setTimeout(function() {
+                            btn.textContent = 'Copy';
+                            btn.classList.remove('copied');
+                        }, 2000);
+                    });
+                }
+            };
 
             // Make closeModal function global
             window.closeModal = function() {
