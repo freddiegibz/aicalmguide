@@ -1281,8 +1281,9 @@
 
         const DISCOUNT_CODE = 'LOYALTY33';
 
-        // Show segmentation modal on page load
-        window.addEventListener('load', function() {
+        // Show segmentation modal when DOM is ready (use DOMContentLoaded instead of load -
+        // load waits for video/images which can block or delay on mobile)
+        function initSegmentationModal() {
             const modal = document.getElementById('segmentModal');
             const form = document.getElementById('segmentForm');
             const submitBtn = document.getElementById('submitBtn');
@@ -1411,6 +1412,7 @@
                 step2.classList.remove('active');
                 step3.classList.add('active');
             }
+            window.showFirstOto = showFirstOto;
 
             function showSecondOto() {
                 const step3 = document.getElementById('step3');
@@ -1444,6 +1446,7 @@
                 step3.classList.remove('active');
                 step4.classList.add('active');
             }
+            window.showSecondOto = showSecondOto;
 
             window.copyDiscountCode = function() {
                 const codeEl = document.getElementById('discountCode');
@@ -1465,7 +1468,13 @@
                 sessionStorage.setItem('hasSegmented', 'true');
                 modal.classList.remove('active');
             };
-        });
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initSegmentationModal);
+        } else {
+            initSegmentationModal();
+        }
     </script>
 
 </body>
