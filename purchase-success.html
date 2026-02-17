@@ -586,137 +586,54 @@
             text-align: left;
         }
 
-        .product-offer h3 {
-            font-size: 22px;
-            color: var(--color-text);
-            margin-bottom: 16px;
-            line-height: 1.3;
-        }
-
-        .product-description {
-            font-size: 16px;
-            color: var(--color-text-light);
-            line-height: 1.7;
-            margin-bottom: 24px;
-        }
-
-        .product-price {
-            padding: 20px;
-            background: var(--color-bg-soft);
-            border-radius: 10px;
-            margin-bottom: 24px;
-        }
-
-        .price-label {
-            font-size: 14px;
-            color: var(--color-text-light);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            font-weight: 600;
-        }
-
-        .product-cta {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .buy-btn {
-            width: 100%;
-            background: var(--color-primary);
-            color: #fff;
-            padding: 16px 32px;
-            font-size: 16px;
-            font-weight: 600;
-            text-decoration: none;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 14px rgba(30, 58, 95, 0.25);
-            text-align: center;
-        }
-
-        .buy-btn:hover {
-            background: var(--color-primary-light);
-            transform: translateY(-1px);
-            box-shadow: 0 6px 20px rgba(30, 58, 95, 0.3);
-        }
-
-        .skip-btn {
-            width: 100%;
-            background: transparent;
-            color: var(--color-text-light);
-            padding: 12px 32px;
-            font-size: 15px;
-            font-weight: 500;
-            text-decoration: none;
-            border: none;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            text-align: center;
-        }
-
-        .skip-btn:hover {
-            color: var(--color-text);
-        }
-
-        .congruence-text {
-            font-size: 15px;
-            color: var(--color-text-light);
-            margin-bottom: 20px;
-            padding: 14px 18px;
-            background: var(--color-bg-soft);
-            border-left: 3px solid var(--color-primary);
-            border-radius: 6px;
-            font-style: italic;
-        }
-
         .reward-badge {
-            display: flex;
+            display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
             color: #065f46;
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 600;
-            padding: 10px 16px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            text-align: center;
-            justify-content: center;
+            padding: 6px 12px;
+            border-radius: 20px;
+            margin-bottom: 14px;
         }
 
         .reward-badge svg {
-            width: 18px;
-            height: 18px;
+            width: 13px;
+            height: 13px;
             flex-shrink: 0;
         }
 
-        .reward-headline {
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--color-primary);
+        .product-offer h3 {
+            font-size: 19px;
+            color: var(--color-text);
             margin-bottom: 8px;
-            text-align: center;
+            line-height: 1.3;
+        }
+
+        .congruence-text {
+            font-size: 14px;
+            color: var(--color-text-light);
+            margin-bottom: 16px;
+            line-height: 1.6;
         }
 
         .product-price-row {
             display: flex;
             align-items: center;
-            gap: 16px;
-            margin-bottom: 16px;
+            gap: 10px;
+            margin-bottom: 14px;
         }
 
         .price-original {
-            font-size: 18px;
+            font-size: 15px;
             color: var(--color-text-light);
             text-decoration: line-through;
-            font-weight: 500;
         }
 
         .price-amount {
-            font-size: 28px;
+            font-size: 22px;
             font-weight: 600;
             color: var(--color-success);
         }
@@ -725,37 +642,37 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 12px;
-            padding: 14px 18px;
-            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-            border: 2px dashed #b45309;
-            border-radius: 10px;
-            margin-bottom: 24px;
+            gap: 10px;
+            padding: 10px 14px;
+            background: #fef3c7;
+            border: 1px dashed #b45309;
+            border-radius: 8px;
+            margin-bottom: 16px;
         }
 
         .discount-code-label {
-            font-size: 14px;
-            font-weight: 600;
+            font-size: 12px;
             color: #92400e;
         }
 
         .discount-code-value {
-            font-size: 18px;
+            font-size: 14px;
             font-weight: 700;
             color: #92400e;
             letter-spacing: 1px;
         }
 
         .discount-code-copy {
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 600;
             color: #92400e;
             background: #fff;
             border: 1px solid #b45309;
-            padding: 6px 12px;
-            border-radius: 6px;
+            padding: 4px 10px;
+            border-radius: 5px;
             cursor: pointer;
             transition: all 0.2s ease;
+            white-space: nowrap;
         }
 
         .discount-code-copy:hover {
@@ -766,6 +683,49 @@
             background: #10b981;
             color: #fff;
             border-color: #10b981;
+        }
+
+        .product-cta {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .buy-btn {
+            width: 100%;
+            background: var(--color-primary);
+            color: #fff;
+            padding: 14px 24px;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 14px rgba(30, 58, 95, 0.2);
+            text-align: center;
+        }
+
+        .buy-btn:hover {
+            background: var(--color-primary-light);
+            transform: translateY(-1px);
+        }
+
+        .skip-btn {
+            width: 100%;
+            background: transparent;
+            color: var(--color-text-light);
+            padding: 8px;
+            font-size: 13px;
+            border: none;
+            cursor: pointer;
+            transition: color 0.2s ease;
+            text-align: center;
+        }
+
+        .skip-btn:hover {
+            color: var(--color-text);
         }
 
         /* ========================================
@@ -886,28 +846,8 @@
                 font-size: 15px;
             }
 
-            .product-offer h3 {
-                font-size: 20px;
-            }
-
-            .product-description {
-                font-size: 15px;
-            }
-
-            .price-amount {
-                font-size: 24px;
-            }
-
-            .reward-headline {
-                font-size: 16px;
-            }
-
             .discount-code-box {
                 flex-wrap: wrap;
-            }
-
-            .buy-btn {
-                font-size: 15px;
             }
         }
     </style>
@@ -1115,7 +1055,7 @@
                 priceOriginal: '£17',
                 price: '£11.39',
                 url: 'https://buy.stripe.com/eVq9AS72PeAQ8mA59MbZe0k',
-                congruence: 'You said you want useful results immediately — this gives you a clear 7-day plan with structured wins you can see within days.'
+                congruence: 'Based on your answer, this gives you structured wins from day one — no guesswork.'
             },
             confidence: {
                 name: 'AI Judgement Framework',
@@ -1123,7 +1063,7 @@
                 priceOriginal: '£29',
                 price: '£19.43',
                 url: 'https://buy.stripe.com/9B68wO2MzfEUgT61XAbZe0h',
-                congruence: 'You said you want to stop second-guessing yourself — this framework gives you clear rules for when to trust AI and when to double-check it.'
+                congruence: 'Based on your answer, this gives you clear rules so you can use AI without hesitation.'
             },
             simple: {
                 name: 'The Everyday AI System',
@@ -1131,7 +1071,7 @@
                 priceOriginal: '£27',
                 price: '£18.09',
                 url: 'https://buy.stripe.com/eVq9AS72PeAQ8mA59MbZe0k',
-                congruence: 'You said you want this to feel simple and manageable — this gives you a repeatable process you can use comfortably every day.'
+                congruence: 'Based on your answer, this gives you one simple process you can follow every time.'
             }
         };
 
@@ -1199,40 +1139,32 @@
             function showProductOffer(goal) {
                 const product = products[goal];
                 
-                // Build product offer HTML with reward framing
                 productOffer.innerHTML = `
                     <div class="product-offer">
                         <div class="reward-badge">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
                             </svg>
-                            <span>Your reward for purchasing — 33% off</span>
+                            <span>A thank-you for buying — 33% off</span>
                         </div>
-                        
-                        <p class="reward-headline">You've earned this. Here's your exclusive deal.</p>
-                        
-                        <p class="congruence-text">${product.congruence}</p>
-                        
+
                         <h3>${product.name}</h3>
-                        <p class="product-description">${product.description}</p>
-                        
-                        <div class="product-price">
-                            <span class="price-label">Your price (33% off)</span>
-                            <div class="product-price-row">
-                                <span class="price-original">${product.priceOriginal}</span>
-                                <span class="price-amount">${product.price}</span>
-                            </div>
-                            <div class="discount-code-box">
-                                <span class="discount-code-label">Your code:</span>
-                                <span class="discount-code-value" id="discountCode">${DISCOUNT_CODE}</span>
-                                <button type="button" class="discount-code-copy" onclick="copyDiscountCode()">Copy</button>
-                            </div>
-                            <p style="font-size: 13px; color: var(--color-text-light); margin-top: 8px;">Enter <strong>LOYALTY33</strong> at checkout</p>
+                        <p class="congruence-text">${product.congruence}</p>
+
+                        <div class="product-price-row">
+                            <span class="price-original">${product.priceOriginal}</span>
+                            <span class="price-amount">${product.price}</span>
                         </div>
-                        
+
+                        <div class="discount-code-box">
+                            <span class="discount-code-label">Discount code:</span>
+                            <span class="discount-code-value" id="discountCode">${DISCOUNT_CODE}</span>
+                            <button type="button" class="discount-code-copy" onclick="copyDiscountCode()">Copy</button>
+                        </div>
+
                         <div class="product-cta">
                             <a href="${product.url}" class="buy-btn">Claim my discount</a>
-                            <button class="skip-btn" onclick="closeModal()">No thanks, I'll stick with the guide</button>
+                            <button class="skip-btn" onclick="closeModal()">No thanks</button>
                         </div>
                     </div>
                 `;
