@@ -277,10 +277,71 @@
         }
 
         /* ========================================
-           5. UPSELL SECTION A - Framework (£49)
+           5. UPSELL SECTION - Post-purchase products
            ======================================== */
         .upsell-section {
             padding: 0 0 32px;
+        }
+
+        .upsell-intro {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .reward-badge-small {
+            display: inline-block;
+            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+            color: #065f46;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 6px 12px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+        }
+
+        .upsell-intro h2 {
+            font-size: 22px;
+            color: var(--color-text);
+        }
+
+        .post-purchase-product-card {
+            background: var(--color-bg-soft);
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 20px;
+        }
+
+        .post-purchase-product-card h3 {
+            font-size: 19px;
+            margin-bottom: 10px;
+            color: var(--color-text);
+        }
+
+        .product-card-summary {
+            font-size: 15px;
+            color: var(--color-text-light);
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .product-card-price {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .product-card-price .price-original {
+            font-size: 15px;
+            color: var(--color-text-light);
+            text-decoration: line-through;
+        }
+
+        .product-card-price .price-amount {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--color-primary);
         }
 
         .upsell-card {
@@ -840,6 +901,22 @@
                 font-size: 16px;
             }
 
+            .post-purchase-product-card {
+                padding: 20px;
+            }
+
+            .post-purchase-product-card h3 {
+                font-size: 18px;
+            }
+
+            .product-card-summary {
+                font-size: 14px;
+            }
+
+            .upsell-intro h2 {
+                font-size: 20px;
+            }
+
             .upsell-card {
                 padding: 24px;
             }
@@ -949,8 +1026,8 @@
                 </svg>
                 <span>Purchase confirmed</span>
             </div>
-            <h1>You're in. Here's what to do next.</h1>
-            <p class="confirmation-subtext">Thanks for your purchase. Watch the short message below before you start — it will help you get the most out of the guide.</p>
+            <h1>You've made the right choice.</h1>
+            <p class="confirmation-subtext">The guide you just bought gives you what most AI content doesn't — a clear starting point, in plain English, without hype. Watch the short message below before you start.</p>
             
             <div class="email-notice">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1038,14 +1115,21 @@
         </div>
     </section>
 
-    <!-- 5. UPSELL SECTION A — Framework Product (£49) -->
+    <!-- 5. UPSELL SECTION — Three products (replacing old Framework + Done-For-You) -->
     <section class="upsell-section">
         <div class="container">
-            <div class="upsell-card">
-                <h3>Close the gap between understanding and confidence</h3>
-                <p>A short framework that gives you clear rules for when to trust AI, how to correct it, and how to use it sensibly — without second-guessing yourself.</p>
-                <a href="practical.html" class="upsell-btn">
-                    View the Framework
+            <div class="upsell-intro">
+                <h2>Next steps — pick what fits your goal</h2>
+            </div>
+
+            <div class="post-purchase-product-card">
+                <h3>AI Quick Wins Blueprint</h3>
+                <p class="product-card-summary">A 7-day action plan that tells you exactly what to try first — in what order, and what a good result looks like.</p>
+                <div class="product-card-price">
+                    <span class="price-amount">£17</span>
+                </div>
+                <a href="https://buy.stripe.com/3cI4gygDpeAQfP2byabZe0i" class="upsell-btn">
+                    View option
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <line x1="5" y1="12" x2="19" y2="12"></line>
                         <polyline points="12 5 19 12 12 19"></polyline>
@@ -1053,17 +1137,48 @@
                 </a>
             </div>
 
-            <!-- 6. UPSELL SECTION B — Done-For-You -->
-            <div class="upsell-card secondary">
-                <h3>Want this set up for your exact situation?</h3>
-                <p>If you'd rather not figure this out alone, I offer a done-for-you setup: custom prompts, a weekly AI workflow, and a walkthrough so you know exactly how to apply it.</p>
-                <a href="help.html" class="upsell-btn secondary">
-                    See the Done-For-You Option
+            <div class="post-purchase-product-card">
+                <h3>AI Judgement Framework</h3>
+                <p class="product-card-summary">Clear rules for when to trust AI, when to double-check it, and how to correct it calmly when it goes off.</p>
+                <div class="product-card-price">
+                    <span class="price-amount">£29</span>
+                </div>
+                <a href="https://buy.stripe.com/9B68wO2MzfEUgT61XAbZe0h" class="upsell-btn">
+                    View option
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <line x1="5" y1="12" x2="19" y2="12"></line>
                         <polyline points="12 5 19 12 12 19"></polyline>
                     </svg>
                 </a>
+            </div>
+
+            <div class="post-purchase-product-card">
+                <h3>The Everyday AI System</h3>
+                <p class="product-card-summary">A simple repeatable process — Ask, Evaluate, Adjust — for emails, planning, decisions. Use AI comfortably, not cautiously.</p>
+                <div class="product-card-price">
+                    <span class="price-amount">£27</span>
+                </div>
+                <a href="https://buy.stripe.com/eVq9AS72PeAQ8mA59MbZe0k" class="upsell-btn">
+                    View option
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- OLD PRODUCTS - TEMPORARILY HIDDEN -->
+            <div style="display: none;">
+                <div class="upsell-card">
+                    <h3>Close the gap between understanding and confidence</h3>
+                    <p>A short framework that gives you clear rules for when to trust AI, how to correct it, and how to use it sensibly — without second-guessing yourself.</p>
+                    <a href="practical.html" class="upsell-btn">View the Framework</a>
+                </div>
+                <div class="upsell-card secondary">
+                    <h3>Want this set up for your exact situation?</h3>
+                    <p>If you'd rather not figure this out alone, I offer a done-for-you setup.</p>
+                    <a href="help.html" class="upsell-btn secondary">See the Done-For-You Option</a>
+                </div>
             </div>
         </div>
     </section>
