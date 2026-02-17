@@ -835,6 +835,36 @@
             color: var(--color-text);
         }
 
+        .oto-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--color-text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+        }
+
+        .product-bullets--compact {
+            gap: 4px;
+        }
+
+        .product-bullets--compact li {
+            font-size: 13px;
+            padding-left: 16px;
+        }
+
+        .price-monthly {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--color-primary);
+        }
+
+        .price-monthly span {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--color-text-light);
+        }
+
         /* ========================================
            MOBILE ADJUSTMENTS
            ======================================== */
@@ -1013,6 +1043,16 @@
             <!-- Step 2: Product Offer (Dynamic content based on selection) -->
             <div class="modal-step" id="step2">
                 <div id="productOffer"></div>
+            </div>
+
+            <!-- Step 3: First OTO - AI Judgement Framework -->
+            <div class="modal-step" id="step3">
+                <div id="firstOtoOffer"></div>
+            </div>
+
+            <!-- Step 4: Second & Final OTO - AI Confidence Private Circle -->
+            <div class="modal-step" id="step4">
+                <div id="secondOtoOffer"></div>
             </div>
         </div>
     </div>
@@ -1338,7 +1378,7 @@
 
                         <div class="product-cta">
                             <a href="${product.url}" class="buy-btn" data-oto-stripe onclick="if(typeof fbq!=='undefined'){fbq('trackCustom','OTO Initiate Checkout 1');}">Claim my discount</a>
-                            <button class="skip-btn" onclick="closeModal()">No thanks</button>
+                            <button class="skip-btn" onclick="showFirstOto()">No thanks</button>
                         </div>
 
                     </div>
@@ -1347,6 +1387,62 @@
                 // Switch to step 2
                 step1.classList.remove('active');
                 step2.classList.add('active');
+            }
+
+            function showFirstOto() {
+                const step3 = document.getElementById('step3');
+                const firstOtoOffer = document.getElementById('firstOtoOffer');
+
+                firstOtoOffer.innerHTML = `
+                    <div class="product-offer">
+                        <span class="oto-label">One more option</span>
+                        <h3>AI Judgement Framework</h3>
+                        <p class="product-summary">Clear rules for when to trust AI, when to double-check it, and how to correct it calmly. Removes the guesswork — works with any AI tool.</p>
+                        <div class="product-price-row" style="margin: 16px 0;">
+                            <span class="price-amount">£29</span>
+                        </div>
+                        <div class="product-cta">
+                            <a href="https://buy.stripe.com/9B68wO2MzfEUgT61XAbZe0h" class="buy-btn" data-oto-stripe onclick="if(typeof fbq!=='undefined'){fbq('trackCustom','OTO Initiate Checkout 1');}">Get the Framework</a>
+                            <button class="skip-btn" onclick="showSecondOto()">No thanks</button>
+                        </div>
+                    </div>
+                `;
+
+                step2.classList.remove('active');
+                step3.classList.add('active');
+            }
+
+            function showSecondOto() {
+                const step3 = document.getElementById('step3');
+                const step4 = document.getElementById('step4');
+                const secondOtoOffer = document.getElementById('secondOtoOffer');
+
+                const bullets = [
+                    '1 email per week — plain-English updates on what actually matters',
+                    'Simple explanations of new tools; clear guidance on when to use AI and when not to',
+                    'Ready-to-use examples for everyday situations',
+                    'Steady reassurance so you stay current without researching'
+                ].map(b => `<li>${b}</li>`).join('');
+
+                secondOtoOffer.innerHTML = `
+                    <div class="product-offer">
+                        <span class="oto-label">Last option — stay current without the catch-up</span>
+                        <h3>AI Confidence Private Circle</h3>
+                        <p class="congruence-text">The only solution you need to keep up as AI changes. No technical training. No course overload. Just a calm, low-effort way to stay confident.</p>
+                        <p class="product-summary">Stay current. Stay capable. Without constantly trying to catch up.</p>
+                        <ul class="product-bullets product-bullets--compact">${bullets}</ul>
+                        <div class="product-price-row" style="margin: 16px 0;">
+                            <span class="price-monthly">£12 <span>per month</span></span>
+                        </div>
+                        <div class="product-cta">
+                            <a href="https://buy.stripe.com/bJedR8af1gIY9qEgSubZe0l" class="buy-btn" data-oto-stripe onclick="if(typeof fbq!=='undefined'){fbq('trackCustom','OTO Initiate Checkout 1');}">Join the circle</a>
+                            <button class="skip-btn" onclick="closeModal()">No thanks, I'm good</button>
+                        </div>
+                    </div>
+                `;
+
+                step3.classList.remove('active');
+                step4.classList.add('active');
             }
 
             window.copyDiscountCode = function() {
