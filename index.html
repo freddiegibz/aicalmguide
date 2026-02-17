@@ -3174,6 +3174,7 @@ This guide explains what AI is genuinely useful for, where it isn’t, and how t
         });
 
         function openEmailCaptureModal() {
+            return; // DISABLED: 25% discount modal removed from index page
             // Don't show during grace period (first 30 seconds)
             if (Date.now() - pageLoadTime < GRACE_PERIOD) return;
 
