@@ -1060,14 +1060,9 @@
                 <div id="productOffer"></div>
             </div>
 
-            <!-- Step 3: First OTO - AI Judgement Framework -->
+            <!-- Step 3: Second OTO - AI Confidence Private Circle (free month with THANKYOU) -->
             <div class="modal-step" id="step3">
-                <div id="firstOtoOffer"></div>
-            </div>
-
-            <!-- Step 4: Second & Final OTO - AI Confidence Private Circle -->
-            <div class="modal-step" id="step4">
-                <div id="secondOtoOffer"></div>
+                <div id="privateCircleOffer"></div>
             </div>
         </div>
     </div>
@@ -1405,7 +1400,7 @@
 
                         <div class="product-cta">
                             <a href="${product.url}" class="buy-btn" data-oto-stripe onclick="if(typeof fbq!=='undefined'){fbq('trackCustom','OTO Initiate Checkout 1');}">Claim my discount</a>
-                            <button class="skip-btn" onclick="showFirstOto()">No thanks</button>
+                            <button class="skip-btn" onclick="showPrivateCircleOffer()">No thanks</button>
                         </div>
 
                     </div>
@@ -1416,34 +1411,9 @@
                 step2.classList.add('active');
             }
 
-            function showFirstOto() {
+            function showPrivateCircleOffer() {
                 const step3 = document.getElementById('step3');
-                const firstOtoOffer = document.getElementById('firstOtoOffer');
-
-                firstOtoOffer.innerHTML = `
-                    <div class="product-offer">
-                        <span class="oto-label">One more option</span>
-                        <h3>AI Judgement Framework</h3>
-                        <p class="product-summary">Clear rules for when to trust AI, when to double-check it, and how to correct it calmly. Removes the guesswork — works with any AI tool.</p>
-                        <div class="product-price-row" style="margin: 16px 0;">
-                            <span class="price-amount">£29</span>
-                        </div>
-                        <div class="product-cta">
-                            <a href="https://buy.stripe.com/9B68wO2MzfEUgT61XAbZe0h" class="buy-btn" data-oto-stripe onclick="if(typeof fbq!=='undefined'){fbq('trackCustom','OTO Initiate Checkout 1');}">Get the Framework</a>
-                            <button class="skip-btn" onclick="showSecondOto()">No thanks</button>
-                        </div>
-                    </div>
-                `;
-
-                step2.classList.remove('active');
-                step3.classList.add('active');
-            }
-            window.showFirstOto = showFirstOto;
-
-            function showSecondOto() {
-                const step3 = document.getElementById('step3');
-                const step4 = document.getElementById('step4');
-                const secondOtoOffer = document.getElementById('secondOtoOffer');
+                const privateCircleOffer = document.getElementById('privateCircleOffer');
 
                 const bullets = [
                     '1 email per week — plain-English updates on what actually matters',
@@ -1452,16 +1422,23 @@
                     'Steady reassurance so you stay current without researching'
                 ].map(b => `<li>${b}</li>`).join('');
 
-                secondOtoOffer.innerHTML = `
+                privateCircleOffer.innerHTML = `
                     <div class="product-offer">
                         <span class="oto-label">Last option — stay current without the catch-up</span>
                         <h3>AI Confidence Private Circle</h3>
                         <p class="congruence-text">The only solution you need to keep up as AI changes. No technical training. No course overload. Just a calm, low-effort way to stay confident.</p>
                         <p class="product-summary">Stay current. Stay capable. Without constantly trying to catch up.</p>
                         <ul class="product-bullets product-bullets--compact">${bullets}</ul>
-                        <div class="product-price-row" style="margin: 16px 0;">
-                            <span class="price-monthly">£12 <span>per month</span></span>
+                        <div class="reward-badge" style="margin: 16px 0;">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                            <span>Your thank-you: First month free</span>
                         </div>
+                        <div class="discount-code-box">
+                            <span class="discount-code-label">Your code:</span>
+                            <span class="discount-code-value" id="thankyouCode">THANKYOU</span>
+                            <button type="button" class="discount-code-copy" onclick="copyThankyouCode()">Copy</button>
+                        </div>
+                        <p style="font-size: 13px; color: var(--color-text-light); margin-bottom: 16px;">£12/month after — cancel anytime.</p>
                         <div class="product-cta">
                             <a href="https://buy.stripe.com/bJedR8af1gIY9qEgSubZe0l" class="buy-btn" data-oto-stripe onclick="if(typeof fbq!=='undefined'){fbq('trackCustom','OTO Initiate Checkout 1');}">Join the circle</a>
                             <button class="skip-btn" onclick="closeModal()">No thanks, I'm good</button>
@@ -1469,10 +1446,22 @@
                     </div>
                 `;
 
-                step3.classList.remove('active');
-                step4.classList.add('active');
+                step2.classList.remove('active');
+                step3.classList.add('active');
             }
-            window.showSecondOto = showSecondOto;
+            window.showPrivateCircleOffer = showPrivateCircleOffer;
+
+            window.copyThankyouCode = function() {
+                const code = 'THANKYOU';
+                navigator.clipboard.writeText(code).then(function() {
+                    const btn = document.querySelector('.discount-code-copy');
+                    if (btn) {
+                        btn.textContent = 'Copied!';
+                        btn.classList.add('copied');
+                        setTimeout(function() { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+                    }
+                });
+            };
 
             window.copyDiscountCode = function() {
                 const codeEl = document.getElementById('discountCode');
