@@ -586,6 +586,52 @@
             text-align: left;
         }
 
+        .offer-section {
+            padding: 14px 0;
+            border-bottom: 1px solid var(--color-border-light);
+        }
+
+        .offer-section:last-of-type {
+            border-bottom: none;
+        }
+
+        .offer-section--price {
+            padding-bottom: 4px;
+        }
+
+        .product-summary {
+            font-size: 14px;
+            color: var(--color-text-light);
+            line-height: 1.6;
+            margin: 6px 0 10px;
+        }
+
+        .product-bullets {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .product-bullets li {
+            font-size: 13px;
+            color: var(--color-text);
+            padding-left: 18px;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        .product-bullets li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--color-success);
+            font-weight: 700;
+            font-size: 12px;
+        }
+
         .reward-badge {
             display: inline-flex;
             align-items: center;
@@ -1051,27 +1097,30 @@
         const products = {
             immediate: {
                 name: 'AI Quick Wins Blueprint',
-                description: 'A simple 7-day action plan showing you exactly what to try first with AI — in what order, for what purpose, and what a good result looks like. No experimentation. No guesswork. Just structured, immediate wins you can see within days.',
+                congruence: 'You want results now — not after a learning curve.',
+                summary: 'A 7-day action plan that tells you exactly what to try first, in what order, and what a good result actually looks like.',
+                bullets: ['One task per day — clear and specific', 'No trial and error', 'You\'ll see a real result within days'],
                 priceOriginal: '£17',
                 price: '£11.39',
-                url: 'https://buy.stripe.com/eVq9AS72PeAQ8mA59MbZe0k',
-                congruence: 'Based on your answer, this gives you structured wins from day one — no guesswork.'
+                url: 'https://buy.stripe.com/eVq9AS72PeAQ8mA59MbZe0k'
             },
             confidence: {
                 name: 'AI Judgement Framework',
-                description: 'A practical framework that teaches you when to trust AI, when to double-check it, and how to correct responses calmly and effectively. Clear rules. Plain English. Designed to remove hesitation and second-guessing.',
+                congruence: 'You want to use AI without wondering if you\'re doing it wrong.',
+                summary: 'A plain-English framework that gives you clear rules: when to trust AI, when to double-check it, and how to correct it calmly when it goes off.',
+                bullets: ['Removes the guesswork entirely', 'Works across any AI tool', 'Short enough to read once and remember'],
                 priceOriginal: '£29',
                 price: '£19.43',
-                url: 'https://buy.stripe.com/9B68wO2MzfEUgT61XAbZe0h',
-                congruence: 'Based on your answer, this gives you clear rules so you can use AI without hesitation.'
+                url: 'https://buy.stripe.com/9B68wO2MzfEUgT61XAbZe0h'
             },
             simple: {
                 name: 'The Everyday AI System',
-                description: 'A simple repeatable process for using AI in everyday life — from emails and planning to clarifying decisions. Learn a reliable Ask → Evaluate → Adjust approach so AI becomes something you use comfortably, not cautiously.',
+                congruence: 'You want a reliable way to use AI that doesn\'t feel like effort.',
+                summary: 'A simple, repeatable process — Ask, Evaluate, Adjust — that you can apply to emails, planning, decisions, or anything else in your day.',
+                bullets: ['One process for everything', 'No new tools to learn', 'Builds confidence naturally through repetition'],
                 priceOriginal: '£27',
                 price: '£18.09',
-                url: 'https://buy.stripe.com/eVq9AS72PeAQ8mA59MbZe0k',
-                congruence: 'Based on your answer, this gives you one simple process you can follow every time.'
+                url: 'https://buy.stripe.com/eVq9AS72PeAQ8mA59MbZe0k'
             }
         };
 
@@ -1139,33 +1188,44 @@
             function showProductOffer(goal) {
                 const product = products[goal];
                 
+                const bulletHTML = product.bullets.map(b => `<li>${b}</li>`).join('');
+
                 productOffer.innerHTML = `
                     <div class="product-offer">
-                        <div class="reward-badge">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                            </svg>
-                            <span>A thank-you for buying — 33% off</span>
+
+                        <div class="offer-section">
+                            <div class="reward-badge">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                                </svg>
+                                <span>A thank-you for buying — 33% off</span>
+                            </div>
+                            <p class="congruence-text">${product.congruence}</p>
                         </div>
 
-                        <h3>${product.name}</h3>
-                        <p class="congruence-text">${product.congruence}</p>
-
-                        <div class="product-price-row">
-                            <span class="price-original">${product.priceOriginal}</span>
-                            <span class="price-amount">${product.price}</span>
+                        <div class="offer-section">
+                            <h3>${product.name}</h3>
+                            <p class="product-summary">${product.summary}</p>
+                            <ul class="product-bullets">${bulletHTML}</ul>
                         </div>
 
-                        <div class="discount-code-box">
-                            <span class="discount-code-label">Discount code:</span>
-                            <span class="discount-code-value" id="discountCode">${DISCOUNT_CODE}</span>
-                            <button type="button" class="discount-code-copy" onclick="copyDiscountCode()">Copy</button>
+                        <div class="offer-section offer-section--price">
+                            <div class="product-price-row">
+                                <span class="price-original">${product.priceOriginal}</span>
+                                <span class="price-amount">${product.price}</span>
+                            </div>
+                            <div class="discount-code-box">
+                                <span class="discount-code-label">Your code:</span>
+                                <span class="discount-code-value" id="discountCode">${DISCOUNT_CODE}</span>
+                                <button type="button" class="discount-code-copy" onclick="copyDiscountCode()">Copy</button>
+                            </div>
                         </div>
 
                         <div class="product-cta">
                             <a href="${product.url}" class="buy-btn">Claim my discount</a>
                             <button class="skip-btn" onclick="closeModal()">No thanks</button>
                         </div>
+
                     </div>
                 `;
                 
