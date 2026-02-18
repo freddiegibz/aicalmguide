@@ -198,28 +198,44 @@
         }
 
         /* ---- Offer step ---- */
-        .offer-tag {
-            font-size: 12px;
+
+        /* Section 1 — validation */
+        .offer-you-said {
+            font-size: 13px;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.6px;
             color: var(--color-text-light);
-            margin-bottom: 14px;
+            margin-bottom: 6px;
         }
 
-        .offer-headline {
-            font-size: clamp(22px, 4.5vw, 30px);
-            margin-bottom: 14px;
-        }
-
-        .offer-callout {
-            background: #f0f9ff;
-            border-left: 3px solid var(--color-primary);
-            border-radius: 0 8px 8px 0;
-            padding: 16px 20px;
-            font-size: 15px;
+        .offer-validation {
+            font-size: clamp(22px, 4.5vw, 28px);
             color: var(--color-text);
-            line-height: 1.6;
+            margin-bottom: 28px;
+            line-height: 1.3;
+        }
+
+        /* Section 2 — gap paragraph */
+        .offer-section-label {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: var(--color-text-light);
+            margin-bottom: 8px;
+        }
+
+        .offer-product-name {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--color-text);
+        }
+
+        .offer-gap-para {
+            font-size: 16px;
+            color: var(--color-text);
+            line-height: 1.7;
             margin-bottom: 28px;
         }
 
@@ -229,44 +245,62 @@
             margin: 24px 0;
         }
 
-        .offer-product-name {
-            font-size: 24px;
-            margin-bottom: 8px;
-        }
-
-        .offer-product-summary {
-            font-size: 15px;
-            color: var(--color-text-light);
-            line-height: 1.6;
-            margin-bottom: 18px;
-        }
-
-        .offer-bullets {
+        /* Section 3 — outcome shifts */
+        .offer-shifts {
             list-style: none;
-            margin-bottom: 24px;
+            margin-bottom: 28px;
         }
 
-        .offer-bullets li {
+        .offer-shifts li {
             font-size: 15px;
             color: var(--color-text);
-            padding: 6px 0 6px 24px;
-            position: relative;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--color-border-light);
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
             line-height: 1.5;
         }
 
-        .offer-bullets li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--color-success);
-            font-weight: 700;
+        .offer-shifts li:last-child { border-bottom: none; }
+
+        .shift-before {
+            color: var(--color-text-light);
+            flex-shrink: 0;
+        }
+
+        .shift-arrow {
+            color: var(--color-text-light);
+            font-size: 13px;
+            flex-shrink: 0;
+        }
+
+        .shift-after {
+            color: var(--color-text);
+            font-weight: 500;
+        }
+
+        /* Section 4 — earned offer */
+        .offer-earned {
+            background: var(--color-bg-soft);
+            border: 1px solid var(--color-border);
+            border-radius: 10px;
+            padding: 18px 20px;
+            margin-bottom: 16px;
+        }
+
+        .offer-earned-note {
+            font-size: 14px;
+            color: var(--color-text-light);
+            line-height: 1.6;
+            margin-bottom: 14px;
         }
 
         .offer-price-row {
             display: flex;
             align-items: center;
             gap: 12px;
-            margin-bottom: 16px;
+            margin-bottom: 14px;
             flex-wrap: wrap;
         }
 
@@ -453,14 +487,19 @@
         const products = {
             immediate: {
                 name: 'AI Quick Wins Blueprint',
-                selectionHeadline: 'Results now — confirmed. Your purchase unlocked 33% credit.',
-                selectionNote: 'The guide gives you the understanding. The Blueprint gives you the sequence — what to do first, in what order, so you get results faster without trial and error. It sits alongside the guide; you use what you\'ve learned, in the right order.',
-                summary: 'A 7-day plan that takes what the guide taught you and turns it into a clear action sequence.',
-                bullets: [
-                    'Uses your guide knowledge — no starting from scratch',
-                    'Pre-mapped order eliminates guesswork and wasted effort',
-                    'Usable results within days, not weeks of figuring it out'
+                // Section 1 — validation
+                youSaid: 'You said:',
+                validation: 'You want useful results — now, not after more reading.',
+                // Section 2 — gap
+                gapPara: 'The guide gives you the understanding. The Blueprint converts it into a 7-day action sequence — exactly what to do, in what order. You don\'t start from scratch. You apply what you\'ve just learned, in a way that gets you to a real output quickly.',
+                // Section 3 — shifts
+                shifts: [
+                    { before: 'You know the theory', after: 'You have a clear first action' },
+                    { before: 'Figuring out the order yourself', after: 'Pre-mapped sequence, no guesswork' },
+                    { before: 'Results feel weeks away', after: 'Usable output within days' }
                 ],
+                // Section 4 — price
+                earnedNote: 'Because you purchased the guide, this is available to you at 33% off. It\'s not on the public site at this price — and there\'s no obligation to add it.',
                 priceOriginal: '£17',
                 price: '£11.39',
                 saving: 'You save £5.61',
@@ -468,14 +507,19 @@
             },
             confidence: {
                 name: 'AI Judgement Framework',
-                selectionHeadline: 'Stopping the second-guessing — confirmed. Your purchase unlocked 33% credit.',
-                selectionNote: 'The guide explains what AI is and how it works. The Framework adds the decision layer — when to trust it, when to double-check, how to correct it. Together they remove the "am I doing this right?" pause so you can move faster with less second-guessing.',
-                summary: 'Clear rules that work with your guide knowledge — when to trust AI, when to double-check, how to correct it.',
-                bullets: [
-                    'Builds on the guide — gives you the rules so you don\'t have to think each time',
-                    'Less trial and error; you know when output is good enough',
-                    'Confident decisions instead of re-checking everything'
+                // Section 1 — validation
+                youSaid: 'You said:',
+                validation: 'You want to stop second-guessing every output you get.',
+                // Section 2 — gap
+                gapPara: 'The guide explains how AI works. The Framework adds the decision layer — when to trust the output, when to check it, how to correct it without going in circles. Together, they remove the "is this good enough?" pause. You develop a reflex, not a routine.',
+                // Section 3 — shifts
+                shifts: [
+                    { before: 'Re-reading every output with doubt', after: 'A clear rule for when it\'s good enough' },
+                    { before: 'Constant back-and-forth to fix things', after: 'Fewer iterations, faster results' },
+                    { before: 'Relying on gut feel', after: 'A simple framework that replaces it' }
                 ],
+                // Section 4 — price
+                earnedNote: 'Because you purchased the guide, this is available to you at 33% off. It\'s not on the public site at this price — and there\'s no obligation to add it.',
                 priceOriginal: '£29',
                 price: '£19.43',
                 saving: 'You save £9.57',
@@ -483,14 +527,19 @@
             },
             simple: {
                 name: 'The Everyday AI System',
-                selectionHeadline: 'Simple and manageable — confirmed. Your purchase unlocked 33% credit.',
-                selectionNote: 'The guide gives you the foundation. The System is the one process you apply everywhere — emails, planning, decisions. Same approach, no relearning. It extends what you already know so you spend less time deciding how to approach each task.',
-                summary: 'One process — Ask, Evaluate, Adjust — that works across everything, using the understanding you already have from the guide.',
-                bullets: [
-                    'Extends the guide — one repeatable process for every situation',
-                    'No figuring out a new approach each time; less thinking, faster results',
-                    'No new tools or extra learning — just a structure that works'
+                // Section 1 — validation
+                youSaid: 'You said:',
+                validation: 'You want this to feel simple — something you can actually use every day.',
+                // Section 2 — gap
+                gapPara: 'The guide builds the foundation. The System gives you one repeatable process — Ask, Evaluate, Adjust — that works across emails, planning, decisions, and anything else. Same approach every time. No relearning. No wondering how to start. You spend less time thinking about AI and more time using it.',
+                // Section 3 — shifts
+                shifts: [
+                    { before: 'A different approach every time', after: 'One process that fits every task' },
+                    { before: 'Overthinking where to begin', after: 'A clear starting point, every time' },
+                    { before: 'AI feeling like effort', after: 'AI feeling like a habit' }
                 ],
+                // Section 4 — price
+                earnedNote: 'Because you purchased the guide, this is available to you at 33% off. It\'s not on the public site at this price — and there\'s no obligation to add it.',
                 priceOriginal: '£27',
                 price: '£18.09',
                 saving: 'You save £8.91',
@@ -528,28 +577,50 @@
 
         function showOffer(goal) {
             const p = products[goal];
-            const bulletHTML = p.bullets.map(function(b) { return '<li>' + b + '</li>'; }).join('');
+
+            const shiftsHTML = p.shifts.map(function(s) {
+                return '<li>' +
+                    '<span class="shift-before">' + s.before + '</span>' +
+                    '<span class="shift-arrow">→</span>' +
+                    '<span class="shift-after">' + s.after + '</span>' +
+                '</li>';
+            }).join('');
 
             offerContent.innerHTML =
-                '<p class="offer-tag">Your personalised next step</p>' +
-                '<h1 class="offer-headline">' + p.selectionHeadline + '</h1>' +
-                '<div class="offer-callout">' + p.selectionNote + '</div>' +
+                /* Section 1: You Said This */
+                '<p class="offer-you-said">' + p.youSaid + '</p>' +
+                '<h1 class="offer-validation">' + p.validation + '</h1>' +
                 '<hr class="offer-divider">' +
+
+                /* Section 2: Here's What Closes That Gap */
+                '<p class="offer-section-label">One add-on that closes the gap</p>' +
                 '<h2 class="offer-product-name">' + p.name + '</h2>' +
-                '<p class="offer-product-summary">' + p.summary + '</p>' +
-                '<ul class="offer-bullets">' + bulletHTML + '</ul>' +
-                '<div class="offer-price-row">' +
-                    '<span class="price-was">' + p.priceOriginal + '</span>' +
-                    '<span class="price-now">' + p.price + '</span>' +
-                    '<span class="price-saving">' + p.saving + '</span>' +
+                '<p class="offer-gap-para">' + p.gapPara + '</p>' +
+                '<hr class="offer-divider">' +
+
+                /* Section 3: Outcome Snapshot */
+                '<p class="offer-section-label">What changes</p>' +
+                '<ul class="offer-shifts">' + shiftsHTML + '</ul>' +
+                '<hr class="offer-divider">' +
+
+                /* Section 4: Earned Offer */
+                '<div class="offer-earned">' +
+                    '<p class="offer-earned-note">' + p.earnedNote + '</p>' +
+                    '<div class="offer-price-row">' +
+                        '<span class="price-was">' + p.priceOriginal + '</span>' +
+                        '<span class="price-now">' + p.price + '</span>' +
+                        '<span class="price-saving">' + p.saving + '</span>' +
+                    '</div>' +
+                    '<div class="code-box">' +
+                        '<span class="code-label">Your 33% code:</span>' +
+                        '<span class="code-value" id="discountCode">' + DISCOUNT_CODE + '</span>' +
+                        '<button type="button" class="code-copy" id="copyBtn" onclick="copyCode()">Copy</button>' +
+                    '</div>' +
                 '</div>' +
-                '<div class="code-box">' +
-                    '<span class="code-label">33% credit code:</span>' +
-                    '<span class="code-value" id="discountCode">' + DISCOUNT_CODE + '</span>' +
-                    '<button type="button" class="code-copy" id="copyBtn" onclick="copyCode()">Copy</button>' +
-                '</div>' +
-                '<a href="' + p.url + '" class="btn-primary" onclick="if(typeof fbq!==\'undefined\'){fbq(\'trackCustom\',\'OTO Initiate Checkout 1\');}">Add this to my order</a>' +
-                '<a href="oto2.html" class="btn-skip">No thanks, I\'ll handle it myself</a>';
+
+                /* Section 5: Two Buttons */
+                '<a href="' + p.url + '" class="btn-primary" onclick="if(typeof fbq!==\'undefined\'){fbq(\'trackCustom\',\'OTO Initiate Checkout 1\');}">Yes, add this to my order</a>' +
+                '<a href="oto2.html" class="btn-skip">No thanks, continue</a>';
 
             stepQuestion.classList.remove('active');
             stepOffer.classList.add('active');
