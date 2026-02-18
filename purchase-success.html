@@ -1109,7 +1109,7 @@
             <!-- Step 0: Intro - Validate purchase, soften transition -->
             <div class="modal-step active" id="step0">
                 <h2>Before you begin…</h2>
-                <p class="modal-intro-body">You've made a solid decision — the guide gives you clarity and a proper starting point.</p>
+                <p class="modal-intro-body">You've made a solid decision - the guide gives you clarity and a proper starting point.</p>
                 <p class="modal-intro-body">Before we send you through, one quick question to point you toward the most useful next step, if you want one.</p>
                 <p class="modal-intro-body" style="margin-bottom: 18px;">It takes a few seconds.</p>
                 <button type="button" class="modal-submit-btn" id="introContinueBtn">Continue</button>
@@ -1167,7 +1167,7 @@
                 <span>Purchase confirmed</span>
             </div>
             <h1>You've made the right choice.</h1>
-            <p class="confirmation-subtext">A clear starting point in plain English — no hype. Watch the short message below before you start.</p>
+            <p class="confirmation-subtext">A clear starting point in plain English - no hype. Watch the short message below before you start.</p>
             
             <div class="email-notice">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1321,7 +1321,7 @@
             simple: {
                 name: 'The Everyday AI System',
                 congruence: 'You want AI to feel simple.',
-                summary: 'One process — Ask, Evaluate, Adjust — for emails, planning, decisions.',
+                summary: 'One process - Ask, Evaluate, Adjust - for emails, planning, decisions.',
                 bullets: ['One process for everything', 'No new tools', 'Builds confidence'],
                 priceOriginal: '£27',
                 price: '£18.09',
@@ -1334,18 +1334,18 @@
         // Show segmentation modal when DOM is ready (use DOMContentLoaded instead of load -
         // load waits for video/images which can block or delay on mobile)
         function initSegmentationModal() {
+            const modal = document.getElementById('segmentModal');
+            const form = document.getElementById('segmentForm');
+            const submitBtn = document.getElementById('submitBtn');
+            const step0 = document.getElementById('step0');
+            const step1 = document.getElementById('step1');
+            const step2 = document.getElementById('step2');
+            const productOffer = document.getElementById('productOffer');
+            const introContinueBtn = document.getElementById('introContinueBtn');
+
+            if (!modal) return;
+
             try {
-                const modal = document.getElementById('segmentModal');
-                const form = document.getElementById('segmentForm');
-                const submitBtn = document.getElementById('submitBtn');
-                const step0 = document.getElementById('step0');
-                const step1 = document.getElementById('step1');
-                const step2 = document.getElementById('step2');
-                const productOffer = document.getElementById('productOffer');
-                const introContinueBtn = document.getElementById('introContinueBtn');
-
-                if (!modal) return;
-
                 var hasSegmented = false;
                 try {
                     hasSegmented = sessionStorage.getItem('hasSegmented') === 'true';
