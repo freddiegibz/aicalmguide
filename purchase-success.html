@@ -1465,7 +1465,7 @@
 
                         <div class="product-cta">
                             <a href="${product.url}" class="buy-btn" data-oto-stripe onclick="if(typeof fbq!=='undefined'){fbq('trackCustom','OTO Initiate Checkout 1');}">Claim my reward</a>
-                            <button class="skip-btn" onclick="showPrivateCircleOffer()">No thanks</button>
+                            <button class="skip-btn" onclick="showPrivateCircleOffer()">No thanks, I'll handle it myself</button>
                         </div>
 
                     </div>
@@ -1481,15 +1481,15 @@
                 const privateCircleOffer = document.getElementById('privateCircleOffer');
 
                 const bullets = [
-                    'One email per week — plain English',
-                    'We filter the noise; you spend a few minutes',
-                    'Keeps you aligned as things change'
+                    'The last AI resource you\'ll ever need to find',
+                    'We do the hunting; you keep the confidence',
+                    '40 hours in the trenches each week — one email with what to use and what to safely ignore'
                 ].map(b => `<li>${b}</li>`).join('');
 
                 privateCircleOffer.innerHTML = `
                     <div class="product-offer">
-                        <p class="offer-reward-headline">Stay current without the catch-up.</p>
-                        <p class="offer-tailored-note">The guide gives you a solid start. AI keeps changing. The Private Circle is a low-effort way to stay aligned — one weekly email, no overwhelm.</p>
+                        <p class="offer-reward-headline">Permanently close the gap. End the AI anxiety.</p>
+                        <p class="offer-tailored-note">The Kit is the bridge — you've done the hard work to catch up. The Circle is the guardian: designed for those who want to be AI-capable, without making AI their hobby. One weekly email. No more hunting. No more wondering if you've missed something.</p>
                         <h3>AI Confidence Private Circle</h3>
                         <ul class="product-bullets product-bullets--compact">${bullets}</ul>
                         <div class="discount-code-box">
@@ -1500,7 +1500,7 @@
                         <p style="font-size: 12px; color: var(--color-text-light); margin-bottom: 12px;">£0 for month 1, then £12/month. Cancel anytime.</p>
                         <div class="product-cta">
                             <a href="https://buy.stripe.com/bJedR8af1gIY9qEgSubZe0l" class="buy-btn" data-oto-stripe onclick="if(typeof fbq!=='undefined'){fbq('trackCustom','OTO Initiate Checkout 2');}">Join the circle</a>
-                            <button class="skip-btn" onclick="closeModal()">No thanks, I'm good</button>
+                            <button class="skip-btn" onclick="closeModal()">No thanks, I'll handle it myself</button>
                         </div>
                     </div>
                 `;
