@@ -1334,45 +1334,46 @@
         // Show segmentation modal when DOM is ready (use DOMContentLoaded instead of load -
         // load waits for video/images which can block or delay on mobile)
         function initSegmentationModal() {
-            const modal = document.getElementById('segmentModal');
-            const form = document.getElementById('segmentForm');
-            const submitBtn = document.getElementById('submitBtn');
-            const step0 = document.getElementById('step0');
-            const step1 = document.getElementById('step1');
-            const step2 = document.getElementById('step2');
-            const productOffer = document.getElementById('productOffer');
-            const introContinueBtn = document.getElementById('introContinueBtn');
-
-            if (!modal) return;
-
-            if (introContinueBtn) {
-                introContinueBtn.addEventListener('click', function() {
-                    step0.classList.remove('active');
-                    step1.classList.add('active');
-                });
-            }
-
-            var hasSegmented = false;
             try {
-                hasSegmented = sessionStorage.getItem('hasSegmented') === 'true';
-            } catch (e) {}
+                const modal = document.getElementById('segmentModal');
+                const form = document.getElementById('segmentForm');
+                const submitBtn = document.getElementById('submitBtn');
+                const step0 = document.getElementById('step0');
+                const step1 = document.getElementById('step1');
+                const step2 = document.getElementById('step2');
+                const productOffer = document.getElementById('productOffer');
+                const introContinueBtn = document.getElementById('introContinueBtn');
 
-            if (!hasSegmented) {
-                function showModal() {
-                    if (modal && !modal.classList.contains('active')) {
-                        modal.classList.add('active');
-                        document.body.style.overflow = 'hidden';
+                if (!modal) return;
+
+                var hasSegmented = false;
+                try {
+                    hasSegmented = sessionStorage.getItem('hasSegmented') === 'true';
+                } catch (e) {}
+
+                if (!hasSegmented) {
+                    function showModal() {
+                        if (modal && !modal.classList.contains('active')) {
+                            modal.classList.add('active');
+                            document.body.style.overflow = 'hidden';
+                        }
                     }
+                    showModal();
+                    requestAnimationFrame(function() { requestAnimationFrame(showModal); });
+                    setTimeout(showModal, 50);
+                    setTimeout(showModal, 300);
                 }
-                requestAnimationFrame(function() {
-                    requestAnimationFrame(showModal);
-                });
-                setTimeout(showModal, 100);
-                setTimeout(showModal, 1000);
-            }
+
+                if (introContinueBtn && step0 && step1) {
+                    introContinueBtn.addEventListener('click', function() {
+                        step0.classList.remove('active');
+                        step1.classList.add('active');
+                    });
+                }
             
-            // Handle form submission
-            form.addEventListener('submit', function(e) {
+                // Handle form submission
+                if (form) {
+                    form.addEventListener('submit', function(e) {
                 e.preventDefault();
                 
                 // Disable submit button
@@ -1409,10 +1410,23 @@
                     // Still show the product offer even if Formspree fails
                     showProductOffer(selectedGoal);
                 });
-            });
+                });
+                }
+            } catch (err) {
+                console.error('Segmentation modal init error:', err);
+                var m = document.getElementById('segmentModal');
+                var segmented = false;
+                try { segmented = sessionStorage.getItem('hasSegmented') === 'true'; } catch (e) {}
+                if (m && !segmented) {
+                    m.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            }
 
             function showProductOffer(goal) {
+                if (!productOffer) return;
                 const product = products[goal];
+                if (!product) return;
                 
                 const bulletHTML = product.bullets.map(b => `<li>${b}</li>`).join('');
 
