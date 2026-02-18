@@ -1,0 +1,1544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You're In - AI Confidence Kit</title>
+    <!-- Meta Pixel Code (PageView only - Purchase fires on purchase-success.html) -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1216244347126516');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1216244347126516&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #1e3a5f;
+            --color-primary-light: #2d5a8a;
+            --color-text: #2d3748;
+            --color-text-light: #64748b;
+            --color-text-secondary: #94a3b8;
+            --color-bg: #ffffff;
+            --color-bg-soft: #f8fafc;
+            --color-bg-warm: #faf9f7;
+            --color-border: #e2e8f0;
+            --color-border-light: #f1f5f9;
+            --color-success: #10b981;
+            --color-whatsapp: #25D366;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.7;
+            font-size: 17px;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-weight: 500;
+            color: var(--color-primary);
+            line-height: 1.3;
+        }
+
+        /* ========================================
+           1. CONFIRMATION HEADER (Above the fold)
+           ======================================== */
+        .confirmation-header {
+            padding: 60px 0 48px;
+            text-align: center;
+            background: var(--color-bg);
+        }
+
+        .confirmation-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+            color: #065f46;
+            font-size: 13px;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 24px;
+            margin-bottom: 24px;
+        }
+
+        .confirmation-badge svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .confirmation-header h1 {
+            font-size: clamp(28px, 5vw, 36px);
+            margin-bottom: 16px;
+            color: var(--color-text);
+        }
+
+        .confirmation-subtext {
+            font-size: 17px;
+            color: var(--color-text-light);
+            line-height: 1.6;
+            max-width: 540px;
+            margin: 0 auto;
+        }
+
+        .email-notice {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 20px;
+            padding: 14px 20px;
+            background: var(--color-bg-soft);
+            border: 1px solid var(--color-border);
+            border-radius: 10px;
+            font-size: 15px;
+            color: var(--color-text);
+            max-width: 480px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .email-notice svg {
+            width: 18px;
+            height: 18px;
+            color: var(--color-primary);
+            flex-shrink: 0;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: var(--color-primary);
+            color: #fff;
+            padding: 16px 32px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 10px;
+            margin-top: 20px;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 14px rgba(30, 58, 95, 0.25);
+        }
+
+        .download-btn:hover {
+            background: var(--color-primary-light);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(30, 58, 95, 0.3);
+        }
+
+        .download-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* ========================================
+           2. FOUNDER-LED VIDEO SECTION
+           ======================================== */
+        .video-section {
+            padding: 0 0 48px;
+        }
+
+        .video-container {
+            background: var(--color-bg-soft);
+            border-radius: 16px;
+            padding: 24px;
+            border: 1px solid var(--color-border-light);
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #000;
+            aspect-ratio: 9 / 16;
+        }
+
+        .video-wrapper video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            background: #000;
+        }
+
+        .video-caption {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 15px;
+            color: var(--color-text-light);
+            font-style: italic;
+        }
+
+        /* ========================================
+           3. CONSUMPTION INSTRUCTION BLOCK
+           ======================================== */
+        .consumption-section {
+            padding: 48px 0;
+            background: var(--color-bg-warm);
+        }
+
+        .consumption-section h2 {
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .consumption-list {
+            max-width: 520px;
+            margin: 0 auto;
+            list-style: none;
+        }
+
+        .consumption-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            margin-bottom: 16px;
+            font-size: 16px;
+            color: var(--color-text);
+            line-height: 1.6;
+        }
+
+        .consumption-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .consumption-icon {
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
+            background: var(--color-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 2px;
+        }
+
+        .consumption-icon svg {
+            width: 12px;
+            height: 12px;
+            color: #fff;
+        }
+
+        /* ========================================
+           4. SOFT TRANSITION
+           ======================================== */
+        .transition-section {
+            padding: 56px 0;
+            text-align: center;
+        }
+
+        .transition-section h2 {
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: var(--color-text);
+        }
+
+        .transition-copy {
+            font-size: 17px;
+            color: var(--color-text-light);
+            line-height: 1.8;
+            max-width: 480px;
+            margin: 0 auto 14px;
+        }
+
+        .transition-copy:last-of-type {
+            margin-bottom: 24px;
+        }
+
+        .transition-bullets {
+            list-style: none;
+            padding: 0;
+            margin: 0 auto 20px;
+            max-width: 320px;
+            text-align: left;
+        }
+
+        .transition-bullets li {
+            font-size: 16px;
+            color: var(--color-text-light);
+            padding: 6px 0 6px 24px;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        .transition-bullets li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--color-primary);
+            font-weight: 700;
+        }
+
+        .transition-section .upsell-btn {
+            margin-top: 8px;
+        }
+
+        /* ========================================
+           5. UPSELL SECTION - Post-purchase products
+           ======================================== */
+        .upsell-section {
+            padding: 0 0 32px;
+        }
+
+        .upsell-intro {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .reward-badge-small {
+            display: inline-block;
+            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+            color: #065f46;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 6px 12px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+        }
+
+        .upsell-intro h2 {
+            font-size: 22px;
+            color: var(--color-text);
+        }
+
+        .post-purchase-product-card {
+            background: var(--color-bg-soft);
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 20px;
+        }
+
+        .post-purchase-product-card h3 {
+            font-size: 19px;
+            margin-bottom: 10px;
+            color: var(--color-text);
+        }
+
+        .product-card-summary {
+            font-size: 15px;
+            color: var(--color-text-light);
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .product-card-price {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .product-card-price .price-original {
+            font-size: 15px;
+            color: var(--color-text-light);
+            text-decoration: line-through;
+        }
+
+        .product-card-price .price-amount {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--color-primary);
+        }
+
+        .upsell-card {
+            background: var(--color-bg-soft);
+            border: 1px solid var(--color-border);
+            border-radius: 14px;
+            padding: 32px;
+            margin-bottom: 20px;
+        }
+
+        .upsell-card h3 {
+            font-size: 21px;
+            margin-bottom: 14px;
+            color: var(--color-text);
+        }
+
+        .upsell-card p {
+            font-size: 16px;
+            color: var(--color-text-light);
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+
+        .upsell-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--color-primary);
+            color: #fff;
+            padding: 14px 28px;
+            font-size: 15px;
+            font-weight: 500;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: all 0.2s ease;
+        }
+
+        .upsell-btn:hover {
+            background: var(--color-primary-light);
+            transform: translateY(-1px);
+        }
+
+        .upsell-btn svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* ========================================
+           6. UPSELL SECTION B - Done-For-You
+           ======================================== */
+        .upsell-card.secondary {
+            background: #fff;
+            border: 1px solid var(--color-border);
+        }
+
+        .upsell-btn.secondary {
+            background: transparent;
+            color: var(--color-primary);
+            border: 2px solid var(--color-border);
+        }
+
+        .upsell-btn.secondary:hover {
+            border-color: var(--color-primary);
+            background: var(--color-bg-soft);
+        }
+
+        /* ========================================
+           7. WHATSAPP CONTACT SECTION
+           ======================================== */
+        .contact-section {
+            padding: 56px 0;
+            text-align: center;
+            border-top: 1px solid var(--color-border-light);
+            margin-top: 32px;
+        }
+
+        .contact-section h2 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: var(--color-text);
+            font-weight: 500;
+        }
+
+        .contact-copy {
+            font-size: 16px;
+            color: var(--color-text-light);
+            margin-bottom: 24px;
+        }
+
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: transparent;
+            color: var(--color-text);
+            border: 2px solid var(--color-border);
+            padding: 14px 28px;
+            font-size: 15px;
+            font-weight: 500;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: all 0.2s ease;
+        }
+
+        .whatsapp-btn:hover {
+            border-color: var(--color-whatsapp);
+            background: #f0fdf4;
+        }
+
+        .whatsapp-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--color-whatsapp);
+        }
+
+        /* ========================================
+           FOOTER
+           ======================================== */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            font-size: 14px;
+            color: var(--color-text-secondary);
+            border-top: 1px solid var(--color-border-light);
+        }
+
+        footer a {
+            color: var(--color-text-light);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* ========================================
+           SEGMENTATION MODAL
+           ======================================== */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            min-height: 100vh;
+            min-height: -webkit-fill-available;
+            background: rgba(0, 0, 0, 0.6);
+            -webkit-backdrop-filter: blur(4px);
+            backdrop-filter: blur(4px);
+            z-index: 2147483647;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+        }
+
+        .modal-overlay.active {
+            display: flex !important;
+        }
+
+        .modal-content {
+            background: #ffffff;
+            border-radius: 14px;
+            max-width: 440px;
+            width: 100%;
+            padding: 28px 26px;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.25);
+            animation: modalSlideIn 0.3s ease-out;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-content h2 {
+            font-size: 20px;
+            margin-bottom: 8px;
+            text-align: center;
+            color: var(--color-text);
+        }
+
+        .modal-subtitle {
+            font-size: 14px;
+            color: var(--color-text-light);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .modal-intro-body {
+            font-size: 14px;
+            color: var(--color-text);
+            line-height: 1.55;
+            margin-bottom: 10px;
+        }
+
+        .option-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 18px;
+        }
+
+        .option-label {
+            display: flex;
+            align-items: center;
+            padding: 12px 16px;
+            background: var(--color-bg-soft);
+            border: 2px solid var(--color-border);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .option-label:hover {
+            border-color: var(--color-primary);
+            background: #fff;
+        }
+
+        .option-input {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .option-input:checked + .option-label {
+            border-color: var(--color-primary);
+            background: #fff;
+            box-shadow: 0 4px 12px rgba(30, 58, 95, 0.12);
+        }
+
+        .option-radio {
+            width: 18px;
+            height: 18px;
+            border: 2px solid var(--color-border);
+            border-radius: 50%;
+            margin-right: 12px;
+            flex-shrink: 0;
+            position: relative;
+            transition: all 0.2s ease;
+        }
+
+        .option-input:checked + .option-label .option-radio {
+            border-color: var(--color-primary);
+            background: var(--color-primary);
+        }
+
+        .option-radio::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            width: 8px;
+            height: 8px;
+            background: #fff;
+            border-radius: 50%;
+            transition: transform 0.2s ease;
+        }
+
+        .option-input:checked + .option-label .option-radio::after {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .option-text {
+            font-size: 14px;
+            color: var(--color-text);
+            font-weight: 500;
+        }
+
+        .modal-submit-btn {
+            width: 100%;
+            background: var(--color-primary);
+            color: #fff;
+            padding: 12px 24px;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 14px rgba(30, 58, 95, 0.25);
+        }
+
+        .modal-submit-btn:hover:not(:disabled) {
+            background: var(--color-primary-light);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(30, 58, 95, 0.3);
+        }
+
+        .modal-submit-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .modal-step {
+            display: none;
+        }
+
+        .modal-step.active {
+            display: block;
+        }
+
+        .product-offer {
+            text-align: left;
+        }
+
+        .offer-section {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--color-border-light);
+        }
+
+        .offer-section:last-of-type {
+            border-bottom: none;
+        }
+
+        .offer-section--price {
+            padding-bottom: 2px;
+        }
+
+        .product-summary {
+            font-size: 13px;
+            color: var(--color-text-light);
+            line-height: 1.5;
+            margin: 4px 0 8px;
+        }
+
+        .product-bullets {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .product-bullets li {
+            font-size: 12px;
+            color: var(--color-text);
+            padding-left: 16px;
+            position: relative;
+            line-height: 1.45;
+        }
+
+        .product-bullets li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--color-success);
+            font-weight: 700;
+            font-size: 12px;
+        }
+
+        .reward-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+            color: #065f46;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 5px 10px;
+            border-radius: 18px;
+            margin-bottom: 8px;
+        }
+
+        .reward-badge svg {
+            width: 12px;
+            height: 12px;
+            flex-shrink: 0;
+        }
+
+        .offer-reward-headline {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: 8px;
+            line-height: 1.35;
+        }
+
+        .offer-tailored-note {
+            font-size: 13px;
+            color: var(--color-text);
+            line-height: 1.5;
+            margin-bottom: 10px;
+            padding: 10px 12px;
+            background: #f0f9ff;
+            border-left: 3px solid var(--color-primary);
+            border-radius: 0 6px 6px 0;
+        }
+
+        .product-offer h3 {
+            font-size: 16px;
+            color: var(--color-text);
+            margin-bottom: 4px;
+            line-height: 1.3;
+        }
+
+        .congruence-text {
+            font-size: 13px;
+            color: var(--color-text-light);
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+
+        .product-price-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .price-original {
+            font-size: 14px;
+            color: var(--color-text-light);
+            text-decoration: line-through;
+        }
+
+        .price-amount {
+            font-size: 19px;
+            font-weight: 600;
+            color: var(--color-success);
+        }
+
+        .discount-code-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            padding: 8px 12px;
+            background: #fef3c7;
+            border: 1px dashed #b45309;
+            border-radius: 8px;
+            margin-bottom: 12px;
+        }
+
+        .discount-code-box--reward {
+            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+            border-color: #10b981;
+        }
+
+        .discount-code-box--reward .discount-code-label,
+        .discount-code-box--reward .discount-code-value {
+            color: #065f46;
+        }
+
+        .discount-code-box--reward .discount-code-copy {
+            color: #065f46;
+            border-color: #10b981;
+        }
+
+        .discount-code-box--reward .discount-code-copy:hover {
+            background: #d1fae5;
+        }
+
+        .discount-code-label {
+            font-size: 12px;
+            color: #92400e;
+        }
+
+        .discount-code-value {
+            font-size: 14px;
+            font-weight: 700;
+            color: #92400e;
+            letter-spacing: 1px;
+        }
+
+        .discount-code-copy {
+            font-size: 12px;
+            font-weight: 600;
+            color: #92400e;
+            background: #fff;
+            border: 1px solid #b45309;
+            padding: 4px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .discount-code-copy:hover {
+            background: #fef3c7;
+        }
+
+        .discount-code-copy.copied {
+            background: #10b981;
+            color: #fff;
+            border-color: #10b981;
+        }
+
+        .product-cta {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .buy-btn {
+            width: 100%;
+            background: var(--color-primary);
+            color: #fff;
+            padding: 11px 20px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 14px rgba(30, 58, 95, 0.2);
+            text-align: center;
+        }
+
+        .buy-btn:hover {
+            background: var(--color-primary-light);
+            transform: translateY(-1px);
+        }
+
+        .skip-btn {
+            width: 100%;
+            background: transparent;
+            color: var(--color-text-light);
+            padding: 6px;
+            font-size: 12px;
+            border: none;
+            cursor: pointer;
+            transition: color 0.2s ease;
+            text-align: center;
+        }
+
+        .skip-btn:hover {
+            color: var(--color-text);
+        }
+
+        .oto-label {
+            font-size: 10px;
+            font-weight: 600;
+            color: var(--color-text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+
+        .product-bullets--compact {
+            gap: 2px;
+        }
+
+        .product-bullets--compact li {
+            font-size: 12px;
+            padding-left: 16px;
+        }
+
+        .price-monthly {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--color-primary);
+        }
+
+        .price-monthly span {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--color-text-light);
+        }
+
+        /* ========================================
+           MOBILE ADJUSTMENTS
+           ======================================== */
+        @media (max-width: 767px) {
+            .confirmation-header {
+                padding: 48px 0 40px;
+            }
+
+            .confirmation-header h1 {
+                font-size: 26px;
+            }
+
+            .confirmation-subtext {
+                font-size: 16px;
+            }
+
+            .email-notice {
+                font-size: 14px;
+                padding: 12px 16px;
+            }
+
+            .download-btn {
+                width: 100%;
+                max-width: 280px;
+                padding: 14px 24px;
+                font-size: 15px;
+            }
+
+            .video-container {
+                padding: 16px;
+                border-radius: 12px;
+                max-width: 320px;
+            }
+
+            .video-wrapper {
+                border-radius: 8px;
+            }
+
+            .video-caption {
+                font-size: 14px;
+            }
+
+            .consumption-section {
+                padding: 40px 0;
+            }
+
+            .consumption-section h2 {
+                font-size: 21px;
+            }
+
+            .consumption-list li {
+                font-size: 15px;
+            }
+
+            .transition-section {
+                padding: 44px 0;
+            }
+
+            .transition-section h2 {
+                font-size: 20px;
+            }
+
+            .transition-copy {
+                font-size: 16px;
+            }
+
+            .transition-bullets li {
+                font-size: 15px;
+            }
+
+            .post-purchase-product-card {
+                padding: 20px;
+            }
+
+            .post-purchase-product-card h3 {
+                font-size: 18px;
+            }
+
+            .product-card-summary {
+                font-size: 14px;
+            }
+
+            .upsell-intro h2 {
+                font-size: 20px;
+            }
+
+            .upsell-card {
+                padding: 24px;
+            }
+
+            .upsell-card h3 {
+                font-size: 19px;
+            }
+
+            .upsell-card p {
+                font-size: 15px;
+            }
+
+            .upsell-btn {
+                width: 100%;
+                justify-content: center;
+                padding: 16px 24px;
+            }
+
+            .contact-section {
+                padding: 44px 0;
+            }
+
+            .contact-section h2 {
+                font-size: 18px;
+            }
+
+            .whatsapp-btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .modal-overlay {
+                -webkit-backdrop-filter: none;
+                backdrop-filter: none;
+                background: rgba(0, 0, 0, 0.75);
+            }
+
+            .modal-content {
+                padding: 22px 20px;
+                max-width: 100%;
+            }
+
+            .modal-content h2 {
+                font-size: 18px;
+            }
+
+            .modal-subtitle {
+                font-size: 13px;
+            }
+
+            .option-label {
+                padding: 10px 14px;
+            }
+
+            .option-text {
+                font-size: 13px;
+            }
+
+            .discount-code-box {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Segmentation Modal -->
+    <div class="modal-overlay" id="segmentModal">
+        <div class="modal-content">
+            <!-- Step 0: Intro - Validate purchase, soften transition -->
+            <div class="modal-step active" id="step0">
+                <h2>Before you begin…</h2>
+                <p class="modal-intro-body">You've made a solid decision - the guide gives you clarity and a proper starting point.</p>
+                <p class="modal-intro-body">Before we send you through, one quick question to point you toward the most useful next step, if you want one.</p>
+                <p class="modal-intro-body" style="margin-bottom: 18px;">It takes a few seconds.</p>
+                <button type="button" class="modal-submit-btn" id="introContinueBtn">Continue</button>
+            </div>
+
+            <!-- Step 1: Goal Selection -->
+            <div class="modal-step" id="step1">
+                <h2>What would help you most right now?</h2>
+                <p class="modal-subtitle">Let's make this practical.</p>
+                
+                <form id="segmentForm">
+                    <div class="option-group">
+                        <input type="radio" name="goal" value="immediate" id="option1" class="option-input" required>
+                        <label for="option1" class="option-label">
+                            <span class="option-radio"></span>
+                            <span class="option-text">I want useful results immediately.</span>
+                        </label>
+
+                        <input type="radio" name="goal" value="confidence" id="option2" class="option-input">
+                        <label for="option2" class="option-label">
+                            <span class="option-radio"></span>
+                            <span class="option-text">I want to stop second-guessing myself.</span>
+                        </label>
+
+                        <input type="radio" name="goal" value="simple" id="option3" class="option-input">
+                        <label for="option3" class="option-label">
+                            <span class="option-radio"></span>
+                            <span class="option-text">I want this to feel simple and manageable.</span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="modal-submit-btn" id="submitBtn">Continue</button>
+                </form>
+            </div>
+
+            <!-- Step 2: Product Offer (Dynamic content based on selection) -->
+            <div class="modal-step" id="step2">
+                <div id="productOffer"></div>
+            </div>
+
+            <!-- Step 3: Second OTO - AI Confidence Private Circle (free month with THANKYOU) -->
+            <div class="modal-step" id="step3">
+                <div id="privateCircleOffer"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 1. CONFIRMATION HEADER -->
+    <section class="confirmation-header">
+        <div class="container">
+            <div class="confirmation-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Purchase confirmed</span>
+            </div>
+            <h1>You've made the right choice.</h1>
+            <p class="confirmation-subtext">A clear starting point in plain English - no hype. Watch the short message below before you start.</p>
+            
+            <div class="email-notice">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                <span>Your kit should arrive in your email shortly</span>
+            </div>
+            
+            <a href="https://drive.google.com/file/d/1xkpWzq3kpDkVrEGYOLjKuX37F7aFqa93/view?usp=sharing" class="download-btn" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                Download Now
+            </a>
+        </div>
+    </section>
+
+    <!-- 2. FOUNDER-LED VIDEO SECTION -->
+    <section class="video-section">
+        <div class="container">
+            <div class="video-container">
+                <div class="video-wrapper">
+                    <video 
+                        controls 
+                        autoplay 
+                        muted 
+                        playsinline
+                        poster="bookcover.jpg"
+                    >
+                        <source src="0126.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <p class="video-caption">One minute - answers a lot of questions people have.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. CONSUMPTION INSTRUCTION BLOCK -->
+    <section class="consumption-section">
+        <div class="container">
+            <h2>Get the most from it</h2>
+            <ul class="consumption-list">
+                <li>
+                    <span class="consumption-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                    <span>Read once, start to finish (under an hour)</span>
+                </li>
+                <li>
+                    <span class="consumption-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                    <span>Don't memorise — look for clarity</span>
+                </li>
+                <li>
+                    <span class="consumption-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                    <span>When it feels obvious, that's the point</span>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 4. WHAT USUALLY COMES NEXT — Private Circle -->
+    <section class="transition-section">
+        <div class="container">
+            <h2>What usually comes next</h2>
+            <p class="transition-copy">
+                Most people grasp the guide quickly.
+            </p>
+            <p class="transition-copy">
+                What tends to follow is a quieter thought:<br><em>"How do I stay current now?"</em>
+            </p>
+            <p class="transition-copy">
+                The guide gives you a solid foundation.<br>It brings you up to speed properly.
+            </p>
+            <p class="transition-copy">
+                But AI doesn't stand still.<br>New tools, new terms, new updates appear constantly.
+            </p>
+            <p class="transition-copy">
+                You don't need to chase all of it.<br>You just need one steady reference point.
+            </p>
+            <p class="transition-copy">
+                The Private Circle exists for that.
+            </p>
+            <p class="transition-copy">
+                It's a calm, ongoing layer that:
+            </p>
+            <ul class="transition-bullets">
+                <li>Flags what actually matters</li>
+                <li>Ignores what doesn't</li>
+                <li>Keeps you aligned without overwhelm</li>
+            </ul>
+            <p class="transition-copy">
+                You don't need multiple sources.<br>You don't need to monitor headlines.<br><br>Just one place that keeps you quietly up to date.
+            </p>
+            <a href="https://buy.stripe.com/bJedR8af1gIY9qEgSubZe0l" class="upsell-btn" data-oto-stripe onclick="if(typeof fbq!=='undefined'){fbq('trackCustom','OTO Initiate Checkout 2');}">
+                Join the Private Circle
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- 7. WHATSAPP CONTACT SECTION -->
+    <section class="contact-section">
+        <div class="container">
+            <h2>Questions?</h2>
+            <p class="contact-copy">Message me directly. No pressure.</p>
+            <a href="https://wa.me/447428523955" class="whatsapp-btn" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                </svg>
+                Message me on WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 AI Confidence Kit. All rights reserved.</p>
+            <p style="margin-top: 8px;">
+                <a href="mailto:adsbyalfred@protonmail.com">adsbyalfred@protonmail.com</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Product data based on user selection (33% off with LOYALTY33)
+        const products = {
+            immediate: {
+                name: 'AI Quick Wins Blueprint',
+                selectionHeadline: 'Results now — confirmed. Your purchase unlocked 33% credit.',
+                selectionNote: 'The Quick Wins Blueprint is built for exactly that. What to try first, in what order, what success looks like.',
+                congruence: 'You want results now.',
+                summary: 'A 7-day plan: what to try first, in what order, what success looks like.',
+                bullets: ['One task per day', 'No trial and error', 'Real results within days'],
+                priceOriginal: '£17',
+                price: '£11.39',
+                url: 'https://buy.stripe.com/3cI4gygDpeAQfP2byabZe0i'
+            },
+            confidence: {
+                name: 'AI Judgement Framework',
+                selectionHeadline: 'Stopping the second-guessing — confirmed. Your purchase unlocked 33% credit.',
+                selectionNote: 'The Judgement Framework is built for exactly that. Clear rules for when to trust AI, when to double-check, how to correct it calmly.',
+                congruence: 'You want to stop second-guessing.',
+                summary: 'Clear rules: when to trust AI, when to double-check, how to correct it.',
+                bullets: ['Removes guesswork', 'Works with any tool', 'Read once, remember'],
+                priceOriginal: '£29',
+                price: '£19.43',
+                url: 'https://buy.stripe.com/9B68wO2MzfEUgT61XAbZe0h'
+            },
+            simple: {
+                name: 'The Everyday AI System',
+                selectionHeadline: 'Simple and manageable — confirmed. Your purchase unlocked 33% credit.',
+                selectionNote: 'The Everyday AI System is built for exactly that. One process for emails, planning, decisions — no new tools, no complexity.',
+                congruence: 'You want AI to feel simple.',
+                summary: 'One process - Ask, Evaluate, Adjust - for emails, planning, decisions.',
+                bullets: ['One process for everything', 'No new tools', 'Builds confidence'],
+                priceOriginal: '£27',
+                price: '£18.09',
+                url: 'https://buy.stripe.com/eVq9AS72PeAQ8mA59MbZe0k'
+            }
+        };
+
+        const DISCOUNT_CODE = 'LOYALTY33';
+
+        // Show segmentation modal when DOM is ready
+        function initSegmentationModal() {
+            const modal = document.getElementById('segmentModal');
+            const form = document.getElementById('segmentForm');
+            const submitBtn = document.getElementById('submitBtn');
+            const step0 = document.getElementById('step0');
+            const step1 = document.getElementById('step1');
+            const step2 = document.getElementById('step2');
+            const productOffer = document.getElementById('productOffer');
+            const introContinueBtn = document.getElementById('introContinueBtn');
+
+            if (!modal) return;
+
+            try {
+                var hasSegmented = false;
+                try {
+                    hasSegmented = sessionStorage.getItem('hasSegmented') === 'true';
+                } catch (e) {}
+
+                if (!hasSegmented) {
+                    function showModal() {
+                        if (modal && !modal.classList.contains('active')) {
+                            modal.classList.add('active');
+                            document.body.style.overflow = 'hidden';
+                        }
+                    }
+                    showModal();
+                    requestAnimationFrame(function() { requestAnimationFrame(showModal); });
+                    setTimeout(showModal, 50);
+                    setTimeout(showModal, 300);
+                }
+
+                if (introContinueBtn && step0 && step1) {
+                    introContinueBtn.addEventListener('click', function() {
+                        step0.classList.remove('active');
+                        step1.classList.add('active');
+                    });
+                }
+            
+                if (form) {
+                    form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Processing...';
+                
+                const selectedGoal = document.querySelector('input[name="goal"]:checked').value;
+                
+                const formData = new FormData();
+                formData.append('goal', selectedGoal);
+                
+                fetch('https://formspree.io/f/mlgwnvkk', {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        sessionStorage.setItem('userGoal', selectedGoal);
+                        showProductOffer(selectedGoal);
+                    } else {
+                        throw new Error('Form submission failed');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    showProductOffer(selectedGoal);
+                });
+                });
+                }
+            } catch (err) {
+                console.error('Segmentation modal init error:', err);
+                var m = document.getElementById('segmentModal');
+                var segmented = false;
+                try { segmented = sessionStorage.getItem('hasSegmented') === 'true'; } catch (e) {}
+                if (m && !segmented) {
+                    m.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            }
+
+            function showProductOffer(goal) {
+                if (!productOffer) return;
+                const product = products[goal];
+                if (!product) return;
+                
+                const bulletHTML = product.bullets.map(b => `<li>${b}</li>`).join('');
+
+                productOffer.innerHTML = `
+                    <div class="product-offer">
+
+                        <div class="offer-section">
+                            <p class="offer-reward-headline">${product.selectionHeadline}</p>
+                            <p class="offer-tailored-note">${product.selectionNote}</p>
+                        </div>
+
+                        <div class="offer-section">
+                            <h3>${product.name}</h3>
+                            <p class="congruence-text">${product.congruence}</p>
+                            <p class="product-summary">${product.summary}</p>
+                            <ul class="product-bullets">${bulletHTML}</ul>
+                        </div>
+
+                        <div class="offer-section offer-section--price">
+                            <div class="product-price-row">
+                                <span class="price-original">${product.priceOriginal}</span>
+                                <span class="price-amount">${product.price}</span>
+                            </div>
+                            <div class="discount-code-box discount-code-box--reward">
+                                <span class="discount-code-label">Your reward code:</span>
+                                <span class="discount-code-value" id="discountCode">${DISCOUNT_CODE}</span>
+                                <button type="button" class="discount-code-copy" onclick="copyDiscountCode()">Copy</button>
+                            </div>
+                        </div>
+
+                        <div class="product-cta">
+                            <a href="${product.url}" class="buy-btn" data-oto-stripe onclick="if(typeof fbq!=='undefined'){fbq('trackCustom','OTO Initiate Checkout 1');}">Claim my reward</a>
+                            <button class="skip-btn" onclick="showPrivateCircleOffer()">No thanks, I'll handle it myself</button>
+                        </div>
+
+                    </div>
+                `;
+                
+                step1.classList.remove('active');
+                step2.classList.add('active');
+            }
+
+            function showPrivateCircleOffer() {
+                const step3 = document.getElementById('step3');
+                const privateCircleOffer = document.getElementById('privateCircleOffer');
+
+                const bullets = [
+                    'The last AI resource you\'ll ever need to find',
+                    'We do the hunting; you keep the confidence',
+                    'We do 40 hours of research per week — one email with what to use and what to safely ignore'
+                ].map(b => `<li>${b}</li>`).join('');
+
+                privateCircleOffer.innerHTML = `
+                    <div class="product-offer">
+                        <p class="offer-reward-headline">Permanently close the gap. End the AI anxiety.</p>
+                        <p class="offer-tailored-note">The Kit is the bridge — you've done the hard work to catch up. The Circle is the guardian: designed for those who want to be AI-capable, without making AI their hobby. One weekly email. No more hunting. No more wondering if you've missed something.</p>
+                        <h3>AI Confidence Private Circle</h3>
+                        <ul class="product-bullets product-bullets--compact">${bullets}</ul>
+                        <div class="discount-code-box">
+                            <span class="discount-code-label">First month free (code):</span>
+                            <span class="discount-code-value" id="thankyouCode">THANKYOU</span>
+                            <button type="button" class="discount-code-copy" onclick="copyThankyouCode()">Copy</button>
+                        </div>
+                        <p style="font-size: 12px; color: var(--color-text-light); margin-bottom: 12px;">£0 for month 1, then £12/month. Cancel anytime.</p>
+                        <div class="product-cta">
+                            <a href="https://buy.stripe.com/bJedR8af1gIY9qEgSubZe0l" class="buy-btn" data-oto-stripe onclick="if(typeof fbq!=='undefined'){fbq('trackCustom','OTO Initiate Checkout 2');}">Join the circle</a>
+                            <button class="skip-btn" onclick="closeModal()">No thanks, I'll handle it myself</button>
+                        </div>
+                    </div>
+                `;
+
+                step2.classList.remove('active');
+                step3.classList.add('active');
+            }
+            window.showPrivateCircleOffer = showPrivateCircleOffer;
+
+            window.copyThankyouCode = function() {
+                const code = 'THANKYOU';
+                navigator.clipboard.writeText(code).then(function() {
+                    const btn = document.querySelector('.discount-code-copy');
+                    if (btn) {
+                        btn.textContent = 'Copied!';
+                        btn.classList.add('copied');
+                        setTimeout(function() { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+                    }
+                });
+            };
+
+            window.copyDiscountCode = function() {
+                const codeEl = document.getElementById('discountCode');
+                const btn = document.querySelector('.discount-code-copy');
+                if (codeEl && btn) {
+                    navigator.clipboard.writeText(DISCOUNT_CODE).then(function() {
+                        btn.textContent = 'Copied!';
+                        btn.classList.add('copied');
+                        setTimeout(function() {
+                            btn.textContent = 'Copy';
+                            btn.classList.remove('copied');
+                        }, 2000);
+                    });
+                }
+            };
+
+            window.closeModal = function() {
+                try { sessionStorage.setItem('hasSegmented', 'true'); } catch (e) {}
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            };
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initSegmentationModal);
+        } else {
+            initSegmentationModal();
+        }
+    </script>
+
+</body>
+</html>
