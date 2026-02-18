@@ -728,6 +728,25 @@
             flex-shrink: 0;
         }
 
+        .offer-reward-headline {
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .offer-tailored-note {
+            font-size: 14px;
+            color: var(--color-text);
+            line-height: 1.6;
+            margin-bottom: 16px;
+            padding: 14px 16px;
+            background: #f0f9ff;
+            border-left: 3px solid var(--color-primary);
+            border-radius: 0 6px 6px 0;
+        }
+
         .product-offer h3 {
             font-size: 19px;
             color: var(--color-text);
@@ -771,6 +790,25 @@
             border: 1px dashed #b45309;
             border-radius: 8px;
             margin-bottom: 16px;
+        }
+
+        .discount-code-box--reward {
+            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+            border-color: #10b981;
+        }
+
+        .discount-code-box--reward .discount-code-label,
+        .discount-code-box--reward .discount-code-value {
+            color: #065f46;
+        }
+
+        .discount-code-box--reward .discount-code-copy {
+            color: #065f46;
+            border-color: #10b981;
+        }
+
+        .discount-code-box--reward .discount-code-copy:hover {
+            background: #d1fae5;
         }
 
         .discount-code-label {
@@ -1382,17 +1420,13 @@
                     <div class="product-offer">
 
                         <div class="offer-section">
-                            <div class="reward-badge">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                                </svg>
-                                <span>Thank-you — 33% off</span>
-                            </div>
-                            <p class="congruence-text">${product.congruence}</p>
+                            <p class="offer-reward-headline">Because you answered, here's your reward — 33% off</p>
+                            <p class="offer-tailored-note">Based on what you said, we've picked the solution that gets you to the value you want, quicker. This is tailor-made for your goal.</p>
                         </div>
 
                         <div class="offer-section">
                             <h3>${product.name}</h3>
+                            <p class="congruence-text">${product.congruence}</p>
                             <p class="product-summary">${product.summary}</p>
                             <ul class="product-bullets">${bulletHTML}</ul>
                         </div>
@@ -1402,15 +1436,15 @@
                                 <span class="price-original">${product.priceOriginal}</span>
                                 <span class="price-amount">${product.price}</span>
                             </div>
-                            <div class="discount-code-box">
-                                <span class="discount-code-label">Code:</span>
+                            <div class="discount-code-box discount-code-box--reward">
+                                <span class="discount-code-label">Your reward code (for answering):</span>
                                 <span class="discount-code-value" id="discountCode">${DISCOUNT_CODE}</span>
                                 <button type="button" class="discount-code-copy" onclick="copyDiscountCode()">Copy</button>
                             </div>
                         </div>
 
                         <div class="product-cta">
-                            <a href="${product.url}" class="buy-btn" data-oto-stripe onclick="if(typeof fbq!=='undefined'){fbq('trackCustom','OTO Initiate Checkout 1');}">Claim my discount</a>
+                            <a href="${product.url}" class="buy-btn" data-oto-stripe onclick="if(typeof fbq!=='undefined'){fbq('trackCustom','OTO Initiate Checkout 1');}">Claim my reward</a>
                             <button class="skip-btn" onclick="showPrivateCircleOffer()">No thanks</button>
                         </div>
 
