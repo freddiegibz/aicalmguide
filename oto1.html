@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Quick Question - AI Confidence Kit</title>
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1216244347126516');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1216244347126516&ev=PageView&noscript=1"
+    /></noscript>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #1e3a5f;
+            --color-primary-light: #2d5a8a;
+            --color-text: #2d3748;
+            --color-text-light: #64748b;
+            --color-bg: #ffffff;
+            --color-bg-soft: #f8fafc;
+            --color-border: #e2e8f0;
+            --color-border-light: #f1f5f9;
+            --color-success: #10b981;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--color-bg-soft);
+            color: var(--color-text);
+            line-height: 1.7;
+            font-size: 17px;
+            min-height: 100vh;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-weight: 500;
+            color: var(--color-primary);
+            line-height: 1.3;
+        }
+
+        /* ---- Header ---- */
+        .oto-header {
+            background: var(--color-bg);
+            border-bottom: 1px solid var(--color-border);
+            padding: 14px 24px;
+        }
+
+        .oto-header-inner {
+            max-width: 640px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .oto-brand {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--color-primary);
+        }
+
+        .oto-confirmed {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+            color: #065f46;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
+
+        .oto-confirmed svg {
+            width: 12px;
+            height: 12px;
+        }
+
+        /* ---- Main layout ---- */
+        .oto-main {
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 48px 24px 64px;
+        }
+
+        /* ---- Step visibility ---- */
+        .oto-step { display: none; }
+        .oto-step.active { display: block; }
+
+        /* ---- Question step ---- */
+        .step-tag {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: var(--color-text-light);
+            margin-bottom: 14px;
+        }
+
+        .step-heading {
+            font-size: clamp(26px, 5vw, 34px);
+            margin-bottom: 10px;
+        }
+
+        .step-subtitle {
+            font-size: 16px;
+            color: var(--color-text-light);
+            line-height: 1.6;
+            margin-bottom: 32px;
+            max-width: 520px;
+        }
+
+        .option-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 28px;
+        }
+
+        .option-item { position: relative; }
+
+        .option-input {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .option-label {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 18px 22px;
+            background: var(--color-bg);
+            border: 2px solid var(--color-border);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .option-label:hover {
+            border-color: var(--color-primary);
+        }
+
+        .option-input:checked + .option-label {
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(30, 58, 95, 0.08);
+        }
+
+        .option-radio {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--color-border);
+            border-radius: 50%;
+            flex-shrink: 0;
+            position: relative;
+            transition: all 0.2s ease;
+        }
+
+        .option-input:checked + .option-label .option-radio {
+            border-color: var(--color-primary);
+            background: var(--color-primary);
+        }
+
+        .option-radio::after {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            width: 8px; height: 8px;
+            background: #fff;
+            border-radius: 50%;
+            transition: transform 0.2s ease;
+        }
+
+        .option-input:checked + .option-label .option-radio::after {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .option-text {
+            font-size: 16px;
+            color: var(--color-text);
+            font-weight: 500;
+        }
+
+        /* ---- Offer step ---- */
+        .offer-tag {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: var(--color-text-light);
+            margin-bottom: 14px;
+        }
+
+        .offer-headline {
+            font-size: clamp(22px, 4.5vw, 30px);
+            margin-bottom: 14px;
+        }
+
+        .offer-callout {
+            background: #f0f9ff;
+            border-left: 3px solid var(--color-primary);
+            border-radius: 0 8px 8px 0;
+            padding: 16px 20px;
+            font-size: 15px;
+            color: var(--color-text);
+            line-height: 1.6;
+            margin-bottom: 28px;
+        }
+
+        .offer-divider {
+            border: none;
+            border-top: 1px solid var(--color-border-light);
+            margin: 24px 0;
+        }
+
+        .offer-product-name {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .offer-product-summary {
+            font-size: 15px;
+            color: var(--color-text-light);
+            line-height: 1.6;
+            margin-bottom: 18px;
+        }
+
+        .offer-bullets {
+            list-style: none;
+            margin-bottom: 24px;
+        }
+
+        .offer-bullets li {
+            font-size: 15px;
+            color: var(--color-text);
+            padding: 6px 0 6px 24px;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        .offer-bullets li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--color-success);
+            font-weight: 700;
+        }
+
+        .offer-price-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .price-was {
+            font-size: 16px;
+            color: var(--color-text-light);
+            text-decoration: line-through;
+        }
+
+        .price-now {
+            font-size: 30px;
+            font-weight: 700;
+            color: var(--color-success);
+            font-family: 'Inter', sans-serif;
+            line-height: 1;
+        }
+
+        .price-saving {
+            font-size: 13px;
+            color: var(--color-success);
+            font-weight: 600;
+        }
+
+        .code-box {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+            border: 1px solid #10b981;
+            border-radius: 8px;
+            padding: 12px 16px;
+            margin-bottom: 20px;
+        }
+
+        .code-label {
+            font-size: 12px;
+            color: #065f46;
+            font-weight: 500;
+            flex-shrink: 0;
+        }
+
+        .code-value {
+            font-size: 15px;
+            font-weight: 700;
+            color: #065f46;
+            letter-spacing: 1px;
+            flex: 1;
+        }
+
+        .code-copy {
+            font-size: 12px;
+            font-weight: 600;
+            color: #065f46;
+            background: #fff;
+            border: 1px solid #10b981;
+            padding: 5px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .code-copy:hover { background: #d1fae5; }
+
+        .code-copy.copied {
+            background: #10b981;
+            color: #fff;
+            border-color: #10b981;
+        }
+
+        /* ---- Buttons ---- */
+        .btn-primary {
+            display: block;
+            width: 100%;
+            background: var(--color-primary);
+            color: #fff;
+            padding: 17px 32px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 14px rgba(30, 58, 95, 0.25);
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .btn-primary:hover:not(:disabled) {
+            background: var(--color-primary-light);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(30, 58, 95, 0.3);
+        }
+
+        .btn-primary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .btn-skip {
+            display: block;
+            text-align: center;
+            margin-top: 14px;
+            font-size: 13px;
+            color: var(--color-text-light);
+            text-decoration: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            width: 100%;
+            padding: 6px;
+            transition: color 0.2s ease;
+        }
+
+        .btn-skip:hover { color: var(--color-text); }
+
+        /* ---- Mobile ---- */
+        @media (max-width: 640px) {
+            .oto-main { padding: 32px 20px 48px; }
+            .option-label { padding: 15px 16px; }
+            .option-text { font-size: 15px; }
+            .step-subtitle { margin-bottom: 24px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="oto-header">
+        <div class="oto-header-inner">
+            <span class="oto-brand">AI Confidence Kit</span>
+            <span class="oto-confirmed">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                Purchase confirmed
+            </span>
+        </div>
+    </header>
+
+    <main class="oto-main">
+
+        <!-- Step 1: Question -->
+        <div class="oto-step active" id="step-question">
+            <p class="step-tag">One quick question</p>
+            <h1 class="step-heading">What would help you most right now?</h1>
+            <p class="step-subtitle">Your answer shapes the next step we recommend — it takes ten seconds.</p>
+
+            <form id="questionForm">
+                <div class="option-group">
+                    <div class="option-item">
+                        <input type="radio" name="goal" value="immediate" id="opt1" class="option-input" required>
+                        <label for="opt1" class="option-label">
+                            <span class="option-radio"></span>
+                            <span class="option-text">I want useful results immediately.</span>
+                        </label>
+                    </div>
+                    <div class="option-item">
+                        <input type="radio" name="goal" value="confidence" id="opt2" class="option-input">
+                        <label for="opt2" class="option-label">
+                            <span class="option-radio"></span>
+                            <span class="option-text">I want to stop second-guessing myself.</span>
+                        </label>
+                    </div>
+                    <div class="option-item">
+                        <input type="radio" name="goal" value="simple" id="opt3" class="option-input">
+                        <label for="opt3" class="option-label">
+                            <span class="option-radio"></span>
+                            <span class="option-text">I want this to feel simple and manageable.</span>
+                        </label>
+                    </div>
+                </div>
+                <button type="submit" class="btn-primary" id="continueBtn">Continue</button>
+            </form>
+        </div>
+
+        <!-- Step 2: Personalized offer -->
+        <div class="oto-step" id="step-offer">
+            <div id="offerContent"></div>
+        </div>
+
+    </main>
+
+    <script>
+        const products = {
+            immediate: {
+                name: 'AI Quick Wins Blueprint',
+                selectionHeadline: 'Results now — confirmed. Your purchase unlocked 33% credit.',
+                selectionNote: 'The Quick Wins Blueprint is built for exactly that. What to try first, in what order, what success looks like — all mapped out so you don\'t have to figure it out.',
+                summary: 'A 7-day plan: what to try first, in what order, what success looks like.',
+                bullets: [
+                    'One task per day — no guesswork on where to start',
+                    'No trial and error',
+                    'Real, usable results within days'
+                ],
+                priceOriginal: '£17',
+                price: '£11.39',
+                saving: 'You save £5.61',
+                url: 'https://buy.stripe.com/3cI4gygDpeAQfP2byabZe0i'
+            },
+            confidence: {
+                name: 'AI Judgement Framework',
+                selectionHeadline: 'Stopping the second-guessing — confirmed. Your purchase unlocked 33% credit.',
+                selectionNote: 'The Judgement Framework is built for exactly that. Clear rules for when to trust AI, when to double-check, and how to correct it — so you never have to guess.',
+                summary: 'Clear rules: when to trust AI, when to double-check, how to correct it.',
+                bullets: [
+                    'Removes the guesswork permanently',
+                    'Works with any AI tool you use',
+                    'Read once, apply straight away'
+                ],
+                priceOriginal: '£29',
+                price: '£19.43',
+                saving: 'You save £9.57',
+                url: 'https://buy.stripe.com/9B68wO2MzfEUgT61XAbZe0h'
+            },
+            simple: {
+                name: 'The Everyday AI System',
+                selectionHeadline: 'Simple and manageable — confirmed. Your purchase unlocked 33% credit.',
+                selectionNote: 'The Everyday AI System is built for exactly that. One process for emails, planning, decisions — no new tools, no complexity. Just something that works.',
+                summary: 'One process — Ask, Evaluate, Adjust — for emails, planning, decisions.',
+                bullets: [
+                    'One process that covers every situation',
+                    'No new tools needed',
+                    'Builds confidence every time you use it'
+                ],
+                priceOriginal: '£27',
+                price: '£18.09',
+                saving: 'You save £8.91',
+                url: 'https://buy.stripe.com/eVq9AS72PeAQ8mA59MbZe0k'
+            }
+        };
+
+        const DISCOUNT_CODE = 'LOYALTY33';
+
+        const questionForm = document.getElementById('questionForm');
+        const continueBtn = document.getElementById('continueBtn');
+        const stepQuestion = document.getElementById('step-question');
+        const stepOffer = document.getElementById('step-offer');
+        const offerContent = document.getElementById('offerContent');
+
+        questionForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            continueBtn.disabled = true;
+            continueBtn.textContent = 'One moment…';
+
+            const goal = document.querySelector('input[name="goal"]:checked').value;
+
+            // Submit to Formspree async — don't block UX on it
+            const fd = new FormData();
+            fd.append('goal', goal);
+            fetch('https://formspree.io/f/mlgwnvkk', {
+                method: 'POST', body: fd,
+                headers: { 'Accept': 'application/json' }
+            }).catch(function() {});
+
+            try { sessionStorage.setItem('userGoal', goal); } catch(e) {}
+
+            showOffer(goal);
+        });
+
+        function showOffer(goal) {
+            const p = products[goal];
+            const bulletHTML = p.bullets.map(function(b) { return '<li>' + b + '</li>'; }).join('');
+
+            offerContent.innerHTML =
+                '<p class="offer-tag">Your personalised next step</p>' +
+                '<h1 class="offer-headline">' + p.selectionHeadline + '</h1>' +
+                '<div class="offer-callout">' + p.selectionNote + '</div>' +
+                '<hr class="offer-divider">' +
+                '<h2 class="offer-product-name">' + p.name + '</h2>' +
+                '<p class="offer-product-summary">' + p.summary + '</p>' +
+                '<ul class="offer-bullets">' + bulletHTML + '</ul>' +
+                '<div class="offer-price-row">' +
+                    '<span class="price-was">' + p.priceOriginal + '</span>' +
+                    '<span class="price-now">' + p.price + '</span>' +
+                    '<span class="price-saving">' + p.saving + '</span>' +
+                '</div>' +
+                '<div class="code-box">' +
+                    '<span class="code-label">33% credit code:</span>' +
+                    '<span class="code-value" id="discountCode">' + DISCOUNT_CODE + '</span>' +
+                    '<button type="button" class="code-copy" id="copyBtn" onclick="copyCode()">Copy</button>' +
+                '</div>' +
+                '<a href="' + p.url + '" class="btn-primary" onclick="if(typeof fbq!==\'undefined\'){fbq(\'trackCustom\',\'OTO Initiate Checkout 1\');}">Add this to my order</a>' +
+                '<a href="oto2.html" class="btn-skip">No thanks, I\'ll handle it myself</a>';
+
+            stepQuestion.classList.remove('active');
+            stepOffer.classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        window.copyCode = function() {
+            navigator.clipboard.writeText(DISCOUNT_CODE).then(function() {
+                var btn = document.getElementById('copyBtn');
+                if (btn) {
+                    btn.textContent = 'Copied!';
+                    btn.classList.add('copied');
+                    setTimeout(function() {
+                        btn.textContent = 'Copy';
+                        btn.classList.remove('copied');
+                    }, 2000);
+                }
+            });
+        };
+    </script>
+
+</body>
+</html>
