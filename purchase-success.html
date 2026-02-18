@@ -273,7 +273,39 @@
             color: var(--color-text-light);
             line-height: 1.8;
             max-width: 480px;
-            margin: 0 auto;
+            margin: 0 auto 14px;
+        }
+
+        .transition-copy:last-of-type {
+            margin-bottom: 24px;
+        }
+
+        .transition-bullets {
+            list-style: none;
+            padding: 0;
+            margin: 0 auto 20px;
+            max-width: 320px;
+            text-align: left;
+        }
+
+        .transition-bullets li {
+            font-size: 16px;
+            color: var(--color-text-light);
+            padding: 6px 0 6px 24px;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        .transition-bullets li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--color-primary);
+            font-weight: 700;
+        }
+
+        .transition-section .upsell-btn {
+            margin-top: 8px;
         }
 
         /* ========================================
@@ -985,6 +1017,10 @@
                 font-size: 16px;
             }
 
+            .transition-bullets li {
+                font-size: 15px;
+            }
+
             .post-purchase-product-card {
                 padding: 20px;
             }
@@ -1194,81 +1230,46 @@
         </div>
     </section>
 
-    <!-- 4. SOFT TRANSITION -->
+    <!-- 4. WHAT USUALLY COMES NEXT — Private Circle -->
     <section class="transition-section">
         <div class="container">
             <h2>What usually comes next</h2>
             <p class="transition-copy">
-                Most people understand the guide quickly. A quiet question often lingers: <em>"Am I doing this right?"</em> That's normal.
+                Most people grasp the guide quickly.
             </p>
-        </div>
-    </section>
-
-    <!-- 5. UPSELL SECTION — Three products (replacing old Framework + Done-For-You) -->
-    <section class="upsell-section">
-        <div class="container">
-            <div class="upsell-intro">
-                <h2>Next steps</h2>
-            </div>
-
-            <div class="post-purchase-product-card">
-                <h3>AI Quick Wins Blueprint</h3>
-                <p class="product-card-summary">7-day plan: what to try first, in what order, what success looks like.</p>
-                <div class="product-card-price">
-                    <span class="price-amount">£17</span>
-                </div>
-                <a href="https://buy.stripe.com/3cI4gygDpeAQfP2byabZe0i" class="upsell-btn" data-oto-stripe onclick="if(typeof fbq!=='undefined'){fbq('trackCustom','OTO Initiate Checkout 1');}">
-                    View option
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                        <polyline points="12 5 19 12 12 19"></polyline>
-                    </svg>
-                </a>
-            </div>
-
-            <div class="post-purchase-product-card">
-                <h3>AI Judgement Framework</h3>
-                <p class="product-card-summary">When to trust AI, when to double-check, how to correct it calmly.</p>
-                <div class="product-card-price">
-                    <span class="price-amount">£29</span>
-                </div>
-                <a href="https://buy.stripe.com/9B68wO2MzfEUgT61XAbZe0h" class="upsell-btn" data-oto-stripe onclick="if(typeof fbq!=='undefined'){fbq('trackCustom','OTO Initiate Checkout 1');}">
-                    View option
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                        <polyline points="12 5 19 12 12 19"></polyline>
-                    </svg>
-                </a>
-            </div>
-
-            <div class="post-purchase-product-card">
-                <h3>The Everyday AI System</h3>
-                <p class="product-card-summary">Ask, Evaluate, Adjust — for emails, planning, decisions.</p>
-                <div class="product-card-price">
-                    <span class="price-amount">£27</span>
-                </div>
-                <a href="https://buy.stripe.com/eVq9AS72PeAQ8mA59MbZe0k" class="upsell-btn" data-oto-stripe onclick="if(typeof fbq!=='undefined'){fbq('trackCustom','OTO Initiate Checkout 1');}">
-                    View option
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                        <polyline points="12 5 19 12 12 19"></polyline>
-                    </svg>
-                </a>
-            </div>
-
-            <!-- OLD PRODUCTS - TEMPORARILY HIDDEN -->
-            <div style="display: none;">
-                <div class="upsell-card">
-                    <h3>Close the gap between understanding and confidence</h3>
-                    <p>A short framework that gives you clear rules for when to trust AI, how to correct it, and how to use it sensibly — without second-guessing yourself.</p>
-                    <a href="practical.html" class="upsell-btn">View the Framework</a>
-                </div>
-                <div class="upsell-card secondary">
-                    <h3>Want this set up for your exact situation?</h3>
-                    <p>If you'd rather not figure this out alone, I offer a done-for-you setup.</p>
-                    <a href="help.html" class="upsell-btn secondary">See the Done-For-You Option</a>
-                </div>
-            </div>
+            <p class="transition-copy">
+                What tends to follow is a quieter thought:<br><em>"How do I stay current now?"</em>
+            </p>
+            <p class="transition-copy">
+                The guide gives you a solid foundation.<br>It brings you up to speed properly.
+            </p>
+            <p class="transition-copy">
+                But AI doesn't stand still.<br>New tools, new terms, new updates appear constantly.
+            </p>
+            <p class="transition-copy">
+                You don't need to chase all of it.<br>You just need one steady reference point.
+            </p>
+            <p class="transition-copy">
+                The Private Circle exists for that.
+            </p>
+            <p class="transition-copy">
+                It's a calm, ongoing layer that:
+            </p>
+            <ul class="transition-bullets">
+                <li>Flags what actually matters</li>
+                <li>Ignores what doesn't</li>
+                <li>Keeps you aligned without overwhelm</li>
+            </ul>
+            <p class="transition-copy">
+                You don't need multiple sources.<br>You don't need to monitor headlines.<br><br>Just one place that keeps you quietly up to date.
+            </p>
+            <a href="https://buy.stripe.com/bJedR8af1gIY9qEgSubZe0l" class="upsell-btn" data-oto-stripe onclick="if(typeof fbq!=='undefined'){fbq('trackCustom','OTO Initiate Checkout 2');}">
+                Join the Private Circle
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+            </a>
         </div>
     </section>
 
