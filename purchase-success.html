@@ -1419,7 +1419,7 @@
                     <div class="product-offer">
 
                         <div class="offer-section">
-                            <p class="offer-reward-headline">Because you answered, here's your reward — 33% off</p>
+                            <p class="offer-reward-headline">As a gift for buying the guide, here's your reward — 33% off</p>
                             <p class="offer-tailored-note">Based on what you said, we've picked the solution that gets you to the value you want, quicker. This is tailor-made for your goal.</p>
                         </div>
 
@@ -1467,22 +1467,18 @@
 
                 privateCircleOffer.innerHTML = `
                     <div class="product-offer">
-                        <span class="oto-label">Last option</span>
+                        <p class="offer-reward-headline">Your reward for purchasing — first month free</p>
+                        <p class="offer-tailored-note">This is the only source you need to stay confident and up-to-date with AI. One weekly email. No overwhelm. No hunting elsewhere.</p>
                         <h3>AI Confidence Private Circle</h3>
-                        <p class="congruence-text">Stay current without the catch-up. No training. No overload. Just a low-effort way to stay confident.</p>
                         <ul class="product-bullets product-bullets--compact">${bullets}</ul>
-                        <div class="reward-badge" style="margin: 10px 0;">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                            <span>First month free</span>
-                        </div>
-                        <div class="discount-code-box">
-                            <span class="discount-code-label">Code:</span>
+                        <div class="discount-code-box discount-code-box--reward">
+                            <span class="discount-code-label">Your reward code (first month free):</span>
                             <span class="discount-code-value" id="thankyouCode">THANKYOU</span>
                             <button type="button" class="discount-code-copy" onclick="copyThankyouCode()">Copy</button>
                         </div>
-                        <p style="font-size: 12px; color: var(--color-text-light); margin-bottom: 12px;">£12/month after. Cancel anytime.</p>
+                        <p style="font-size: 12px; color: var(--color-text-light); margin-bottom: 12px;"><strong>£0</strong> for month 1 — then £12/month. Cancel anytime.</p>
                         <div class="product-cta">
-                            <a href="https://buy.stripe.com/bJedR8af1gIY9qEgSubZe0l" class="buy-btn" data-oto-stripe onclick="if(typeof fbq!=='undefined'){fbq('trackCustom','OTO Initiate Checkout 1');}">Join the circle</a>
+                            <a href="https://buy.stripe.com/bJedR8af1gIY9qEgSubZe0l" class="buy-btn" data-oto-stripe onclick="if(typeof fbq!=='undefined'){fbq('trackCustom','OTO Initiate Checkout 1');}">Claim my free month</a>
                             <button class="skip-btn" onclick="closeModal()">No thanks, I'm good</button>
                         </div>
                     </div>
