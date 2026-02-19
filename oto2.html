@@ -124,7 +124,7 @@
             font-size: 16px;
             color: var(--color-text-light);
             line-height: 1.75;
-            margin-bottom: 0;
+            margin-bottom: 12px;
         }
 
         /* ---- Section 2: reframe ---- */
@@ -132,7 +132,7 @@
             font-size: 16px;
             color: var(--color-text);
             line-height: 1.75;
-            margin-bottom: 0;
+            margin-bottom: 12px;
         }
 
         .reframe-pull {
@@ -182,7 +182,7 @@
             font-size: 16px;
             color: var(--color-text-light);
             line-height: 1.75;
-            margin-bottom: 0;
+            margin-bottom: 12px;
         }
 
         /* ---- Free month highlight ---- */
@@ -310,7 +310,7 @@
         /* ---- Mobile ---- */
         @media (max-width: 640px) {
             .oto-main { padding: 32px 20px 48px; }
-            .product-bullets li { font-size: 15px; }
+            .circle-items li { font-size: 15px; }
         }
     </style>
 </head>
@@ -330,44 +330,56 @@
 
     <main class="oto-main">
 
-        <!-- Section 1: You've Taken The First Step -->
+        <!-- Section 1: Where you are now -->
         <p class="section-label">Where you are now</p>
-        <h1 class="progress-heading">You've made a good start.</h1>
-        <p class="section-para">You now understand how AI works and where it's useful. Most people stop there.</p>
+        <h1 class="progress-heading">You've taken the step most people don't.</h1>
+        <p class="section-para">You didn't ignore it. You didn't postpone it. You decided to understand it properly.</p>
+        <p class="section-para">That matters.</p>
 
         <hr class="page-divider">
 
-        <!-- Section 2: This Next Step -->
-        <p class="section-label">If you'd like to keep going</p>
-        <p class="reframe-pull">If you'd like to make sure you never feel behind again, this is the simple next step.</p>
-        <p class="reframe-para">It's a monthly email that keeps things clear. Once a month, you'll receive:</p>
+        <!-- Section 2: If you'd like to make this easier long-term -->
+        <p class="section-label">If you'd like to make this easier long-term</p>
+        <p class="reframe-para">The guide will get you up to speed.</p>
+        <p class="reframe-para">The next question most people quietly have is:</p>
+        <p class="reframe-pull">"How do I make sure I don't drift again?"</p>
+
+        <hr class="page-divider">
+
+        <!-- Section 3: The simple next layer -->
+        <p class="section-label">The simple next layer</p>
+        <h2 class="product-name">AI Confidence Private Circle</h2>
+        <p class="reframe-para">One short email per month. Clear. Practical. Plain English.</p>
         <ul class="circle-items">
             <li><span class="ci-dot"></span><span>What's changed (if anything)</span></li>
-            <li><span class="ci-dot"></span><span>What's actually worth your attention</span></li>
-            <li><span class="ci-dot"></span><span>What you can ignore</span></li>
-            <li><span class="ci-dot"></span><span>One practical example you can try</span></li>
+            <li><span class="ci-dot"></span><span>What's worth paying attention to</span></li>
+            <li><span class="ci-dot"></span><span>What you can safely ignore</span></li>
+            <li><span class="ci-dot"></span><span>One small example you can try</span></li>
         </ul>
-        <p class="why-para">That's it. No searching. No overwhelm. No falling behind.</p>
+        <p class="why-para">That's it.</p>
+        <p class="why-para">No tracking the news. No chasing tools. No trying to keep up.</p>
 
         <hr class="page-divider">
 
-        <!-- Section 3: Why It Exists -->
+        <!-- Section 4: Why this exists -->
         <p class="section-label">Why this exists</p>
-        <p class="section-para">AI will keep changing. This makes sure you don't have to keep chasing it.</p>
+        <p class="section-para">AI will continue moving.</p>
+        <p class="section-para">This makes sure you don't have to.</p>
 
         <hr class="page-divider">
 
-        <!-- Section 4: Special Access -->
+        <!-- Section 5: Your access -->
         <p class="section-label">Your access</p>
-        <p class="section-para">First month free. Then £12 per month. Cancel anytime. Use code:</p>
+        <p class="section-para">First month free. Then £12 per month. Cancel anytime.</p>
+        <p class="section-para">Use code:</p>
 
         <div class="code-box">
-            <span class="code-label">First month free:</span>
+            <span class="code-label">Code:</span>
             <span class="code-value" id="thankyouCode">THANKYOU</span>
             <button type="button" class="code-copy" id="copyBtn" onclick="copyCode()">Copy</button>
         </div>
 
-        <p class="pricing-note">£0 for month 1, then £12/month. Cancel anytime — no questions asked.</p>
+        <p class="pricing-note">£0 for month 1, then £12/month</p>
 
         <a href="https://buy.stripe.com/bJedR8af1gIY9qEgSubZe0l" class="btn-primary" onclick="if(typeof fbq!=='undefined'){fbq('trackCustom','OTO Initiate Checkout 2');}">
             Yes, I'd like that continuity
