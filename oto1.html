@@ -239,6 +239,14 @@
             margin-bottom: 28px;
         }
 
+        .offer-closing-line {
+            font-size: 15px;
+            color: var(--color-text);
+            line-height: 1.6;
+            margin-top: 16px;
+            margin-bottom: 4px;
+        }
+
         .offer-divider {
             border: none;
             border-top: 1px solid var(--color-border-light);
@@ -528,21 +536,24 @@
             simple: {
                 name: 'The Everyday AI System',
                 // Section 1 — validation
-                youSaid: 'You said:',
-                validation: 'You want this to feel simple — something you can actually use every day.',
+                youSaid: '',
+                validation: "You've made a smart move. Most people stay curious about AI. You decided to actually understand it.",
                 // Section 2 — gap
-                gapPara: 'The guide builds the foundation. The System gives you one repeatable process — Ask, Evaluate, Adjust — that works across emails, planning, decisions, and anything else. Same approach every time. No relearning. No wondering how to start. You spend less time thinking about AI and more time using it.',
+                gapLabel: "If you'd like this to feel even simpler from day one, this helps.",
+                gapPara: "The guide explains how AI works. This gives you one clear way to use it. A simple pattern you can follow every time: when writing an email, when planning something, when thinking through a decision. You don't have to figure out a new method each time. You follow the same small structure. It keeps things steady. It keeps things manageable.",
                 // Section 3 — shifts
+                shiftsLabel: 'What this does',
                 shifts: [
-                    { before: 'A different approach every time', after: 'One process that fits every task' },
-                    { before: 'Overthinking where to begin', after: 'A clear starting point, every time' },
-                    { before: 'AI feeling like effort', after: 'AI feeling like a habit' }
+                    { before: 'Instead of guessing how to start', after: 'You use one reliable format' },
+                    { before: 'Instead of second-guessing the output', after: 'You know how to adjust calmly' },
+                    { before: 'Instead of experimenting endlessly', after: 'You apply one repeatable approach' }
                 ],
+                closingLine: "It doesn't add more to learn. It makes what you're about to learn easier to apply.",
                 // Section 4 — price
-                earnedNote: 'Because you purchased the guide, this is available to you at 33% off. It\'s not on the public site at this price — and there\'s no obligation to add it.',
+                earnedNote: "Because you just purchased the guide, this is available at a reduced price. Add it now — or continue to your download.",
                 priceOriginal: '£27',
-                price: '£18.09',
-                saving: 'You save £8.91',
+                price: '£18',
+                saving: 'Today: £18',
                 url: 'https://buy.stripe.com/eVq9AS72PeAQ8mA59MbZe0k'
             }
         };
@@ -586,21 +597,27 @@
                 '</li>';
             }).join('');
 
+            const section1Label = p.youSaid ? ('<p class="offer-you-said">' + p.youSaid + '</p>') : '';
+            const gapLabel = p.gapLabel || 'One add-on that closes the gap';
+            const shiftsLabel = p.shiftsLabel || 'What changes';
+            const closingBlock = p.closingLine ? ('<p class="offer-closing-line">' + p.closingLine + '</p>') : '';
+
             offerContent.innerHTML =
                 /* Section 1: You Said This */
-                '<p class="offer-you-said">' + p.youSaid + '</p>' +
+                section1Label +
                 '<h1 class="offer-validation">' + p.validation + '</h1>' +
                 '<hr class="offer-divider">' +
 
                 /* Section 2: Here's What Closes That Gap */
-                '<p class="offer-section-label">One add-on that closes the gap</p>' +
+                '<p class="offer-section-label">' + gapLabel + '</p>' +
                 '<h2 class="offer-product-name">' + p.name + '</h2>' +
                 '<p class="offer-gap-para">' + p.gapPara + '</p>' +
                 '<hr class="offer-divider">' +
 
                 /* Section 3: Outcome Snapshot */
-                '<p class="offer-section-label">What changes</p>' +
+                '<p class="offer-section-label">' + shiftsLabel + '</p>' +
                 '<ul class="offer-shifts">' + shiftsHTML + '</ul>' +
+                closingBlock +
                 '<hr class="offer-divider">' +
 
                 /* Section 4: Earned Offer */
