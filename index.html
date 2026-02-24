@@ -484,7 +484,7 @@
 
         /* Sticky Mobile CTA Bar */
         .sticky-cta-bar {
-            display: none;
+            display: block;
             position: fixed;
             bottom: 0;
             left: 0;
@@ -522,6 +522,10 @@
             font-size: 10px;
             color: var(--color-text-light);
             text-align: center;
+        }
+
+        body.sticky-bar-active {
+            padding-bottom: 56px;
         }
 
         .hero-book {
@@ -3168,34 +3172,12 @@
             }
         });
 
-        // Sticky CTA bar - show only after scrolling past hero
-        const heroSection = document.querySelector('.hero');
+        // Sticky CTA bar - always visible
         const stickyCta = document.querySelector('.sticky-cta-bar');
-        
-        function toggleStickyBar() {
-            if (!heroSection || !stickyCta) return;
-            
-            const heroBottom = heroSection.getBoundingClientRect().bottom;
-            const windowWidth = window.innerWidth;
-            
-            // Only apply on mobile (under 768px)
-            if (windowWidth < 768) {
-                if (heroBottom < 0) {
-                    stickyCta.classList.add('visible');
-                    document.body.classList.add('sticky-bar-active');
-                } else {
-                    stickyCta.classList.remove('visible');
-                    document.body.classList.remove('sticky-bar-active');
-                }
-            } else {
-                stickyCta.classList.remove('visible');
-                document.body.classList.remove('sticky-bar-active');
-            }
+        if (stickyCta) {
+            stickyCta.classList.add('visible');
+            document.body.classList.add('sticky-bar-active');
         }
-
-        window.addEventListener('scroll', toggleStickyBar);
-        window.addEventListener('resize', toggleStickyBar);
-        toggleStickyBar();
 
         // ========================================
         // EXIT-INTENT DISCOUNT MODAL
