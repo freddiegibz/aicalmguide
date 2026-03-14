@@ -432,6 +432,69 @@
         linear-gradient(180deg, #fbfcfd 0%, #eef1f4 100%);
     }
 
+    .advantage {
+      background: #eef1f4;
+      padding: 42px 48px 44px;
+      border-top: 1px solid rgba(18, 36, 58, 0.08);
+    }
+
+    .advantage-head {
+      max-width: 760px;
+      margin-bottom: 28px;
+    }
+
+    .advantage h2 {
+      margin: 0;
+      font-family: "Libre Baskerville", serif;
+      font-size: clamp(2rem, 3.2vw, 3rem);
+      line-height: 1.16;
+      letter-spacing: -0.03em;
+      color: var(--navy-deep);
+    }
+
+    .advantage-copy {
+      color: var(--muted);
+      font-size: 1.03rem;
+      line-height: 1.78;
+    }
+
+    .advantage-copy p {
+      margin: 0 0 18px;
+    }
+
+    .advantage-copy p:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .advantage-points {
+      margin: 28px 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .advantage-points li {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 14px;
+      align-items: start;
+      color: var(--ink);
+      font-size: 0.98rem;
+      line-height: 1.5;
+    }
+
+    .advantage-points li::before {
+      content: "";
+      width: 28px;
+      height: 28px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at center, var(--accent) 0 26%, transparent 28%),
+        linear-gradient(180deg, #fbfcfd 0%, #eef1f4 100%);
+    }
+
     .offer {
       background: var(--white);
       padding: 48px 48px 52px;
@@ -801,6 +864,10 @@
         padding: 30px 22px 32px;
       }
 
+      .advantage {
+        padding: 30px 22px 32px;
+      }
+
       .offer {
         padding: 30px 22px 32px;
       }
@@ -1006,6 +1073,64 @@
           </div>
         </section>
 
+        <section class="offer">
+          <div class="offer-inner">
+            <div class="section-tag">Get the guide</div>
+            <h2>Start understanding how AI fits into your work as a real estate agent.</h2>
+            <p class="offer-subtitle">
+              Practical, clear, and designed to help working agents use AI with more confidence.
+            </p>
+
+            <div class="offer-box">
+              <div class="offer-price">
+                <span class="price-label">Price</span>
+                <span class="price-value">$19</span>
+              </div>
+
+              <div class="offer-cta">
+                <a class="cta-button" href="#">Get the Guide</a>
+                <div class="offer-note">Instant Download, one-time payment</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="advantage">
+          <div class="advantage-head">
+            <div class="section-tag">Why this matters now</div>
+            <h2>Real Estate Agents Who Understand AI Are Pulling Ahead</h2>
+          </div>
+
+          <div class="advantage-copy">
+            <p>
+              AI is quickly becoming part of how modern agents work - from writing listing
+              descriptions and responding to leads faster, to creating marketing content in
+              minutes.
+            </p>
+            <p>
+              Some agents are already using these tools daily, while many others are still unsure
+              how to apply them in their actual workflow.
+            </p>
+            <p>That gap is growing.</p>
+            <p>
+              The agents who figure out how AI fits into their day-to-day work will naturally move
+              faster, communicate better with clients, and free up more time to focus on closing
+              deals.
+            </p>
+
+            <ul class="advantage-points">
+              <li>Respond to leads faster than other agents and never miss an opportunity</li>
+              <li>
+                Write high-quality listings and marketing content in seconds instead of spending
+                hours on it
+              </li>
+              <li>
+                Free up hours every week so you can focus on closing deals, not admin work
+              </li>
+            </ul>
+          </div>
+        </section>
+
         <section class="outcome">
           <div class="outcome-head">
             <div class="section-tag">What you'll walk away understanding</div>
@@ -1085,28 +1210,6 @@
               </p>
               <div class="testimonial-author">- James, Coldwell Banker</div>
             </article>
-          </div>
-        </section>
-
-        <section class="offer">
-          <div class="offer-inner">
-            <div class="section-tag">Get the guide</div>
-            <h2>Start understanding how AI fits into your work as a real estate agent.</h2>
-            <p class="offer-subtitle">
-              Practical, clear, and designed to help working agents use AI with more confidence.
-            </p>
-
-            <div class="offer-box">
-              <div class="offer-price">
-                <span class="price-label">Price</span>
-                <span class="price-value">$19</span>
-              </div>
-
-              <div class="offer-cta">
-                <a class="cta-button" href="#">Get the Guide</a>
-                <div class="offer-note">Instant Download, one-time payment</div>
-              </div>
-            </div>
           </div>
         </section>
 
