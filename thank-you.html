@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Thank You | AI for Real Estate Agents</title>
   <script>
+    window.META_PIXEL_ID = "928793366363543";
     !function (f, b, e, v, n, t, s) {
       if (f.fbq) return;
       n = f.fbq = function () {
@@ -21,11 +22,12 @@
       s = b.getElementsByTagName(e)[0];
       s.parentNode.insertBefore(t, s);
     }(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
-    fbq("init", "928793366363543");
-    fbq("track", "PageView");
-    fbq("track", "Purchase", {
+    fbq("init", window.META_PIXEL_ID);
+    fbq("trackSingle", window.META_PIXEL_ID, "PageView");
+    fbq("trackSingle", window.META_PIXEL_ID, "Purchase", {
       currency: "USD",
-      value: 19.00
+      value: 19.00,
+      content_name: "AI for Real Estate Agents"
     });
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">

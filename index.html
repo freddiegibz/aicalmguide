@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>AI for Real Estate Agents | Digital Guide</title>
   <script>
+    window.META_PIXEL_ID = "928793366363543";
     !function (f, b, e, v, n, t, s) {
       if (f.fbq) return;
       n = f.fbq = function () {
@@ -21,8 +22,8 @@
       s = b.getElementsByTagName(e)[0];
       s.parentNode.insertBefore(t, s);
     }(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
-    fbq("init", "928793366363543");
-    fbq("track", "PageView");
+    fbq("init", window.META_PIXEL_ID);
+    fbq("trackSingle", window.META_PIXEL_ID, "PageView");
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1343,13 +1344,30 @@
     (function () {
       const hero = document.querySelector(".hero");
       const mobileBar = document.querySelector(".mobile-cta-bar");
-      const checkoutLinks = document.querySelectorAll(".cta-button, .nav-buy");
+      const pixelId = window.META_PIXEL_ID;
+      const checkoutLinks = document.querySelectorAll('a[href="https://buy.stripe.com/6oU00ibj58cs0U80TwbZe0q"]');
 
       checkoutLinks.forEach(function (link) {
-        link.addEventListener("click", function () {
-          if (typeof window.fbq === "function") {
-            window.fbq("track", "InitiateCheckout");
+        link.addEventListener("click", function (event) {
+          const destination = link.href;
+
+          if (!destination) {
+            return;
           }
+
+          event.preventDefault();
+
+          if (typeof window.fbq === "function") {
+            window.fbq("trackSingle", pixelId, "InitiateCheckout", {
+              content_name: "AI for Real Estate Agents",
+              currency: "USD",
+              value: 19.00
+            });
+          }
+
+          window.setTimeout(function () {
+            window.location.href = destination;
+          }, 180);
         });
       });
 
