@@ -231,14 +231,17 @@
     }
 
     .benefits li::before {
-      content: "";
+      content: "\2713";
       width: 28px;
       height: 28px;
-      border: 1px solid var(--line);
       border-radius: 50%;
-      background:
-        radial-gradient(circle at center, var(--navy) 0 26%, transparent 28%),
-        linear-gradient(180deg, #fbfcfd 0%, #eef1f4 100%);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #eef3f7;
+      color: var(--navy);
+      font-size: 0.9rem;
+      font-weight: 700;
     }
 
     .cta-wrap {
