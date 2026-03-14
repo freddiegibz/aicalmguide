@@ -4,6 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>AI for Real Estate Agents | Digital Guide</title>
+  <script>
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return;
+      n = f.fbq = function () {
+        n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+      };
+      if (!f._fbq) f._fbq = n;
+      n.push = n;
+      n.loaded = true;
+      n.version = "2.0";
+      n.queue = [];
+      t = b.createElement(e);
+      t.async = true;
+      t.src = v;
+      s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s);
+    }(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+    fbq("init", "928793366363543");
+    fbq("track", "PageView");
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
@@ -505,8 +525,8 @@
     }
 
     .offer {
-      background: #f5ede2;
-      padding: 34px 48px 36px;
+      background: var(--white);
+      padding: 26px 48px 28px;
       border-top: 1px solid rgba(18, 36, 58, 0.08);
     }
 
@@ -565,34 +585,47 @@
       letter-spacing: 0.01em;
     }
 
-    .offer h2 {
-      margin: 0;
-      font-family: "Libre Baskerville", serif;
-      font-size: clamp(1.7rem, 2.6vw, 2.35rem);
-      line-height: 1.18;
-      letter-spacing: -0.03em;
-      color: var(--navy-deep);
+    .offer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px 32px;
+      padding: 24px 28px;
+      background: #f5ede2;
+      border-left: 3px solid var(--accent);
     }
 
-    .offer-inner {
-      max-width: 700px;
-      margin: 0 auto;
-      text-align: center;
+    .offer-copy {
+      max-width: 560px;
+    }
+
+    .offer-title {
+      margin: 0;
+      color: var(--navy-deep);
+      font-size: 1.08rem;
+      font-weight: 700;
+      line-height: 1.45;
+    }
+
+    .offer-note {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 0.94rem;
+      line-height: 1.5;
     }
 
     .offer-box {
-      margin-top: 20px;
       display: flex;
-      flex-wrap: wrap;
       align-items: center;
-      justify-content: center;
-      gap: 14px 28px;
+      gap: 18px;
+      flex-shrink: 0;
     }
 
     .offer-price {
       display: flex;
       flex-direction: column;
       gap: 6px;
+      align-items: flex-end;
     }
 
     .price-label {
@@ -613,14 +646,8 @@
     .offer-cta {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .offer-note {
-      color: var(--muted);
-      font-size: 0.98rem;
-      line-height: 1.5;
+      align-items: flex-start;
+      gap: 8px;
     }
 
     .faq {
@@ -898,7 +925,13 @@
       }
 
       .offer-box {
-        align-items: center;
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .offer-inner {
+        padding: 20px 18px;
+        gap: 18px;
       }
 
       .mobile-cta-bar {
@@ -959,6 +992,15 @@
   </style>
 </head>
 <body>
+  <noscript>
+    <img
+      height="1"
+      width="1"
+      style="display:none"
+      src="https://www.facebook.com/tr?id=928793366363543&ev=PageView&noscript=1"
+      alt=""
+    >
+  </noscript>
   <main class="page">
     <div class="frame">
       <div class="navbar">
@@ -1081,9 +1123,10 @@
 
         <section class="offer">
           <div class="offer-inner">
-            <div class="section-tag">Get the guide</div>
-            <h2>Start understanding how AI fits into your work as a real estate agent.</h2>
-
+            <div class="offer-copy">
+              <p class="offer-title">Start understanding how AI fits into your work as a real estate agent.</p>
+              <div class="offer-note">Instant download. One-time payment.</div>
+            </div>
             <div class="offer-box">
               <div class="offer-price">
                 <span class="price-label">Price</span>
@@ -1092,7 +1135,6 @@
 
               <div class="offer-cta">
                 <a class="cta-button" href="#">Get the Guide</a>
-                <div class="offer-note">Instant Download, one-time payment</div>
               </div>
             </div>
           </div>
@@ -1364,6 +1406,15 @@
     (function () {
       const hero = document.querySelector(".hero");
       const mobileBar = document.querySelector(".mobile-cta-bar");
+      const checkoutLinks = document.querySelectorAll(".cta-button, .nav-buy");
+
+      checkoutLinks.forEach(function (link) {
+        link.addEventListener("click", function () {
+          if (typeof window.fbq === "function") {
+            window.fbq("track", "InitiateCheckout");
+          }
+        });
+      });
 
       if (!hero || !mobileBar) {
         return;
