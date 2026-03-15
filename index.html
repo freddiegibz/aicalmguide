@@ -129,9 +129,6 @@
 
     .hero {
       position: relative;
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
-      gap: 0;
       background: var(--white);
       overflow: hidden;
     }
@@ -187,6 +184,10 @@
       margin-top: 26px;
       padding-top: 20px;
       border-top: 1px solid var(--line);
+    }
+
+    .hero-cover-inline {
+      margin: 26px 0 22px;
     }
 
     .hero-proof {
@@ -1011,6 +1012,14 @@
             </div>
             <div class="cta-meta">Instant Download, one-time payment</div>
 
+            <div class="hero-cover-inline">
+              <div class="cover-stack">
+                <div class="book-cover">
+                  <img src="heroimage.jpg" alt="AI for Real Estate guide cover">
+                </div>
+              </div>
+            </div>
+
             <div class="list-block">
               
               <p class="list-title">Inside the guide</p>
@@ -1021,14 +1030,6 @@
                 <li>Practical examples of AI used in real estate tasks</li>
                 <li>How to implement AI without complicated tools</li>
               </ul>
-            </div>
-          </div>
-
-          <div class="hero-visual" aria-label="Book cover placeholder">
-            <div class="cover-stack">
-              <div class="book-cover">
-                <img src="heroimage.jpg" alt="AI for Real Estate guide cover">
-              </div>
             </div>
           </div>
         </section>
