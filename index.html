@@ -129,6 +129,9 @@
 
     .hero {
       position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+      gap: 0;
       background: var(--white);
       overflow: hidden;
     }
@@ -187,6 +190,7 @@
     }
 
     .hero-cover-inline {
+      display: none;
       margin: 26px 0 22px;
     }
 
@@ -860,7 +864,12 @@
         padding: 30px 22px 28px;
       }
 
+      .hero-cover-inline {
+        display: block;
+      }
+
       .hero-visual {
+        display: none;
         padding: 0 22px 26px;
       }
 
