@@ -703,94 +703,32 @@
     }
 
     .offer-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px 32px;
-      padding: 24px 28px;
-      background: #f5ede2;
-      border-left: 3px solid var(--accent);
+      display: grid;
+      justify-items: start;
+      gap: 14px;
+      padding: 0;
+      background: transparent;
+      border-left: 0;
     }
 
     .offer-copy {
-      max-width: 560px;
+      max-width: 520px;
     }
 
     .offer-title {
       margin: 0;
       color: var(--navy-deep);
-      font-size: 1.08rem;
-      font-weight: 700;
-      line-height: 1.45;
-    }
-
-    .offer-note {
-      margin-top: 6px;
-      color: var(--muted);
-      font-size: 0.94rem;
-      line-height: 1.5;
-    }
-
-    .offer-box {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      flex-shrink: 0;
-    }
-
-    .offer-facts {
-      display: grid;
-      gap: 10px;
-      min-width: 170px;
-    }
-
-    .offer-fact {
-      display: grid;
-      gap: 2px;
-    }
-
-    .offer-fact-label {
-      color: var(--muted);
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .offer-fact-value {
-      color: var(--navy-deep);
-      font-size: 0.96rem;
+      font-size: 1.22rem;
       font-weight: 700;
       line-height: 1.35;
     }
 
-    .offer-price {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      align-items: flex-end;
-    }
-
-    .price-label {
-      color: var(--muted);
-      font-size: 0.9rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .price-value {
-      color: var(--navy-deep);
-      font-family: "Libre Baskerville", serif;
-      font-size: clamp(2rem, 3vw, 2.7rem);
-      line-height: 1;
+    .offer-box {
+      display: block;
     }
 
     .offer-cta {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 8px;
+      display: block;
     }
 
     .faq {
@@ -1137,17 +1075,23 @@
 
       .offer-box {
         width: 100%;
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .offer-facts {
-        min-width: 0;
       }
 
       .offer-inner {
-        padding: 20px 18px;
-        gap: 18px;
+        gap: 16px;
+      }
+
+      .offer-copy {
+        max-width: none;
+      }
+
+      .offer-title {
+        font-size: 1rem;
+        line-height: 1.4;
+      }
+
+      .offer-cta {
+        width: 100%;
       }
 
       .benefits,
@@ -1380,20 +1324,8 @@
           <div class="offer-inner">
             <div class="offer-copy">
               <p class="offer-title">If AI still feels important but vague, this guide gives you the missing context fast.</p>
-              <div class="offer-note">Instant download. One-time payment.</div>
             </div>
             <div class="offer-box">
-              <div class="offer-facts">
-                <div class="offer-fact">
-                  <span class="offer-fact-label">Format</span>
-                  <span class="offer-fact-value">Digital guide</span>
-                </div>
-                <div class="offer-fact">
-                  <span class="offer-fact-label">Focus</span>
-                  <span class="offer-fact-value">Real estate workflows</span>
-                </div>
-              </div>
-
               <div class="offer-cta">
                 <a class="cta-button" href="#">Get the Guide</a>
               </div>
