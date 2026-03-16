@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>AI for Real Estate Agents | Digital Guide</title>
   <script>
-    window.META_PIXEL_ID = "928793366363543";
     !function (f, b, e, v, n, t, s) {
       if (f.fbq) return;
       n = f.fbq = function () {
@@ -22,8 +21,8 @@
       s = b.getElementsByTagName(e)[0];
       s.parentNode.insertBefore(t, s);
     }(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
-    fbq("init", window.META_PIXEL_ID);
-    fbq("trackSingle", window.META_PIXEL_ID, "PageView");
+    fbq("init", "928793366363543");
+    fbq("track", "PageView");
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -189,11 +188,6 @@
       border-top: 1px solid var(--line);
     }
 
-    .hero-cover-inline {
-      display: none;
-      margin: 26px 0 22px;
-    }
-
     .hero-proof {
       margin: 0 0 10px;
       color: var(--accent);
@@ -225,29 +219,19 @@
       grid-template-columns: 28px 1fr;
       gap: 14px;
       align-items: start;
-      padding-bottom: 12px;
-      border-bottom: 1px solid rgba(18, 36, 58, 0.08);
       font-size: 0.98rem;
       line-height: 1.5;
     }
 
-    .benefits li:last-child {
-      padding-bottom: 0;
-      border-bottom: 0;
-    }
-
     .benefits li::before {
-      content: "\2713";
+      content: "";
       width: 28px;
       height: 28px;
+      border: 1px solid var(--line);
       border-radius: 50%;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: #eef3f7;
-      color: var(--navy);
-      font-size: 0.9rem;
-      font-weight: 700;
+      background:
+        radial-gradient(circle at center, var(--navy) 0 26%, transparent 28%),
+        linear-gradient(180deg, #fbfcfd 0%, #eef1f4 100%);
     }
 
     .cta-wrap {
@@ -398,16 +382,9 @@
       grid-template-columns: 28px 1fr;
       gap: 14px;
       align-items: start;
-      padding-bottom: 12px;
-      border-bottom: 1px solid rgba(18, 36, 58, 0.08);
       color: var(--ink);
       font-size: 0.98rem;
       line-height: 1.5;
-    }
-
-    .guide-points li:last-child {
-      padding-bottom: 0;
-      border-bottom: 0;
     }
 
     .guide-points li::before {
@@ -468,16 +445,9 @@
       grid-template-columns: 28px 1fr;
       gap: 14px;
       align-items: start;
-      padding-bottom: 12px;
-      border-bottom: 1px solid rgba(18, 36, 58, 0.08);
       color: var(--ink);
       font-size: 0.98rem;
       line-height: 1.5;
-    }
-
-    .outcome-points li:last-child {
-      padding-bottom: 0;
-      border-bottom: 0;
     }
 
     .outcome-points li::before {
@@ -617,29 +587,67 @@
 
     .offer-inner {
       display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 14px;
-      padding: 20px 24px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px 32px;
+      padding: 24px 28px;
       background: #f5ede2;
       border-left: 3px solid var(--accent);
     }
 
     .offer-copy {
-      max-width: 540px;
+      max-width: 560px;
     }
 
     .offer-title {
       margin: 0;
       color: var(--navy-deep);
-      font-size: 1.02rem;
+      font-size: 1.08rem;
       font-weight: 700;
       line-height: 1.45;
     }
 
+    .offer-note {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 0.94rem;
+      line-height: 1.5;
+    }
+
+    .offer-box {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-shrink: 0;
+    }
+
+    .offer-price {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      align-items: flex-end;
+    }
+
+    .price-label {
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .price-value {
+      color: var(--navy-deep);
+      font-family: "Libre Baskerville", serif;
+      font-size: clamp(2rem, 3vw, 2.7rem);
+      line-height: 1;
+    }
+
     .offer-cta {
       display: flex;
+      flex-direction: column;
       align-items: flex-start;
+      gap: 8px;
     }
 
     .faq {
@@ -804,6 +812,10 @@
           linear-gradient(180deg, var(--navy) 0, var(--navy) 260px, var(--paper) 260px, var(--paper) 100%);
       }
 
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
       .problem-grid {
         grid-template-columns: 1fr;
         gap: 24px;
@@ -820,6 +832,11 @@
       .final-cta-grid {
         grid-template-columns: 1fr;
         gap: 28px;
+      }
+
+      .hero-visual {
+        border-left: 0;
+        border-top: 1px solid rgba(18, 36, 58, 0.08);
       }
     }
 
@@ -855,18 +872,7 @@
         padding: 30px 22px 28px;
       }
 
-      .hero {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-cover-inline {
-        display: block;
-      }
-
       .hero-visual {
-        display: none;
-        border-left: 0;
-        border-top: 1px solid rgba(18, 36, 58, 0.08);
         padding: 0 22px 26px;
       }
 
@@ -918,9 +924,14 @@
         width: 100%;
       }
 
+      .offer-box {
+        width: 100%;
+        justify-content: space-between;
+      }
+
       .offer-inner {
-        padding: 18px 16px;
-        gap: 12px;
+        padding: 20px 18px;
+        gap: 18px;
       }
 
       .mobile-cta-bar {
@@ -995,8 +1006,8 @@
       <div class="navbar">
         <div class="brand">AI for Real Estate</div>
         <div class="nav-actions">
-          <a class="nav-link" href="mailto:alfiehinks14@gmail.com">Contact</a>
-          <a class="nav-buy" href="https://buy.stripe.com/6oU00ibj58cs0U80TwbZe0q">Buy</a>
+          <a class="nav-link" href="#contact">Contact</a>
+          <a class="nav-buy" href="#">Buy</a>
         </div>
       </div>
 
@@ -1004,7 +1015,7 @@
         <section class="hero">
           <div class="hero-copy">
             <div class="section-tag">Professional guide for agents</div>
-            <h1>Finally understand how <span class="headline-accent">AI</span> fits into your <span class="headline-accent">work</span> as a real estate agent.</h1>
+            <h1>Finally understand how <span class="headline-accent">AI</span> fits into the <span class="headline-accent">work</span> as a real estate agent.</h1>
 
             <p class="lead">
               Real estate agents know AI is becoming important, but most still aren't sure how it
@@ -1014,20 +1025,11 @@
             </p>
 
             <div class="cta-wrap">
-              <a class="cta-button" href="https://buy.stripe.com/6oU00ibj58cs0U80TwbZe0q">Get the Guide - $19</a>
+              <a class="cta-button" href="#">Get the Guide</a>
             </div>
             <div class="cta-meta">Instant Download, one-time payment</div>
 
-            <div class="hero-cover-inline">
-              <div class="cover-stack">
-                <div class="book-cover">
-                  <img src="heroimage.jpg" alt="AI for Real Estate guide cover">
-                </div>
-              </div>
-            </div>
-
             <div class="list-block">
-              
               <p class="list-title">Inside the guide</p>
               <ul class="benefits">
                 <li>Where AI actually helps real estate agents the most</li>
@@ -1078,6 +1080,65 @@
           </div>
         </section>
 
+        <section class="guide">
+          <div class="guide-head">
+            <div class="section-tag">What this guide shows you</div>
+            <h2>What This Guide Shows You</h2>
+          </div>
+
+          <div class="guide-copy">
+            <p>
+              This guide is designed to help real estate agents understand where AI actually fits
+              into the work they already do.
+            </p>
+            <p>
+              Instead of complicated systems or technical explanations, it focuses on practical
+              understanding - showing where AI can save time, improve client communication,
+              strengthen listings, and make everyday tasks easier.
+            </p>
+            <p>
+              The goal isn't to overwhelm you with tools or automation.
+            </p>
+            <p>
+              It's to help you clearly see how AI can support the real work of being a real
+              estate agent.
+            </p>
+
+            <ul class="guide-points">
+              <li>Where AI can save real estate agents the most time</li>
+              <li>How AI fits into the daily workflow of an agent</li>
+              <li>How agents are using AI to improve client communication</li>
+              <li>How AI can strengthen listing descriptions and property promotion</li>
+              <li>How to structure requests so AI produces better results</li>
+              <li>How to make AI a practical part of your everyday work</li>
+            </ul>
+
+            <p>
+              By the end of the guide, you'll understand how to use AI in ways that actually make
+              your job easier.
+            </p>
+          </div>
+        </section>
+
+        <section class="offer">
+          <div class="offer-inner">
+            <div class="offer-copy">
+              <p class="offer-title">Start understanding how AI fits into your work as a real estate agent.</p>
+              <div class="offer-note">Instant download. One-time payment.</div>
+            </div>
+            <div class="offer-box">
+              <div class="offer-price">
+                <span class="price-label">Price</span>
+                <span class="price-value">$19</span>
+              </div>
+
+              <div class="offer-cta">
+                <a class="cta-button" href="#">Get the Guide</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section class="advantage">
           <div class="advantage-head">
             <div class="section-tag">Why this matters now</div>
@@ -1114,45 +1175,37 @@
           </div>
         </section>
 
-        <section class="guide">
-          <div class="guide-head">
-            <div class="section-tag">What this guide shows you</div>
-            <h2>What This Guide Shows You</h2>
+        <section class="outcome">
+          <div class="outcome-head">
+            <div class="section-tag">What you'll walk away understanding</div>
+            <h2>What You'll Walk Away Understanding</h2>
           </div>
 
-          <div class="guide-copy">
+          <div class="outcome-copy">
             <p>
-              This guide shows real estate agents exactly where AI fits into the work they already
-              do - and how it can make everyday tasks faster and easier.
+              After reading this guide, you'll have a much clearer understanding of how AI
+              actually fits into the work of a real estate agent.
             </p>
             <p>
-              Inside the guide you'll learn:
+              Instead of feeling unsure where to start or how to use it properly, you'll see how
+              AI can naturally support many of the everyday tasks agents already handle.
             </p>
 
-            <ul class="guide-points">
-              <li>Where AI can save real estate agents the most time each week</li>
-              <li>How AI fits naturally into the daily workflow of an agent</li>
-              <li>How agents are using AI to communicate faster with clients</li>
-              <li>How AI can strengthen listing descriptions and property promotion</li>
-              <li>How to structure requests so AI produces better results</li>
-              <li>How to make AI a practical part of your everyday work</li>
+            <ul class="outcome-points">
+              <li>Where AI can genuinely save time in your daily work</li>
+              <li>How to use AI to improve communication with clients</li>
+              <li>How AI can help strengthen listing descriptions and property promotion</li>
+              <li>How to ask AI better questions so the results are actually useful</li>
+              <li>How to think about AI as a practical assistant in your workflow</li>
             </ul>
 
             <p>
-              By the end of the guide, you'll clearly understand how to use AI in ways that
-              actually make your job easier.
+              The goal of this guide isn't to turn you into a tech expert.
             </p>
-          </div>
-        </section>
-
-        <section class="offer">
-          <div class="offer-inner">
-            <div class="offer-copy">
-              <p class="offer-title">Start understanding how AI fits into your work as a real estate agent.</p>
-            </div>
-            <div class="offer-cta">
-              <a class="cta-button" href="https://buy.stripe.com/6oU00ibj58cs0U80TwbZe0q">Get the Guide - $19</a>
-            </div>
+            <p>
+              It's to give you a clear understanding of how AI can become a useful part of your
+              work as a real estate agent.
+            </p>
           </div>
         </section>
 
@@ -1290,7 +1343,7 @@
                 <span class="final-price-value">$19</span>
               </div>
 
-              <a class="cta-button" href="https://buy.stripe.com/6oU00ibj58cs0U80TwbZe0q">Get the Guide</a>
+              <a class="cta-button" href="#">Get the Guide</a>
               <div class="final-note">
                 Start understanding how AI can support the everyday work of being a real estate
                 agent.
@@ -1308,7 +1361,7 @@
         <div class="mobile-cta-price">$19 Guide</div>
         <div class="mobile-cta-title">Instant Download, one-time payment</div>
       </div>
-      <a class="cta-button" href="https://buy.stripe.com/6oU00ibj58cs0U80TwbZe0q">Get the Guide</a>
+      <a class="cta-button" href="#">Get the Guide</a>
     </div>
   </div>
 
@@ -1316,30 +1369,13 @@
     (function () {
       const hero = document.querySelector(".hero");
       const mobileBar = document.querySelector(".mobile-cta-bar");
-      const pixelId = window.META_PIXEL_ID;
-      const checkoutLinks = document.querySelectorAll('a[href="https://buy.stripe.com/6oU00ibj58cs0U80TwbZe0q"]');
+      const checkoutLinks = document.querySelectorAll(".cta-button, .nav-buy");
 
       checkoutLinks.forEach(function (link) {
-        link.addEventListener("click", function (event) {
-          const destination = link.href;
-
-          if (!destination) {
-            return;
-          }
-
-          event.preventDefault();
-
+        link.addEventListener("click", function () {
           if (typeof window.fbq === "function") {
-            window.fbq("trackSingle", pixelId, "InitiateCheckout", {
-              content_name: "AI for Real Estate Agents",
-              currency: "USD",
-              value: 19.00
-            });
+            window.fbq("track", "InitiateCheckout");
           }
-
-          window.setTimeout(function () {
-            window.location.href = destination;
-          }, 180);
         });
       });
 
