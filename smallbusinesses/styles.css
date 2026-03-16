@@ -294,6 +294,33 @@ details p,
   max-width: 40rem;
 }
 
+.prompt-intro {
+  margin-top: 0;
+  margin-bottom: 1.1rem;
+}
+
+.prompt-box {
+  display: grid;
+  gap: 1rem;
+}
+
+.prompt-box pre {
+  margin: 0;
+  padding: 1.15rem;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.38);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.98rem;
+  line-height: 1.65;
+}
+
+.prompt-button {
+  width: 100%;
+}
+
 .trust-grid {
   gap: 1rem;
 }
@@ -479,6 +506,11 @@ details p,
 
   .trust-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .prompt-button {
+    width: auto;
+    justify-self: start;
   }
 
   .use-list {

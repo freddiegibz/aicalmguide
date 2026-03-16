@@ -71,6 +71,42 @@
         </p>
       </section>
 
+      <section class="section prompt-preview">
+        <div class="section-heading">
+          <p class="eyebrow">Try one prompt now</p>
+          <h2>This is the kind of practical prompt you get inside.</h2>
+        </div>
+
+        <p class="section-note prompt-intro">
+          Paste this into ChatGPT and you will immediately see how AI can help
+          with the kind of work small business owners deal with every week.
+        </p>
+
+        <div class="prompt-box">
+          <pre id="sample-prompt">Act as a practical AI assistant for my small business.
+
+My business type: [insert your business]
+What I sell: [insert service or product]
+My ideal customer: [insert customer type]
+My tone of voice: [friendly / professional / direct]
+
+I want help with this week's business tasks.
+
+Please give me:
+1. Three realistic marketing ideas I can use this week
+2. One promotional email I can send to customers or leads
+3. Three short social media post ideas
+4. One polite follow-up message for someone who has not replied
+5. A simple priority list for what I should focus on first
+
+Keep everything practical, clear, and easy for a small business owner to use right away.
+Do not give me theory. Give me usable drafts.</pre>
+          <button class="button button-secondary prompt-button" type="button" id="copy-prompt">
+            Copy Sample Prompt
+          </button>
+        </div>
+      </section>
+
       <section class="section trust-section">
         <div class="section-heading">
           <p class="eyebrow">Why this feels safe to buy</p>
@@ -269,5 +305,24 @@
         </div>
       </section>
     </main>
+    <script>
+      (function () {
+        var button = document.getElementById("copy-prompt");
+        var prompt = document.getElementById("sample-prompt");
+
+        if (!button || !prompt || !navigator.clipboard) {
+          return;
+        }
+
+        button.addEventListener("click", function () {
+          navigator.clipboard.writeText(prompt.textContent).then(function () {
+            button.textContent = "Copied";
+            window.setTimeout(function () {
+              button.textContent = "Copy Sample Prompt";
+            }, 1600);
+          });
+        });
+      })();
+    </script>
   </body>
 </html>
