@@ -448,6 +448,70 @@
       margin-bottom: 0;
     }
 
+    .sample-block {
+      margin: 28px 0;
+      padding: 24px;
+      background: #f7f8fa;
+      border: 1px solid rgba(18, 36, 58, 0.08);
+    }
+
+    .sample-label {
+      margin: 0 0 12px;
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .sample-title {
+      margin: 0 0 14px;
+      color: var(--navy-deep);
+      font-size: 1.12rem;
+      line-height: 1.4;
+      font-weight: 700;
+    }
+
+    .sample-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 16px;
+    }
+
+    .sample-card {
+      padding: 18px 16px;
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid rgba(18, 36, 58, 0.08);
+    }
+
+    .sample-card-label {
+      margin: 0 0 10px;
+      color: var(--navy);
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .sample-card p,
+    .sample-card ul {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .sample-card ul {
+      padding-left: 18px;
+    }
+
+    .sample-note {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+
     .guide-points {
       margin: 28px 0;
       padding: 0;
@@ -921,7 +985,8 @@
 
       .guide-points,
       .problem-points,
-      .quick-answer-grid {
+      .quick-answer-grid,
+      .sample-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
@@ -1070,7 +1135,8 @@
 
       .guide-points,
       .problem-points,
-      .quick-answer-grid {
+      .quick-answer-grid,
+      .sample-grid {
         grid-template-columns: 1fr;
       }
 
@@ -1282,6 +1348,36 @@
               <li><strong>50+ prompt pack</strong>Ready-to-use prompts you can adapt for listing descriptions, buyer and seller messages, lead nurture, social posts, and more.</li>
               <li><strong>Examples and workflow ideas</strong>Simple examples that show how to get stronger output and turn AI into part of your day-to-day process.</li>
             </ul>
+
+            <div class="sample-block">
+              <p class="sample-label">Example From Inside</p>
+              <h3 class="sample-title">One prompt can turn a rough listing draft into something sharper and easier to publish.</h3>
+
+              <div class="sample-grid">
+                <div class="sample-card">
+                  <p class="sample-card-label">Sample Prompt</p>
+                  <p>
+                    Rewrite this listing description for a 3-bed family home in Bristol. Make it
+                    feel warm, modern, and move-in ready. Keep it concise, highlight the open-plan
+                    kitchen, south-facing garden, and home office, and avoid sounding generic.
+                  </p>
+                </div>
+
+                <div class="sample-card">
+                  <p class="sample-card-label">What It Helps You Do</p>
+                  <ul>
+                    <li>Write a stronger first draft faster</li>
+                    <li>Highlight buyer-relevant details more clearly</li>
+                    <li>Avoid bland, repetitive listing copy</li>
+                  </ul>
+                </div>
+              </div>
+
+              <p class="sample-note">
+                The product includes prompts like this across listings, follow-up, client messages,
+                marketing, and other routine agent tasks.
+              </p>
+            </div>
 
             <p>
               The goal is simple: help you save time, sound sharper, and stop treating AI like a
