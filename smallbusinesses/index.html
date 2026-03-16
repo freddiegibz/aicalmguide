@@ -1,968 +1,273 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI for Small Businesses</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --navy: #1F2A44;
-      --gold: #C9A86A;
-      --paper: #F5F3EE;
-      --ink: #253049;
-      --muted: #5f6878;
-      --button: #2E5FA4;
-      --button-hover: #244A82;
-      --white: #ffffff;
-      --shadow: 0 22px 55px rgba(31, 42, 68, 0.14);
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: "Inter", sans-serif;
-      color: var(--ink);
-      background:
-        radial-gradient(circle at top left, rgba(201, 168, 106, 0.18), transparent 28%),
-        linear-gradient(180deg, #ece7de 0, #f6f3ed 100%);
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .page {
-      min-height: 100vh;
-      padding: 34px 18px 44px;
-    }
-
-    .frame {
-      max-width: 1320px;
-      margin: 0 auto;
-    }
-
-    .content-flow {
-      background: rgba(255, 255, 255, 0.78);
-      border: 1px solid rgba(31, 42, 68, 0.08);
-      box-shadow: var(--shadow);
-    }
-
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 1.05fr) minmax(300px, 0.95fr);
-      gap: 28px;
-      align-items: center;
-      padding: 28px;
-      background: rgba(255, 255, 255, 0.86);
-      border-bottom: 1px solid rgba(31, 42, 68, 0.08);
-    }
-
-    .hero-copy {
-      padding: 20px 18px 20px 22px;
-    }
-
-    .tag {
-      display: inline-block;
-      margin-bottom: 18px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: #efe7d7;
-      color: var(--navy);
-      font-size: 0.76rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    h1 {
-      margin: 0;
-      max-width: 15ch;
-      font-family: "Playfair Display", serif;
-      font-size: clamp(2.3rem, 4.2vw, 4.4rem);
-      line-height: 1.02;
-      letter-spacing: -0.04em;
-      color: var(--navy);
-    }
-
-    .accent {
-      color: var(--gold);
-    }
-
-    .subheadline {
-      margin: 18px 0 0;
-      max-width: 64ch;
-      color: var(--muted);
-      font-size: 1.03rem;
-      line-height: 1.74;
-    }
-
-    .cta-wrap {
-      margin-top: 28px;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 14px 18px;
-    }
-
-    .cta-button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 56px;
-      padding: 0 28px;
-      border-radius: 16px;
-      background: var(--button);
-      color: var(--white);
-      font-size: 1rem;
-      font-weight: 700;
-      transition: background-color 160ms ease, transform 160ms ease;
-    }
-
-    .cta-button:hover,
-    .cta-button:focus-visible {
-      background: var(--button-hover);
-      transform: translateY(-1px);
-    }
-
-    .cta-note {
-      color: var(--muted);
-      font-size: 0.95rem;
-      line-height: 1.6;
-    }
-
-    .hero-visual {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 18px;
-      background:
-        radial-gradient(circle at top, rgba(201, 168, 106, 0.14), transparent 55%),
-        linear-gradient(180deg, #f8f5ef 0%, #f1ece2 100%);
-    }
-
-    .book-image {
-      display: block;
-      width: min(100%, 420px);
-      height: auto;
-      object-fit: contain;
-      transform: rotate(-2deg);
-      box-shadow: 0 24px 54px rgba(31, 42, 68, 0.18);
-    }
-
-    .section {
-      padding: 34px 30px 32px;
-      background: rgba(31, 42, 68, 0.08);
-    }
-
-    .section-contrast {
-      background: rgba(201, 168, 106, 0.2);
-    }
-
-    .section-shell {
-      display: grid;
-      grid-template-columns: minmax(240px, 0.72fr) minmax(0, 1.28fr);
-      gap: 34px;
-      align-items: start;
-    }
-
-    .section-body .section-copy {
-      margin-top: 0;
-    }
-
-    .section-label {
-      display: inline-block;
-      margin-bottom: 16px;
-      color: var(--muted);
-      font-size: 0.78rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .section h2 {
-      margin: 0;
-      max-width: 12ch;
-      font-family: "Playfair Display", serif;
-      font-size: clamp(2rem, 3.6vw, 3.4rem);
-      line-height: 1.08;
-      letter-spacing: -0.04em;
-      color: var(--navy);
-    }
-
-    .section-copy {
-      margin-top: 20px;
-      max-width: 72ch;
-      color: var(--muted);
-      font-size: 1rem;
-      line-height: 1.78;
-    }
-
-    .section-copy p {
-      margin: 0 0 16px;
-    }
-
-    .section-copy p:last-child {
-      margin-bottom: 0;
-    }
-
-    .reality-list {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      display: grid;
-      gap: 10px;
-      grid-template-columns: 1fr;
-    }
-
-    .reality-list li {
-      display: grid;
-      grid-template-columns: 28px 1fr;
-      gap: 14px;
-      align-items: start;
-      padding: 0 0 12px;
-      border-bottom: 1px solid rgba(31, 42, 68, 0.08);
-      color: var(--ink);
-      line-height: 1.55;
-    }
-
-    .reality-list li:last-child {
-      padding-bottom: 0;
-      border-bottom: 0;
-    }
-
-    .reality-list li::before {
-      content: "\2022";
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: #f3ead8;
-      color: var(--navy);
-      font-size: 1rem;
-      font-weight: 700;
-    }
-
-    .info-panels {
-      margin: 22px 0;
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .info-panel {
-      padding: 18px 18px 16px;
-      background: rgba(255, 255, 255, 0.74);
-      border: 1px solid rgba(31, 42, 68, 0.08);
-    }
-
-    .info-panel-title {
-      margin: 0 0 14px;
-      color: var(--navy);
-      font-size: 0.86rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .benefit-grid {
-      margin: 22px 0;
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .benefit-card {
-      padding: 18px 18px 16px;
-      background: rgba(255, 255, 255, 0.82);
-      border: 1px solid rgba(31, 42, 68, 0.08);
-    }
-
-    .benefit-task {
-      color: var(--navy);
-      font-size: 0.82rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .benefit-visual {
-      margin-top: 12px;
-      display: grid;
-      gap: 10px;
-    }
-
-    .benefit-state {
-      padding: 12px 13px;
-      border: 1px solid rgba(31, 42, 68, 0.08);
-      background: rgba(31, 42, 68, 0.03);
-    }
-
-    .benefit-state-label {
-      display: block;
-      margin-bottom: 6px;
-      font-size: 0.72rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .benefit-state-before .benefit-state-label {
-      color: var(--muted);
-    }
-
-    .benefit-state-after {
-      border-color: rgba(201, 168, 106, 0.28);
-      background: rgba(201, 168, 106, 0.12);
-    }
-
-    .benefit-state-after .benefit-state-label {
-      color: var(--navy);
-    }
-
-    .benefit-before {
-      color: var(--muted);
-      font-size: 0.92rem;
-      line-height: 1.55;
-    }
-
-    .benefit-after {
-      color: var(--ink);
-      font-size: 1rem;
-      font-weight: 700;
-      line-height: 1.45;
-    }
-
-    .benefit-caption {
-      margin-top: 12px;
-      color: var(--muted);
-      font-size: 0.95rem;
-      line-height: 1.6;
-    }
-
-    .guide-grid {
-      margin: 24px 0;
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-    }
-
-    .guide-item {
-      padding: 18px 18px 16px;
-      background: rgba(255, 255, 255, 0.76);
-      border: 1px solid rgba(31, 42, 68, 0.08);
-    }
-
-    .guide-item-number {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 32px;
-      height: 32px;
-      margin-bottom: 12px;
-      background: #efe7d7;
-      color: var(--navy);
-      font-size: 0.85rem;
-      font-weight: 800;
-    }
-
-    .guide-item-copy {
-      color: var(--ink);
-      font-size: 0.98rem;
-      font-weight: 600;
-      line-height: 1.55;
-    }
-
-    .testimonial-grid {
-      margin-top: 0;
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .testimonial-card {
-      padding: 20px 18px 18px;
-      background: rgba(255, 255, 255, 0.8);
-      border: 1px solid rgba(31, 42, 68, 0.08);
-    }
-
-    .testimonial-quote {
-      margin: 0;
-      color: var(--ink);
-      font-size: 0.98rem;
-      line-height: 1.7;
-    }
-
-    .testimonial-author {
-      margin-top: 16px;
-      color: var(--navy);
-      font-size: 0.94rem;
-      font-weight: 700;
-      line-height: 1.5;
-    }
-
-    .faq-list {
-      margin-top: 0;
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px 22px;
-    }
-
-    .faq-item {
-      padding: 0 0 18px;
-      border-bottom: 1px solid rgba(31, 42, 68, 0.08);
-    }
-
-    .faq-item:last-child {
-      padding-bottom: 0;
-      border-bottom: 0;
-    }
-
-    .faq-question {
-      margin: 0 0 10px;
-      color: var(--navy);
-      font-size: 1.02rem;
-      font-weight: 700;
-      line-height: 1.45;
-    }
-
-    .faq-answer {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.75;
-    }
-
-    .final-cta {
-      padding: 36px 30px 38px;
-      background: var(--navy);
-      color: var(--white);
-    }
-
-    .final-shell {
-      display: grid;
-      grid-template-columns: minmax(240px, 0.8fr) minmax(0, 1.2fr);
-      gap: 34px;
-      align-items: start;
-    }
-
-    .final-cta h2 {
-      color: var(--white);
-      max-width: 12ch;
-    }
-
-    .final-copy {
-      margin-top: 0;
-      max-width: none;
-      color: rgba(255, 255, 255, 0.78);
-      font-size: 1rem;
-      line-height: 1.8;
-    }
-
-    .final-copy p {
-      margin: 0 0 16px;
-    }
-
-    .final-copy p:last-child {
-      margin-bottom: 0;
-    }
-
-    .final-offer {
-      margin-top: 28px;
-      max-width: 640px;
-      padding: 22px 22px 20px;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-    }
-
-    .final-offer-label {
-      color: rgba(255, 255, 255, 0.64);
-      font-size: 0.78rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .final-offer-title {
-      margin: 10px 0 0;
-      color: var(--white);
-      font-family: "Playfair Display", serif;
-      font-size: 1.7rem;
-      line-height: 1.16;
-      letter-spacing: -0.03em;
-    }
-
-    .final-offer-copy {
-      margin-top: 10px;
-      color: rgba(255, 255, 255, 0.78);
-      line-height: 1.7;
-    }
-
-    .final-cta .cta-wrap {
-      margin-top: 18px;
-    }
-
-    .final-cta .cta-note {
-      color: rgba(255, 255, 255, 0.72);
-    }
-
-    @media (max-width: 900px) {
-      .hero {
-        grid-template-columns: 1fr;
-        padding: 20px;
-      }
-
-      .section-shell,
-      .final-shell {
-        grid-template-columns: 1fr;
-        gap: 22px;
-      }
-
-      .benefit-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .guide-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .info-panels,
-      .testimonial-grid,
-      .faq-list {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .page {
-        padding: 18px 12px 28px;
-      }
-
-      .hero {
-        gap: 18px;
-        padding: 16px;
-      }
-
-      .section {
-        padding: 24px 18px 22px;
-      }
-
-      .hero-copy {
-        padding: 6px 2px 2px;
-      }
-
-      .cta-wrap {
-        align-items: stretch;
-      }
-
-      .cta-button {
-        width: 100%;
-      }
-
-      .book-image {
-        width: min(100%, 230px);
-      }
-
-      h1 {
-        max-width: 11ch;
-      }
-    }
-  </style>
-</head>
-<body>
-  <main class="page">
-    <div class="frame">
-      <div class="content-flow">
-        <section class="hero">
-          <div class="hero-copy">
-            <div class="tag">For Small Business Owners</div>
-            <h1>Finally Understand How to Use <span class="accent">AI</span> in Your Small Business</h1>
-            <p class="subheadline">
-              A simple, practical guide showing small business owners how to use AI to save time,
-              create marketing, and handle everyday business tasks faster.
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI for Small Business Owners | Practical Guide + Prompt Pack</title>
+    <meta
+      name="description"
+      content="A low-cost practical AI guide for small business owners, with a ready-to-use prompt pack included. Learn how to use AI for marketing, communication, admin, planning, and writing without complicated systems."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <header class="site-header">
+        <p class="brand">AI for Small Business Owners</p>
+        <a class="button button-secondary" href="#buy">Buy Now</a>
+      </header>
+
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Low-cost digital guide + prompt pack</p>
+          <h1>Learn how to actually use AI in your small business.</h1>
+          <p class="lead">
+            A practical guide for small business owners who do a bit of
+            everything and want simple ways AI can help with marketing,
+            communication, admin, planning, and writing.
+          </p>
+          <p class="sublead">
+            No technical jargon. No complicated system. Just a clear guide and
+            ready-to-use prompts to help you start fast.
+          </p>
+
+          <ul class="hero-list">
+            <li>Understand where AI fits in your day-to-day work</li>
+            <li>Use it to save time on common business tasks</li>
+            <li>Copy prompts and start right away</li>
+          </ul>
+
+          <div class="hero-actions">
+            <a class="button button-primary" href="#buy">Get Instant Access</a>
+            <a class="button button-link" href="#tasks">See the Tasks It Helps With</a>
+          </div>
+
+          <p class="purchase-note">
+            One-time purchase. Instant digital access. Built for beginners.
+          </p>
+        </div>
+
+        <div class="hero-media">
+          <img
+            src="bookimage.jpg"
+            alt="AI for Small Business Owners guide cover"
+            class="product-image"
+          />
+          <p class="image-note">Practical guide + prompt pack included.</p>
+        </div>
+      </section>
+
+      <section class="section intro-strip">
+        <p>
+          If you run a service business, freelance business, local business, small
+          agency, or online store and you are trying to keep up with AI without
+          getting overwhelmed, this product is for you.
+        </p>
+      </section>
+
+      <section class="section trust-section">
+        <div class="section-heading">
+          <p class="eyebrow">Why this feels safe to buy</p>
+          <h2>A simple, low-risk way to start using AI.</h2>
+        </div>
+
+        <div class="trust-grid">
+          <div class="trust-item">
+            <h3>One-time purchase</h3>
+            <p>No subscription, no ongoing commitment, and no complicated platform to manage.</p>
+          </div>
+          <div class="trust-item">
+            <h3>Beginner-friendly</h3>
+            <p>Made for small business owners who want practical help without technical overwhelm.</p>
+          </div>
+          <div class="trust-item">
+            <h3>14-day money-back guarantee</h3>
+            <p>Give it a proper look, try the prompts in your business, and if it does not feel useful for you, you can get your money back.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="tasks">
+        <div class="section-heading">
+          <p class="eyebrow">Use AI for real tasks</p>
+          <h2>See exactly where this can help in your business.</h2>
+        </div>
+
+        <div class="task-grid">
+          <div class="task-item">Write emails and customer replies faster</div>
+          <div class="task-item">Create social posts, offers, and captions</div>
+          <div class="task-item">Draft website copy and service descriptions</div>
+          <div class="task-item">Plan content, tasks, and weekly priorities</div>
+          <div class="task-item">Organize ideas when your head feels full</div>
+          <div class="task-item">Speed up everyday admin writing</div>
+        </div>
+
+        <p class="section-note">
+          The goal is simple: help you get useful output from AI in the kind of
+          work you already do.
+        </p>
+      </section>
+
+      <section class="section">
+        <div class="section-heading">
+          <p class="eyebrow">This is for you if</p>
+          <h2>You know AI matters, but you still are not sure how to use it properly.</h2>
+        </div>
+
+        <div class="two-column">
+          <ul class="simple-list">
+            <li>You wear a lot of hats in your business</li>
+            <li>You want to save time on writing, marketing, and communication</li>
+            <li>You want practical use, not AI theory</li>
+          </ul>
+          <ul class="simple-list">
+            <li>You are not technical and do not want a complex setup</li>
+            <li>You want to avoid falling behind competitors using AI</li>
+            <li>You want a low-risk way to try it now</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" id="inside">
+        <div class="section-heading">
+          <p class="eyebrow">What you get</p>
+          <h2>A simple digital product designed to help you start quickly.</h2>
+        </div>
+
+        <div class="two-column product-columns">
+          <div>
+            <h3>The practical AI guide</h3>
+            <ul class="simple-list">
+              <li>Shows how AI can help with everyday business work</li>
+              <li>Covers marketing, communication, planning, and writing</li>
+              <li>Explains things clearly without technical overwhelm</li>
+            </ul>
+          </div>
+          <div>
+            <h3>The ready-to-use prompt pack</h3>
+            <ul class="simple-list">
+              <li>Copy-and-paste prompts for real business tasks</li>
+              <li>Makes it easier to get useful results immediately</li>
+              <li>Helps you move from reading to doing fast</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="section-note">
+          This is not software, a course, or an ongoing subscription. It is a
+          practical low-ticket digital product you can use today.
+        </p>
+
+        <a class="button button-primary inline-cta" href="#buy">Get the Guide + Prompt Pack</a>
+      </section>
+
+      <section class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Why people buy</p>
+          <h2>Because they want clarity, speed, and a simple place to start.</h2>
+        </div>
+
+        <div class="reason-list">
+          <div class="reason-item">
+            <h3>Save time</h3>
+            <p>Use AI to reduce the time spent writing, replying, planning, and creating.</p>
+          </div>
+          <div class="reason-item">
+            <h3>Make work easier</h3>
+            <p>Get support with tasks that usually drain time and mental energy.</p>
+          </div>
+          <div class="reason-item">
+            <h3>Stop guessing</h3>
+            <p>Understand where AI fits in your business and how to start using it now.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section faq">
+        <div class="section-heading">
+          <p class="eyebrow">FAQ</p>
+          <h2>Quick answers before you buy.</h2>
+        </div>
+
+        <details open>
+          <summary>What exactly am I buying?</summary>
+          <p>
+            You get a practical AI guide for small business owners plus a
+            ready-to-use prompt pack included with purchase.
+          </p>
+        </details>
+
+        <details>
+          <summary>Do I need prior AI experience?</summary>
+          <p>
+            No. It is built for beginners and for business owners who want a
+            simple starting point.
+          </p>
+        </details>
+
+        <details>
+          <summary>Will this help if I am not technical?</summary>
+          <p>
+            Yes. The product is specifically designed to be practical and easy
+            to use without a technical background.
+          </p>
+        </details>
+
+        <details>
+          <summary>How quickly can I use it?</summary>
+          <p>
+            Straight away. The prompt pack is included so you can start using AI
+            on real tasks immediately.
+          </p>
+        </details>
+
+        <details>
+          <summary>What if I buy it and it is not for me?</summary>
+          <p>
+            You are covered by a 14-day money-back guarantee. If you go through
+            it, try it properly, and decide it is not useful for your business,
+            you can ask for a refund.
+          </p>
+        </details>
+      </section>
+
+      <section class="section final-section" id="buy">
+        <div class="final-panel">
+          <div class="final-copy">
+            <p class="eyebrow eyebrow-dark">Simple. Practical. Low-risk.</p>
+            <h2>Get a clear guide to using AI in your business, plus prompts you can use today.</h2>
+            <p>
+              If you want an easy, affordable way to start using AI without
+              confusion or complexity, this is made for that.
             </p>
-
-            <div class="cta-wrap">
-              <a class="cta-button" href="#">Get the Guide</a>
-              <div class="cta-note">Instant download | One-time purchase</div>
-            </div>
           </div>
 
-          <div class="hero-visual">
-            <img class="book-image" src="bookimage.jpg" alt="AI for Small Businesses guide cover">
+          <div class="buy-box">
+            <p class="buy-label">One-time digital purchase</p>
+            <h3>AI Guide + Prompt Pack</h3>
+            <p>Instant access after checkout.</p>
+            <!-- Replace the href below with your live checkout URL. -->
+            <a
+              class="button button-primary button-full"
+              href="https://your-checkout-link.com"
+              target="_blank"
+              rel="noopener"
+            >
+              Buy Now
+            </a>
+            <p class="guarantee-note">
+              Try it for 14 days. If it does not feel useful in your business,
+              you can get your money back.
+            </p>
           </div>
-        </section>
-
-        <section class="section">
-          <div class="section-shell">
-            <div class="section-head">
-              <div class="section-label">Section 2 - The Reality Gap</div>
-              <h2>The Reality Gap</h2>
-            </div>
-
-            <div class="section-body">
-              <div class="section-copy">
-                <p>AI is everywhere right now.</p>
-                <p>
-                  But for most small business owners, the problem isn't access to AI - it's
-                  understanding where it actually fits into the work they already do.
-                </p>
-                <p>
-                  You hear people talking about AI constantly. You see tools everywhere.
-                </p>
-                <p>
-                  But turning that into something useful for your marketing, communication, and daily
-                  business tasks isn't obvious.
-                </p>
-              </div>
-
-              <div class="info-panels">
-                <article class="info-panel">
-                  <h3 class="info-panel-title">Most business owners end up here</h3>
-                  <ul class="reality-list">
-                    <li>They experiment with AI but don't get useful results</li>
-                    <li>They assume it's complicated and ignore it</li>
-                    <li>They know it could help, but aren't sure where to start</li>
-                  </ul>
-                </article>
-
-                <article class="info-panel">
-                  <h3 class="info-panel-title">Others are already using AI to</h3>
-                  <ul class="reality-list">
-                    <li>write marketing and sales content in a fraction of the time</li>
-                    <li>turn rough ideas into clear campaigns and plans quickly</li>
-                    <li>handle research, replies, and day-to-day communication in minutes</li>
-                  </ul>
-                </article>
-              </div>
-
-              <div class="section-copy">
-                <p>The difference isn't intelligence.</p>
-                <p>
-                  It's simply understanding where AI actually fits into everyday business work.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="section section-contrast">
-          <div class="section-shell">
-            <div class="section-head">
-              <div class="section-label">Section 3 - Why This Matters</div>
-              <h2>Why This Matters</h2>
-            </div>
-
-            <div class="section-body">
-              <div class="section-copy">
-                <p>
-                  Understanding where AI fits into your business can quietly change how you work every
-                  day.
-                </p>
-                <p>
-                  Instead of spending hours on routine tasks, many of them can be done much faster
-                  with the right use of AI.
-                </p>
-                <p>For example:</p>
-              </div>
-
-              <div class="benefit-grid">
-                <article class="benefit-card">
-                  <div class="benefit-task">Writing marketing posts</div>
-                  <div class="benefit-visual">
-                    <div class="benefit-state benefit-state-before">
-                      <span class="benefit-state-label">Without clarity</span>
-                      <div class="benefit-before">Blank page. Slow ideas. Too much time spent wording things.</div>
-                    </div>
-                    <div class="benefit-state benefit-state-after">
-                      <span class="benefit-state-label">With the right use of AI</span>
-                      <div class="benefit-after">Draft ideas in seconds</div>
-                    </div>
-                  </div>
-                  <div class="benefit-caption">Move from staring at the screen to shaping a usable first draft fast.</div>
-                </article>
-
-                <article class="benefit-card">
-                  <div class="benefit-task">Responding to customer enquiries</div>
-                  <div class="benefit-visual">
-                    <div class="benefit-state benefit-state-before">
-                      <span class="benefit-state-label">Without clarity</span>
-                      <div class="benefit-before">Rewriting similar replies over and over during the day.</div>
-                    </div>
-                    <div class="benefit-state benefit-state-after">
-                      <span class="benefit-state-label">With the right use of AI</span>
-                      <div class="benefit-after">Generate clear replies quickly</div>
-                    </div>
-                  </div>
-                  <div class="benefit-caption">Answer faster without sounding rushed or disorganised.</div>
-                </article>
-
-                <article class="benefit-card">
-                  <div class="benefit-task">Planning social media or promotions</div>
-                  <div class="benefit-visual">
-                    <div class="benefit-state benefit-state-before">
-                      <span class="benefit-state-label">Without clarity</span>
-                      <div class="benefit-before">Scattered ideas that never quite turn into a real plan.</div>
-                    </div>
-                    <div class="benefit-state benefit-state-after">
-                      <span class="benefit-state-label">With the right use of AI</span>
-                      <div class="benefit-after">Turn rough ideas into structured plans</div>
-                    </div>
-                  </div>
-                  <div class="benefit-caption">Get from vague thoughts to an organised next step much faster.</div>
-                </article>
-
-                <article class="benefit-card">
-                  <div class="benefit-task">Researching competitors or business ideas</div>
-                  <div class="benefit-visual">
-                    <div class="benefit-state benefit-state-before">
-                      <span class="benefit-state-label">Without clarity</span>
-                      <div class="benefit-before">Too much information spread across too many tabs and notes.</div>
-                    </div>
-                    <div class="benefit-state benefit-state-after">
-                      <span class="benefit-state-label">With the right use of AI</span>
-                      <div class="benefit-after">Summarise information instantly</div>
-                    </div>
-                  </div>
-                  <div class="benefit-caption">See the important points faster and make decisions with less friction.</div>
-                </article>
-              </div>
-
-              <div class="section-copy">
-                <p>Over time, small improvements like these add up.</p>
-                <p>
-                  While many businesses are still unsure how AI fits into their workflow, others are
-                  already using it to save time and work more efficiently.
-                </p>
-                <p>The difference often isn't effort.</p>
-                <p>
-                  It's simply understanding where AI actually fits into the work you already do.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="section">
-          <div class="section-shell">
-            <div class="section-head">
-              <div class="section-label">Section 4 - What This Guide Shows You</div>
-              <h2>Inside the Guide</h2>
-            </div>
-
-            <div class="section-body">
-              <div class="section-copy">
-                <p>
-                  This guide shows small business owners exactly where AI can remove friction from the
-                  work they do every day.
-                </p>
-                <p>Not theory. Not complicated systems.</p>
-                <p>
-                  Just clear, practical ways AI can immediately make running a business easier.
-                </p>
-                <p>Inside the guide you'll learn how to:</p>
-              </div>
-
-              <div class="guide-grid">
-                <article class="guide-item">
-                  <div class="guide-item-number">01</div>
-                  <div class="guide-item-copy">Write marketing posts, emails, and promotions in minutes instead of hours</div>
-                </article>
-
-                <article class="guide-item">
-                  <div class="guide-item-number">02</div>
-                  <div class="guide-item-copy">Turn rough ideas into clear, professional content instantly</div>
-                </article>
-
-                <article class="guide-item">
-                  <div class="guide-item-number">03</div>
-                  <div class="guide-item-copy">Generate endless ideas for marketing, social media, and campaigns</div>
-                </article>
-
-                <article class="guide-item">
-                  <div class="guide-item-number">04</div>
-                  <div class="guide-item-copy">Draft customer responses and communication quickly and confidently</div>
-                </article>
-
-                <article class="guide-item">
-                  <div class="guide-item-number">05</div>
-                  <div class="guide-item-copy">Research competitors, ideas, and markets in seconds</div>
-                </article>
-
-                <article class="guide-item">
-                  <div class="guide-item-number">06</div>
-                  <div class="guide-item-copy">Structure requests so AI produces dramatically better results</div>
-                </article>
-              </div>
-
-              <div class="section-copy">
-                <p>Most business owners experiment with AI randomly and get poor results.</p>
-                <p>
-                  This guide shows you how to actually use it properly, so it becomes a tool that
-                  saves time and improves the work you already do.
-                </p>
-                <p>
-                  Once you understand where AI fits into your workflow, it can become one of the most
-                  useful tools in your business.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="section section-contrast">
-          <div class="section-shell">
-            <div class="section-head">
-              <div class="section-label">Testimonials</div>
-              <h2>What Owners Are Saying</h2>
-            </div>
-
-            <div class="section-body">
-              <div class="testimonial-grid">
-                <article class="testimonial-card">
-                  <p class="testimonial-quote">
-                    "I kept hearing about AI but didn't really know where it fit into my business.
-                    This guide actually showed me how to use it for things like writing marketing and
-                    responding to enquiries. Much simpler than I expected."
-                  </p>
-                  <div class="testimonial-author">James Carter<br>Owner, Carter Roofing Solutions</div>
-                </article>
-
-                <article class="testimonial-card">
-                  <p class="testimonial-quote">
-                    "I'd tried using AI before but the results were always pretty useless. The part
-                    about how to structure requests made a big difference. Now it's actually helpful
-                    for writing posts and planning promotions."
-                  </p>
-                  <div class="testimonial-author">Melissa Nguyen<br>Founder, Bright Path Tutoring</div>
-                </article>
-
-                <article class="testimonial-card">
-                  <p class="testimonial-quote">
-                    "I run a small landscaping company and don't have time to learn complicated
-                    software. This guide made it clear where AI is actually useful and where it isn't.
-                    I've already started using it for marketing and emails."
-                  </p>
-                  <div class="testimonial-author">David Thompson<br>Owner, GreenLine Landscaping</div>
-                </article>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="section">
-          <div class="section-shell">
-            <div class="section-head">
-              <div class="section-label">FAQ</div>
-              <h2>Common Questions</h2>
-            </div>
-
-            <div class="section-body">
-              <div class="faq-list">
-                <article class="faq-item">
-                  <h3 class="faq-question">Do I need any experience with AI to understand this guide?</h3>
-                  <p class="faq-answer">
-                    No. This guide was written specifically for people who are new to AI or have only
-                    experimented with it a little. Everything is explained in plain language, with a
-                    focus on showing where AI fits into the everyday work of running a small business.
-                  </p>
-                </article>
-
-                <article class="faq-item">
-                  <h3 class="faq-question">Is this a course?</h3>
-                  <p class="faq-answer">
-                    No. This is a practical written guide you can read at your own pace. Most people
-                    can go through the entire guide in under an hour, and then refer back to specific
-                    sections whenever they need them.
-                  </p>
-                </article>
-
-                <article class="faq-item">
-                  <h3 class="faq-question">What will I actually receive after purchasing?</h3>
-                  <p class="faq-answer">
-                    You'll receive a downloadable digital guide that explains how small business owners
-                    can start using AI in their everyday work. It covers where AI can save time, how
-                    to structure requests so AI produces better results, and practical examples of how
-                    it can support tasks like marketing, writing, planning, and communication.
-                  </p>
-                </article>
-
-                <article class="faq-item">
-                  <h3 class="faq-question">Will this help my specific business?</h3>
-                  <p class="faq-answer">
-                    The guide isn't designed for one specific industry. Instead, it focuses on the
-                    kinds of tasks that exist in almost every small business - things like marketing,
-                    communication, planning, research, and content creation. These are areas where AI
-                    can often be surprisingly useful once you understand how to use it properly.
-                  </p>
-                </article>
-
-                <article class="faq-item">
-                  <h3 class="faq-question">Is this a subscription?</h3>
-                  <p class="faq-answer">
-                    No. This is a one-time purchase. Once you buy the guide, it's yours to keep.
-                  </p>
-                </article>
-
-                <article class="faq-item">
-                  <h3 class="faq-question">How quickly will I get access?</h3>
-                  <p class="faq-answer">
-                    Immediately after purchase you'll receive instant access to download the guide.
-                  </p>
-                </article>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="final-cta">
-          <div class="final-shell">
-            <div class="final-intro">
-              <div class="section-label" style="color: rgba(255, 255, 255, 0.62);">Final Section</div>
-              <h2>Why This Is Worth Learning</h2>
-            </div>
-
-            <div class="final-main">
-              <div class="final-copy">
-                <p>
-                  More small businesses are quietly starting to use AI to save time, move faster,
-                  and produce better work.
-                </p>
-                <p>
-                  The risk isn't that AI is too complicated.
-                </p>
-                <p>
-                  It's staying behind while other businesses figure out where it fits first.
-                </p>
-                <p>
-                  This guide helps you understand where AI actually belongs in the work you already
-                  do, so it becomes a practical advantage instead of something you keep putting off.
-                </p>
-              </div>
-
-              <div class="final-offer">
-                <div class="final-offer-label">Get the Guide</div>
-                <div class="final-offer-title">AI for Small Business Owners</div>
-                <div class="final-offer-copy">
-                  A simple, practical guide to understanding where AI fits into your business.
-                </div>
-                <div class="cta-wrap">
-                  <a class="cta-button" href="#">Get the Guide</a>
-                  <div class="cta-note">Instant download | One-time purchase</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
-    </div>
-  </main>
-</body>
+        </div>
+      </section>
+    </main>
+  </body>
 </html>
