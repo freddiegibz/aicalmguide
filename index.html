@@ -130,12 +130,16 @@
       position: relative;
       display: grid;
       grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+      grid-template-areas:
+        "copy visual"
+        "glance glance";
       gap: 0;
       background: var(--white);
       overflow: hidden;
     }
 
     .hero-copy {
+      grid-area: copy;
       padding: 46px 48px 42px;
       background:
         linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 1)),
@@ -183,9 +187,11 @@
     }
 
     .list-block {
-      margin-top: 26px;
-      padding-top: 20px;
+      grid-area: glance;
+      margin-top: 0;
+      padding: 28px 48px 34px;
       border-top: 1px solid var(--line);
+      background: #f7f8fa;
     }
 
     .hero-proof {
@@ -211,27 +217,40 @@
       padding: 0;
       list-style: none;
       display: grid;
-      gap: 12px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
     }
 
     .benefits li {
       display: grid;
-      grid-template-columns: 28px 1fr;
-      gap: 14px;
-      align-items: start;
-      font-size: 0.98rem;
+      gap: 10px;
+      align-content: start;
+      min-height: 100%;
+      padding: 18px 16px;
+      background: #f7f8fa;
+      border: 1px solid rgba(18, 36, 58, 0.08);
+      font-size: 0.95rem;
       line-height: 1.5;
     }
 
     .benefits li::before {
       content: "";
-      width: 28px;
-      height: 28px;
-      border: 1px solid var(--line);
-      border-radius: 50%;
+      width: 42px;
+      height: 4px;
+      border-radius: 999px;
       background:
-        radial-gradient(circle at center, var(--navy) 0 26%, transparent 28%),
-        linear-gradient(180deg, #fbfcfd 0%, #eef1f4 100%);
+        linear-gradient(90deg, var(--accent) 0%, var(--navy) 100%);
+    }
+
+    .benefits li strong,
+    .guide-points li strong,
+    .advantage-points li strong {
+      display: block;
+      color: var(--navy-deep);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
 
     .cta-wrap {
@@ -274,6 +293,7 @@
     }
 
     .hero-visual {
+      grid-area: visual;
       display: flex;
       align-items: flex-start;
       justify-content: center;
@@ -296,6 +316,64 @@
       height: auto;
       object-fit: contain;
       object-position: center;
+    }
+
+    .quick-answers {
+      padding: 38px 48px 42px;
+      background:
+        linear-gradient(180deg, rgba(243, 236, 224, 0.95), rgba(249, 246, 240, 0.98));
+      border-top: 1px solid rgba(18, 36, 58, 0.08);
+    }
+
+    .quick-answers-head {
+      max-width: 680px;
+      margin-bottom: 26px;
+    }
+
+    .quick-answers h2 {
+      margin: 0;
+      font-family: "Libre Baskerville", serif;
+      font-size: clamp(1.9rem, 3vw, 2.8rem);
+      line-height: 1.14;
+      letter-spacing: -0.03em;
+      color: var(--navy-deep);
+    }
+
+    .quick-answer-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .quick-answer-card {
+      min-height: 100%;
+      padding: 20px 18px;
+      background: rgba(255, 255, 255, 0.86);
+      border: 1px solid rgba(18, 36, 58, 0.08);
+      box-shadow: 0 10px 24px rgba(12, 23, 39, 0.05);
+    }
+
+    .quick-answer-label {
+      margin-bottom: 10px;
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .quick-answer-title {
+      margin: 0;
+      color: var(--navy-deep);
+      font-size: 1.08rem;
+      line-height: 1.4;
+    }
+
+    .quick-answer-text {
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 0.96rem;
+      line-height: 1.62;
     }
 
     .problem {
@@ -333,6 +411,41 @@
 
     .problem-copy p:last-child {
       margin-bottom: 0;
+    }
+
+    .problem-intro {
+      margin: 0 0 18px;
+      color: var(--navy);
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.5;
+    }
+
+    .problem-points {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .problem-point {
+      min-height: 100%;
+      padding: 18px 16px;
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid rgba(18, 36, 58, 0.08);
+    }
+
+    .problem-point h3 {
+      margin: 0 0 8px;
+      color: var(--navy-deep);
+      font-size: 1rem;
+      line-height: 1.35;
+    }
+
+    .problem-point p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.58;
     }
 
     .guide {
@@ -374,28 +487,30 @@
       padding: 0;
       list-style: none;
       display: grid;
-      gap: 12px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
     }
 
     .guide-points li {
       display: grid;
-      grid-template-columns: 28px 1fr;
-      gap: 14px;
-      align-items: start;
+      gap: 10px;
+      align-content: start;
+      min-height: 100%;
+      padding: 20px 18px;
+      background: #f7f8fa;
+      border: 1px solid rgba(18, 36, 58, 0.08);
       color: var(--ink);
-      font-size: 0.98rem;
-      line-height: 1.5;
+      font-size: 0.96rem;
+      line-height: 1.58;
     }
 
     .guide-points li::before {
       content: "";
-      width: 28px;
-      height: 28px;
-      border: 1px solid var(--line);
-      border-radius: 50%;
+      width: 42px;
+      height: 4px;
+      border-radius: 999px;
       background:
-        radial-gradient(circle at center, var(--accent) 0 26%, transparent 28%),
-        linear-gradient(180deg, #fbfcfd 0%, #eef1f4 100%);
+        linear-gradient(90deg, var(--accent) 0%, #dcb48d 100%);
     }
 
     .outcome {
@@ -500,28 +615,30 @@
       padding: 0;
       list-style: none;
       display: grid;
-      gap: 12px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
     }
 
     .advantage-points li {
       display: grid;
-      grid-template-columns: 28px 1fr;
-      gap: 14px;
-      align-items: start;
+      gap: 10px;
+      align-content: start;
+      min-height: 100%;
+      padding: 20px 18px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(18, 36, 58, 0.08);
       color: var(--ink);
-      font-size: 0.98rem;
-      line-height: 1.5;
+      font-size: 0.97rem;
+      line-height: 1.58;
     }
 
     .advantage-points li::before {
       content: "";
-      width: 28px;
-      height: 28px;
-      border: 1px solid var(--line);
-      border-radius: 50%;
+      width: 42px;
+      height: 4px;
+      border-radius: 999px;
       background:
-        radial-gradient(circle at center, var(--accent) 0 26%, transparent 28%),
-        linear-gradient(180deg, #fbfcfd 0%, #eef1f4 100%);
+        linear-gradient(90deg, var(--navy) 0%, var(--accent) 100%);
     }
 
     .offer {
@@ -552,7 +669,7 @@
 
     .testimonial-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 22px;
     }
 
@@ -619,6 +736,32 @@
       align-items: center;
       gap: 18px;
       flex-shrink: 0;
+    }
+
+    .offer-facts {
+      display: grid;
+      gap: 10px;
+      min-width: 170px;
+    }
+
+    .offer-fact {
+      display: grid;
+      gap: 2px;
+    }
+
+    .offer-fact-label {
+      color: var(--muted);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .offer-fact-value {
+      color: var(--navy-deep);
+      font-size: 0.96rem;
+      font-weight: 700;
+      line-height: 1.35;
     }
 
     .offer-price {
@@ -735,6 +878,23 @@
       margin-bottom: 0;
     }
 
+    .final-summary {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 26px;
+    }
+
+    .final-summary-item {
+      padding: 16px 14px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: var(--white);
+      font-size: 0.92rem;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+
     .final-cta-box {
       padding: 28px;
       background: rgba(255, 255, 255, 0.06);
@@ -779,6 +939,33 @@
       color: var(--white);
     }
 
+    .final-facts {
+      display: grid;
+      gap: 12px;
+      margin: 24px 0 22px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .final-fact {
+      display: grid;
+      gap: 3px;
+    }
+
+    .final-fact span {
+      color: rgba(255, 255, 255, 0.62);
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .final-fact strong {
+      color: var(--white);
+      font-size: 1rem;
+      line-height: 1.45;
+    }
+
     .final-cta-box .cta-button {
       width: 100%;
       background: var(--white);
@@ -814,11 +1001,27 @@
 
       .hero {
         grid-template-columns: 1fr;
+        grid-template-areas:
+          "copy"
+          "visual"
+          "glance";
       }
 
       .problem-grid {
         grid-template-columns: 1fr;
         gap: 24px;
+      }
+
+      .benefits,
+      .guide-points,
+      .problem-points,
+      .quick-answer-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .advantage-points,
+      .final-summary {
+        grid-template-columns: 1fr;
       }
 
       .testimonial-grid {
@@ -876,11 +1079,19 @@
         padding: 0 22px 26px;
       }
 
+      .list-block {
+        padding: 24px 22px 28px;
+      }
+
       .lead {
         font-size: 1.04rem;
       }
 
       .problem {
+        padding: 30px 22px 32px;
+      }
+
+      .quick-answers {
         padding: 30px 22px 32px;
       }
 
@@ -926,12 +1137,28 @@
 
       .offer-box {
         width: 100%;
-        justify-content: space-between;
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .offer-facts {
+        min-width: 0;
       }
 
       .offer-inner {
         padding: 20px 18px;
         gap: 18px;
+      }
+
+      .benefits,
+      .guide-points,
+      .problem-points,
+      .quick-answer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .final-summary {
+        margin-top: 20px;
       }
 
       .mobile-cta-bar {
@@ -1014,31 +1241,19 @@
       <div class="content-flow">
         <section class="hero">
           <div class="hero-copy">
-            <div class="section-tag">Professional guide for agents</div>
-            <h1>Finally understand how <span class="headline-accent">AI</span> fits into the <span class="headline-accent">work</span> as a real estate agent.</h1>
+            <div class="section-tag">Practical guide for agents</div>
+            <h1>See exactly where <span class="headline-accent">AI</span> fits in your real estate <span class="headline-accent">workflow</span>.</h1>
 
             <p class="lead">
-              Real estate agents know AI is becoming important, but most still aren't sure how it
-              actually fits into their day-to-day work. This guide shows you exactly where AI can
-              save time, improve client communication, strengthen listings, and make the everyday
-              work of being an agent easier - without complicated systems or technical knowledge.
+              A short, practical guide for agents who know AI matters but want a clear starting
+              point. Learn where it actually helps, what to ask, and how to use it in daily work
+              without technical overwhelm.
             </p>
 
             <div class="cta-wrap">
               <a class="cta-button" href="#">Get the Guide</a>
             </div>
-            <div class="cta-meta">Instant Download, one-time payment</div>
-
-            <div class="list-block">
-              <p class="list-title">Inside the guide</p>
-              <ul class="benefits">
-                <li>Where AI actually helps real estate agents the most</li>
-                <li>How to integrate AI into your everyday workflow</li>
-                <li>The mental models that make AI useful instead of confusing</li>
-                <li>Practical examples of AI used in real estate tasks</li>
-                <li>How to implement AI without complicated tools</li>
-              </ul>
-            </div>
+            <div class="cta-meta">Instant download. One-time payment.</div>
           </div>
 
           <div class="hero-visual" aria-label="Book cover placeholder">
@@ -1048,34 +1263,90 @@
               </div>
             </div>
           </div>
+
+          <div class="list-block">
+            <p class="list-title">At a glance</p>
+            <ul class="benefits">
+              <li><strong>Clear use cases</strong>See where AI saves time in listings, follow-up, admin, and client communication.</li>
+              <li><strong>Better prompts</strong>Learn how to ask for useful outputs instead of vague answers.</li>
+              <li><strong>Practical workflow</strong>Understand how to make AI a repeatable part of your day.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="quick-answers">
+          <div class="quick-answers-head">
+            <div class="section-tag">Quick answers before you buy</div>
+            <h2>The essentials, in under a minute.</h2>
+          </div>
+
+          <div class="quick-answer-grid">
+            <article class="quick-answer-card">
+              <div class="quick-answer-label">Who it is for</div>
+              <h3 class="quick-answer-title">Agents who want clarity, not tech talk</h3>
+              <p class="quick-answer-text">
+                Built for real estate agents who know AI is important but want a practical
+                starting point.
+              </p>
+            </article>
+
+            <article class="quick-answer-card">
+              <div class="quick-answer-label">What it covers</div>
+              <h3 class="quick-answer-title">Where AI actually helps in the job</h3>
+              <p class="quick-answer-text">
+                Listings, client communication, lead response, and the repetitive writing tasks
+                agents handle every week.
+              </p>
+            </article>
+
+            <article class="quick-answer-card">
+              <div class="quick-answer-label">What you learn</div>
+              <h3 class="quick-answer-title">How to get better results from AI</h3>
+              <p class="quick-answer-text">
+                The guide shows what to ask, how to structure requests, and how to think about AI
+                more practically.
+              </p>
+            </article>
+
+            <article class="quick-answer-card">
+              <div class="quick-answer-label">How you get it</div>
+              <h3 class="quick-answer-title">Instant digital access after purchase</h3>
+              <p class="quick-answer-text">
+                No wait, no setup, and no complicated software to learn before you can start
+                reading.
+              </p>
+            </article>
+          </div>
         </section>
 
         <section class="problem">
           <div class="problem-grid">
             <div>
-              <div class="section-tag">The problem</div>
+              <div class="section-tag">Why this exists</div>
               <h2>
-                Most real estate agents know AI matters.
-                But very few know how it actually fits into their work.
+                Most agents do not need more AI hype.
+                They need a clearer starting point.
               </h2>
             </div>
 
             <div class="problem-copy">
-              <p>Over the past year, AI tools have become impossible to ignore.</p>
-              <p>
-                Real estate agents are hearing about them everywhere - on social media, in industry
-                discussions, and from other agents who claim they're using AI in their business.
-              </p>
-              <p>But for most agents, the reality looks different.</p>
-              <p>
-                Many have tried using AI once or twice, but the results felt unclear or inconsistent.
-              </p>
-              <p>Some aren't sure what to ask it.</p>
-              <p>Others feel like they're only scratching the surface of what it could actually do.</p>
-              <p>
-                And a lot of agents simply don't know where AI is supposed to fit into the real work
-                they do every day.
-              </p>
+              <p class="problem-intro">Most buyers come in with the same three friction points:</p>
+              <div class="problem-points">
+                <article class="problem-point">
+                  <h3>Too much noise</h3>
+                  <p>Most AI advice is generic, hype-driven, or not built for real estate work.</p>
+                </article>
+
+                <article class="problem-point">
+                  <h3>Unclear use cases</h3>
+                  <p>Agents know AI matters, but they do not know where it actually fits in a normal workday.</p>
+                </article>
+
+                <article class="problem-point">
+                  <h3>Weak results</h3>
+                  <p>Trying AI once or twice often leads to vague outputs because no one explains how to use it well.</p>
+                </article>
+              </div>
             </div>
           </div>
         </section>
@@ -1083,39 +1354,24 @@
         <section class="guide">
           <div class="guide-head">
             <div class="section-tag">What this guide shows you</div>
-            <h2>What This Guide Shows You</h2>
+            <h2>What this guide gives you</h2>
           </div>
 
           <div class="guide-copy">
             <p>
-              This guide is designed to help real estate agents understand where AI actually fits
-              into the work they already do.
-            </p>
-            <p>
-              Instead of complicated systems or technical explanations, it focuses on practical
-              understanding - showing where AI can save time, improve client communication,
-              strengthen listings, and make everyday tasks easier.
-            </p>
-            <p>
-              The goal isn't to overwhelm you with tools or automation.
-            </p>
-            <p>
-              It's to help you clearly see how AI can support the real work of being a real
-              estate agent.
+              Instead of long theory or tool overload, the guide is built around the three
+              questions that matter most before AI becomes useful.
             </p>
 
             <ul class="guide-points">
-              <li>Where AI can save real estate agents the most time</li>
-              <li>How AI fits into the daily workflow of an agent</li>
-              <li>How agents are using AI to improve client communication</li>
-              <li>How AI can strengthen listing descriptions and property promotion</li>
-              <li>How to structure requests so AI produces better results</li>
-              <li>How to make AI a practical part of your everyday work</li>
+              <li><strong>Where does AI fit?</strong>The highest-value tasks where it can save time or improve output.</li>
+              <li><strong>How do you use it well?</strong>How to structure requests so the results are clearer and more useful.</li>
+              <li><strong>How do you make it practical?</strong>How to turn AI into a repeatable part of your workflow instead of a one-off experiment.</li>
             </ul>
 
             <p>
-              By the end of the guide, you'll understand how to use AI in ways that actually make
-              your job easier.
+              No complicated automations. No technical rabbit holes. Just practical understanding
+              you can apply quickly.
             </p>
           </div>
         </section>
@@ -1123,13 +1379,19 @@
         <section class="offer">
           <div class="offer-inner">
             <div class="offer-copy">
-              <p class="offer-title">Start understanding how AI fits into your work as a real estate agent.</p>
+              <p class="offer-title">If AI still feels important but vague, this guide gives you the missing context fast.</p>
               <div class="offer-note">Instant download. One-time payment.</div>
             </div>
             <div class="offer-box">
-              <div class="offer-price">
-                <span class="price-label"></span>
-                <span class="price-value"></span>
+              <div class="offer-facts">
+                <div class="offer-fact">
+                  <span class="offer-fact-label">Format</span>
+                  <span class="offer-fact-value">Digital guide</span>
+                </div>
+                <div class="offer-fact">
+                  <span class="offer-fact-label">Focus</span>
+                  <span class="offer-fact-value">Real estate workflows</span>
+                </div>
               </div>
 
               <div class="offer-cta">
@@ -1141,87 +1403,32 @@
 
         <section class="advantage">
           <div class="advantage-head">
-            <div class="section-tag">Why this matters now</div>
-            <h2>Real Estate Agents Who Understand AI Are Pulling Ahead</h2>
+            <div class="section-tag">Where AI helps most</div>
+            <h2>The guide focuses on the work agents actually do every week.</h2>
           </div>
 
           <div class="advantage-copy">
-            <p>
-              AI is quickly becoming part of how modern agents work - from writing listing
-              descriptions and responding to leads faster, to creating marketing content in
-              minutes.
-            </p>
-            <p>
-              Some agents are already using these tools daily, while many others are still unsure
-              how to apply them in their actual workflow.
-            </p>
-            <p>That gap is growing.</p>
-            <p>
-              The agents who figure out how AI fits into their day-to-day work will naturally move
-              faster, communicate better with clients, and free up more time to focus on closing
-              deals.
-            </p>
-
             <ul class="advantage-points">
-              <li>Respond to leads faster than other agents and never miss an opportunity</li>
-              <li>
-                Write high-quality listings and marketing content in seconds instead of spending
-                hours on it
-              </li>
-              <li>
-                Free up hours every week so you can focus on closing deals, not admin work
-              </li>
+              <li><strong>Client communication</strong>Draft replies, follow-ups, and clearer explanations faster.</li>
+              <li><strong>Listings and marketing</strong>Improve descriptions, social copy, and property promotion.</li>
+              <li><strong>Lead response</strong>Move faster on inbound interest without staring at a blank screen.</li>
+              <li><strong>Everyday admin</strong>Reduce repetitive writing and planning work that eats into selling time.</li>
             </ul>
-          </div>
-        </section>
-
-        <section class="outcome">
-          <div class="outcome-head">
-            <div class="section-tag">What you'll walk away understanding</div>
-            <h2>What You'll Walk Away Understanding</h2>
-          </div>
-
-          <div class="outcome-copy">
-            <p>
-              After reading this guide, you'll have a much clearer understanding of how AI
-              actually fits into the work of a real estate agent.
-            </p>
-            <p>
-              Instead of feeling unsure where to start or how to use it properly, you'll see how
-              AI can naturally support many of the everyday tasks agents already handle.
-            </p>
-
-            <ul class="outcome-points">
-              <li>Where AI can genuinely save time in your daily work</li>
-              <li>How to use AI to improve communication with clients</li>
-              <li>How AI can help strengthen listing descriptions and property promotion</li>
-              <li>How to ask AI better questions so the results are actually useful</li>
-              <li>How to think about AI as a practical assistant in your workflow</li>
-            </ul>
-
-            <p>
-              The goal of this guide isn't to turn you into a tech expert.
-            </p>
-            <p>
-              It's to give you a clear understanding of how AI can become a useful part of your
-              work as a real estate agent.
-            </p>
           </div>
         </section>
 
         <section class="testimonials">
           <div class="testimonials-head">
-            <div class="section-tag">What other real estate agents thought</div>
-            <h2>What Other Real Estate Agents Thought</h2>
+            <div class="section-tag">What agents liked</div>
+            <h2>What real estate agents said after reading it</h2>
           </div>
 
           <div class="testimonial-grid">
             <article class="testimonial-card">
-              <p class="testimonial-quote">"I finally understood where AI actually fits in my work."</p>
+              <p class="testimonial-quote">"It made AI click for me."</p>
               <p class="testimonial-body">
-                "I'd heard a lot about AI but never really understood how it applied to the work I
-                do every day as an agent. This guide made it much clearer. The examples helped me
-                see where AI can actually save time."
+                "I stopped guessing where AI might help and started seeing obvious everyday use
+                cases in my work."
               </p>
               <div class="testimonial-author">- Sarah, Keller Williams</div>
             </article>
@@ -1229,74 +1436,59 @@
             <article class="testimonial-card">
               <p class="testimonial-quote">"It's practical, not technical."</p>
               <p class="testimonial-body">
-                "I was worried this would be another AI guide full of tech talk. It's not. It
-                explains things in a way that actually makes sense for real estate and shows where
-                AI can help with the normal tasks we deal with."
+                "It explains AI in a way that fits how agents actually work instead of sounding
+                like software training."
               </p>
               <div class="testimonial-author">- Daniel, RE/MAX</div>
             </article>
 
             <article class="testimonial-card">
-              <p class="testimonial-quote">"Even though I already use AI a bit, this helped."</p>
+              <p class="testimonial-quote">"I could apply it immediately."</p>
               <p class="testimonial-body">
-                "I'd tried using AI before for a few things, but I always felt like I was missing
-                something. This guide helped me understand how to think about AI in my workflow
-                instead of just randomly trying prompts."
+                "The sections on listings and client communication gave me ideas I could use right
+                away."
               </p>
               <div class="testimonial-author">- Melissa, Compass Realty</div>
-            </article>
-
-            <article class="testimonial-card">
-              <p class="testimonial-quote">"It made AI feel a lot less confusing."</p>
-              <p class="testimonial-body">
-                "There's so much noise around AI right now. This guide simplified it and showed
-                where it actually fits into the work agents do."
-              </p>
-              <div class="testimonial-author">- James, Coldwell Banker</div>
             </article>
           </div>
         </section>
 
         <section class="faq" id="contact">
           <div class="faq-head">
-            <div class="section-tag">Frequently asked questions</div>
-            <h2>Frequently Asked Questions</h2>
+            <div class="section-tag">Still deciding?</div>
+            <h2>Questions agents ask before buying</h2>
           </div>
 
           <div class="faq-list">
             <article class="faq-item">
               <h3 class="faq-question">Do I need to be experienced with AI to use this guide?</h3>
               <p class="faq-answer">
-                No. The guide is written for real estate agents who are curious about AI but may
-                not fully understand how it fits into their work yet. Everything is explained in a
-                practical way, focusing on how AI can support the everyday tasks agents already
-                handle.
+                No. It is written for agents who want a practical introduction, not a technical
+                deep dive.
               </p>
             </article>
 
             <article class="faq-item">
-              <h3 class="faq-question">Is this a technical guide?</h3>
+              <h3 class="faq-question">Is this just a prompt guide?</h3>
               <p class="faq-answer">
-                No. This guide focuses on practical understanding rather than technical
-                explanations. The goal is to help you see where AI fits into your work and how to
-                use it effectively, without complicated systems or technical language.
+                No. It covers where AI fits, how to use it better, and how to make it practical in
+                daily real estate work.
               </p>
             </article>
 
             <article class="faq-item">
               <h3 class="faq-question">Is this only for new agents?</h3>
               <p class="faq-answer">
-                Not at all. Many experienced agents are experimenting with AI but still feel unsure
-                how it fits into their workflow. This guide is designed to help agents at any stage
-                better understand how AI can support their work.
+                No. It is useful for newer agents and experienced agents who want to use AI more
+                intentionally.
               </p>
             </article>
 
             <article class="faq-item">
               <h3 class="faq-question">What format is the guide?</h3>
               <p class="faq-answer">
-                The guide is delivered digitally. After purchasing, you'll receive immediate access
-                so you can start reading it right away.
+                It is a digital guide delivered immediately after purchase, so you can start right
+                away.
               </p>
             </article>
           </div>
@@ -1308,45 +1500,52 @@
               <div class="section-tag" style="color: rgba(255, 255, 255, 0.7); border-bottom-color: rgba(255, 255, 255, 0.16);">
                 Final section
               </div>
-              <h2>At Some Point, Every Real Estate Agent Will Need To Understand AI</h2>
+              <h2>Understand AI faster. Decide with more confidence.</h2>
 
               <div class="final-cta-copy">
                 <p>
-                  AI is quickly becoming part of how professionals work across many industries -
-                  including real estate.
+                  AI is becoming part of normal real estate work, but the real advantage is not in
+                  trying every tool.
                 </p>
                 <p>
-                  Agents who understand how to use it can save time, communicate more effectively
-                  with clients, and handle many of the routine tasks of the job more efficiently.
+                  It comes from knowing where it genuinely helps, how to use it well, and how to
+                  apply it without wasting time.
                 </p>
-                <p>But for many agents, the challenge isn't access to AI tools.</p>
-                <p>It's understanding how those tools actually fit into the work they already do.</p>
-                <p>That's exactly what this guide is designed to help with.</p>
-                <p>
-                  Instead of vague advice or complicated systems, it focuses on giving real estate
-                  agents a clear understanding of where AI fits into their day-to-day work.
-                </p>
+                <p>This guide gives you that clarity in a format you can get through quickly.</p>
+              </div>
+
+              <div class="final-summary">
+                <div class="final-summary-item">Beginner-friendly</div>
+                <div class="final-summary-item">Real estate specific</div>
+                <div class="final-summary-item">Practical, not technical</div>
               </div>
             </div>
 
             <div class="final-cta-box">
-              <h3>Finally Understand How AI Fits Into Your Work As A Real Estate Agent</h3>
+              <h3>AI for Real Estate Agents</h3>
               <p class="final-cta-subtitle">
-                AI for Real Estate Agents
-              </p>
-              <p class="final-cta-subtitle">
-                A practical guide showing you how to actually use AI in your work.
+                A concise digital guide that shows where AI fits, what to ask, and how to use it
+                practically.
               </p>
 
-              <div class="final-price">
-                <span class="final-price-label"></span>
-                <span class="final-price-value"></span>
+              <div class="final-facts">
+                <div class="final-fact">
+                  <span>Format</span>
+                  <strong>Digital download</strong>
+                </div>
+                <div class="final-fact">
+                  <span>Focus</span>
+                  <strong>Listings, communication, lead response, and workflow</strong>
+                </div>
+                <div class="final-fact">
+                  <span>Best for</span>
+                  <strong>Agents who want a clear AI starting point</strong>
+                </div>
               </div>
 
               <a class="cta-button" href="#">Get the Guide</a>
               <div class="final-note">
-                Start understanding how AI can support the everyday work of being a real estate
-                agent.
+                For agents who want to stop guessing and start using AI more intentionally.
               </div>
             </div>
           </div>
@@ -1358,7 +1557,8 @@
   <div class="mobile-cta-bar">
     <div class="mobile-cta-inner">
       <div class="mobile-cta-copy">
-        
+        <div class="mobile-cta-price">Instant download</div>
+        <div class="mobile-cta-title">Practical AI guide for agents</div>
       </div>
       <a class="cta-button" href="#">Get the Guide</a>
     </div>
