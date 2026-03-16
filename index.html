@@ -130,9 +130,6 @@
       position: relative;
       display: grid;
       grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
-      grid-template-areas:
-        "copy visual"
-        "glance glance";
       gap: 0;
       background: var(--white);
       overflow: hidden;
@@ -186,14 +183,6 @@
       line-height: 1.68;
     }
 
-    .list-block {
-      grid-area: glance;
-      margin-top: 0;
-      padding: 28px 48px 34px;
-      border-top: 1px solid var(--line);
-      background: #f7f8fa;
-    }
-
     .hero-proof {
       margin: 0 0 10px;
       color: var(--accent);
@@ -203,46 +192,6 @@
       white-space: nowrap;
     }
 
-    .list-title {
-      margin: 0 0 18px;
-      color: var(--navy);
-      font-size: 0.94rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .benefits {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-    }
-
-    .benefits li {
-      display: grid;
-      gap: 10px;
-      align-content: start;
-      min-height: 100%;
-      padding: 18px 16px;
-      background: #f7f8fa;
-      border: 1px solid rgba(18, 36, 58, 0.08);
-      font-size: 0.95rem;
-      line-height: 1.5;
-    }
-
-    .benefits li::before {
-      content: "";
-      width: 42px;
-      height: 4px;
-      border-radius: 999px;
-      background:
-        linear-gradient(90deg, var(--accent) 0%, var(--navy) 100%);
-    }
-
-    .benefits li strong,
     .guide-points li strong,
     .advantage-points li strong {
       display: block;
@@ -939,10 +888,6 @@
 
       .hero {
         grid-template-columns: 1fr;
-        grid-template-areas:
-          "copy"
-          "visual"
-          "glance";
       }
 
       .problem-grid {
@@ -950,7 +895,6 @@
         gap: 24px;
       }
 
-      .benefits,
       .guide-points,
       .problem-points,
       .quick-answer-grid {
@@ -1015,10 +959,6 @@
 
       .hero-visual {
         padding: 0 22px 26px;
-      }
-
-      .list-block {
-        padding: 24px 22px 28px;
       }
 
       .lead {
@@ -1094,7 +1034,6 @@
         width: 100%;
       }
 
-      .benefits,
       .guide-points,
       .problem-points,
       .quick-answer-grid {
@@ -1208,14 +1147,6 @@
             </div>
           </div>
 
-          <div class="list-block">
-            <p class="list-title">At a glance</p>
-            <ul class="benefits">
-              <li><strong>Clear use cases</strong>See where AI saves time in listings, follow-up, admin, and client communication.</li>
-              <li><strong>Better prompts</strong>Learn how to ask for useful outputs instead of vague answers.</li>
-              <li><strong>Practical workflow</strong>Understand how to make AI a repeatable part of your day.</li>
-            </ul>
-          </div>
         </section>
 
         <section class="quick-answers">
