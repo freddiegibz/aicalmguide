@@ -21,6 +21,7 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -218,7 +219,8 @@ details p,
 
 .hero-media {
   justify-self: center;
-  width: min(100%, 27rem);
+  width: 100%;
+  max-width: 27rem;
 }
 
 .product-image {
@@ -259,7 +261,8 @@ details p,
 
 .hero {
   background: linear-gradient(180deg, rgba(255, 250, 243, 0.92), rgba(255, 250, 243, 0.82));
-  padding-inline: 1.2rem;
+  padding-left: 1.2rem;
+  padding-right: 1.2rem;
 }
 
 .final-section {
@@ -432,24 +435,28 @@ details p,
 
 @media (min-width: 760px) {
   .page {
-    width: min(calc(100% - 3rem), var(--max-width));
+    width: auto;
+    max-width: calc(var(--max-width) + 3rem);
     margin: 0 auto;
-    padding-top: 1.5rem;
+    padding: 1.5rem 1.5rem 4rem;
   }
 
   .site-header {
-    padding-inline: 0;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .hero {
     grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
     align-items: center;
-    padding-inline: 1.6rem;
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
     border-radius: 24px;
   }
 
   .section {
-    padding-inline: 0;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .final-section {
