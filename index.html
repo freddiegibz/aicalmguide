@@ -804,10 +804,6 @@
           linear-gradient(180deg, var(--navy) 0, var(--navy) 260px, var(--paper) 260px, var(--paper) 100%);
       }
 
-      .hero {
-        grid-template-columns: 1fr;
-      }
-
       .problem-grid {
         grid-template-columns: 1fr;
         gap: 24px;
@@ -824,11 +820,6 @@
       .final-cta-grid {
         grid-template-columns: 1fr;
         gap: 28px;
-      }
-
-      .hero-visual {
-        border-left: 0;
-        border-top: 1px solid rgba(18, 36, 58, 0.08);
       }
     }
 
@@ -864,12 +855,18 @@
         padding: 30px 22px 28px;
       }
 
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
       .hero-cover-inline {
         display: block;
       }
 
       .hero-visual {
         display: none;
+        border-left: 0;
+        border-top: 1px solid rgba(18, 36, 58, 0.08);
         padding: 0 22px 26px;
       }
 
@@ -1039,6 +1036,14 @@
                 <li>Practical examples of AI used in real estate tasks</li>
                 <li>How to implement AI without complicated tools</li>
               </ul>
+            </div>
+          </div>
+
+          <div class="hero-visual" aria-label="Book cover placeholder">
+            <div class="cover-stack">
+              <div class="book-cover">
+                <img src="heroimage.jpg" alt="AI for Real Estate guide cover">
+              </div>
             </div>
           </div>
         </section>
