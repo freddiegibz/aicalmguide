@@ -475,6 +475,49 @@
         line-height: 1.62;
       }
 
+      .delivery-panel {
+        margin-top: 1rem;
+        padding: 1rem;
+        border-radius: 18px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.82);
+      }
+
+      .delivery-grid,
+      .example-stack {
+        display: grid;
+        gap: 0.8rem;
+      }
+
+      .delivery-item,
+      .example-card {
+        padding: 0.9rem;
+        border-radius: 16px;
+        border: 1px solid rgba(18, 52, 81, 0.08);
+        background: rgba(18, 52, 81, 0.04);
+      }
+
+      .delivery-item p,
+      .example-card p {
+        color: var(--ink-soft);
+        line-height: 1.58;
+      }
+
+      .message-label {
+        margin-bottom: 0.45rem;
+        color: var(--accent-deep);
+        font-size: 0.74rem;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .message-box {
+        color: var(--navy-deep);
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+
       .quickstart-panel {
         margin-top: 1rem;
         padding: 1rem;
@@ -693,6 +736,15 @@
           grid-template-columns: 1.1fr 0.9fr;
         }
 
+        .delivery-grid,
+        .example-stack {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .example-stack {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
         .steps-grid {
           grid-template-columns: repeat(3, minmax(0, 1fr));
         }
@@ -833,18 +885,18 @@
       </section>
 
       <section class="shell decision-banner">
-        <p>This is not about "learning AI." It is a shortcut to running the business better.</p>
+        <p>Reply faster. Quote quicker. Follow up before the lead goes cold.</p>
       </section>
 
       <section class="shell section">
         <div class="trust-grid">
           <article class="trust-card">
             <p class="eyebrow">Why trust this</p>
-            <h2>Built from 100+ one-to-one AI implementations with small businesses.</h2>
+            <h2>Built by someone who has implemented AI one-to-one in 100+ small businesses.</h2>
             <p class="section-subcopy">
-              This is based on real implementation work, not theory. It was created for owners who
-              are busy, hands-on, and want AI to help with practical work like replies, quotes,
-              follow-ups, planning, and writing.
+              This was not written from the sidelines. It comes from hands-on implementation work
+              inside real small businesses, seeing where owners actually get stuck and where AI is
+              most useful first: replies, quotes, follow-ups, planning, and everyday writing.
             </p>
           </article>
 
@@ -863,10 +915,10 @@
       <section class="shell section">
         <div class="section-heading">
           <p class="eyebrow">Key reasons they buy</p>
-          <h2>Designed around the jobs owners actually want help with first.</h2>
+          <h2>Reply faster, quote quicker, and stop letting leads go cold.</h2>
           <p class="section-subcopy">
-            The goal is simple: help you deal with the tasks that usually slow you down, cost you
-            headspace, or lose you work.
+            These are the areas where faster action usually matters most because they affect booked
+            work, headspace, and how on top of the business you feel.
           </p>
         </div>
 
@@ -896,7 +948,11 @@
       <section class="shell section section-contrast" id="inside">
         <div class="section-heading">
           <p class="eyebrow">What you get</p>
-          <h2>A clear product with a fast path to first use.</h2>
+          <h2>Exactly what arrives after checkout.</h2>
+          <p class="section-subcopy">
+            You get three simple digital resources designed to help you go from "I should probably
+            use AI better" to actually using it in the business.
+          </p>
         </div>
 
         <div class="inside-grid">
@@ -929,8 +985,26 @@
           </article>
         </div>
 
+        <div class="delivery-panel">
+          <p class="card-label">Delivered immediately</p>
+          <div class="delivery-grid">
+            <div class="delivery-item">
+              <h3>The playbook</h3>
+              <p>A practical guide showing where AI fits into everyday business tasks and how to use it without overcomplicating it.</p>
+            </div>
+            <div class="delivery-item">
+              <h3>The prompt pack</h3>
+              <p>Ready-to-use prompts for replies, quotes, follow-ups, planning, offers, and marketing.</p>
+            </div>
+            <div class="delivery-item">
+              <h3>The setup sheet</h3>
+              <p>A quick way to add your business details so the prompts feel more relevant and easier to reuse.</p>
+            </div>
+          </div>
+        </div>
+
         <div class="quickstart-panel">
-          <h3>How fast can a buyer use it?</h3>
+          <h3>What happens next</h3>
           <div class="steps-grid">
             <article class="step-card">
               <span class="step-number">1</span>
@@ -984,8 +1058,8 @@
 
       <section class="shell section section-contrast">
         <div class="section-heading">
-          <p class="eyebrow">Prompt preview</p>
-          <h2>One example of the kind of prompt buyers can use straight away.</h2>
+          <p class="eyebrow">Example</p>
+          <h2>What this looks like in a real business situation.</h2>
         </div>
 
         <div class="prompt-layout">
@@ -1012,14 +1086,29 @@ Then write:
           </div>
 
           <aside class="proof-panel">
-            <p class="card-label">Why this is worth buying</p>
-            <h3>It gives you a practical starting point you can use right away.</h3>
-            <ul class="simple-list">
-              <li>This is useful for my business, not generic AI theory</li>
-              <li>This will help me reply faster and quote quicker</li>
-              <li>This looks simple enough to use immediately</li>
-              <li>This is a low-risk one-time purchase, not another complicated system</li>
-            </ul>
+            <p class="card-label">What that turns into</p>
+            <h3>From a real enquiry to a sendable reply in minutes.</h3>
+            <div class="example-stack">
+              <div class="example-card">
+                <p class="message-label">Incoming enquiry</p>
+                <p class="message-box">
+                  "Hi, I need a quote for a garden tidy-up and hedge cut next week. Do you cover
+                  Bromley and what availability do you have?"
+                </p>
+              </div>
+              <div class="example-card">
+                <p class="message-label">Reply draft</p>
+                <p class="message-box">
+                  Hi, thanks for getting in touch. Yes, I cover Bromley and I'd be happy to quote
+                  for that. If you send over the garden size, a couple of photos, and whether all
+                  waste needs removing, I can give you a clearer quote and let you know the next
+                  available slot.
+                </p>
+              </div>
+            </div>
+            <p class="section-subcopy" style="margin-top: 0.8rem;">
+              Then the prompt pack helps you write the quote follow-up and chase message too.
+            </p>
           </aside>
         </div>
       </section>
@@ -1029,8 +1118,8 @@ Then write:
           <p class="eyebrow">Why buy now</p>
           <h2>Every slow reply, forgotten follow-up, and delayed quote makes it easier for a faster competitor to win the job.</h2>
           <p class="section-subcopy">
-            This is not about keeping up with an AI trend. It is about removing everyday friction
-            that can quietly cost you work.
+            This is not about keeping up with an AI trend. It is about getting practical help in
+            the parts of the business where faster action can mean more jobs won and fewer leads lost.
           </p>
         </div>
 
@@ -1097,7 +1186,7 @@ Then write:
             this is the fastest way to get started without turning it into a whole new project.
           </p>
           <div class="final-badges">
-            <span>Guide + prompt pack</span>
+            <span>Playbook, prompt pack, and setup sheet</span>
             <span>Built from 100+ implementations</span>
             <span>14-day guarantee</span>
           </div>
