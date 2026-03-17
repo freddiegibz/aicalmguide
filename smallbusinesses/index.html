@@ -38,7 +38,7 @@
       href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="/smallbusinesses/styles.css" />
   </head>
   <body>
     <noscript>
@@ -88,7 +88,7 @@
 
         <div class="hero-media">
           <img
-            src="bookimage.jpg"
+            src="/smallbusinesses/bookimage.jpg"
             alt="AI for Small Business Owners guide cover"
             class="product-image"
           />
@@ -144,7 +144,7 @@ Do not give me theory. Give me usable drafts.</pre>
         <div class="credibility-grid">
           <div class="credibility-media">
             <img
-              src="me.jpg"
+              src="/smallbusinesses/me.jpg"
               alt="Creator of the AI for Small Business Owners guide"
               class="creator-image"
             />
@@ -383,7 +383,7 @@ Do not give me theory. Give me usable drafts.</pre>
           checkoutLink.href = checkoutUrls[geo] || defaultCheckoutUrl;
           checkoutLink.addEventListener("click", function () {
             if (window.fbq) {
-              fbq("track", "InitiateCheckout");
+              fbq("trackCustom", "smallbusiness_initiatecheckout");
             }
           });
         }
