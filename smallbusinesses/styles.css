@@ -540,7 +540,7 @@ details p,
 @media (min-width: 760px) {
   .page {
     width: auto;
-    max-width: calc(var(--max-width) + 3rem);
+    max-width: calc((var(--max-width) * 1.2) + 3rem);
     margin: 0 auto;
     padding: 1.5rem 1.5rem 4rem;
   }
