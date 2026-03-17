@@ -176,6 +176,34 @@ details p,
   margin-top: 1.6rem;
 }
 
+.hero-specs,
+.offer-details {
+  display: grid;
+  gap: 0.9rem;
+  margin-top: 1.4rem;
+}
+
+.spec-item,
+.offer-card,
+.why-card {
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.42);
+}
+
+.spec-item strong,
+.offer-card h3,
+.why-card h3 {
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.spec-item span,
+.offer-card p {
+  color: var(--muted);
+}
+
 .button {
   display: inline-flex;
   align-items: center;
@@ -287,6 +315,7 @@ details p,
 .credibility-grid,
 .trust-grid,
 .task-grid,
+.offer-details,
 .reason-list,
 .use-list,
 .final-panel {
@@ -390,6 +419,14 @@ details p,
   border-left: 4px solid var(--gold);
   background: rgba(255, 255, 255, 0.28);
   font-weight: 600;
+}
+
+.why-grid {
+  align-items: start;
+}
+
+.why-card {
+  background: rgba(255, 255, 255, 0.32);
 }
 
 .product-columns h3,
@@ -621,6 +658,14 @@ details p,
 
   .task-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hero-specs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .offer-details {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .trust-grid {
