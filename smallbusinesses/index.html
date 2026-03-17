@@ -315,10 +315,11 @@ Do not give me theory. Give me usable drafts.</pre>
             <p class="buy-label">One-time digital purchase</p>
             <h3>AI Guide + Prompt Pack</h3>
             <p>Instant access after checkout.</p>
-            <!-- Replace the href below with your live checkout URL. -->
+            <!-- UK checkout link is live. Add other geo links in the script below when ready. -->
             <a
+              id="checkout-link"
               class="button button-primary button-full"
-              href="https://your-checkout-link.com"
+              href="https://buy.stripe.com/dRmaEW72P1O4cCQ9q2bZe0r"
               target="_blank"
               rel="noopener"
             >
@@ -336,6 +337,18 @@ Do not give me theory. Give me usable drafts.</pre>
       (function () {
         var button = document.getElementById("copy-prompt");
         var prompt = document.getElementById("sample-prompt");
+        var checkoutLink = document.getElementById("checkout-link");
+        var params = new URLSearchParams(window.location.search);
+        var geo = (params.get("geo") || "").toLowerCase();
+        var defaultCheckoutUrl = "https://buy.stripe.com/dRmaEW72P1O4cCQ9q2bZe0r";
+        var checkoutUrls = {
+          uk: "https://buy.stripe.com/dRmaEW72P1O4cCQ9q2bZe0r",
+          us: "https://buy.stripe.com/dRm4gyaf12S80U859MbZe0s"
+        };
+
+        if (checkoutLink) {
+          checkoutLink.href = checkoutUrls[geo] || defaultCheckoutUrl;
+        }
 
         if (!button || !prompt || !navigator.clipboard) {
           return;
