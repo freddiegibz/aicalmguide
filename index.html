@@ -359,28 +359,24 @@
         line-height: 1.55;
       }
 
-      .book-lines {
+      .hero-task-list {
         position: relative;
         z-index: 1;
         display: grid;
-        gap: 0.55rem;
+        gap: 0.7rem;
         margin-top: 1.25rem;
+        padding: 0;
+        list-style: none;
       }
 
-      .book-lines span {
-        display: block;
-        width: min(100%, 13rem);
-        height: 0.72rem;
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.16);
-      }
-
-      .book-lines span:nth-child(2) {
-        width: min(100%, 10.5rem);
-      }
-
-      .book-lines span:nth-child(3) {
-        width: min(100%, 8rem);
+      .hero-task-list li {
+        padding: 0.72rem 0.8rem;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.08);
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 0.92rem;
+        font-weight: 700;
+        line-height: 1.4;
       }
       .product-card,
       .benefit-card,
@@ -651,9 +647,23 @@
         color: rgba(255, 255, 255, 0.76);
       }
 
+      .final-badges span {
+        border-color: rgba(255, 255, 255, 0.16);
+        background: rgba(255, 255, 255, 0.08);
+        color: #fff;
+      }
+
       .buy-box {
         background: rgba(255, 255, 255, 0.08);
         border-color: rgba(255, 255, 255, 0.14);
+      }
+
+      .buy-label {
+        color: rgba(255, 255, 255, 0.72);
+      }
+
+      .buy-list li {
+        color: rgba(255, 255, 255, 0.84);
       }
 
       .buy-box .button {
@@ -832,16 +842,16 @@
       <section class="hero shell">
         <div class="hero-copy">
           <p class="eyebrow">For local service business owners</p>
-          <h1>AI Playbook + Prompt Pack for owners who want faster replies, quicker quotes, and fewer missed jobs.</h1>
+          <h1>Reply faster. Quote quicker. Stop leads going cold.</h1>
           <p class="lead">
-            A practical guide plus ready-to-use prompts for local service owners who want help with
-            customer replies, quote follow-ups, marketing, planning, and everyday writing.
+            A ready-to-use AI prompt pack + quick guide for busy service business owners who want
+            help with enquiry replies, quote follow-ups, and everyday admin.
           </p>
 
           <div class="signal-row">
-            <span class="signal-pill">Guide + prompt pack</span>
+            <span class="signal-pill">Ready-to-use prompt pack</span>
+            <span class="signal-pill">Quick guide included</span>
             <span class="signal-pill">Instant digital download</span>
-            <span class="signal-pill">14-day guarantee</span>
           </div>
 
           <div class="hero-actions">
@@ -857,31 +867,30 @@
           </div>
 
           <p class="purchase-note">
-            Built from 100+ one-to-one implementations with small businesses. Works with ChatGPT,
-            Claude, and Gemini.
+            Built from 100+ one-to-one implementations with small businesses. 14-day money-back guarantee.
           </p>
         </div>
 
         <div class="hero-product">
           <div class="product-stack">
             <div class="product-book">
-              <div class="book-kicker">Digital playbook</div>
-              <h2>AI for Small Business Owners</h2>
-              <p>Practical guide + prompt pack for real business tasks you can use this week.</p>
-              <div class="book-lines">
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
+              <div class="book-kicker">Use it for</div>
+              <h2>Enquiries, quotes, and follow-ups.</h2>
+              <p>The tasks that usually get delayed when you are on jobs, chasing time, or clearing admin at the end of the day.</p>
+              <ul class="hero-task-list">
+                <li>Reply to new enquiries faster</li>
+                <li>Send quote follow-ups on time</li>
+                <li>Draft customer messages without starting from scratch</li>
+              </ul>
             </div>
 
             <div class="product-card">
-              <p class="card-label">Inside the product</p>
-              <h3>Built to give you a useful first win fast.</h3>
+              <p class="card-label">What you get</p>
+              <h3>Prompt pack + quick guide</h3>
               <ul class="simple-list">
-                <li>Practical playbook for how AI fits into a small business workflow</li>
-                <li>Ready-to-use prompts for replies, quotes, follow-ups, and marketing</li>
-                <li>Simple setup sheet so outputs feel more relevant to your business</li>
+                <li>Copy-and-use prompts for customer replies, quote follow-ups, and everyday writing</li>
+                <li>A short guide showing where to use AI first so you do not waste time figuring it out</li>
+                <li>A simple setup sheet to make the outputs fit your business better</li>
               </ul>
             </div>
           </div>
