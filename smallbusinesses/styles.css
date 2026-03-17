@@ -299,6 +299,21 @@ details p,
   max-width: 40rem;
 }
 
+.setup-callout {
+  margin-top: 1.3rem;
+  padding: 1rem 1rem 1rem 1.1rem;
+  border-left: 4px solid var(--gold);
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.setup-callout h3 {
+  margin-bottom: 0.45rem;
+}
+
+.setup-callout p {
+  color: var(--muted);
+}
+
 .prompt-intro {
   margin-top: 0;
   margin-bottom: 1.1rem;
