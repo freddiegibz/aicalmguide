@@ -1,1630 +1,1168 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>AI for Real Estate Agents | Playbook & Prompt Pack</title>
-  <script>
-    !function (f, b, e, v, n, t, s) {
-      if (f.fbq) return;
-      n = f.fbq = function () {
-        n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
-      };
-      if (!f._fbq) f._fbq = n;
-      n.push = n;
-      n.loaded = true;
-      n.version = "2.0";
-      n.queue = [];
-      t = b.createElement(e);
-      t.async = true;
-      t.src = v;
-      s = b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t, s);
-    }(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
-    fbq("init", "928793366363543");
-    fbq("track", "PageView");
-  </script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --navy: #12243a;
-      --navy-deep: #0c1727;
-      --accent: #8b5e3c;
-      --ink: #1d2b3c;
-      --muted: #617081;
-      --line: rgba(18, 36, 58, 0.16);
-      --paper: #f3f4f2;
-      --white: #ffffff;
-      --soft: #e7eaee;
-      --button: #12243a;
-      --button-hover: #0d1b2d;
-      --shadow: 0 28px 70px rgba(12, 23, 39, 0.18);
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>AI Playbook + Prompt Pack for Small Business Owners</title>
+    <meta
+      name="description"
+      content="A practical AI playbook and ready-to-use prompt pack for local service business owners who want faster replies, quicker quotes, less admin, and simpler marketing without learning AI from scratch."
+    />
+    <script>
+      !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+          n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = "2.0";
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      })(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+      fbq("init", "928793366363543");
+      fbq("track", "PageView");
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --ink: #15293b;
+        --ink-soft: #526578;
+        --navy: #123451;
+        --navy-deep: #0d2236;
+        --sand: #f5efe5;
+        --paper: #fffdf8;
+        --accent: #e0a53a;
+        --accent-deep: #b77a16;
+        --line: rgba(21, 41, 59, 0.12);
+        --shadow: 0 24px 60px rgba(13, 34, 54, 0.14);
+        --radius: 24px;
+        --max: 1160px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        -webkit-text-size-adjust: 100%;
+      }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      background: #0c1727;
-    }
-
-    body {
-      margin: 0;
-      font-family: "Source Sans 3", sans-serif;
-      color: var(--ink);
-      background:
-        linear-gradient(180deg, var(--navy) 0, var(--navy) 380px, var(--paper) 380px, var(--paper) 100%);
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .page {
-      min-height: 100vh;
-      padding: 28px 18px 48px;
-    }
-
-    .frame {
-      max-width: 1240px;
-      margin: 0 auto;
-    }
-
-    .content-flow {
-      overflow: hidden;
-      background: var(--white);
-    }
-
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      padding: 0 4px 20px;
-      color: rgba(255, 255, 255, 0.88);
-      flex-wrap: nowrap;
-    }
-
-    .brand {
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      font-size: 0.8rem;
-      white-space: nowrap;
-    }
-
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: nowrap;
-    }
-
-    .nav-link {
-      color: rgba(255, 255, 255, 0.78);
-      font-size: 0.92rem;
-      font-weight: 600;
-      white-space: nowrap;
-    }
-
-    .nav-buy {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 40px;
-      padding: 0 16px;
-      background: var(--white);
-      color: var(--navy-deep);
-      font-size: 0.9rem;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      white-space: nowrap;
-    }
-
-    .hero {
-      position: relative;
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
-      gap: 0;
-      background: var(--white);
-      overflow: hidden;
-    }
-
-    .hero-copy {
-      padding: 46px 48px 42px;
-      background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 1)),
-        repeating-linear-gradient(
-          0deg,
-          transparent,
-          transparent 31px,
-          rgba(18, 36, 58, 0.03) 31px,
-          rgba(18, 36, 58, 0.03) 32px
-        );
-    }
-
-    .section-tag {
-      display: inline-block;
-      margin-bottom: 22px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid var(--line);
-      color: var(--muted);
-      font-size: 0.88rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    h1 {
-      margin: 0;
-      max-width: 13ch;
-      font-family: "Libre Baskerville", serif;
-      font-size: clamp(1.95rem, 3.3vw, 3.2rem);
-      line-height: 1.08;
-      letter-spacing: -0.04em;
-      color: var(--navy-deep);
-    }
-
-    .headline-accent {
-      color: var(--accent);
-    }
-
-    .lead {
-      margin: 20px 0 0;
-      max-width: 62ch;
-      color: var(--muted);
-      font-size: 1.02rem;
-      line-height: 1.68;
-    }
-
-    .hero-proof {
-      margin: 0 0 10px;
-      color: var(--accent);
-      font-size: clamp(0.78rem, 2.8vw, 1rem);
-      font-weight: 700;
-      line-height: 1.15;
-      white-space: nowrap;
-    }
-
-    .guide-points li strong,
-    .advantage-points li strong {
-      display: block;
-      color: var(--navy-deep);
-      font-size: 0.82rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .cta-wrap {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 18px;
-      align-items: center;
-      margin-top: 28px;
-      padding-top: 22px;
-      border-top: 1px solid var(--line);
-    }
-
-    .cta-button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 58px;
-      padding: 0 30px;
-      border: 1px solid transparent;
-      background: var(--button);
-      color: var(--white);
-      font-size: 1rem;
-      font-weight: 700;
-      letter-spacing: 0.02em;
-      transition: background-color 160ms ease, transform 160ms ease;
-    }
-
-    .cta-button:hover,
-    .cta-button:focus-visible {
-      background: var(--button-hover);
-      transform: translateY(-1px);
-    }
-
-    .cta-meta {
-      max-width: none;
-      color: var(--muted);
-      font-size: 0.98rem;
-      line-height: 1.6;
-    }
-
-    .hero-trust {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px 12px;
-      margin-top: 14px;
-    }
-
-    .hero-trust-item {
-      display: inline-flex;
-      align-items: center;
-      min-height: 34px;
-      padding: 0 12px;
-      border: 1px solid rgba(18, 36, 58, 0.08);
-      background: #f7f8fa;
-      color: var(--navy-deep);
-      font-size: 0.86rem;
-      font-weight: 700;
-      line-height: 1.2;
-    }
-
-    .hero-visual {
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-      padding: 74px 28px 32px;
-      background: var(--white);
-      border-left: 1px solid rgba(18, 36, 58, 0.08);
-    }
-
-    .cover-stack {
-      width: min(100%, 280px);
-    }
-
-    .book-cover {
-      width: 100%;
-    }
-
-    .book-cover img {
-      display: block;
-      width: 100%;
-      height: auto;
-      object-fit: contain;
-      object-position: center;
-    }
-
-    .quick-answers {
-      padding: 38px 48px 42px;
-      background:
-        linear-gradient(180deg, rgba(243, 236, 224, 0.95), rgba(249, 246, 240, 0.98));
-      border-top: 1px solid rgba(18, 36, 58, 0.08);
-    }
-
-    .quick-answers-head {
-      max-width: 680px;
-      margin-bottom: 26px;
-    }
-
-    .quick-answers h2 {
-      margin: 0;
-      font-family: "Libre Baskerville", serif;
-      font-size: clamp(1.9rem, 3vw, 2.8rem);
-      line-height: 1.14;
-      letter-spacing: -0.03em;
-      color: var(--navy-deep);
-    }
-
-    .quick-answer-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .quick-answer-card {
-      min-height: 100%;
-      padding: 20px 18px;
-      background: rgba(255, 255, 255, 0.86);
-      border: 1px solid rgba(18, 36, 58, 0.08);
-      box-shadow: 0 10px 24px rgba(12, 23, 39, 0.05);
-    }
-
-    .quick-answer-label {
-      margin-bottom: 10px;
-      color: var(--accent);
-      font-size: 0.8rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .quick-answer-title {
-      margin: 0;
-      color: var(--navy-deep);
-      font-size: 1.08rem;
-      line-height: 1.4;
-    }
-
-    .quick-answer-text {
-      margin: 10px 0 0;
-      color: var(--muted);
-      font-size: 0.96rem;
-      line-height: 1.62;
-    }
-
-    .problem {
-      background: #eef1f4;
-      padding: 42px 48px 44px;
-      border-top: 1px solid rgba(18, 36, 58, 0.08);
-    }
-
-    .problem-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-      gap: 42px;
-      align-items: start;
-    }
-
-    .problem h2 {
-      margin: 0;
-      max-width: 14ch;
-      font-family: "Libre Baskerville", serif;
-      font-size: clamp(2rem, 3.2vw, 3rem);
-      line-height: 1.16;
-      letter-spacing: -0.03em;
-      color: var(--navy-deep);
-    }
-
-    .problem-copy {
-      color: var(--muted);
-      font-size: 1.03rem;
-      line-height: 1.78;
-    }
-
-    .problem-copy p {
-      margin: 0 0 18px;
-    }
-
-    .problem-copy p:last-child {
-      margin-bottom: 0;
-    }
-
-    .problem-intro {
-      margin: 0 0 18px;
-      color: var(--navy);
-      font-size: 1rem;
-      font-weight: 700;
-      line-height: 1.5;
-    }
-
-    .problem-points {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .problem-point {
-      min-height: 100%;
-      padding: 18px 16px;
-      background: rgba(255, 255, 255, 0.78);
-      border: 1px solid rgba(18, 36, 58, 0.08);
-    }
-
-    .problem-point h3 {
-      margin: 0 0 8px;
-      color: var(--navy-deep);
-      font-size: 1rem;
-      line-height: 1.35;
-    }
-
-    .problem-point p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.95rem;
-      line-height: 1.58;
-    }
-
-    .guide {
-      background: var(--white);
-      padding: 42px 48px 44px;
-      border-top: 1px solid rgba(18, 36, 58, 0.08);
-    }
-
-    .guide-head {
-      max-width: 680px;
-      margin-bottom: 28px;
-    }
-
-    .guide h2 {
-      margin: 0;
-      font-family: "Libre Baskerville", serif;
-      font-size: clamp(2rem, 3.2vw, 3rem);
-      line-height: 1.16;
-      letter-spacing: -0.03em;
-      color: var(--navy-deep);
-    }
-
-    .guide-copy {
-      color: var(--muted);
-      font-size: 1.03rem;
-      line-height: 1.78;
-    }
-
-    .guide-copy p {
-      margin: 0 0 18px;
-    }
-
-    .guide-copy p:last-of-type {
-      margin-bottom: 0;
-    }
-
-    .sample-block {
-      margin: 28px 0;
-      padding: 24px;
-      background: #f7f8fa;
-      border: 1px solid rgba(18, 36, 58, 0.08);
-    }
-
-    .sample-label {
-      margin: 0 0 12px;
-      color: var(--accent);
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .sample-title {
-      margin: 0 0 14px;
-      color: var(--navy-deep);
-      font-size: 1.12rem;
-      line-height: 1.4;
-      font-weight: 700;
-    }
-
-    .sample-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-      gap: 16px;
-    }
-
-    .sample-card {
-      padding: 18px 16px;
-      background: rgba(255, 255, 255, 0.88);
-      border: 1px solid rgba(18, 36, 58, 0.08);
-    }
-
-    .sample-card-label {
-      margin: 0 0 10px;
-      color: var(--navy);
-      font-size: 0.76rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .sample-card p,
-    .sample-card ul {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.95rem;
-      line-height: 1.6;
-    }
-
-    .sample-card ul {
-      padding-left: 18px;
-    }
-
-    .sample-prompt-box {
-      margin: 0;
-      padding: 14px;
-      background: #fdfdfd;
-      border: 1px solid rgba(18, 36, 58, 0.1);
-      color: var(--ink);
-      font-family: "Source Sans 3", sans-serif;
-      font-size: 0.95rem;
-      line-height: 1.62;
-      white-space: pre-wrap;
-    }
-
-    .sample-note {
-      margin: 14px 0 0;
-      color: var(--muted);
-      font-size: 0.92rem;
-      line-height: 1.6;
-    }
-
-    .guide-points {
-      margin: 28px 0;
-      padding: 0;
-      list-style: none;
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .guide-points li {
-      display: grid;
-      gap: 10px;
-      align-content: start;
-      min-height: 100%;
-      padding: 20px 18px;
-      background: #f7f8fa;
-      border: 1px solid rgba(18, 36, 58, 0.08);
-      color: var(--ink);
-      font-size: 0.96rem;
-      line-height: 1.58;
-    }
-
-    .guide-points li::before {
-      content: "";
-      width: 42px;
-      height: 4px;
-      border-radius: 999px;
-      background:
-        linear-gradient(90deg, var(--accent) 0%, #dcb48d 100%);
-    }
-
-    .outcome {
-      background: var(--white);
-      padding: 42px 48px 44px;
-      border-top: 1px solid rgba(18, 36, 58, 0.08);
-    }
-
-    .outcome-head {
-      max-width: 680px;
-      margin-bottom: 28px;
-    }
-
-    .outcome h2 {
-      margin: 0;
-      font-family: "Libre Baskerville", serif;
-      font-size: clamp(2rem, 3.2vw, 3rem);
-      line-height: 1.16;
-      letter-spacing: -0.03em;
-      color: var(--navy-deep);
-    }
-
-    .outcome-copy {
-      color: var(--muted);
-      font-size: 1.03rem;
-      line-height: 1.78;
-    }
-
-    .outcome-copy p {
-      margin: 0 0 18px;
-    }
-
-    .outcome-copy p:last-of-type {
-      margin-bottom: 0;
-    }
-
-    .outcome-points {
-      margin: 28px 0;
-      padding: 0;
-      list-style: none;
-      display: grid;
-      gap: 12px;
-    }
-
-    .outcome-points li {
-      display: grid;
-      grid-template-columns: 28px 1fr;
-      gap: 14px;
-      align-items: start;
-      color: var(--ink);
-      font-size: 0.98rem;
-      line-height: 1.5;
-    }
-
-    .outcome-points li::before {
-      content: "";
-      width: 28px;
-      height: 28px;
-      border: 1px solid var(--line);
-      border-radius: 50%;
-      background:
-        radial-gradient(circle at center, var(--navy) 0 26%, transparent 28%),
-        linear-gradient(180deg, #fbfcfd 0%, #eef1f4 100%);
-    }
-
-    .advantage {
-      background: #e6edf2;
-      padding: 42px 48px 44px;
-      border-top: 1px solid rgba(18, 36, 58, 0.08);
-    }
-
-    .advantage-head {
-      max-width: 760px;
-      margin-bottom: 28px;
-    }
-
-    .advantage h2 {
-      margin: 0;
-      font-family: "Libre Baskerville", serif;
-      font-size: clamp(2rem, 3.2vw, 3rem);
-      line-height: 1.16;
-      letter-spacing: -0.03em;
-      color: var(--navy-deep);
-    }
-
-    .advantage-copy {
-      color: var(--muted);
-      font-size: 1.03rem;
-      line-height: 1.78;
-    }
-
-    .advantage-copy p {
-      margin: 0 0 18px;
-    }
-
-    .advantage-copy p:last-of-type {
-      margin-bottom: 0;
-    }
-
-    .advantage-points {
-      margin: 28px 0 0;
-      padding: 0;
-      list-style: none;
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .advantage-points li {
-      display: grid;
-      gap: 10px;
-      align-content: start;
-      min-height: 100%;
-      padding: 20px 18px;
-      background: rgba(255, 255, 255, 0.72);
-      border: 1px solid rgba(18, 36, 58, 0.08);
-      color: var(--ink);
-      font-size: 0.97rem;
-      line-height: 1.58;
-    }
-
-    .advantage-points li::before {
-      content: "";
-      width: 42px;
-      height: 4px;
-      border-radius: 999px;
-      background:
-        linear-gradient(90deg, var(--navy) 0%, var(--accent) 100%);
-    }
-
-    .offer {
-      background: var(--white);
-      padding: 26px 48px 28px;
-      border-top: 1px solid rgba(18, 36, 58, 0.08);
-    }
-
-    .testimonials {
-      background: #f8f4ec;
-      padding: 42px 48px 46px;
-      border-top: 1px solid rgba(18, 36, 58, 0.08);
-    }
-
-    .testimonials-head {
-      max-width: 620px;
-      margin-bottom: 30px;
-    }
-
-    .testimonials h2 {
-      margin: 0;
-      font-family: "Libre Baskerville", serif;
-      font-size: clamp(2rem, 3.2vw, 3rem);
-      line-height: 1.16;
-      letter-spacing: -0.03em;
-      color: var(--navy-deep);
-    }
-
-    .testimonial-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 22px;
-    }
-
-    .testimonial-card {
-      padding: 26px 24px;
-      background: #f7f8fa;
-      border: 1px solid rgba(18, 36, 58, 0.08);
-    }
-
-    .testimonial-quote {
-      margin: 0 0 14px;
-      font-family: "Libre Baskerville", serif;
-      font-size: 1.28rem;
-      line-height: 1.4;
-      color: var(--navy-deep);
-    }
-
-    .testimonial-body {
-      margin: 0;
-      color: var(--muted);
-      font-size: 1rem;
-      line-height: 1.72;
-    }
-
-    .testimonial-author {
-      margin-top: 18px;
-      color: var(--ink);
-      font-size: 0.95rem;
-      font-weight: 700;
-      letter-spacing: 0.01em;
-    }
-
-    .offer-inner {
-      display: grid;
-      justify-items: start;
-      gap: 14px;
-      padding: 0;
-      background: transparent;
-      border-left: 0;
-    }
-
-    .offer-copy {
-      max-width: 520px;
-    }
-
-    .offer-title {
-      margin: 0;
-      color: var(--navy-deep);
-      font-size: 1.22rem;
-      font-weight: 700;
-      line-height: 1.35;
-    }
-
-    .offer-box {
-      display: block;
-    }
-
-    .offer-cta {
-      display: block;
-    }
-
-    .offer-note {
-      margin-top: 8px;
-      color: var(--muted);
-      font-size: 0.95rem;
-      line-height: 1.6;
-    }
-
-    .faq {
-      background: #eef1f4;
-      padding: 42px 48px 46px;
-      border-top: 1px solid rgba(18, 36, 58, 0.08);
-    }
-
-    .faq-head {
-      max-width: 680px;
-      margin-bottom: 28px;
-    }
-
-    .faq h2 {
-      margin: 0;
-      font-family: "Libre Baskerville", serif;
-      font-size: clamp(2rem, 3.2vw, 3rem);
-      line-height: 1.16;
-      letter-spacing: -0.03em;
-      color: var(--navy-deep);
-    }
-
-    .faq-list {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 22px;
-    }
-
-    .faq-item {
-      padding: 24px;
-      background: rgba(255, 255, 255, 0.72);
-      border: 1px solid rgba(18, 36, 58, 0.08);
-    }
-
-    .faq-question {
-      margin: 0 0 12px;
-      color: var(--navy-deep);
-      font-size: 1.08rem;
-      line-height: 1.45;
-      font-weight: 700;
-    }
-
-    .faq-answer {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.99rem;
-      line-height: 1.72;
-    }
-
-    .final-cta {
-      background: var(--navy-deep);
-      color: var(--white);
-      padding: 52px 48px 56px;
-      border-top: 1px solid rgba(18, 36, 58, 0.08);
-    }
-
-    .final-cta-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(320px, 420px);
-      gap: 42px;
-      align-items: start;
-    }
-
-    .final-cta h2 {
-      margin: 0;
-      max-width: 14ch;
-      font-family: "Libre Baskerville", serif;
-      font-size: clamp(2rem, 3.4vw, 3.3rem);
-      line-height: 1.12;
-      letter-spacing: -0.03em;
-      color: var(--white);
-    }
-
-    .final-cta-copy {
-      color: rgba(255, 255, 255, 0.74);
-      font-size: 1.03rem;
-      line-height: 1.8;
-    }
-
-    .final-cta-copy p {
-      margin: 0 0 18px;
-    }
-
-    .final-cta-copy p:last-child {
-      margin-bottom: 0;
-    }
-
-    .final-summary {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-      margin-top: 26px;
-    }
-
-    .final-summary-item {
-      padding: 16px 14px;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      color: var(--white);
-      font-size: 0.92rem;
-      font-weight: 700;
-      line-height: 1.4;
-    }
-
-    .final-cta-box {
-      padding: 28px;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-    }
-
-    .final-cta-box h3 {
-      margin: 0 0 10px;
-      font-family: "Libre Baskerville", serif;
-      font-size: 1.75rem;
-      line-height: 1.2;
-      color: var(--white);
-    }
-
-    .final-cta-subtitle {
-      margin: 0;
-      color: rgba(255, 255, 255, 0.74);
-      font-size: 1rem;
-      line-height: 1.65;
-    }
-
-    .final-price {
-      margin: 24px 0 22px;
-      padding-top: 20px;
-      border-top: 1px solid rgba(255, 255, 255, 0.12);
-    }
-
-    .final-price-label {
-      display: block;
-      margin-bottom: 8px;
-      color: rgba(255, 255, 255, 0.62);
-      font-size: 0.88rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .final-price-value {
-      font-family: "Libre Baskerville", serif;
-      font-size: 2.5rem;
-      line-height: 1;
-      color: var(--white);
-    }
-
-    .final-facts {
-      display: grid;
-      gap: 12px;
-      margin: 24px 0 22px;
-      padding-top: 20px;
-      border-top: 1px solid rgba(255, 255, 255, 0.12);
-    }
-
-    .final-fact {
-      display: grid;
-      gap: 3px;
-    }
-
-    .final-fact span {
-      color: rgba(255, 255, 255, 0.62);
-      font-size: 0.76rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .final-fact strong {
-      color: var(--white);
-      font-size: 1rem;
-      line-height: 1.45;
-    }
-
-    .final-cta-box .cta-button {
-      width: 100%;
-      background: var(--white);
-      color: var(--navy-deep);
-    }
-
-    .final-cta-box .cta-button:hover,
-    .final-cta-box .cta-button:focus-visible {
-      background: #eef1f4;
-    }
-
-    .final-note {
-      margin-top: 14px;
-      color: rgba(255, 255, 255, 0.74);
-      font-size: 0.98rem;
-      line-height: 1.6;
-    }
-
-    .mobile-cta-bar {
-      display: none;
-    }
-
-    .mobile-cta-seal,
-    .mobile-bottom-mask {
-      display: none;
-    }
-
-    @media (max-width: 980px) {
       body {
+        margin: 0;
+        font-family: "Manrope", sans-serif;
+        color: var(--ink);
         background:
-          linear-gradient(180deg, var(--navy) 0, var(--navy) 260px, var(--paper) 260px, var(--paper) 100%);
+          radial-gradient(circle at top right, rgba(224, 165, 58, 0.14), transparent 28%),
+          linear-gradient(180deg, #f9f4eb 0%, #f5efe5 28%, #fffdf8 100%);
       }
 
-      .hero {
-        grid-template-columns: 1fr;
+      a {
+        color: inherit;
+        text-decoration: none;
       }
 
-      .problem-grid {
-        grid-template-columns: 1fr;
-        gap: 24px;
+      button {
+        font: inherit;
       }
 
-      .guide-points,
-      .problem-points,
-      .quick-answer-grid,
-      .sample-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .advantage-points,
-      .final-summary {
-        grid-template-columns: 1fr;
-      }
-
-      .testimonial-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .faq-list {
-        grid-template-columns: 1fr;
-      }
-
-      .final-cta-grid {
-        grid-template-columns: 1fr;
-        gap: 28px;
-      }
-
-      .hero-visual {
-        border-left: 0;
-        border-top: 1px solid rgba(18, 36, 58, 0.08);
-      }
-    }
-
-    @media (max-width: 640px) {
       .page {
-        padding: 18px 12px 82px;
+        padding: 0 0 calc(5.5rem + env(safe-area-inset-bottom));
       }
 
-      .navbar {
-        padding-bottom: 18px;
+      .shell {
+        width: min(calc(100% - 1.25rem), var(--max));
+        margin: 0 auto;
       }
 
-      .brand {
-        font-size: 0.72rem;
-        letter-spacing: 0.08em;
-      }
-
-      .nav-actions {
-        gap: 8px;
-      }
-
-      .nav-link {
-        font-size: 0.85rem;
-      }
-
-      .nav-buy {
-        min-height: 36px;
-        padding: 0 12px;
-        font-size: 0.8rem;
-      }
-
-      .hero-copy {
-        padding: 30px 22px 28px;
-      }
-
-      .hero-visual {
-        padding: 0 22px 26px;
-      }
-
-      .lead {
-        font-size: 1.04rem;
-      }
-
-      .problem {
-        padding: 30px 22px 32px;
-      }
-
-      .quick-answers {
-        padding: 30px 22px 32px;
-      }
-
-      .guide {
-        padding: 30px 22px 32px;
-      }
-
-      .hero-proof {
-        font-size: 0.78rem;
-      }
-
-      .outcome {
-        padding: 30px 22px 32px;
-      }
-
-      .advantage {
-        padding: 30px 22px 32px;
-      }
-
-      .offer {
-        padding: 24px 22px 26px;
-      }
-
-      .testimonials {
-        padding: 30px 22px 32px;
-      }
-
-      .faq {
-        padding: 30px 22px 32px;
-      }
-
-      .final-cta {
-        padding: 34px 22px 38px;
-      }
-
-      .cta-wrap {
-        align-items: stretch;
-      }
-
-      .cta-button {
-        width: 100%;
-      }
-
-      .offer-box {
-        width: 100%;
-      }
-
-      .offer-inner {
-        gap: 16px;
-      }
-
-      .offer-copy {
-        max-width: none;
-      }
-
-      .offer-title {
-        font-size: 1rem;
-        line-height: 1.4;
-      }
-
-      .offer-cta {
-        width: 100%;
-      }
-
-      .hero-trust {
-        gap: 8px;
-      }
-
-      .hero-trust-item {
-        width: 100%;
-        justify-content: center;
-        text-align: center;
-      }
-
-      .guide-points,
-      .problem-points,
-      .quick-answer-grid,
-      .sample-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .final-summary {
-        margin-top: 20px;
-      }
-
-      .mobile-cta-bar {
-        position: fixed;
-        z-index: 31;
-        display: none;
-        left: 0;
-        right: auto;
-        top: 0;
-        background: #0c1727;
-        border-radius: 0;
-        min-height: calc(58px + env(safe-area-inset-bottom));
-        width: 100vw;
-      }
-
-      .mobile-cta-bar.is-visible {
-        display: block;
-      }
-
-      .mobile-cta-inner {
+      .site-header {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 12px;
-        padding: 10px 14px max(10px, env(safe-area-inset-bottom));
+        gap: 1rem;
+        padding: 1rem 0 0.6rem;
       }
 
-      .mobile-cta-copy {
-        min-width: 0;
-      }
-
-      .mobile-cta-price {
-        color: rgba(255, 255, 255, 0.72);
-        font-size: 0.72rem;
-        font-weight: 700;
-        letter-spacing: 0.08em;
+      .brand {
+        margin: 0;
+        color: var(--navy-deep);
+        font-size: 0.82rem;
+        font-weight: 800;
+        letter-spacing: 0.14em;
         text-transform: uppercase;
       }
 
-      .mobile-cta-title {
-        margin-top: 4px;
-        color: var(--white);
-        font-size: 0.86rem;
-        line-height: 1.3;
+      .hero {
+        display: grid;
+        gap: 1rem;
+        padding: 1rem 0 1.4rem;
+      }
+
+      .hero-copy,
+      .hero-product,
+      .snap-grid,
+      .decision-banner,
+      .section,
+      .final-panel {
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: rgba(255, 253, 248, 0.94);
+        box-shadow: var(--shadow);
+      }
+
+      .hero-copy,
+      .hero-product,
+      .section,
+      .final-panel {
+        padding: 1.25rem;
+      }
+
+      .eyebrow,
+      .card-label,
+      .buy-label {
+        margin: 0 0 0.65rem;
+        color: var(--accent-deep);
+        font-size: 0.75rem;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3 {
+        margin: 0;
+        line-height: 1.05;
+        color: var(--navy-deep);
+      }
+
+      h1,
+      h2 {
+        font-family: "Fraunces", serif;
+        letter-spacing: -0.04em;
+      }
+
+      h1 {
+        max-width: 11ch;
+        font-size: clamp(2.2rem, 9vw, 4.4rem);
+      }
+
+      h2 {
+        max-width: 14ch;
+        font-size: clamp(1.8rem, 6vw, 3rem);
+      }
+
+      h3 {
+        font-size: 1.1rem;
+      }
+
+      p {
+        margin: 0;
+      }
+
+      .lead,
+      .section-subcopy,
+      .hero-list li,
+      .simple-list li,
+      .buy-list li,
+      .snap-card p,
+      .benefit-card p,
+      .inside-card p,
+      .step-card p,
+      .task-card p,
+      .compare-card p,
+      .faq details p,
+      .buy-box p {
+        color: var(--ink-soft);
+      }
+
+      .lead {
+        margin-top: 1rem;
+        max-width: 41rem;
+        font-size: 1.03rem;
+        line-height: 1.65;
+      }
+
+      .signal-row,
+      .final-badges,
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.7rem;
+        margin-top: 1rem;
+      }
+
+      .signal-pill,
+      .final-badges span {
+        display: inline-flex;
+        align-items: center;
+        min-height: 2rem;
+        padding: 0 0.8rem;
+        border-radius: 999px;
+        border: 1px solid rgba(18, 52, 81, 0.1);
+        background: rgba(18, 52, 81, 0.05);
+        color: var(--navy-deep);
+        font-size: 0.83rem;
         font-weight: 700;
       }
 
-      .mobile-cta-bar .cta-button {
-        width: auto;
-        min-height: 40px;
-        padding: 0 16px;
-        white-space: nowrap;
-        background: var(--white);
+      .hero-list,
+      .simple-list,
+      .buy-list {
+        margin: 1.1rem 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .hero-list li,
+      .simple-list li,
+      .buy-list li {
+        position: relative;
+        padding-left: 1.1rem;
+      }
+
+      .hero-list li + li,
+      .simple-list li + li,
+      .buy-list li + li {
+        margin-top: 0.72rem;
+      }
+
+      .hero-list li::before,
+      .simple-list li::before,
+      .buy-list li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.55rem;
+        width: 0.42rem;
+        height: 0.42rem;
+        border-radius: 999px;
+        background: var(--accent);
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 3.25rem;
+        padding: 0.85rem 1.1rem;
+        border-radius: 999px;
+        border: 1px solid transparent;
+        font-size: 0.96rem;
+        font-weight: 800;
+        transition: transform 160ms ease, opacity 160ms ease;
+      }
+
+      .button:hover,
+      .button:focus-visible {
+        opacity: 0.98;
+        transform: translateY(-1px);
+      }
+
+      .button-primary {
+        background: var(--navy-deep);
+        color: #fff;
+      }
+
+      .button-secondary,
+      .button-ghost {
+        border-color: var(--line);
+        background: transparent;
         color: var(--navy-deep);
+      }
+
+      .button-small {
+        min-height: 2.6rem;
+        padding: 0.65rem 0.95rem;
+        font-size: 0.86rem;
+      }
+
+      .button-full {
+        width: 100%;
+      }
+
+      .purchase-note {
+        margin-top: 0.95rem;
+        color: var(--ink-soft);
+        font-size: 0.9rem;
+      }
+
+      .hero-product {
+        overflow: hidden;
+        background:
+          radial-gradient(circle at top left, rgba(224, 165, 58, 0.18), transparent 42%),
+          linear-gradient(180deg, rgba(18, 52, 81, 0.06), rgba(18, 52, 81, 0.02));
+      }
+
+      .product-stack {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .product-book {
+        position: relative;
+        overflow: hidden;
+        min-height: 18rem;
+        padding: 1.25rem;
+        border-radius: 22px;
+        background: linear-gradient(160deg, rgba(13, 34, 54, 0.95), rgba(18, 52, 81, 0.88));
+        color: #fff;
+      }
+
+      .product-book::after {
+        content: "";
+        position: absolute;
+        inset: auto -3rem -3rem auto;
+        width: 10rem;
+        height: 10rem;
+        border-radius: 999px;
+        background: rgba(224, 165, 58, 0.18);
+      }
+
+      .book-kicker {
+        color: rgba(255, 255, 255, 0.72);
+        font-size: 0.76rem;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .product-book h2 {
+        margin-top: 0.8rem;
+        max-width: 8ch;
+        color: #fff;
+        font-size: clamp(2rem, 7vw, 3.2rem);
+      }
+
+      .product-book p {
+        position: relative;
+        z-index: 1;
+        max-width: 15rem;
+        margin-top: 0.8rem;
+        color: rgba(255, 255, 255, 0.76);
+        line-height: 1.55;
+      }
+
+      .book-lines {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        gap: 0.55rem;
+        margin-top: 1.25rem;
+      }
+
+      .book-lines span {
+        display: block;
+        width: min(100%, 13rem);
+        height: 0.72rem;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.16);
+      }
+
+      .book-lines span:nth-child(2) {
+        width: min(100%, 10.5rem);
+      }
+
+      .book-lines span:nth-child(3) {
+        width: min(100%, 8rem);
+      }
+      .product-card,
+      .benefit-card,
+      .inside-card,
+      .step-card,
+      .task-card,
+      .compare-card,
+      .buy-box,
+      .proof-panel {
+        padding: 1rem;
+        border-radius: 18px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.76);
+      }
+
+      .snap-grid,
+      .benefit-grid,
+      .inside-grid,
+      .steps-grid,
+      .task-grid,
+      .compare-grid,
+      .trust-grid,
+      .prompt-layout {
+        display: grid;
+        gap: 0.9rem;
+      }
+
+      .snap-card {
+        padding: 1rem 1.1rem;
+        border-top: 1px solid var(--line);
+      }
+
+      .snap-card:first-child {
+        border-top: 0;
+      }
+
+      .decision-banner {
+        margin-top: 1rem;
+        padding: 1rem 1.15rem;
+        background: linear-gradient(135deg, rgba(224, 165, 58, 0.16), rgba(18, 52, 81, 0.08));
+      }
+
+      .decision-banner p {
+        max-width: 36rem;
+        color: var(--navy-deep);
+        font-size: 1.05rem;
+        font-weight: 800;
+        line-height: 1.45;
+      }
+
+      .section {
+        margin-top: 1rem;
+      }
+
+      .section-heading {
+        max-width: 44rem;
+        margin-bottom: 1.2rem;
+      }
+
+      .section-subcopy {
+        margin-top: 0.85rem;
+        line-height: 1.62;
+      }
+
+      .benefit-card strong,
+      .task-card strong {
+        display: inline-block;
+        margin-bottom: 0.55rem;
+        color: var(--accent-deep);
+        font-size: 0.76rem;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .inside-card.featured,
+      .compare-card.highlight,
+      .buy-box {
+        background: linear-gradient(180deg, rgba(18, 52, 81, 0.08), rgba(255, 255, 255, 0.9));
+      }
+
+      .trust-card,
+      .guarantee-card {
+        padding: 1rem;
+        border-radius: 18px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.82);
+      }
+
+      .guarantee-card {
+        background: linear-gradient(135deg, rgba(224, 165, 58, 0.18), rgba(255, 255, 255, 0.96));
+      }
+
+      .trust-card p,
+      .guarantee-card p {
+        color: var(--ink-soft);
+        line-height: 1.62;
+      }
+
+      .quickstart-panel {
+        margin-top: 1rem;
+        padding: 1rem;
+        border-radius: 18px;
+        background: rgba(18, 52, 81, 0.05);
+        border: 1px solid rgba(18, 52, 81, 0.08);
+      }
+
+      .quickstart-panel h3 {
+        margin-bottom: 0.8rem;
+      }
+
+      .step-card {
+        display: grid;
+        gap: 0.65rem;
+      }
+
+      .step-number {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 999px;
+        background: var(--navy-deep);
+        color: #fff;
+        font-size: 0.86rem;
+        font-weight: 800;
+      }
+
+      .section-contrast {
+        background: linear-gradient(180deg, rgba(234, 223, 206, 0.55), rgba(255, 253, 248, 0.98));
+      }
+
+      .prompt-box {
+        display: grid;
+        gap: 0.85rem;
+      }
+
+      .prompt-box pre {
+        margin: 0;
+        padding: 1rem;
+        overflow-x: auto;
+        border-radius: 18px;
+        border: 1px solid var(--line);
+        background: #fff;
+        color: var(--ink);
+        font-family: "Manrope", sans-serif;
+        font-size: 0.95rem;
+        line-height: 1.65;
+        white-space: pre-wrap;
+      }
+
+      .faq details {
+        padding: 1rem 0;
+        border-top: 1px solid var(--line);
+      }
+
+      .faq details:first-of-type {
+        border-top: 0;
+        padding-top: 0;
+      }
+
+      .faq details:last-of-type {
+        padding-bottom: 0;
+      }
+
+      .faq summary {
+        position: relative;
+        cursor: pointer;
+        list-style: none;
+        padding-right: 1.5rem;
+        font-weight: 800;
+        color: var(--navy-deep);
+      }
+
+      .faq summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .faq summary::after {
+        content: "+";
+        position: absolute;
+        top: 0;
+        right: 0;
+        color: var(--accent-deep);
+      }
+
+      .faq details[open] summary::after {
+        content: "-";
+      }
+
+      .final-panel {
+        display: grid;
+        gap: 1rem;
+        margin-top: 1rem;
+        background:
+          radial-gradient(circle at top left, rgba(224, 165, 58, 0.2), transparent 26%),
+          linear-gradient(180deg, rgba(13, 34, 54, 0.97), rgba(18, 52, 81, 0.95));
+        color: #fff;
+      }
+
+      .final-panel h2,
+      .final-panel h3 {
+        color: #fff;
+      }
+
+      .final-copy p,
+      .buy-subtitle,
+      .guarantee-note {
+        color: rgba(255, 255, 255, 0.76);
+      }
+
+      .buy-box {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(255, 255, 255, 0.14);
+      }
+
+      .buy-box .button {
+        margin-top: 1rem;
+      }
+
+      .guarantee-note {
+        margin-top: 0.9rem;
+        font-size: 0.92rem;
+        line-height: 1.55;
+      }
+
+      .mobile-buybar {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 30;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.75rem;
+        padding: 0.8rem 0.95rem calc(0.8rem + env(safe-area-inset-bottom));
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        background: rgba(13, 34, 54, 0.96);
+        backdrop-filter: blur(16px);
+      }
+
+      .mobile-buycopy strong,
+      .mobile-buycopy span {
+        display: block;
+      }
+
+      .mobile-buycopy strong {
+        color: #fff;
         font-size: 0.92rem;
       }
-    }
-  </style>
-</head>
-<body>
-  <noscript>
-    <img
-      height="1"
-      width="1"
-      style="display:none"
-      src="https://www.facebook.com/tr?id=928793366363543&ev=PageView&noscript=1"
-      alt=""
-    >
-  </noscript>
-  <main class="page">
-    <div class="frame">
-      <div class="navbar">
-        <div class="brand">AI for Real Estate</div>
-        <div class="nav-actions">
-          <a class="nav-link" href="#contact">Contact</a>
-          <a class="nav-buy" href="https://buy.stripe.com/6oU00ibj58cs0U80TwbZe0q">Buy</a>
-        </div>
-      </div>
 
-      <div class="content-flow">
-        <section class="hero">
-          <div class="hero-copy">
-            <div class="section-tag">Digital playbook + 50+ prompt pack</div>
-            <h1>Use <span class="headline-accent">AI</span> to write better listings, follow up faster, and save time every week.</h1>
-
-            <p class="hero-proof">Used by 187+ real estate agents</p>
-            <p class="lead">
-              AI for Real Estate Agents is a practical digital playbook and prompt pack for agents
-              who know AI matters, but want a clear shortcut for using it in listings, lead
-              follow-up, client communication, marketing, and admin.
-            </p>
-
-            <div class="cta-wrap">
-              <a class="cta-button" href="https://buy.stripe.com/6oU00ibj58cs0U80TwbZe0q">Get Instant Access</a>
-            </div>
-            <div class="cta-meta">Instant digital download. One-time payment.</div>
-            <div class="hero-trust">
-              <div class="hero-trust-item">Used by 187+ real estate agents</div>
-              <div class="hero-trust-item">Built for real estate agents</div>
-              <div class="hero-trust-item">Ready-to-use prompts included</div>
-              <div class="hero-trust-item">14-day money-back guarantee</div>
-            </div>
-          </div>
-
-          <div class="hero-visual" aria-label="Book cover placeholder">
-            <div class="cover-stack">
-              <div class="book-cover">
-                <img src="heroimage.jpg" alt="AI for Real Estate guide cover">
-              </div>
-            </div>
-          </div>
-
-        </section>
-
-        <section class="quick-answers">
-          <div class="quick-answers-head">
-            <div class="section-tag">Quick buyer answers</div>
-            <h2>Everything important, quickly.</h2>
-          </div>
-
-          <div class="quick-answer-grid">
-            <article class="quick-answer-card">
-              <div class="quick-answer-label">What you get</div>
-              <h3 class="quick-answer-title">A practical playbook plus 50+ ready-to-use prompts</h3>
-              <p class="quick-answer-text">
-                You get the playbook, prompt pack, and real estate examples in one focused digital
-                resource you can use immediately.
-              </p>
-            </article>
-
-            <article class="quick-answer-card">
-              <div class="quick-answer-label">Where it fits</div>
-              <h3 class="quick-answer-title">Listings, leads, client messages, marketing, and admin</h3>
-              <p class="quick-answer-text">
-                It is built around the exact writing and communication tasks that agents repeat
-                every week.
-              </p>
-            </article>
-
-            <article class="quick-answer-card">
-              <div class="quick-answer-label">Who it is for</div>
-              <h3 class="quick-answer-title">Agents who want practical help, not tech lessons</h3>
-              <p class="quick-answer-text">
-                Best for solo agents and small teams who want to use AI well without learning
-                complicated systems.
-              </p>
-            </article>
-
-            <article class="quick-answer-card">
-              <div class="quick-answer-label">Why it matters now</div>
-              <h3 class="quick-answer-title">Agents using AI well are already starting to move faster</h3>
-              <p class="quick-answer-text">
-                The gap is no longer knowing AI exists. It is knowing how to use it in everyday
-                real estate work before that gap gets wider.
-              </p>
-            </article>
-          </div>
-        </section>
-
-        <section class="problem">
-          <div class="problem-grid">
-            <div>
-              <div class="section-tag">Why this matters now</div>
-              <h2>
-                Most agents are somewhere in this gap right now.
-              </h2>
-            </div>
-
-            <div class="problem-copy">
-              <p class="problem-intro">They know AI is becoming important, but have not yet turned it into an advantage in the work they already do.</p>
-              <div class="problem-points">
-                <article class="problem-point">
-                  <h3>They hear about AI constantly</h3>
-                  <p>But most of what they see is generic advice that does not clearly connect to listings, leads, or client communication.</p>
-                </article>
-
-                <article class="problem-point">
-                  <h3>They still do too much from scratch</h3>
-                  <p>Listing copy, follow-up, updates, and marketing still take longer than they should because the workflow has not changed.</p>
-                </article>
-
-                <article class="problem-point">
-                  <h3>Other agents are starting to gain speed</h3>
-                  <p>The ones who understand where AI fits are writing faster, replying faster, and getting more leverage from the same weekly tasks.</p>
-                </article>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="guide">
-          <div class="guide-head">
-            <div class="section-tag">Inside the playbook</div>
-            <h2>Exactly what you get when you buy.</h2>
-          </div>
-
-          <div class="guide-copy">
-            <p>
-              Everything inside is designed to help you understand where AI fits into real estate
-              work and start using it faster.
-            </p>
-
-            <ul class="guide-points">
-              <li><strong>Real estate AI playbook</strong>A simple breakdown of where AI helps most across listings, follow-up, client communication, marketing, and admin.</li>
-              <li><strong>50+ ready-to-use prompts</strong>Copy-and-adapt prompts for listing descriptions, buyer and seller messages, lead nurture, social posts, and more.</li>
-              <li><strong>Real examples and workflow ideas</strong>Practical examples that show how to get better output and turn AI into part of your normal process.</li>
-            </ul>
-
-            <div class="sample-block">
-              <p class="sample-label">See How It Helps</p>
-              <h3 class="sample-title">One prompt can turn blank-page time into a stronger listing draft in minutes.</h3>
-
-              <div class="sample-grid">
-                <div class="sample-card">
-                  <p class="sample-card-label">Listing Prompt Example</p>
-                  <p class="sample-prompt-box">Rewrite this listing description for a 3-bedroom home in Tampa, Florida. Make it sound polished, inviting, and move-in ready. Keep it concise and highlight the open-concept kitchen, fenced backyard, updated primary bathroom, and dedicated home office. Avoid cliches, avoid sounding overly salesy, and make it appeal to buyers who want a modern family home.</p>
-                </div>
-
-                <div class="sample-card">
-                  <p class="sample-card-label">What Changes</p>
-                  <ul>
-                    <li>Write a stronger first draft in less time</li>
-                    <li>Surface buyer-relevant details more clearly</li>
-                    <li>Reduce editing and avoid repetitive copy</li>
-                  </ul>
-                </div>
-              </div>
-
-              <p class="sample-note">
-                Inside the product, prompts like this are organized across listings, lead follow-up,
-                client messages, marketing, and other routine agent tasks.
-              </p>
-            </div>
-
-            <p>
-              The goal is simple: make AI feel useful, practical, and easy to apply in the work
-              you already do.
-            </p>
-          </div>
-        </section>
-
-        <section class="offer">
-          <div class="offer-inner">
-            <div class="offer-copy">
-              <p class="offer-title">Get the playbook and prompt pack that show you exactly how AI fits into real estate work.</p>
-              <div class="offer-note">Use it in your real workflow for 14 days. If it does not help you write faster, respond faster, or feel clearer about using AI, you can request a full refund.</div>
-            </div>
-            <div class="offer-box">
-              <div class="offer-cta">
-                <a class="cta-button" href="https://buy.stripe.com/6oU00ibj58cs0U80TwbZe0q">Get Instant Access</a>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="testimonials">
-          <div class="testimonials-head">
-            <div class="section-tag">Why this is easy to say yes to</div>
-            <h2>Specific, practical, and low-risk.</h2>
-          </div>
-
-          <div class="testimonial-grid">
-            <article class="testimonial-card">
-              <p class="testimonial-quote">Used by 187+ real estate agents</p>
-              <p class="testimonial-body">
-                You are not buying something untested. Other real estate agents have already bought
-                this to understand where AI fits into their work.
-              </p>
-              <div class="testimonial-author">Clear social proof at a glance</div>
-            </article>
-
-            <article class="testimonial-card">
-              <p class="testimonial-quote">Built around everyday agent tasks</p>
-              <p class="testimonial-body">
-                This is centered on the exact work agents already do: listings, follow-up, client
-                communication, marketing, and admin.
-              </p>
-              <div class="testimonial-author">Useful in real work, not just in theory</div>
-            </article>
-
-            <article class="testimonial-card">
-              <p class="testimonial-quote">14-day money-back guarantee</p>
-              <p class="testimonial-body">
-                Use it in your actual business for up to 14 days. If it does not help you write
-                faster, respond faster, or feel clearer about how to use AI, you can request a full
-                refund.
-              </p>
-              <div class="testimonial-author">Low-risk way to test it in real work</div>
-            </article>
-          </div>
-        </section>
-
-        <section class="faq" id="contact">
-          <div class="faq-head">
-            <div class="section-tag">Still deciding?</div>
-            <h2>Questions agents ask before they buy</h2>
-          </div>
-
-          <div class="faq-list">
-            <article class="faq-item">
-              <h3 class="faq-question">Is this beginner-friendly?</h3>
-              <p class="faq-answer">
-                Yes. It is built for agents who know AI is becoming important, but still want a
-                simple and practical way to start using it properly.
-              </p>
-            </article>
-
-            <article class="faq-item">
-              <h3 class="faq-question">What exactly do I get after purchase?</h3>
-              <p class="faq-answer">
-                You get instant digital access to the playbook, the 50+ prompt pack, and the
-                examples that show how to use AI across real estate tasks.
-              </p>
-            </article>
-
-            <article class="faq-item">
-              <h3 class="faq-question">Will this still help if I already use AI a little?</h3>
-              <p class="faq-answer">
-                Yes. It is especially useful if you have tried AI before but want better prompts,
-                stronger output, and a more repeatable way to use it in your business.
-              </p>
-            </article>
-
-            <article class="faq-item">
-              <h3 class="faq-question">Is this built specifically for real estate?</h3>
-              <p class="faq-answer">
-                Yes. The product is built around the everyday writing, follow-up, client
-                communication, and marketing tasks real estate agents actually deal with.
-              </p>
-            </article>
-
-            <article class="faq-item">
-              <h3 class="faq-question">What if I buy it and it is not right for me?</h3>
-              <p class="faq-answer">
-                You have 14 days to try it in your workflow. If it does not feel useful for your
-                business, you can request a full refund within that window.
-              </p>
-            </article>
-          </div>
-        </section>
-
-        <section class="final-cta">
-          <div class="final-cta-grid">
-            <div>
-              <div class="section-tag" style="color: rgba(255, 255, 255, 0.7); border-bottom-color: rgba(255, 255, 255, 0.16);">
-                Ready to stop guessing?
-              </div>
-              <h2>If other agents are learning how to use AI faster, you do not want to be late to it.</h2>
-
-              <div class="final-cta-copy">
-                <p>
-                  The risk is not missing another AI trend. It is staying slower than agents who
-                  already understand where AI fits into listings, follow-up, and client work.
-                </p>
-                <p>
-                  This gives you the playbook, prompts, and examples to close that gap without
-                  having to figure it all out on your own.
-                </p>
-              </div>
-
-              <div class="final-summary">
-                <div class="final-summary-item">Beginner-friendly</div>
-                <div class="final-summary-item">Real estate specific</div>
-                <div class="final-summary-item">Built for practical use</div>
-              </div>
-            </div>
-
-            <div class="final-cta-box">
-              <h3>AI for Real Estate Agents</h3>
-              <p class="final-cta-subtitle">
-                A practical digital playbook with 50+ prompts, examples, and workflow ideas for
-                real estate agents.
-              </p>
-
-              <div class="final-facts">
-                <div class="final-fact">
-                  <span>Format</span>
-                  <strong>Digital playbook + 50+ prompt pack</strong>
-                </div>
-                <div class="final-fact">
-                  <span>Includes</span>
-                  <strong>Listings, follow-up, client messages, and marketing prompts</strong>
-                </div>
-                <div class="final-fact">
-                  <span>Guarantee</span>
-                  <strong>14-day money-back guarantee</strong>
-                </div>
-              </div>
-
-              <a class="cta-button" href="https://buy.stripe.com/6oU00ibj58cs0U80TwbZe0q">Get Instant Access</a>
-              <div class="final-note">
-                Stop guessing where AI fits. Start using it where it helps most.
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
-    </div>
-  </main>
-
-  <div class="mobile-cta-bar">
-    <div class="mobile-cta-inner">
-      <div class="mobile-cta-copy">
-        <div class="mobile-cta-price">Instant download</div>
-        <div class="mobile-cta-title">Playbook + 50+ prompts</div>
-      </div>
-      <a class="cta-button" href="https://buy.stripe.com/6oU00ibj58cs0U80TwbZe0q">Get Access</a>
-    </div>
-  </div>
-
-  <script>
-    (function () {
-      const hero = document.querySelector(".hero");
-      const mobileBar = document.querySelector(".mobile-cta-bar");
-      const checkoutLinks = document.querySelectorAll(".cta-button, .nav-buy");
-
-      checkoutLinks.forEach(function (link) {
-        link.addEventListener("click", function () {
-          if (typeof window.fbq === "function") {
-            window.fbq("track", "InitiateCheckout");
-          }
-        });
-      });
-
-      if (!hero || !mobileBar) {
-        return;
+      .mobile-buycopy span {
+        margin-top: 0.15rem;
+        color: rgba(255, 255, 255, 0.68);
+        font-size: 0.77rem;
       }
 
-      function positionMobileBar() {
-        const vv = window.visualViewport;
+      .mobile-buybar .button {
+        min-height: 2.8rem;
+        padding-inline: 1rem;
+        white-space: nowrap;
+      }
 
-        if (!vv) {
-          mobileBar.style.left = "0px";
-          mobileBar.style.top = "";
-          mobileBar.style.right = "0px";
-          mobileBar.style.bottom = "0px";
-          mobileBar.style.width = "100vw";
+      @media (min-width: 760px) {
+        .page {
+          padding-bottom: 2.5rem;
+        }
+
+        .shell {
+          width: min(calc(100% - 2.25rem), var(--max));
+        }
+
+        .site-header {
+          padding-top: 1.5rem;
+        }
+
+        .hero {
+          grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+        }
+
+        .hero-copy,
+        .hero-product,
+        .section,
+        .final-panel {
+          padding: 1.7rem;
+        }
+
+        .snap-grid {
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+
+        .snap-card {
+          min-height: 100%;
+          border-top: 0;
+          border-left: 1px solid var(--line);
+        }
+
+        .snap-card:first-child {
+          border-left: 0;
+        }
+
+        .benefit-grid,
+        .task-grid,
+        .compare-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .inside-grid {
+          grid-template-columns: 1.15fr 1fr 1fr;
+        }
+
+        .trust-grid {
+          grid-template-columns: 1.1fr 0.9fr;
+        }
+
+        .steps-grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .prompt-layout,
+        .final-panel {
+          grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
+        }
+
+        .mobile-buybar {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <noscript>
+      <img
+        height="1"
+        width="1"
+        style="display: none"
+        src="https://www.facebook.com/tr?id=928793366363543&ev=PageView&noscript=1"
+        alt=""
+      />
+    </noscript>
+
+    <div class="mobile-buybar">
+      <div class="mobile-buycopy">
+        <strong>Guide + Prompt Pack</strong>
+        <span>Instant access. One-time purchase.</span>
+      </div>
+      <a
+        class="button button-primary checkout-link"
+        href="https://buy.stripe.com/dRmaEW72P1O4cCQ9q2bZe0r"
+        target="_blank"
+        rel="noopener"
+      >
+        Get Access
+      </a>
+    </div>
+
+    <main class="page">
+      <header class="site-header shell">
+        <p class="brand">AI for Small Business Owners</p>
+        <a
+          class="button button-secondary button-small checkout-link"
+          href="https://buy.stripe.com/dRmaEW72P1O4cCQ9q2bZe0r"
+          target="_blank"
+          rel="noopener"
+        >
+          Get Instant Access
+        </a>
+      </header>
+
+      <section class="hero shell">
+        <div class="hero-copy">
+          <p class="eyebrow">For local service business owners</p>
+          <h1>AI Playbook + Prompt Pack for owners who want faster replies, quicker quotes, and fewer missed jobs.</h1>
+          <p class="lead">
+            A practical guide showing how to use AI in real business tasks like customer replies,
+            quote follow-ups, marketing, planning, and writing, plus ready-to-use prompts so you
+            can start using it straight away.
+          </p>
+
+          <div class="signal-row">
+            <span class="signal-pill">Practical guide + prompt pack</span>
+            <span class="signal-pill">Instant digital download</span>
+            <span class="signal-pill">Works with ChatGPT, Claude, and Gemini</span>
+            <span class="signal-pill">No technical setup</span>
+          </div>
+
+          <ul class="hero-list">
+            <li>Know exactly where AI fits into the jobs, messages, quotes, and admin you already handle</li>
+            <li>Copy prompts and use them the same day instead of guessing what to ask</li>
+            <li>Use AI to help you move faster without turning it into another complicated thing to learn</li>
+          </ul>
+
+          <div class="hero-actions">
+            <a
+              class="button button-primary checkout-link"
+              href="https://buy.stripe.com/dRmaEW72P1O4cCQ9q2bZe0r"
+              target="_blank"
+              rel="noopener"
+            >
+              Get the Guide + Prompt Pack
+            </a>
+            <a class="button button-ghost" href="#inside">See What You Get</a>
+          </div>
+
+          <p class="purchase-note">
+            One-time purchase. Beginner-friendly. Try it for 14 days and see if it feels useful in your business.
+          </p>
+        </div>
+
+        <div class="hero-product">
+          <div class="product-stack">
+            <div class="product-book">
+              <div class="book-kicker">Digital playbook</div>
+              <h2>AI for Small Business Owners</h2>
+              <p>Practical guide + prompt pack for real business tasks you can use this week.</p>
+              <div class="book-lines">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <p class="card-label">Inside the product</p>
+              <h3>Built to give you a useful first win fast.</h3>
+              <ul class="simple-list">
+                <li>Practical playbook for how AI fits into a small business workflow</li>
+                <li>Ready-to-use prompts for replies, quotes, follow-ups, and marketing</li>
+                <li>Simple setup sheet so outputs feel more relevant to your business</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="shell snap-grid">
+        <article class="snap-card">
+          <h3>What it is</h3>
+          <p>A practical AI guide / playbook for small business owners plus a prompt pack included with purchase.</p>
+        </article>
+        <article class="snap-card">
+          <h3>Who it is for</h3>
+          <p>Busy hands-on owners who juggle jobs, messages, quotes, follow-ups, and admin themselves.</p>
+        </article>
+        <article class="snap-card">
+          <h3>What it helps with</h3>
+          <p>Faster replies, clearer quotes, easier follow-up, simpler marketing, and less blank-page writing.</p>
+        </article>
+        <article class="snap-card">
+          <h3>Why it matters</h3>
+          <p>Slow responses and admin backlog quietly cost time, energy, and booked work.</p>
+        </article>
+      </section>
+
+      <section class="shell decision-banner">
+        <p>This is not about "learning AI." It is a shortcut to running the business better.</p>
+      </section>
+
+      <section class="shell section">
+        <div class="trust-grid">
+          <article class="trust-card">
+            <p class="eyebrow">Why trust this</p>
+            <h2>Built from 100+ one-to-one AI implementations with small businesses.</h2>
+            <p class="section-subcopy">
+              This is based on real implementation work, not theory. It was created for owners who
+              are busy, hands-on, and want AI to help with practical work like replies, quotes,
+              follow-ups, planning, and writing.
+            </p>
+          </article>
+
+          <article class="guarantee-card">
+            <p class="eyebrow">14-day guarantee</p>
+            <h3>Go through it properly. Use the prompts in your business. If it does not feel useful, get your money back.</h3>
+            <p style="margin-top: 0.7rem;">
+              You have 14 days to try it on real tasks like customer replies, quote follow-ups, or
+              marketing. If it does not help you feel faster, clearer, or more on top of things,
+              you can ask for a refund.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="shell section">
+        <div class="section-heading">
+          <p class="eyebrow">Key reasons they buy</p>
+          <h2>Designed around the jobs owners actually want help with first.</h2>
+          <p class="section-subcopy">
+            The goal is simple: help you deal with the tasks that usually slow you down, cost you
+            headspace, or lose you work.
+          </p>
+        </div>
+
+        <div class="benefit-grid">
+          <article class="benefit-card">
+            <strong>Faster replies</strong>
+            <h3>Answer new enquiries without overthinking every message.</h3>
+            <p>Use prompts to draft clean, professional responses while you are busy on jobs.</p>
+          </article>
+          <article class="benefit-card">
+            <strong>Quicker quotes</strong>
+            <h3>Get a stronger starting point for quotes and quote follow-ups.</h3>
+            <p>Reduce delay between interest and action so fewer leads drift away.</p>
+          </article>
+          <article class="benefit-card">
+            <strong>Lower admin load</strong>
+            <h3>Stop carrying every wording decision in your head.</h3>
+            <p>Turn repeated writing tasks into a quicker, more repeatable workflow.</p>
+          </article>
+          <article class="benefit-card">
+            <strong>Easier marketing</strong>
+            <h3>Create offers, captions, promos, and customer messages faster.</h3>
+            <p>Use AI where it helps your business look more active without eating your evening.</p>
+          </article>
+        </div>
+      </section>
+      <section class="shell section section-contrast" id="inside">
+        <div class="section-heading">
+          <p class="eyebrow">What you get</p>
+          <h2>A clear product with a fast path to first use.</h2>
+        </div>
+
+        <div class="inside-grid">
+          <article class="inside-card featured">
+            <p class="card-label">Core guide</p>
+            <h3>The practical AI playbook</h3>
+            <ul class="simple-list">
+              <li>Shows how AI can help with real business tasks like marketing, communication, planning, and writing</li>
+              <li>Explains where to start first if you are new and short on time</li>
+              <li>Keeps the advice practical instead of technical</li>
+            </ul>
+          </article>
+          <article class="inside-card">
+            <p class="card-label">Included with purchase</p>
+            <h3>The ready-to-use prompt pack</h3>
+            <ul class="simple-list">
+              <li>Ready-made prompts for replies, quotes, follow-ups, planning, and promotions</li>
+              <li>Built to copy, paste, tweak, and use immediately</li>
+              <li>Removes the "what do I ask?" problem</li>
+            </ul>
+          </article>
+          <article class="inside-card">
+            <p class="card-label">Quick-start tool</p>
+            <h3>The business setup sheet</h3>
+            <ul class="simple-list">
+              <li>Add your business type, offer, customer, and tone once</li>
+              <li>Helps outputs feel more relevant and less generic</li>
+              <li>Makes the prompts easier to reuse every week</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="quickstart-panel">
+          <h3>How fast can a buyer use it?</h3>
+          <div class="steps-grid">
+            <article class="step-card">
+              <span class="step-number">1</span>
+              <h3>Pick one task</h3>
+              <p>Start with replies, quotes, follow-ups, marketing, or weekly planning.</p>
+            </article>
+            <article class="step-card">
+              <span class="step-number">2</span>
+              <h3>Copy a prompt</h3>
+              <p>Add a few business details so the output feels more relevant to your business.</p>
+            </article>
+            <article class="step-card">
+              <span class="step-number">3</span>
+              <h3>Use it in real work</h3>
+              <p>Send the message, adapt the draft, or reuse the framework next time.</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <a
+            class="button button-primary checkout-link"
+            href="https://buy.stripe.com/dRmaEW72P1O4cCQ9q2bZe0r"
+            target="_blank"
+            rel="noopener"
+          >
+            Get Instant Access
+          </a>
+        </div>
+      </section>
+
+      <section class="shell section">
+        <div class="section-heading">
+          <p class="eyebrow">Real use cases</p>
+          <h2>Built for the tasks that usually get delayed when the day gets busy.</h2>
+        </div>
+
+        <div class="task-grid">
+          <article class="task-card">
+            <strong>Communication</strong>
+            <h3>Use AI for replies, quote follow-ups, check-in messages, and customer updates.</h3>
+            <p>Helpful when you know you need to respond quickly but do not want to type everything from scratch.</p>
+          </article>
+          <article class="task-card">
+            <strong>Marketing and planning</strong>
+            <h3>Use AI for promos, captions, service descriptions, weekly priorities, and writing support.</h3>
+            <p>Useful when marketing keeps slipping because the daily workload always feels more urgent.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="shell section section-contrast">
+        <div class="section-heading">
+          <p class="eyebrow">Prompt preview</p>
+          <h2>One example of the kind of prompt buyers can use straight away.</h2>
+        </div>
+
+        <div class="prompt-layout">
+          <div class="prompt-box">
+            <pre id="sample-prompt">Act as an assistant for my local service business.
+
+Business type: [plumber / electrician / cleaner / landscaper / etc.]
+Main service: [insert service]
+Ideal customer: [insert customer type]
+Tone: [friendly / professional / direct]
+
+Write a reply to a new customer enquiry that:
+1. Thanks them for getting in touch
+2. Confirms I can help
+3. Asks for the key details I need to quote properly
+4. Sounds clear, helpful, and professional
+5. Stays short enough to send as a text or email
+
+Then write:
+- a simple quote follow-up message for 2 days later
+- a polite chase-up message if they have gone quiet
+- a short version I can send from my phone</pre>
+            <button class="button button-secondary" id="copy-prompt" type="button">Copy Sample Prompt</button>
+          </div>
+
+          <aside class="proof-panel">
+            <p class="card-label">Why this is worth buying</p>
+            <h3>It gives you a practical starting point you can use right away.</h3>
+            <ul class="simple-list">
+              <li>This is useful for my business, not generic AI theory</li>
+              <li>This will help me reply faster and quote quicker</li>
+              <li>This looks simple enough to use immediately</li>
+              <li>This is a low-risk one-time purchase, not another complicated system</li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <section class="shell section">
+        <div class="section-heading">
+          <p class="eyebrow">Why buy now</p>
+          <h2>Every slow reply, forgotten follow-up, and delayed quote makes it easier for a faster competitor to win the job.</h2>
+          <p class="section-subcopy">
+            This is not about keeping up with an AI trend. It is about removing everyday friction
+            that can quietly cost you work.
+          </p>
+        </div>
+
+        <div class="compare-grid">
+          <article class="compare-card">
+            <p class="card-label">Without a shortcut</p>
+            <h3>You keep meaning to "sort AI out" later.</h3>
+            <ul class="simple-list">
+              <li>Messages wait longer than they should</li>
+              <li>Quote follow-ups depend on memory</li>
+              <li>Marketing gets pushed to the side again</li>
+            </ul>
+          </article>
+          <article class="compare-card highlight">
+            <p class="card-label">With this product</p>
+            <h3>You start using AI where it helps you make money or save time first.</h3>
+            <ul class="simple-list">
+              <li>You know where AI fits first</li>
+              <li>You use prompts for real tasks already sitting on your plate</li>
+              <li>You reduce the chances of leads going cold because you were too busy</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="shell section faq">
+        <div class="section-heading">
+          <p class="eyebrow">FAQ</p>
+          <h2>Quick answers before buying.</h2>
+        </div>
+
+        <details open>
+          <summary>What exactly am I buying?</summary>
+          <p>You get a practical AI guide / playbook for small business owners plus a ready-to-use prompt pack included with purchase.</p>
+        </details>
+        <details>
+          <summary>Do I need prior AI experience?</summary>
+          <p>No. It is designed for people who know AI exists but have not implemented it properly in their business yet.</p>
+        </details>
+        <details>
+          <summary>Who is this best for?</summary>
+          <p>It is best for local service business owners and other busy small business owners who want faster replies, simpler admin, and more practical use from AI.</p>
+        </details>
+        <details>
+          <summary>What does the prompt pack help me do?</summary>
+          <p>It gives you ready-to-use prompts so you can start using AI immediately for communication, planning, marketing, and writing tasks.</p>
+        </details>
+        <details>
+          <summary>Is this a subscription?</summary>
+          <p>No. It is a one-time purchase and instant digital download.</p>
+        </details>
+        <details>
+          <summary>What if it is not right for me?</summary>
+          <p>You are covered by a 14-day money-back guarantee, so you can review it properly and decide if it feels genuinely useful in your business.</p>
+        </details>
+      </section>
+
+      <section class="shell final-panel" id="buy">
+        <div class="final-copy">
+          <p class="eyebrow" style="color: rgba(255, 255, 255, 0.72)">Simple first step</p>
+          <h2>Get the guide and prompt pack that help you use AI for real business tasks this week.</h2>
+          <p class="lead" style="max-width: 40rem; color: rgba(255, 255, 255, 0.76)">
+            If you want a low-friction way to handle replies, quotes, follow-ups, planning, and marketing more efficiently,
+            this is the fastest way to get started without turning it into a whole new project.
+          </p>
+          <div class="final-badges">
+            <span>Guide + prompt pack</span>
+            <span>Built from 100+ implementations</span>
+            <span>14-day guarantee</span>
+          </div>
+        </div>
+
+        <div class="buy-box">
+          <p class="buy-label">Instant digital download</p>
+          <h3>AI for Small Business Owners</h3>
+          <p class="buy-subtitle">Practical playbook + ready-to-use prompt pack for busy owners.</p>
+          <ul class="buy-list">
+            <li>Practical AI guide for marketing, communication, planning, and writing</li>
+            <li>Ready-to-use prompt pack included with purchase</li>
+            <li>Business setup sheet for more relevant outputs</li>
+            <li>Built from 100+ one-to-one implementations with small businesses</li>
+            <li>Works with ChatGPT, Claude, and Gemini</li>
+            <li>One-time purchase and 14-day money-back guarantee</li>
+          </ul>
+          <a
+            class="button button-primary button-full checkout-link"
+            href="https://buy.stripe.com/dRmaEW72P1O4cCQ9q2bZe0r"
+            target="_blank"
+            rel="noopener"
+          >
+            Get Instant Access
+          </a>
+          <p class="guarantee-note">Buy once, use it on real work for 14 days, and if it does not feel useful in your business, you can ask for your money back.</p>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      (function () {
+        var button = document.getElementById("copy-prompt");
+        var prompt = document.getElementById("sample-prompt");
+        var checkoutLinks = document.querySelectorAll(".checkout-link");
+        var params = new URLSearchParams(window.location.search);
+        var geo = (params.get("geo") || "").toLowerCase();
+        var defaultCheckoutUrl = "https://buy.stripe.com/dRmaEW72P1O4cCQ9q2bZe0r";
+        var checkoutUrls = {
+          uk: "https://buy.stripe.com/dRmaEW72P1O4cCQ9q2bZe0r",
+          us: "https://buy.stripe.com/dRm4gyaf12S80U859MbZe0s"
+        };
+
+        checkoutLinks.forEach(function (link) {
+          link.href = checkoutUrls[geo] || defaultCheckoutUrl;
+          link.addEventListener("click", function () {
+            if (window.fbq) {
+              fbq("track", "InitiateCheckout");
+            }
+          });
+        });
+
+        if (!button || !prompt || !navigator.clipboard) {
           return;
         }
 
-        const barHeight = mobileBar.offsetHeight || 0;
-        const top = Math.round(vv.offsetTop + vv.height - barHeight + 1);
-
-        mobileBar.style.left = Math.round(vv.offsetLeft) + "px";
-        mobileBar.style.top = top + "px";
-        mobileBar.style.right = "auto";
-        mobileBar.style.bottom = "auto";
-        mobileBar.style.width = Math.round(vv.width) + "px";
-      }
-
-      function updateMobileBar() {
-        const isMobile = window.innerWidth <= 640;
-        const heroBottom = hero.getBoundingClientRect().bottom;
-        const shouldShow = isMobile && heroBottom <= 0;
-
-        mobileBar.classList.toggle("is-visible", shouldShow);
-
-        if (shouldShow) {
-          positionMobileBar();
-        }
-      }
-
-      window.addEventListener("scroll", updateMobileBar, { passive: true });
-      window.addEventListener("resize", updateMobileBar);
-      window.addEventListener("load", updateMobileBar);
-      if (window.visualViewport) {
-        window.visualViewport.addEventListener("resize", updateMobileBar);
-        window.visualViewport.addEventListener("scroll", updateMobileBar);
-      }
-      updateMobileBar();
-    }());
-  </script>
-</body>
+        button.addEventListener("click", function () {
+          navigator.clipboard.writeText(prompt.textContent).then(function () {
+            button.textContent = "Copied";
+            window.setTimeout(function () {
+              button.textContent = "Copy Sample Prompt";
+            }, 1500);
+          });
+        });
+      })();
+    </script>
+  </body>
 </html>
