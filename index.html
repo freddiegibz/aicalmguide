@@ -68,6 +68,11 @@
           linear-gradient(180deg, #f9f4eb 0%, #f5efe5 28%, #fffdf8 100%);
       }
 
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
       a {
         color: inherit;
         text-decoration: none;
@@ -465,6 +470,21 @@
         background: rgba(255, 255, 255, 0.82);
       }
 
+      .creator-row {
+        display: grid;
+        grid-template-columns: 88px minmax(0, 1fr);
+        gap: 1rem;
+        align-items: start;
+      }
+
+      .creator-photo {
+        width: 88px;
+        height: 88px;
+        border-radius: 22px;
+        object-fit: cover;
+        box-shadow: 0 14px 30px rgba(13, 34, 54, 0.14);
+      }
+
       .guarantee-card {
         background: linear-gradient(135deg, rgba(224, 165, 58, 0.18), rgba(255, 255, 255, 0.96));
       }
@@ -736,6 +756,16 @@
           grid-template-columns: 1.1fr 0.9fr;
         }
 
+        .creator-row {
+          grid-template-columns: 112px minmax(0, 1fr);
+          gap: 1.15rem;
+        }
+
+        .creator-photo {
+          width: 112px;
+          height: 112px;
+        }
+
         .delivery-grid,
         .example-stack {
           grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -804,23 +834,15 @@
           <p class="eyebrow">For local service business owners</p>
           <h1>AI Playbook + Prompt Pack for owners who want faster replies, quicker quotes, and fewer missed jobs.</h1>
           <p class="lead">
-            A practical guide showing how to use AI in real business tasks like customer replies,
-            quote follow-ups, marketing, planning, and writing, plus ready-to-use prompts so you
-            can start using it straight away.
+            A practical guide plus ready-to-use prompts for local service owners who want help with
+            customer replies, quote follow-ups, marketing, planning, and everyday writing.
           </p>
 
           <div class="signal-row">
-            <span class="signal-pill">Practical guide + prompt pack</span>
+            <span class="signal-pill">Guide + prompt pack</span>
             <span class="signal-pill">Instant digital download</span>
-            <span class="signal-pill">Works with ChatGPT, Claude, and Gemini</span>
-            <span class="signal-pill">No technical setup</span>
+            <span class="signal-pill">14-day guarantee</span>
           </div>
-
-          <ul class="hero-list">
-            <li>Know exactly where AI fits into the jobs, messages, quotes, and admin you already handle</li>
-            <li>Copy prompts and use them the same day instead of guessing what to ask</li>
-            <li>Use AI to help you move faster without turning it into another complicated thing to learn</li>
-          </ul>
 
           <div class="hero-actions">
             <a
@@ -835,7 +857,8 @@
           </div>
 
           <p class="purchase-note">
-            One-time purchase. Beginner-friendly. Try it for 14 days and see if it feels useful in your business.
+            Built from 100+ one-to-one implementations with small businesses. Works with ChatGPT,
+            Claude, and Gemini.
           </p>
         </div>
 
@@ -891,13 +914,19 @@
       <section class="shell section">
         <div class="trust-grid">
           <article class="trust-card">
-            <p class="eyebrow">Why trust this</p>
-            <h2>Built by someone who has implemented AI one-to-one in 100+ small businesses.</h2>
-            <p class="section-subcopy">
-              This was not written from the sidelines. It comes from hands-on implementation work
-              inside real small businesses, seeing where owners actually get stuck and where AI is
-              most useful first: replies, quotes, follow-ups, planning, and everyday writing.
-            </p>
+            <div class="creator-row">
+              <img src="me.jpg" alt="Creator of AI for Small Business Owners" class="creator-photo" />
+              <div>
+                <p class="eyebrow">Why trust this</p>
+                <h2>Built from real one-to-one implementation work in 100+ small businesses.</h2>
+                <p class="section-subcopy">
+                  This comes from actually helping owners use AI in the messy, everyday parts of
+                  the business, not just talking about it in theory. The same problems keep showing
+                  up: slow replies, delayed quotes, forgotten follow-ups, and too much admin stuck
+                  in your head.
+                </p>
+              </div>
+            </div>
           </article>
 
           <article class="guarantee-card">
