@@ -409,10 +409,6 @@ Do not give me theory. Give me usable drafts.</pre>
           checkoutLink.href = checkoutUrls[geo] || defaultCheckoutUrl;
           checkoutLink.addEventListener("click", function () {
             if (window.fbq) {
-              fbq("track", "InitiateCheckout", {
-                content_name: "AI for Small Business Owners Starter Kit",
-                content_category: "digital_product"
-              });
               fbq("trackCustom", "smallbusiness_initiatecheckout");
             }
           });
