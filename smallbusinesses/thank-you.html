@@ -8,6 +8,31 @@
       name="description"
       content="Thank you for your purchase. Your AI for Small Business Owners guide is on its way to your email."
     />
+    <script>
+      !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) {
+          return;
+        }
+        n = f.fbq = function () {
+          n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+        };
+        if (!f._fbq) {
+          f._fbq = n;
+        }
+        n.push = n;
+        n.loaded = !0;
+        n.version = "2.0";
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      })(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+      fbq("init", "928793366363543");
+      fbq("track", "PageView");
+      fbq("trackCustom", "smallbusiness_purchase");
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -17,6 +42,15 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <noscript>
+      <img
+        height="1"
+        width="1"
+        style="display: none"
+        src="https://www.facebook.com/tr?id=928793366363543&ev=PageView&noscript=1"
+        alt=""
+      />
+    </noscript>
     <main class="thank-you-page">
       <section class="thank-you-card">
         <p class="eyebrow">Purchase complete</p>
