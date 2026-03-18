@@ -54,41 +54,79 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
-  padding: 14px 16px;
-  border: 1px solid var(--line);
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(23, 33, 39, 0.08);
+  background: transparent;
+  box-shadow: none;
+}
+
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.brand-short {
+  font-size: 0.98rem;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.nav-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0 14px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(12px);
-  box-shadow: 0 10px 24px rgba(23, 33, 39, 0.05);
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--ink);
+  font-size: 0.92rem;
+  font-weight: 800;
+}
+
+.topbar-cta {
+  min-height: 42px;
+  padding: 0 16px;
+}
+
+.topbar .mini-button {
+  box-shadow: none;
+}
+
+.topbar .mini-button,
+.nav-button {
+  flex-shrink: 0;
 }
 
 .brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 0.95rem;
-  font-weight: 800;
-  letter-spacing: 0.01em;
   min-width: 0;
 }
 
-.brand-mark {
-  width: 34px;
-  height: 34px;
-  border-radius: 11px;
-  display: grid;
-  place-items: center;
-  background: linear-gradient(135deg, var(--primary), var(--primary-deep));
-  color: #fff;
-  font-size: 0.92rem;
-}
-
+.brand-mark,
 .topbar-copy {
   display: none;
-  color: var(--muted);
-  font-size: 0.92rem;
-  font-weight: 600;
+}
+
+@media (max-width: 419px) {
+  .brand-short {
+    font-size: 0.92rem;
+  }
+
+  .nav-button,
+  .topbar-cta {
+    min-height: 40px;
+    padding: 0 12px;
+    font-size: 0.88rem;
+  }
+
+  .topbar-actions {
+    gap: 6px;
+  }
 }
 
 .hero {
@@ -783,8 +821,12 @@ details[open] summary::after {
     padding-bottom: 24px;
   }
 
-  .topbar-copy {
-    display: block;
+  .topbar {
+    padding: 14px 0;
+  }
+
+  .brand-short {
+    font-size: 1rem;
   }
 
   .hero {
