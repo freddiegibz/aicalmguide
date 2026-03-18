@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>AI Guide + Prompt Pack for Service Businesses</title>
+    <meta
+      name="description"
+      content="A practical AI guide and prompt pack for busy service businesses that want to write customer messages, follow-ups, invoice reminders, and replies faster."
+    />
+    <script>
+      !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+          n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = "2.0";
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      })(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+      fbq("init", "928793366363543");
+      fbq("track", "PageView");
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --ink: #152433;
+        --ink-soft: #5a6c7b;
+        --navy: #12304a;
+        --navy-deep: #0b2135;
+        --cream: #f6f1e7;
+        --paper: #fffdf9;
+        --panel: rgba(255, 255, 255, 0.82);
+        --line: rgba(18, 48, 74, 0.12);
+        --gold: #d89a2b;
+        --gold-deep: #a86c0d;
+        --shadow: 0 22px 60px rgba(11, 33, 53, 0.12);
+        --radius-lg: 28px;
+        --radius-md: 22px;
+        --radius-sm: 16px;
+        --max: 1120px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        -webkit-text-size-adjust: 100%;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Manrope", sans-serif;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at top left, rgba(216, 154, 43, 0.16), transparent 28%),
+          radial-gradient(circle at top right, rgba(18, 48, 74, 0.09), transparent 28%),
+          linear-gradient(180deg, #fbf7f0 0%, #f6f1e7 32%, #fffdf9 100%);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      button {
+        font: inherit;
+      }
+
+      .page {
+        padding-bottom: calc(6rem + env(safe-area-inset-bottom));
+      }
+
+      .shell {
+        width: min(calc(100% - 1.25rem), var(--max));
+        margin: 0 auto;
+      }
+
+      .site-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 1rem 0 0.75rem;
+      }
+
+      .brand {
+        margin: 0;
+        color: var(--navy-deep);
+        font-size: 0.8rem;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .header-link {
+        color: var(--navy);
+        font-size: 0.9rem;
+        font-weight: 700;
+      }
+
+      .hero,
+      .section,
+      .final-panel {
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        background: rgba(255, 253, 249, 0.92);
+        box-shadow: var(--shadow);
+      }
+
+      .hero {
+        display: grid;
+        gap: 1rem;
+        padding: 1rem;
+      }
+
+      .hero-copy,
+      .hero-visual,
+      .section,
+      .final-panel {
+        padding: 1.2rem;
+      }
+
+      .eyebrow,
+      .mini-label,
+      .case-label {
+        margin: 0 0 0.7rem;
+        color: var(--gold-deep);
+        font-size: 0.75rem;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3 {
+        margin: 0;
+        color: var(--navy-deep);
+        line-height: 1.04;
+      }
+
+      h1,
+      h2 {
+        font-family: "Newsreader", serif;
+        letter-spacing: -0.04em;
+      }
+
+      h1 {
+        max-width: 10ch;
+        font-size: clamp(2.3rem, 9vw, 4.7rem);
+      }
+
+      h2 {
+        max-width: 14ch;
+        font-size: clamp(1.9rem, 6vw, 3rem);
+      }
+
+      h3 {
+        font-size: 1.08rem;
+      }
+
+      p {
+        margin: 0;
+      }
+
+      .lead,
+      .subcopy,
+      .bullet-list li,
+      .compare-copy,
+      .card p,
+      .faq-answer,
+      .microcopy,
+      .sticky-copy span {
+        color: var(--ink-soft);
+      }
+
+      .lead {
+        margin-top: 0.95rem;
+        max-width: 38rem;
+        font-size: 1.03rem;
+        line-height: 1.62;
+      }
+
+      .trust-line {
+        margin-top: 1rem;
+        padding: 0.9rem 1rem;
+        border-radius: 999px;
+        border: 1px solid rgba(18, 48, 74, 0.08);
+        background: rgba(18, 48, 74, 0.05);
+        color: var(--navy-deep);
+        font-size: 0.92rem;
+        font-weight: 700;
+      }
+
+      .hero-points,
+      .badge-row,
+      .button-row,
+      .mini-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.7rem;
+      }
+
+      .hero-points,
+      .button-row {
+        margin-top: 1rem;
+      }
+
+      .badge,
+      .mini-chip {
+        display: inline-flex;
+        align-items: center;
+        min-height: 2rem;
+        padding: 0 0.78rem;
+        border-radius: 999px;
+        border: 1px solid rgba(18, 48, 74, 0.09);
+        background: rgba(255, 255, 255, 0.72);
+        color: var(--navy-deep);
+        font-size: 0.84rem;
+        font-weight: 700;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 3.2rem;
+        padding: 0.85rem 1.15rem;
+        border: 1px solid transparent;
+        border-radius: 999px;
+        font-size: 0.96rem;
+        font-weight: 800;
+        transition: transform 160ms ease, opacity 160ms ease;
+      }
+
+      .button:hover,
+      .button:focus-visible {
+        opacity: 0.98;
+        transform: translateY(-1px);
+      }
+
+      .button-primary {
+        background: var(--navy-deep);
+        color: #fff;
+      }
+
+      .button-secondary {
+        border-color: var(--line);
+        background: transparent;
+        color: var(--navy-deep);
+      }
+
+      .button-full {
+        width: 100%;
+      }
+
+      .microcopy {
+        margin-top: 0.8rem;
+        font-size: 0.9rem;
+      }
+
+      .hero-visual {
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: var(--radius-md);
+        background:
+          radial-gradient(circle at top left, rgba(216, 154, 43, 0.18), transparent 34%),
+          linear-gradient(160deg, rgba(18, 48, 74, 0.05), rgba(18, 48, 74, 0.02));
+      }
+
+      .book-scene {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .book {
+        position: relative;
+        overflow: hidden;
+        min-height: 18rem;
+        padding: 1.25rem;
+        border-radius: 22px;
+        background: linear-gradient(160deg, #0f2840 0%, #163754 100%);
+        color: #fff;
+        box-shadow: 0 20px 50px rgba(11, 33, 53, 0.22);
+      }
+
+      .book::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(120deg, rgba(255, 255, 255, 0.08), transparent 32%),
+          radial-gradient(circle at bottom right, rgba(216, 154, 43, 0.28), transparent 36%);
+        pointer-events: none;
+      }
+
+      .book::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 1rem;
+        width: 3.4rem;
+        height: 100%;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.03));
+        transform: skewX(-12deg);
+        opacity: 0.45;
+      }
+
+      .book-kicker {
+        position: relative;
+        z-index: 1;
+        color: rgba(255, 255, 255, 0.72);
+        font-size: 0.74rem;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .book h2 {
+        position: relative;
+        z-index: 1;
+        max-width: 8ch;
+        margin-top: 0.75rem;
+        color: #fff;
+        font-size: clamp(2rem, 7vw, 3.2rem);
+      }
+
+      .book p {
+        position: relative;
+        z-index: 1;
+        max-width: 15rem;
+        margin-top: 0.8rem;
+        color: rgba(255, 255, 255, 0.82);
+        line-height: 1.55;
+      }
+
+      .book-list,
+      .bullet-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .book-list {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        gap: 0.7rem;
+        margin-top: 1.2rem;
+      }
+
+      .book-list li {
+        padding: 0.78rem 0.85rem;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.08);
+        color: rgba(255, 255, 255, 0.92);
+        font-size: 0.92rem;
+        font-weight: 700;
+        line-height: 1.4;
+      }
+
+      .section {
+        margin-top: 1rem;
+      }
+
+      .section-heading {
+        max-width: 42rem;
+        margin-bottom: 1rem;
+      }
+
+      .bullet-list {
+        display: grid;
+        gap: 0.8rem;
+      }
+
+      .bullet-list li {
+        position: relative;
+        padding-left: 1.1rem;
+        line-height: 1.55;
+      }
+
+      .bullet-list li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.58rem;
+        width: 0.42rem;
+        height: 0.42rem;
+        border-radius: 999px;
+        background: var(--gold);
+      }
+
+      .compare-grid,
+      .two-up,
+      .cases-grid,
+      .trust-grid,
+      .faq-grid {
+        display: grid;
+        gap: 0.9rem;
+      }
+
+      .compare-card,
+      .card,
+      .faq-item {
+        padding: 1rem;
+        border-radius: var(--radius-sm);
+        border: 1px solid var(--line);
+        background: var(--panel);
+      }
+
+      .compare-card strong {
+        display: block;
+        margin-bottom: 0.55rem;
+        color: var(--gold-deep);
+        font-size: 0.76rem;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .compare-copy {
+        line-height: 1.6;
+      }
+
+      .card h3,
+      .faq-item h3 {
+        margin-bottom: 0.55rem;
+      }
+
+      .card p,
+      .faq-answer {
+        line-height: 1.58;
+      }
+
+      .split-card {
+        display: grid;
+        gap: 0.8rem;
+      }
+
+      .mini-row {
+        margin-top: 1rem;
+      }
+
+      .case-action {
+        margin-top: 0.75rem;
+        padding-top: 0.75rem;
+        border-top: 1px solid rgba(18, 48, 74, 0.08);
+        color: var(--navy-deep);
+        font-size: 0.93rem;
+        font-weight: 700;
+      }
+
+      .proof-quote {
+        margin-top: 0.95rem;
+        padding: 1rem;
+        border-radius: var(--radius-sm);
+        background: rgba(18, 48, 74, 0.05);
+        color: var(--navy-deep);
+        font-weight: 700;
+        line-height: 1.55;
+      }
+
+      .faq-grid {
+        margin-top: 1rem;
+      }
+
+      .final-panel {
+        margin-top: 1rem;
+        background:
+          radial-gradient(circle at top right, rgba(216, 154, 43, 0.16), transparent 24%),
+          rgba(255, 253, 249, 0.94);
+      }
+
+      .final-inner {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .offer-box {
+        padding: 1rem;
+        border-radius: var(--radius-md);
+        border: 1px solid var(--line);
+        background: linear-gradient(180deg, rgba(18, 48, 74, 0.07), rgba(255, 255, 255, 0.96));
+      }
+
+      .sticky-bar {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 30;
+        padding: 0.7rem 0 calc(0.7rem + env(safe-area-inset-bottom));
+        background: rgba(255, 253, 249, 0.95);
+        backdrop-filter: blur(12px);
+        border-top: 1px solid rgba(18, 48, 74, 0.12);
+      }
+
+      .sticky-inner {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 0.7rem;
+        align-items: center;
+      }
+
+      .sticky-copy strong,
+      .sticky-copy span {
+        display: block;
+      }
+
+      .sticky-copy strong {
+        color: var(--navy-deep);
+        font-size: 0.94rem;
+      }
+
+      .sticky-copy span {
+        margin-top: 0.12rem;
+        font-size: 0.82rem;
+        line-height: 1.35;
+      }
+
+      .sticky-bar .button {
+        min-height: 2.9rem;
+        padding: 0.75rem 1rem;
+        font-size: 0.9rem;
+        white-space: nowrap;
+      }
+
+      @media (min-width: 760px) {
+        .hero {
+          grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+          align-items: stretch;
+          padding: 1.15rem;
+        }
+
+        .compare-grid,
+        .two-up,
+        .cases-grid,
+        .trust-grid,
+        .faq-grid,
+        .final-inner {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .offer-box {
+          align-self: start;
+        }
+      }
+
+      @media (min-width: 980px) {
+        .section,
+        .final-panel {
+          padding: 1.35rem;
+        }
+
+        .cases-grid {
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+
+        .sticky-bar {
+          display: none;
+        }
+
+        .page {
+          padding-bottom: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header class="shell site-header">
+        <p class="brand">AI Message Kit</p>
+        <a class="header-link" href="#buy">Get the Guide + Prompt Pack</a>
+      </header>
+
+      <main>
+        <section class="shell hero">
+          <div class="hero-copy">
+            <p class="eyebrow">For busy service businesses</p>
+            <h1>Write the right customer message in seconds.</h1>
+            <p class="lead">
+              A practical AI guide + prompt pack for small business owners who want faster replies,
+              smoother follow-ups, and less time staring at the screen wondering what to say.
+            </p>
+            <p class="trust-line">No extra tools. No setup. Works with tools you already have.</p>
+
+            <div class="hero-points">
+              <span class="badge">Reply faster</span>
+              <span class="badge">Follow up consistently</span>
+              <span class="badge">Handle awkward messages better</span>
+            </div>
+
+            <div class="button-row">
+              <a
+                class="button button-primary checkout-link"
+                href="https://buy.stripe.com/4gM7sKdrdboE7iwgSubZe0t"
+              >
+                Get the Guide + Prompt Pack
+              </a>
+              <a class="button button-secondary" href="#what-you-get">See What You Get</a>
+            </div>
+
+            <p class="microcopy">Instant digital download. Beginner-friendly. Use it today.</p>
+          </div>
+
+          <div class="hero-visual">
+            <div class="book-scene">
+              <div class="book" aria-hidden="true">
+                <span class="book-kicker">Digital download</span>
+                <h2>AI Guide + Prompt Pack</h2>
+                <p>Real prompts for real customer messages, follow-ups, reminders, and replies.</p>
+                <ul class="book-list">
+                  <li>Quote follow-ups</li>
+                  <li>Late payment reminders</li>
+                  <li>Customer reply drafts</li>
+                  <li>Bad review responses</li>
+                </ul>
+              </div>
+
+              <div class="card">
+                <p class="mini-label">What it helps with</p>
+                <div class="mini-row">
+                  <span class="mini-chip">Emails</span>
+                  <span class="mini-chip">Texts</span>
+                  <span class="mini-chip">Leads</span>
+                  <span class="mini-chip">Invoices</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="shell section" id="pain">
+          <div class="section-heading">
+            <p class="eyebrow">If this feels familiar</p>
+            <h2>You are probably losing time to small messages all day.</h2>
+          </div>
+          <ul class="bullet-list">
+            <li>You overthink simple customer messages and spend too long wording them.</li>
+            <li>You mean to follow up, but the day gets busy and it slips.</li>
+            <li>Chasing invoices feels awkward, so it gets delayed.</li>
+            <li>Replying to enquiries, emails, and texts keeps interrupting real work.</li>
+            <li>Admin drains energy because you keep deciding what to say from scratch.</li>
+          </ul>
+        </section>
+
+        <section class="shell section" id="outcome">
+          <div class="section-heading">
+            <p class="eyebrow">What changes</p>
+            <h2>Less hesitation. Faster action. Better communication.</h2>
+          </div>
+          <div class="compare-grid">
+            <div class="compare-card">
+              <strong>Before</strong>
+              <p class="compare-copy">
+                You pause, rewrite, second-guess your tone, and put off messages you should send.
+              </p>
+            </div>
+            <div class="compare-card">
+              <strong>After</strong>
+              <p class="compare-copy">
+                You copy a prompt, get a solid draft fast, tweak it, and send it without the mental drag.
+              </p>
+            </div>
+            <div class="compare-card">
+              <strong>Before</strong>
+              <p class="compare-copy">
+                Follow-ups are inconsistent, replies take too long, and awkward situations sit in your inbox.
+              </p>
+            </div>
+            <div class="compare-card">
+              <strong>After</strong>
+              <p class="compare-copy">
+                Your messages stay clear, calm, and professional even when you are short on time.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="shell section" id="what-you-get">
+          <div class="section-heading">
+            <p class="eyebrow">What you get</p>
+            <h2>Two parts. Both made for immediate use.</h2>
+            <p class="subcopy">
+              This is not a course and not a complex AI system. It is a practical download designed to help with day-to-day business messages.
+            </p>
+          </div>
+
+          <div class="two-up">
+            <div class="card split-card">
+              <div>
+                <p class="mini-label">Guide</p>
+                <h3>See where AI actually fits into your workflow.</h3>
+              </div>
+              <ul class="bullet-list">
+                <li>Simple examples of where AI saves time in a service business.</li>
+                <li>Practical use cases for quotes, follow-ups, replies, reminders, and reviews.</li>
+                <li>Clear guidance on how to get useful outputs without overcomplicating it.</li>
+              </ul>
+            </div>
+
+            <div class="card split-card">
+              <div>
+                <p class="mini-label">Prompt pack</p>
+                <h3>Copy, paste, and use ready-made prompts straight away.</h3>
+              </div>
+              <ul class="bullet-list">
+                <li>Ready-to-use prompts for common customer situations.</li>
+                <li>Built for real scenarios like late payments, slow leads, quick replies, and review responses.</li>
+                <li>Easy to drop into the AI tool you already use and adapt in seconds.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="shell section" id="use-cases">
+          <div class="section-heading">
+            <p class="eyebrow">Real business use cases</p>
+            <h2>Use it when you need to know what to say fast.</h2>
+          </div>
+
+          <div class="cases-grid">
+            <article class="card">
+              <p class="case-label">Scenario</p>
+              <h3>Client has not replied to your quote</h3>
+              <p>Generate a polite follow-up that nudges them without sounding pushy or desperate.</p>
+              <p class="case-action">Use AI to draft a short follow-up you can send today.</p>
+            </article>
+
+            <article class="card">
+              <p class="case-label">Scenario</p>
+              <h3>Customer is late paying</h3>
+              <p>Write a firm but professional reminder that protects the relationship while moving payment forward.</p>
+              <p class="case-action">Use AI to create invoice reminders with the right tone.</p>
+            </article>
+
+            <article class="card">
+              <p class="case-label">Scenario</p>
+              <h3>You need to reply quickly</h3>
+              <p>Turn a rough thought into a clear customer message without stopping work for 15 minutes.</p>
+              <p class="case-action">Use AI to draft a ready-to-send reply in seconds.</p>
+            </article>
+
+            <article class="card">
+              <p class="case-label">Scenario</p>
+              <h3>A bad review comes in</h3>
+              <p>Respond calmly, professionally, and without making the situation worse.</p>
+              <p class="case-action">Use AI to shape a measured public response fast.</p>
+            </article>
+          </div>
+
+          <div class="button-row">
+            <a
+              class="button button-primary checkout-link"
+              href="https://buy.stripe.com/4gM7sKdrdboE7iwgSubZe0t"
+            >
+              Get Instant Access
+            </a>
+          </div>
+        </section>
+
+        <section class="shell section" id="trust">
+          <div class="section-heading">
+            <p class="eyebrow">Why this feels easy</p>
+            <h2>Built to remove friction, not add more to your day.</h2>
+          </div>
+
+          <div class="trust-grid">
+            <div class="card">
+              <h3>No extra tools required</h3>
+              <p>Use the guide and prompts with the AI tools you already know or can access easily.</p>
+            </div>
+            <div class="card">
+              <h3>No technical knowledge needed</h3>
+              <p>You do not need to understand systems, automations, or complicated AI workflows.</p>
+            </div>
+            <div class="card">
+              <h3>Works immediately</h3>
+              <p>Open the pack, copy a prompt, adjust the details, and get a usable draft straight away.</p>
+            </div>
+            <div class="card">
+              <h3>Made for real business owners</h3>
+              <p>Focused on everyday customer communication, not theory or trend-chasing.</p>
+            </div>
+          </div>
+
+          <div class="proof-quote">
+            “This is for the business owner who wants help wording the message, not another system to manage.”
+          </div>
+        </section>
+
+        <section class="shell section" id="faq">
+          <div class="section-heading">
+            <p class="eyebrow">FAQ</p>
+            <h2>Quick answers before you buy.</h2>
+          </div>
+
+          <div class="faq-grid">
+            <div class="faq-item">
+              <h3>Do I need extra tools?</h3>
+              <p class="faq-answer">No. It works with tools you already have access to.</p>
+            </div>
+            <div class="faq-item">
+              <h3>Is this beginner-friendly?</h3>
+              <p class="faq-answer">Yes. It is built for business owners who are not technical.</p>
+            </div>
+            <div class="faq-item">
+              <h3>How quickly can I use it?</h3>
+              <p class="faq-answer">The same day. It is designed for immediate copy-and-paste use.</p>
+            </div>
+            <div class="faq-item">
+              <h3>What kind of businesses is this for?</h3>
+              <p class="faq-answer">Service-based and local businesses, solo operators, small teams, consultants, and freelancers.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="shell final-panel" id="buy">
+          <div class="final-inner">
+            <div>
+              <p class="eyebrow">Final call</p>
+              <h2>Get the guide and prompts. Start using them today.</h2>
+              <p class="lead">
+                If you want faster customer replies, smoother follow-ups, and less time figuring out what to say, this gives you a practical place to start.
+              </p>
+              <div class="badge-row" style="margin-top: 1rem">
+                <span class="badge">Instant digital download</span>
+                <span class="badge">No setup</span>
+                <span class="badge">Usable today</span>
+              </div>
+            </div>
+
+            <div class="offer-box">
+              <p class="mini-label">Get the Guide + Prompt Pack</p>
+              <ul class="bullet-list">
+                <li>Practical AI guide for day-to-day business communication</li>
+                <li>Ready-to-use prompts for follow-ups, reminders, replies, and reviews</li>
+                <li>Built to save time and reduce the mental load of admin messages</li>
+              </ul>
+              <div class="button-row">
+                <a
+                  class="button button-primary button-full checkout-link"
+                  href="https://buy.stripe.com/4gM7sKdrdboE7iwgSubZe0t"
+                >
+                  Get the Guide + Prompt Pack
+                </a>
+              </div>
+              <p class="microcopy">Simple. Practical. Ready to use as soon as you open it.</p>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div class="sticky-bar">
+      <div class="shell sticky-inner">
+        <div class="sticky-copy">
+          <strong>AI Guide + Prompt Pack</strong>
+          <span>Write better customer messages faster.</span>
+        </div>
+        <a
+          class="button button-primary checkout-link"
+          href="https://buy.stripe.com/4gM7sKdrdboE7iwgSubZe0t"
+        >
+          Get Access
+        </a>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        var checkoutLinks = document.querySelectorAll(".checkout-link");
+        var defaultCheckoutUrl = "https://buy.stripe.com/4gM7sKdrdboE7iwgSubZe0t";
+        var checkoutUrls = {
+          uk: "https://buy.stripe.com/4gM7sKdrdboE7iwgSubZe0t",
+          us: "https://buy.stripe.com/4gM7sKdrdboE7iwgSubZe0t"
+        };
+
+        function getGeo() {
+          var language = (navigator.language || "").toLowerCase();
+          if (language.indexOf("en-us") > -1) {
+            return "us";
+          }
+          return "uk";
+        }
+
+        function trackInitiateCheckout(link) {
+          if (!window.fbq || link.dataset.checkoutTracked === "true") {
+            return;
+          }
+
+          link.dataset.checkoutTracked = "true";
+          fbq("track", "InitiateCheckout", {
+            content_name: "AI Guide + Prompt Pack",
+            content_category: "Digital Product",
+            value: 0,
+            currency: "GBP"
+          });
+        }
+
+        var geo = getGeo();
+
+        checkoutLinks.forEach(function (link) {
+          link.href = checkoutUrls[geo] || defaultCheckoutUrl;
+          link.addEventListener("click", function () {
+            trackInitiateCheckout(link);
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>
