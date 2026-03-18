@@ -63,9 +63,7 @@
         margin: 0;
         font-family: "Source Sans 3", sans-serif;
         color: var(--ink);
-        background:
-          linear-gradient(180deg, rgba(251, 246, 239, 0.36) 0%, rgba(239, 230, 217, 0.86) 18%),
-          var(--bg);
+        background: var(--surface-strong);
         line-height: 1.55;
       }
 
@@ -196,17 +194,13 @@
       .eyebrow,
       .card-label,
       .buy-label {
-        display: inline-flex;
-        align-items: center;
-        min-height: 30px;
-        margin: 0 0 12px;
-        padding: 0 10px;
-        border-radius: 4px;
-        background: var(--accent);
+        display: block;
+        margin: 0 0 10px;
+        padding: 0;
         color: var(--primary-deep);
-        font-size: 0.74rem;
+        font-size: 0.72rem;
         font-weight: 700;
-        letter-spacing: 0.06em;
+        letter-spacing: 0.08em;
         text-transform: uppercase;
       }
 
@@ -285,10 +279,9 @@
         display: grid;
         gap: 24px;
         margin-top: 26px;
-        padding: 22px;
-        border: 1px solid var(--line);
-        border-radius: calc(var(--radius) + 2px);
-        background: var(--surface-strong);
+        padding: 20px 0 26px;
+        border-bottom: 1px solid var(--line);
+        background: transparent;
       }
 
       .hero-copy {
@@ -334,8 +327,7 @@
 
       .hero-list,
       .simple-list,
-      .buy-list,
-      .hero-task-list {
+      .buy-list {
         list-style: none;
         margin: 0;
         padding: 0;
@@ -417,44 +409,39 @@
       .product-book {
         position: relative;
         overflow: hidden;
-        min-height: 282px;
-        padding: 22px;
-        border-color: rgba(45, 36, 29, 0.18);
-        background: linear-gradient(180deg, #49563c 0%, #313925 100%);
-        color: #fff;
+        min-height: auto;
+        padding: 0;
+        border-color: transparent;
+        border-radius: 0;
+        background: transparent;
+        color: var(--ink);
       }
 
       .product-book-copy {
         position: relative;
         z-index: 1;
-        max-width: 15.5rem;
+        max-width: none;
+        margin-top: 14px;
       }
 
       .product-cover {
-        position: absolute;
-        top: 20px;
-        right: 18px;
+        position: static;
         z-index: 1;
-        width: 88px;
-        border-radius: 6px;
-        border: 1px solid rgba(255, 255, 255, 0.16);
-        box-shadow: 0 10px 24px rgba(18, 22, 12, 0.28);
+        width: min(100%, 240px);
+        margin-bottom: 0;
+        border-radius: 0;
+        border: 1px solid var(--line);
+        box-shadow: none;
       }
 
       .product-book::after {
-        content: "";
-        position: absolute;
-        inset: auto -36px -36px auto;
-        width: 120px;
-        height: 120px;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.07);
+        display: none;
       }
 
       .book-kicker {
         position: relative;
         z-index: 1;
-        color: rgba(255, 255, 255, 0.72);
+        color: var(--primary-deep);
         font-size: 0.74rem;
         font-weight: 700;
         letter-spacing: 0.06em;
@@ -464,38 +451,10 @@
       .product-book h2 {
         position: relative;
         z-index: 1;
-        max-width: 8ch;
-        margin-top: 14px;
-        color: #fff;
-        font-size: clamp(1.65rem, 3.5vw, 2.1rem);
-      }
-
-      .product-book p {
-        position: relative;
-        z-index: 1;
-        margin-top: 12px;
-        color: rgba(255, 255, 255, 0.78);
-        line-height: 1.58;
-        font-size: 0.94rem;
-      }
-
-      .hero-task-list {
-        position: relative;
-        z-index: 1;
-        display: grid;
-        gap: 8px;
-        margin-top: 14px;
-      }
-
-      .hero-task-list li {
-        padding: 8px 10px;
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        border-radius: 6px;
-        background: rgba(255, 255, 255, 0.08);
-        color: rgba(255, 255, 255, 0.92);
-        font-size: 0.86rem;
-        font-weight: 700;
-        line-height: 1.42;
+        max-width: none;
+        margin-top: 4px;
+        color: var(--ink);
+        font-size: clamp(1.2rem, 2vw, 1.45rem);
       }
 
       .section,
@@ -509,10 +468,11 @@
       }
 
       .section.section-contrast {
-        padding: 24px 22px;
-        border: 1px solid var(--line);
-        border-radius: 10px;
-        background: rgba(251, 246, 239, 0.78);
+        padding: 28px 0 0;
+        border: 0;
+        border-top: 1px solid var(--line);
+        border-radius: 0;
+        background: transparent;
       }
 
       .section-heading {
@@ -539,7 +499,7 @@
       .inside-card.featured,
       .compare-card.highlight,
       .buy-box {
-        background: linear-gradient(180deg, rgba(232, 221, 204, 0.6), rgba(251, 246, 239, 1));
+        background: transparent;
       }
 
       .creator-row {
@@ -555,7 +515,18 @@
       }
 
       .guarantee-card {
-        background: #ece2d0;
+        background: transparent;
+      }
+
+      .benefit-card,
+      .trust-card,
+      .guarantee-card,
+      .delivery-panel,
+      .delivery-item,
+      .buy-box,
+      .faq details {
+        border-radius: 0;
+        background: transparent;
       }
 
       .delivery-panel,
@@ -588,7 +559,7 @@
       .delivery-item,
       .example-card {
         padding: 14px 16px;
-        background: var(--surface);
+        background: transparent;
       }
 
       .quickstart-panel h3 {
@@ -680,15 +651,16 @@
       .final-panel {
         display: grid;
         gap: 20px;
-        padding: 24px;
-        border: 1px solid rgba(48, 55, 38, 0.9);
-        border-radius: 10px;
-        background: linear-gradient(180deg, #414c34 0%, #2f3726 100%);
+        padding: 28px 0 0;
+        border: 0;
+        border-top: 1px solid var(--line);
+        border-radius: 0;
+        background: transparent;
       }
 
       .final-panel h2,
       .final-panel h3 {
-        color: #fff;
+        color: var(--ink);
       }
 
       .final-panel h2 {
@@ -696,20 +668,18 @@
       }
 
       .final-panel .eyebrow {
-        background: rgba(255, 255, 255, 0.12);
+        background: transparent;
       }
 
       .final-badges span {
-        display: inline-flex;
-        align-items: center;
-        min-height: 34px;
-        padding: 0 12px;
-        border: 1px solid rgba(255, 255, 255, 0.16);
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.08);
-        color: #fff;
-        font-size: 0.87rem;
-        font-weight: 700;
+        display: inline-block;
+        padding: 0;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        color: var(--muted);
+        font-size: 0.92rem;
+        font-weight: 600;
       }
 
       .buy-subtitle,
@@ -822,7 +792,7 @@
         }
 
         .product-cover {
-          width: 96px;
+          width: min(100%, 280px);
         }
 
         .benefit-grid {
@@ -885,17 +855,14 @@
     <main class="page">
       <header class="site-header shell">
         <p class="brand">AI for Local Service Businesses</p>
-        <div class="topbar-actions">
-          <a class="nav-link" href="#faq">Questions</a>
-          <a
-            class="button button-primary button-small checkout-link"
-            href="https://buy.stripe.com/4gM7sKdrdboE7iwgSubZe0t"
-            target="_blank"
-            rel="noopener"
-          >
-            Get Instant Access
-          </a>
-        </div>
+        <a
+          class="button button-primary button-small checkout-link"
+          href="https://buy.stripe.com/4gM7sKdrdboE7iwgSubZe0t"
+          target="_blank"
+          rel="noopener"
+        >
+          Get Instant Access
+        </a>
       </header>
 
       <section class="hero shell">
@@ -920,8 +887,7 @@
           </div>
 
           <p class="hero-support">
-            Instant digital download. One-time purchase. Built for local service business owners
-            who want less writing hanging over them after the job.
+            Instant digital download. One-time purchase.
           </p>
         </div>
 
@@ -936,11 +902,6 @@
               <div class="product-book-copy">
                 <div class="book-kicker">What it includes</div>
                 <h2>Prompt pack + practical guide</h2>
-                <p>Built for follow-ups, customer replies, quote wording, reminders, and admin writing.</p>
-                <ul class="hero-task-list">
-                  <li>Ready-to-use prompts you can copy and use straight away</li>
-                  <li>A short guide showing where AI is worth using first</li>
-                </ul>
               </div>
             </div>
           </div>
@@ -1095,9 +1056,9 @@
 
       <section class="shell final-panel" id="buy">
         <div class="final-copy">
-          <p class="eyebrow" style="color: rgba(255, 255, 255, 0.72)">Simple first step</p>
+          <p class="eyebrow">Simple first step</p>
           <h2>Get the guide and prompt pack that help you handle the office-side work around the job faster.</h2>
-          <p class="lead" style="max-width: 40rem; color: rgba(255, 255, 255, 0.76)">
+          <p class="lead" style="max-width: 40rem">
             If you want a low-friction way to handle follow-ups, customer messages, quote wording,
             reminders, and repetitive admin writing more efficiently, this is the fastest way to get started.
           </p>
