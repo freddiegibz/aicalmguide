@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <title>AI Guide + Prompt Pack for Service Businesses</title>
+    <title>AI Guide + Ready-to-Use AI Messages for Service Businesses</title>
     <meta
       name="description"
-      content="A practical AI guide and prompt pack for busy service businesses that want to write customer messages, follow-ups, invoice reminders, and replies faster."
+      content="A practical AI guide and ready-to-use AI messages for busy service businesses that want to write customer messages, follow-ups, invoice reminders, and replies faster."
     />
     <script>
       !(function (f, b, e, v, n, t, s) {
@@ -42,14 +42,14 @@
         --navy-deep: #0b2135;
         --cream: #f6f1e7;
         --paper: #fffdf9;
-        --panel: rgba(255, 255, 255, 0.82);
+        --panel: rgba(255, 255, 255, 0.86);
         --line: rgba(18, 48, 74, 0.12);
         --gold: #d89a2b;
         --gold-deep: #a86c0d;
-        --shadow: 0 22px 60px rgba(11, 33, 53, 0.12);
-        --radius-lg: 28px;
-        --radius-md: 22px;
-        --radius-sm: 16px;
+        --shadow: 0 16px 40px rgba(11, 33, 53, 0.1);
+        --radius-lg: 22px;
+        --radius-md: 18px;
+        --radius-sm: 14px;
         --max: 1120px;
       }
 
@@ -67,9 +67,8 @@
         font-family: "Manrope", sans-serif;
         color: var(--ink);
         background:
-          radial-gradient(circle at top left, rgba(216, 154, 43, 0.16), transparent 28%),
-          radial-gradient(circle at top right, rgba(18, 48, 74, 0.09), transparent 28%),
-          linear-gradient(180deg, #fbf7f0 0%, #f6f1e7 32%, #fffdf9 100%);
+          radial-gradient(circle at top left, rgba(216, 154, 43, 0.14), transparent 24%),
+          linear-gradient(180deg, #fbf7f0 0%, #f7f2e9 18%, #fffdf9 45%, #fffdf9 100%);
       }
 
       a {
@@ -87,11 +86,11 @@
       }
 
       .page {
-        padding-bottom: calc(6rem + env(safe-area-inset-bottom));
+        padding-bottom: calc(5.5rem + env(safe-area-inset-bottom));
       }
 
       .shell {
-        width: min(calc(100% - 1.25rem), var(--max));
+        width: min(calc(100% - 1rem), var(--max));
         margin: 0 auto;
       }
 
@@ -100,7 +99,7 @@
         align-items: center;
         justify-content: space-between;
         gap: 1rem;
-        padding: 1rem 0 0.75rem;
+        padding: 0.9rem 0 0.55rem;
       }
 
       .brand {
@@ -113,13 +112,13 @@
       }
 
       .header-link {
+        display: none;
         color: var(--navy);
         font-size: 0.9rem;
         font-weight: 700;
       }
 
       .hero,
-      .section,
       .final-panel {
         border: 1px solid var(--line);
         border-radius: var(--radius-lg);
@@ -129,15 +128,23 @@
 
       .hero {
         display: grid;
-        gap: 1rem;
-        padding: 1rem;
+        gap: 0;
+        padding: 1.05rem;
       }
 
       .hero-copy,
       .hero-visual,
-      .section,
       .final-panel {
-        padding: 1.2rem;
+        padding: 1rem;
+      }
+
+      .section {
+        margin-top: 2rem;
+        padding: 1.3rem 1.05rem;
+        border: 1px solid rgba(18, 48, 74, 0.08);
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.72);
+        box-shadow: 0 10px 28px rgba(11, 33, 53, 0.05);
       }
 
       .eyebrow,
@@ -166,13 +173,15 @@
       }
 
       h1 {
-        max-width: 10ch;
-        font-size: clamp(2.3rem, 9vw, 4.7rem);
+        max-width: 14ch;
+        font-size: clamp(2.15rem, 10.8vw, 4.7rem);
+        line-height: 0.98;
+        text-wrap: balance;
       }
 
       h2 {
-        max-width: 14ch;
-        font-size: clamp(1.9rem, 6vw, 3rem);
+        max-width: 100%;
+        font-size: clamp(1.58rem, 6.8vw, 3rem);
       }
 
       h3 {
@@ -195,21 +204,22 @@
       }
 
       .lead {
-        margin-top: 0.95rem;
+        margin-top: 0.8rem;
         max-width: 38rem;
-        font-size: 1.03rem;
+        font-size: 0.98rem;
         line-height: 1.62;
       }
 
       .trust-line {
-        margin-top: 1rem;
-        padding: 0.9rem 1rem;
-        border-radius: 999px;
-        border: 1px solid rgba(18, 48, 74, 0.08);
-        background: rgba(18, 48, 74, 0.05);
+        margin-top: 0.9rem;
+        padding: 0.85rem 0.95rem;
+        border-radius: 14px;
+        border: 1px solid rgba(18, 48, 74, 0.1);
+        background: linear-gradient(180deg, rgba(18, 48, 74, 0.05), rgba(255, 255, 255, 0.92));
         color: var(--navy-deep);
-        font-size: 0.92rem;
+        font-size: 0.88rem;
         font-weight: 700;
+        line-height: 1.45;
       }
 
       .hero-points,
@@ -221,9 +231,22 @@
         gap: 0.7rem;
       }
 
+      .hero-points {
+        display: flex;
+      }
+
+      .hero-helper {
+        display: none;
+      }
+
       .hero-points,
       .button-row {
-        margin-top: 1rem;
+        margin-top: 0.95rem;
+      }
+
+      .button-row {
+        display: grid;
+        gap: 0.55rem;
       }
 
       .badge,
@@ -231,12 +254,12 @@
         display: inline-flex;
         align-items: center;
         min-height: 2rem;
-        padding: 0 0.78rem;
+        padding: 0 0.74rem;
         border-radius: 999px;
-        border: 1px solid rgba(18, 48, 74, 0.09);
-        background: rgba(255, 255, 255, 0.72);
+        border: 1px solid rgba(18, 48, 74, 0.08);
+        background: rgba(255, 255, 255, 0.88);
         color: var(--navy-deep);
-        font-size: 0.84rem;
+        font-size: 0.81rem;
         font-weight: 700;
       }
 
@@ -245,12 +268,17 @@
         align-items: center;
         justify-content: center;
         min-height: 3.2rem;
-        padding: 0.85rem 1.15rem;
+        padding: 0.9rem 1.1rem;
         border: 1px solid transparent;
-        border-radius: 999px;
-        font-size: 0.96rem;
+        border-radius: 16px;
+        font-size: 0.94rem;
         font-weight: 800;
         transition: transform 160ms ease, opacity 160ms ease;
+      }
+
+      .button-row .button,
+      .button-row a {
+        width: 100%;
       }
 
       .button:hover,
@@ -265,9 +293,15 @@
       }
 
       .button-secondary {
-        border-color: var(--line);
+        justify-content: flex-start;
+        min-height: auto;
+        padding: 0.2rem 0;
+        border: 0;
         background: transparent;
         color: var(--navy-deep);
+        border-radius: 0;
+        font-size: 0.9rem;
+        font-weight: 700;
       }
 
       .button-full {
@@ -275,17 +309,13 @@
       }
 
       .microcopy {
-        margin-top: 0.8rem;
-        font-size: 0.9rem;
+        margin-top: 0.7rem;
+        font-size: 0.84rem;
+        line-height: 1.45;
       }
 
       .hero-visual {
-        overflow: hidden;
-        border: 1px solid var(--line);
-        border-radius: var(--radius-md);
-        background:
-          radial-gradient(circle at top left, rgba(216, 154, 43, 0.18), transparent 34%),
-          linear-gradient(160deg, rgba(18, 48, 74, 0.05), rgba(18, 48, 74, 0.02));
+        display: none;
       }
 
       .book-scene {
@@ -296,8 +326,8 @@
       .book {
         position: relative;
         overflow: hidden;
-        min-height: 18rem;
-        padding: 1.25rem;
+        min-height: 15.25rem;
+        padding: 1rem;
         border-radius: 22px;
         background: linear-gradient(160deg, #0f2840 0%, #163754 100%);
         color: #fff;
@@ -342,16 +372,16 @@
         max-width: 8ch;
         margin-top: 0.75rem;
         color: #fff;
-        font-size: clamp(2rem, 7vw, 3.2rem);
+        font-size: clamp(1.75rem, 8vw, 3.2rem);
       }
 
       .book p {
         position: relative;
         z-index: 1;
         max-width: 15rem;
-        margin-top: 0.8rem;
+        margin-top: 0.7rem;
         color: rgba(255, 255, 255, 0.82);
-        line-height: 1.55;
+        line-height: 1.48;
       }
 
       .book-list,
@@ -365,27 +395,32 @@
         position: relative;
         z-index: 1;
         display: grid;
-        gap: 0.7rem;
-        margin-top: 1.2rem;
+        gap: 0.55rem;
+        margin-top: 1rem;
       }
 
       .book-list li {
-        padding: 0.78rem 0.85rem;
+        padding: 0.68rem 0.78rem;
         border-radius: 14px;
         background: rgba(255, 255, 255, 0.08);
         color: rgba(255, 255, 255, 0.92);
-        font-size: 0.92rem;
+        font-size: 0.88rem;
         font-weight: 700;
         line-height: 1.4;
       }
 
       .section {
-        margin-top: 1rem;
+        margin-top: 1.6rem;
       }
 
       .section-heading {
         max-width: 42rem;
-        margin-bottom: 1rem;
+        margin-bottom: 1.7rem;
+      }
+
+      .section-heading h2 {
+        max-width: 13ch;
+        margin-bottom: 0.25rem;
       }
 
       .bullet-list {
@@ -416,7 +451,7 @@
       .trust-grid,
       .faq-grid {
         display: grid;
-        gap: 0.9rem;
+        gap: 1rem;
       }
 
       .compare-card,
@@ -426,6 +461,17 @@
         border-radius: var(--radius-sm);
         border: 1px solid var(--line);
         background: var(--panel);
+        box-shadow: 0 10px 24px rgba(11, 33, 53, 0.05);
+      }
+
+      .compare-card {
+        border-left: 4px solid rgba(216, 154, 43, 0.7);
+      }
+
+      .compare-card + .compare-card,
+      .card + .card,
+      .faq-item + .faq-item {
+        margin-top: 0.05rem;
       }
 
       .compare-card strong {
@@ -470,14 +516,41 @@
         font-weight: 700;
       }
 
-      .proof-quote {
+      .testimonial {
         margin-top: 0.95rem;
         padding: 1rem;
         border-radius: var(--radius-sm);
-        background: rgba(18, 48, 74, 0.05);
+        border: 1px solid rgba(18, 48, 74, 0.09);
+        background: linear-gradient(180deg, rgba(18, 48, 74, 0.05), rgba(255, 255, 255, 0.9));
+        box-shadow: 0 12px 26px rgba(11, 33, 53, 0.06);
+      }
+
+      .testimonial-quote {
         color: var(--navy-deep);
+        font-size: 1rem;
         font-weight: 700;
-        line-height: 1.55;
+        line-height: 1.58;
+      }
+
+      .testimonial-body {
+        margin-top: 0.8rem;
+        color: var(--ink-soft);
+        line-height: 1.58;
+      }
+
+      .testimonial-meta {
+        margin-top: 0.9rem;
+        color: var(--navy-deep);
+        font-size: 0.9rem;
+        font-weight: 800;
+      }
+
+      .testimonial-meta span {
+        display: block;
+        margin-top: 0.15rem;
+        color: var(--ink-soft);
+        font-size: 0.86rem;
+        font-weight: 600;
       }
 
       .faq-grid {
@@ -485,7 +558,7 @@
       }
 
       .final-panel {
-        margin-top: 1rem;
+        margin-top: 2rem;
         background:
           radial-gradient(circle at top right, rgba(216, 154, 43, 0.16), transparent 24%),
           rgba(255, 253, 249, 0.94);
@@ -497,10 +570,44 @@
       }
 
       .offer-box {
-        padding: 1rem;
+        padding: 1.05rem;
         border-radius: var(--radius-md);
         border: 1px solid var(--line);
         background: linear-gradient(180deg, rgba(18, 48, 74, 0.07), rgba(255, 255, 255, 0.96));
+      }
+
+      #pain,
+      #what-you-get,
+      #trust {
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(248, 243, 234, 0.82));
+      }
+
+      #outcome,
+      #use-cases,
+      #faq {
+        background:
+          linear-gradient(180deg, rgba(246, 240, 229, 0.75), rgba(255, 255, 255, 0.92));
+      }
+
+      #use-cases,
+      #faq {
+        padding-top: 1.45rem;
+      }
+
+      #pain::before,
+      #outcome::before,
+      #what-you-get::before,
+      #use-cases::before,
+      #trust::before,
+      #faq::before {
+        content: "";
+        display: block;
+        width: 3rem;
+        height: 3px;
+        margin-bottom: 1rem;
+        border-radius: 999px;
+        background: linear-gradient(90deg, var(--gold), rgba(216, 154, 43, 0.15));
       }
 
       .sticky-bar {
@@ -509,17 +616,22 @@
         right: 0;
         bottom: 0;
         z-index: 30;
-        padding: 0.7rem 0 calc(0.7rem + env(safe-area-inset-bottom));
-        background: rgba(255, 253, 249, 0.95);
-        backdrop-filter: blur(12px);
-        border-top: 1px solid rgba(18, 48, 74, 0.12);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.75rem;
+        padding: 0.8rem 0.95rem calc(0.8rem + env(safe-area-inset-bottom));
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        background: rgba(13, 34, 54, 0.96);
+        backdrop-filter: blur(16px);
       }
 
       .sticky-inner {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) auto;
-        gap: 0.7rem;
+        display: flex;
         align-items: center;
+        justify-content: space-between;
+        gap: 0.75rem;
+        width: 100%;
       }
 
       .sticky-copy strong,
@@ -528,28 +640,141 @@
       }
 
       .sticky-copy strong {
-        color: var(--navy-deep);
-        font-size: 0.94rem;
+        color: #fff;
+        font-size: 0.92rem;
       }
 
       .sticky-copy span {
-        margin-top: 0.12rem;
-        font-size: 0.82rem;
-        line-height: 1.35;
+        margin-top: 0.15rem;
+        color: rgba(255, 255, 255, 0.68);
+        font-size: 0.77rem;
       }
 
       .sticky-bar .button {
-        min-height: 2.9rem;
-        padding: 0.75rem 1rem;
-        font-size: 0.9rem;
+        min-height: 2.8rem;
+        width: auto;
+        padding-inline: 1rem;
+        font-size: 0.88rem;
         white-space: nowrap;
       }
 
       @media (min-width: 760px) {
+        .header-link {
+          display: inline-flex;
+        }
+
+        .page {
+          padding-bottom: 2.5rem;
+        }
+
         .hero {
           grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
           align-items: stretch;
           padding: 1.15rem;
+          gap: 1rem;
+        }
+
+        .hero-copy,
+        .hero-visual,
+        .section,
+        .final-panel {
+          padding: 1.2rem;
+        }
+
+        .section {
+          margin-top: 1rem;
+          border: 1px solid var(--line);
+          border-radius: var(--radius-lg);
+          background: rgba(255, 253, 249, 0.92);
+          box-shadow: var(--shadow);
+          padding: 1.2rem;
+        }
+
+        .section-heading {
+          margin-bottom: 1rem;
+        }
+
+        .section-heading h2 {
+          max-width: 100%;
+          margin-bottom: 0;
+        }
+
+        .lead {
+          font-size: 1.03rem;
+          line-height: 1.62;
+        }
+
+        .trust-line {
+          border-radius: 999px;
+          font-size: 0.92rem;
+        }
+
+        .hero-helper {
+          display: block;
+        }
+
+        .button-row {
+          display: flex;
+          gap: 0.7rem;
+        }
+
+        .button-row .button,
+        .button-row a {
+          width: auto;
+        }
+
+        .button {
+          padding: 0.85rem 1.15rem;
+          border-radius: 999px;
+          font-size: 0.96rem;
+        }
+
+        .button-secondary {
+          justify-content: center;
+          min-height: 3.2rem;
+          padding: 0.85rem 1.15rem;
+          border: 1px solid var(--line);
+          border-radius: 999px;
+          font-size: 0.96rem;
+          font-weight: 800;
+        }
+
+        .microcopy {
+          font-size: 0.9rem;
+        }
+
+        .hero-visual {
+          display: block;
+          overflow: hidden;
+          border: 1px solid var(--line);
+          border-radius: var(--radius-md);
+          background:
+            radial-gradient(circle at top left, rgba(216, 154, 43, 0.18), transparent 34%),
+            linear-gradient(160deg, rgba(18, 48, 74, 0.05), rgba(18, 48, 74, 0.02));
+        }
+
+        .book {
+          min-height: 18rem;
+          padding: 1.25rem;
+        }
+
+        .book h2 {
+          font-size: clamp(2rem, 7vw, 3.2rem);
+        }
+
+        .book p {
+          margin-top: 0.8rem;
+          line-height: 1.55;
+        }
+
+        .book-list {
+          gap: 0.7rem;
+          margin-top: 1.2rem;
+        }
+
+        .book-list li {
+          padding: 0.78rem 0.85rem;
+          font-size: 0.92rem;
         }
 
         .compare-grid,
@@ -559,10 +784,39 @@
         .faq-grid,
         .final-inner {
           grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 0.9rem;
+        }
+
+        .compare-card + .compare-card,
+        .card + .card,
+        .faq-item + .faq-item {
+          margin-top: 0;
+        }
+
+        #pain,
+        #what-you-get,
+        #trust,
+        #outcome,
+        #use-cases,
+        #faq {
+          background: rgba(255, 253, 249, 0.92);
+        }
+
+        #pain::before,
+        #outcome::before,
+        #what-you-get::before,
+        #use-cases::before,
+        #trust::before,
+        #faq::before {
+          display: none;
         }
 
         .offer-box {
           align-self: start;
+        }
+
+        .sticky-bar {
+          display: none;
         }
       }
 
@@ -575,11 +829,6 @@
         .cases-grid {
           grid-template-columns: repeat(4, minmax(0, 1fr));
         }
-
-        .sticky-bar {
-          display: none;
-        }
-
         .page {
           padding-bottom: 2rem;
         }
@@ -590,45 +839,39 @@
     <div class="page">
       <header class="shell site-header">
         <p class="brand">AI Message Kit</p>
-        <a class="header-link" href="#buy">Get the Guide + Prompt Pack</a>
+        <a class="header-link" href="#buy">Get the Guide + AI Messages</a>
       </header>
 
       <main>
         <section class="shell hero">
           <div class="hero-copy">
-            <p class="eyebrow">For busy service businesses</p>
+            <p class="eyebrow">For plumbers, cleaners, contractors, consultants, and other busy service businesses</p>
             <h1>Write the right customer message in seconds.</h1>
             <p class="lead">
-              A practical AI guide + prompt pack for small business owners who want faster replies,
-              smoother follow-ups, and less time staring at the screen wondering what to say.
+              A practical download with ready-to-use AI messages and a short guide for quote follow-ups,
+              invoice reminders, customer replies, and review responses.
             </p>
-            <p class="trust-line">No extra tools. No setup. Works with tools you already have.</p>
-
-            <div class="hero-points">
-              <span class="badge">Reply faster</span>
-              <span class="badge">Follow up consistently</span>
-              <span class="badge">Handle awkward messages better</span>
-            </div>
+            <p class="trust-line">Everything you need is free and simple to use. No setup required.</p>
 
             <div class="button-row">
               <a
                 class="button button-primary checkout-link"
                 href="https://buy.stripe.com/4gM7sKdrdboE7iwgSubZe0t"
               >
-                Get the Guide + Prompt Pack
+                Get the Guide + AI Messages
               </a>
-              <a class="button button-secondary" href="#what-you-get">See What You Get</a>
+              <a class="button button-secondary" href="#use-cases">See Real Examples</a>
             </div>
 
-            <p class="microcopy">Instant digital download. Beginner-friendly. Use it today.</p>
+            <p class="microcopy">Instant digital download. Copy, paste, tweak, send.</p>
           </div>
 
           <div class="hero-visual">
             <div class="book-scene">
               <div class="book" aria-hidden="true">
                 <span class="book-kicker">Digital download</span>
-                <h2>AI Guide + Prompt Pack</h2>
-                <p>Real prompts for real customer messages, follow-ups, reminders, and replies.</p>
+                <h2>AI Guide + Ready-to-Use AI Messages</h2>
+                <p>Ready-to-use AI messages for customer replies, follow-ups, reminders, and reviews.</p>
                 <ul class="book-list">
                   <li>Quote follow-ups</li>
                   <li>Late payment reminders</li>
@@ -637,7 +880,7 @@
                 </ul>
               </div>
 
-              <div class="card">
+              <div class="card hero-helper">
                 <p class="mini-label">What it helps with</p>
                 <div class="mini-row">
                   <span class="mini-chip">Emails</span>
@@ -650,93 +893,11 @@
           </div>
         </section>
 
-        <section class="shell section" id="pain">
-          <div class="section-heading">
-            <p class="eyebrow">If this feels familiar</p>
-            <h2>You are probably losing time to small messages all day.</h2>
-          </div>
-          <ul class="bullet-list">
-            <li>You overthink simple customer messages and spend too long wording them.</li>
-            <li>You mean to follow up, but the day gets busy and it slips.</li>
-            <li>Chasing invoices feels awkward, so it gets delayed.</li>
-            <li>Replying to enquiries, emails, and texts keeps interrupting real work.</li>
-            <li>Admin drains energy because you keep deciding what to say from scratch.</li>
-          </ul>
-        </section>
-
-        <section class="shell section" id="outcome">
-          <div class="section-heading">
-            <p class="eyebrow">What changes</p>
-            <h2>Less hesitation. Faster action. Better communication.</h2>
-          </div>
-          <div class="compare-grid">
-            <div class="compare-card">
-              <strong>Before</strong>
-              <p class="compare-copy">
-                You pause, rewrite, second-guess your tone, and put off messages you should send.
-              </p>
-            </div>
-            <div class="compare-card">
-              <strong>After</strong>
-              <p class="compare-copy">
-                You copy a prompt, get a solid draft fast, tweak it, and send it without the mental drag.
-              </p>
-            </div>
-            <div class="compare-card">
-              <strong>Before</strong>
-              <p class="compare-copy">
-                Follow-ups are inconsistent, replies take too long, and awkward situations sit in your inbox.
-              </p>
-            </div>
-            <div class="compare-card">
-              <strong>After</strong>
-              <p class="compare-copy">
-                Your messages stay clear, calm, and professional even when you are short on time.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section class="shell section" id="what-you-get">
-          <div class="section-heading">
-            <p class="eyebrow">What you get</p>
-            <h2>Two parts. Both made for immediate use.</h2>
-            <p class="subcopy">
-              This is not a course and not a complex AI system. It is a practical download designed to help with day-to-day business messages.
-            </p>
-          </div>
-
-          <div class="two-up">
-            <div class="card split-card">
-              <div>
-                <p class="mini-label">Guide</p>
-                <h3>See where AI actually fits into your workflow.</h3>
-              </div>
-              <ul class="bullet-list">
-                <li>Simple examples of where AI saves time in a service business.</li>
-                <li>Practical use cases for quotes, follow-ups, replies, reminders, and reviews.</li>
-                <li>Clear guidance on how to get useful outputs without overcomplicating it.</li>
-              </ul>
-            </div>
-
-            <div class="card split-card">
-              <div>
-                <p class="mini-label">Prompt pack</p>
-                <h3>Copy, paste, and use ready-made prompts straight away.</h3>
-              </div>
-              <ul class="bullet-list">
-                <li>Ready-to-use prompts for common customer situations.</li>
-                <li>Built for real scenarios like late payments, slow leads, quick replies, and review responses.</li>
-                <li>Easy to drop into the AI tool you already use and adapt in seconds.</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
         <section class="shell section" id="use-cases">
           <div class="section-heading">
-            <p class="eyebrow">Real business use cases</p>
-            <h2>Use it when you need to know what to say fast.</h2>
+            <p class="eyebrow">Use it for messages like these</p>
+            <h2>The stuff you keep meaning to send, but keep putting off.</h2>
+            <p class="subcopy">This is built for real customer communication, not AI theory.</p>
           </div>
 
           <div class="cases-grid">
@@ -769,6 +930,19 @@
             </article>
           </div>
 
+          <article class="testimonial">
+            <p class="testimonial-quote">"I didn't buy this to learn AI. I just needed help replying to customers faster."</p>
+            <p class="testimonial-body">
+              I used one of the ready-to-use AI messages for a quote follow-up that I would have normally put off,
+              and the client replied within 20 minutes and booked the job. Same with invoice reminders.
+              I used to overthink what to say, now I paste it in, tweak it slightly, and send it.
+            </p>
+            <p class="testimonial-meta">
+              James Carter
+              <span>Owner, Carter Property Services</span>
+            </p>
+          </article>
+
           <div class="button-row">
             <a
               class="button button-primary checkout-link"
@@ -779,33 +953,61 @@
           </div>
         </section>
 
+        <section class="shell section" id="what-you-get">
+          <div class="section-heading">
+            <p class="eyebrow">What you get</p>
+            <h2>Everything is built for immediate use.</h2>
+            <p class="subcopy">
+              You are buying ready-to-use AI messages you can use straight away, plus a short guide that shows where they fit best.
+            </p>
+          </div>
+
+          <div class="two-up">
+            <div class="card split-card">
+              <div>
+                <p class="mini-label">Ready-to-use AI messages</p>
+                <h3>Copy, paste, and adapt real AI messages in minutes.</h3>
+              </div>
+              <ul class="bullet-list">
+                <li>Ready-to-use AI messages for quote follow-ups, invoice reminders, replies, and review responses.</li>
+                <li>Built for everyday situations that service businesses actually deal with.</li>
+                <li>Easy to tweak fast and send without overthinking the wording.</li>
+              </ul>
+            </div>
+
+            <div class="card split-card">
+              <div>
+                <p class="mini-label">Short guide</p>
+                <h3>See where to use AI first without making it complicated.</h3>
+              </div>
+              <ul class="bullet-list">
+                <li>Shows the quickest places AI saves time in customer communication.</li>
+                <li>Keeps the advice practical, simple, and beginner-friendly.</li>
+                <li>Helps you get useful drafts faster instead of guessing what to ask.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
         <section class="shell section" id="trust">
           <div class="section-heading">
-            <p class="eyebrow">Why this feels easy</p>
-            <h2>Built to remove friction, not add more to your day.</h2>
+            <p class="eyebrow">Why people buy it</p>
+            <h2>It is simple to use and easy to act on.</h2>
           </div>
 
           <div class="trust-grid">
             <div class="card">
-              <h3>No extra tools required</h3>
-              <p>Use the guide and prompts with the AI tools you already know or can access easily.</p>
+              <h3>Everything needed is free and simple</h3>
+              <p>You do not need to buy extra software or learn a complicated system to use it.</p>
             </div>
             <div class="card">
-              <h3>No technical knowledge needed</h3>
-              <p>You do not need to understand systems, automations, or complicated AI workflows.</p>
+              <h3>Beginner-friendly</h3>
+              <p>You do not need technical knowledge or any experience using AI properly before.</p>
             </div>
             <div class="card">
-              <h3>Works immediately</h3>
-              <p>Open the pack, copy a prompt, adjust the details, and get a usable draft straight away.</p>
+              <h3>Use it today</h3>
+              <p>Open the pack, copy an AI message, tweak the details, and send a better message the same day.</p>
             </div>
-            <div class="card">
-              <h3>Made for real business owners</h3>
-              <p>Focused on everyday customer communication, not theory or trend-chasing.</p>
-            </div>
-          </div>
-
-          <div class="proof-quote">
-            “This is for the business owner who wants help wording the message, not another system to manage.”
           </div>
         </section>
 
@@ -817,12 +1019,8 @@
 
           <div class="faq-grid">
             <div class="faq-item">
-              <h3>Do I need extra tools?</h3>
-              <p class="faq-answer">No. It works with tools you already have access to.</p>
-            </div>
-            <div class="faq-item">
-              <h3>Is this beginner-friendly?</h3>
-              <p class="faq-answer">Yes. It is built for business owners who are not technical.</p>
+              <h3>Do I need to buy anything else?</h3>
+              <p class="faq-answer">No. Everything needed to use it is free and simple to get started with.</p>
             </div>
             <div class="faq-item">
               <h3>How quickly can I use it?</h3>
@@ -839,9 +1037,9 @@
           <div class="final-inner">
             <div>
               <p class="eyebrow">Final call</p>
-              <h2>Get the guide and prompts. Start using them today.</h2>
+              <h2>Get the AI messages that help you reply, follow up, and chase invoices faster.</h2>
               <p class="lead">
-                If you want faster customer replies, smoother follow-ups, and less time figuring out what to say, this gives you a practical place to start.
+                If you want less hesitation and faster customer communication, this gives you practical AI messages you can use right away.
               </p>
               <div class="badge-row" style="margin-top: 1rem">
                 <span class="badge">Instant digital download</span>
@@ -851,18 +1049,18 @@
             </div>
 
             <div class="offer-box">
-              <p class="mini-label">Get the Guide + Prompt Pack</p>
+              <p class="mini-label">Get the Guide + AI Messages</p>
               <ul class="bullet-list">
-                <li>Practical AI guide for day-to-day business communication</li>
-                <li>Ready-to-use prompts for follow-ups, reminders, replies, and reviews</li>
-                <li>Built to save time and reduce the mental load of admin messages</li>
+                <li>Ready-to-use AI messages for quote follow-ups, invoice reminders, replies, and reviews</li>
+                <li>Short guide showing where to use AI first so it feels simple</li>
+                <li>Built to save time and reduce the mental load of customer messages</li>
               </ul>
               <div class="button-row">
                 <a
                   class="button button-primary button-full checkout-link"
                   href="https://buy.stripe.com/4gM7sKdrdboE7iwgSubZe0t"
                 >
-                  Get the Guide + Prompt Pack
+                  Get the Guide + AI Messages
                 </a>
               </div>
               <p class="microcopy">Simple. Practical. Ready to use as soon as you open it.</p>
@@ -875,8 +1073,8 @@
     <div class="sticky-bar">
       <div class="shell sticky-inner">
         <div class="sticky-copy">
-          <strong>AI Guide + Prompt Pack</strong>
-          <span>Write better customer messages faster.</span>
+          <strong>Guide + AI Messages</strong>
+          <span>Instant access. One-time purchase.</span>
         </div>
         <a
           class="button button-primary checkout-link"
@@ -911,7 +1109,7 @@
 
           link.dataset.checkoutTracked = "true";
           fbq("track", "InitiateCheckout", {
-            content_name: "AI Guide + Prompt Pack",
+            content_name: "AI Guide + Ready-to-Use AI Messages",
             content_category: "Digital Product",
             value: 0,
             currency: "GBP"
