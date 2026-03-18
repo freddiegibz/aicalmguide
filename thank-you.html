@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Purchase Confirmed | AI for Local Service Businesses</title>
+    <meta
+      name="description"
+      content="Purchase confirmed. See what happens next and how to get your first quick win with AI for Local Service Businesses."
+    />
+    <style>
+      :root {
+        --bg: #f4efe7;
+        --surface: #fffaf3;
+        --surface-strong: #fff;
+        --ink: #122033;
+        --muted: #536173;
+        --line: rgba(18, 32, 51, 0.12);
+        --accent: #c86836;
+        --accent-dark: #9f4e27;
+        --accent-soft: #f6d7c6;
+        --navy: #16273f;
+        --navy-soft: #223754;
+        --success: #2d6b45;
+        --success-soft: #deefe4;
+        --shadow: 0 20px 50px rgba(18, 32, 51, 0.08);
+        --radius-lg: 28px;
+        --radius-md: 18px;
+        --radius-sm: 12px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: Georgia, "Times New Roman", serif;
+        background:
+          radial-gradient(circle at top left, rgba(200, 104, 54, 0.16), transparent 32%),
+          linear-gradient(180deg, #f6f0e7 0%, var(--bg) 100%);
+        color: var(--ink);
+      }
+
+      a {
+        color: inherit;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      .shell {
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      .page {
+        padding: 20px 0 72px;
+      }
+
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 10px 0 18px;
+      }
+
+      .brand {
+        margin: 0;
+        font-size: 0.95rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--navy);
+      }
+
+      .status-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 14px;
+        border-radius: 999px;
+        background: var(--success-soft);
+        color: var(--success);
+        font-size: 0.92rem;
+        font-weight: 700;
+      }
+
+      .status-pill::before {
+        content: "";
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: currentColor;
+      }
+
+      .hero {
+        display: grid;
+        gap: 24px;
+        align-items: stretch;
+      }
+
+      .hero-copy,
+      .hero-panel,
+      .section-card,
+      .creator-card {
+        background: rgba(255, 255, 255, 0.84);
+        border: 1px solid rgba(255, 255, 255, 0.72);
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(14px);
+      }
+
+      .hero-copy {
+        border-radius: var(--radius-lg);
+        padding: 28px 22px;
+      }
+
+      .eyebrow {
+        margin: 0 0 12px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 0.82rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--accent-dark);
+      }
+
+      h1,
+      h2,
+      h3 {
+        margin: 0;
+        line-height: 1.05;
+      }
+
+      h1 {
+        font-size: clamp(2.25rem, 8vw, 4.5rem);
+        max-width: 12ch;
+      }
+
+      h2 {
+        font-size: clamp(1.8rem, 5vw, 2.9rem);
+      }
+
+      h3 {
+        font-size: 1.25rem;
+      }
+
+      p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.6;
+        font-size: 1rem;
+      }
+
+      .lead {
+        margin-top: 14px;
+        max-width: 38rem;
+        font-size: 1.08rem;
+      }
+
+      .validation-line {
+        margin-top: 18px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 0.98rem;
+        font-weight: 700;
+        color: var(--navy);
+      }
+
+      .button-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 22px;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 52px;
+        padding: 0 22px;
+        border-radius: 999px;
+        border: 1px solid transparent;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 0.98rem;
+        font-weight: 700;
+        text-decoration: none;
+        transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+      }
+
+      .button:hover {
+        transform: translateY(-1px);
+      }
+
+      .button-primary {
+        background: var(--accent);
+        color: #fff;
+        box-shadow: 0 16px 30px rgba(200, 104, 54, 0.25);
+      }
+
+      .button-primary:hover {
+        background: var(--accent-dark);
+      }
+
+      .button-secondary {
+        background: rgba(255, 255, 255, 0.88);
+        color: var(--navy);
+        border-color: var(--line);
+      }
+
+      .hero-panel {
+        border-radius: var(--radius-lg);
+        padding: 24px 20px;
+        background: linear-gradient(180deg, var(--navy) 0%, var(--navy-soft) 100%);
+        color: #fff;
+      }
+
+      .hero-panel p,
+      .hero-panel li {
+        color: rgba(255, 255, 255, 0.82);
+      }
+
+      .hero-panel .eyebrow {
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      .hero-panel ul {
+        margin: 18px 0 0;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 12px;
+      }
+
+      .hero-panel li {
+        padding-left: 18px;
+        position: relative;
+      }
+
+      .hero-panel li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.62em;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--accent-soft);
+      }
+
+      .section {
+        margin-top: 22px;
+      }
+
+      .section-card {
+        border-radius: var(--radius-lg);
+        padding: 26px 22px;
+      }
+
+      .section-heading {
+        max-width: 44rem;
+      }
+
+      .grid {
+        display: grid;
+        gap: 16px;
+        margin-top: 18px;
+      }
+
+      .mini-card,
+      .task-card {
+        background: var(--surface-strong);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-md);
+        padding: 18px;
+      }
+
+      .mini-card strong,
+      .task-card strong {
+        display: block;
+        margin-bottom: 8px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--accent-dark);
+      }
+
+      .mini-card p,
+      .task-card p {
+        margin-top: 8px;
+      }
+
+      .step-number {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        background: var(--accent-soft);
+        color: var(--accent-dark);
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 700;
+        margin-bottom: 14px;
+      }
+
+      .quick-win {
+        background: linear-gradient(180deg, rgba(200, 104, 54, 0.08), rgba(200, 104, 54, 0.02));
+      }
+
+      .creator-card {
+        display: grid;
+        gap: 18px;
+        border-radius: var(--radius-lg);
+        padding: 24px 22px;
+      }
+
+      .creator-photo {
+        width: 110px;
+        height: 110px;
+        object-fit: cover;
+        border-radius: 24px;
+        border: 3px solid rgba(255, 255, 255, 0.8);
+        box-shadow: 0 14px 30px rgba(18, 32, 51, 0.14);
+      }
+
+      .note {
+        margin-top: 14px;
+        padding: 16px 18px;
+        border-radius: var(--radius-md);
+        background: var(--surface);
+        border: 1px solid var(--line);
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 0.95rem;
+        color: var(--navy);
+      }
+
+      .footer-note {
+        margin-top: 18px;
+        font-size: 0.95rem;
+      }
+
+      @media (min-width: 800px) {
+        .page {
+          padding-top: 28px;
+          padding-bottom: 88px;
+        }
+
+        .hero {
+          grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
+        }
+
+        .grid.two {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .grid.three {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .creator-card {
+          grid-template-columns: 110px minmax(0, 1fr);
+          align-items: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <div class="shell">
+        <div class="topbar">
+          <p class="brand">AI for Local Service Businesses</p>
+          <span class="status-pill">Purchase confirmed</span>
+        </div>
+
+        <section class="hero">
+          <div class="hero-copy">
+            <p class="eyebrow">Good call</p>
+            <h1>You just bought a shortcut for the office-side work that keeps following you home.</h1>
+            <p class="lead">
+              This is built to help you get follow-ups, customer messages, quote wording, reminders,
+              and repetitive admin writing done faster without starting from scratch.
+            </p>
+            <p class="validation-line">You do not need to learn everything today. Just use it on one real task first.</p>
+
+            <div class="button-row">
+              <a class="button button-primary" href="#start">See the fastest first win</a>
+              <a class="button button-secondary" href="/index.html">Back to the main page</a>
+            </div>
+          </div>
+
+          <aside class="hero-panel">
+            <p class="eyebrow">What happens next</p>
+            <h2>Your next 10 minutes can be simple.</h2>
+            <ul>
+              <li>Check your email for your receipt and access details.</li>
+              <li>Open the prompt pack and pick one task that is already hanging over you.</li>
+              <li>Edit the draft, send it, and keep moving.</li>
+            </ul>
+          </aside>
+        </section>
+
+        <section class="section" id="start">
+          <div class="section-card quick-win">
+            <div class="section-heading">
+              <p class="eyebrow">Start here</p>
+              <h2>The fastest first win is usually one of these.</h2>
+              <p class="lead" style="margin-top: 12px;">
+                Do not try to use everything at once. Pick one repetitive task you already need to do today.
+              </p>
+            </div>
+
+            <div class="grid three">
+              <article class="task-card">
+                <span class="step-number">1</span>
+                <strong>Quote follow-up</strong>
+                <h3>Send the follow-up you have been meaning to send.</h3>
+                <p>Use the prompt, tweak the details, and get the message out instead of leaving it for tonight.</p>
+              </article>
+
+              <article class="task-card">
+                <span class="step-number">2</span>
+                <strong>Customer reply</strong>
+                <h3>Handle an awkward or time-consuming message faster.</h3>
+                <p>Useful when you know what you want to say but do not want to spend 15 minutes wording it.</p>
+              </article>
+
+              <article class="task-card">
+                <span class="step-number">3</span>
+                <strong>Admin writing</strong>
+                <h3>Clear one annoying office task off your plate.</h3>
+                <p>Use it for reminders, review replies, invoice nudges, or the admin writing you keep putting off.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-card">
+            <div class="section-heading">
+              <p class="eyebrow">How to use it</p>
+              <h2>Keep the first use simple.</h2>
+            </div>
+
+            <div class="grid three">
+              <article class="mini-card">
+                <strong>Pick one job</strong>
+                <h3>Choose the task already bothering you.</h3>
+                <p>Follow-up, reply, quote wording, reminder, or admin writing.</p>
+              </article>
+
+              <article class="mini-card">
+                <strong>Copy one prompt</strong>
+                <h3>Add your business details and context.</h3>
+                <p>Keep it practical. You are trying to finish the task, not become an AI expert.</p>
+              </article>
+
+              <article class="mini-card">
+                <strong>Use the draft</strong>
+                <h3>Edit lightly, send it, and move on.</h3>
+                <p>The goal is less writing hanging over you after the job.</p>
+              </article>
+            </div>
+
+            <div class="note">
+              Best mindset: this is not about replacing your judgment. It is about getting the repetitive writing and admin around the job done faster.
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="creator-card">
+            <img src="me.jpg" alt="Creator of AI for Local Service Businesses" class="creator-photo" />
+            <div>
+              <p class="eyebrow">Why you should feel good about this purchase</p>
+              <h2>This was built from real one-to-one implementation work in 100+ local service businesses.</h2>
+              <p class="lead" style="margin-top: 12px;">
+                The goal was never to make this feel clever. It was to make the office-side work around jobs feel lighter, faster, and easier to get through.
+              </p>
+              <p class="footer-note">
+                You also have 14 days to use it on real tasks in your business and decide whether it feels genuinely useful.
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
