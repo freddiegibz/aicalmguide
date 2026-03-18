@@ -382,20 +382,28 @@ details p {
 
 @media (min-width: 760px) {
   .hero-shell {
-    grid-template-columns: minmax(260px, 320px) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1.2fr) minmax(300px, 360px);
     align-items: center;
-    gap: 30px;
-    padding: 28px;
+    gap: 40px;
+    padding: 32px;
   }
 
   .hero-media {
-    order: 1;
-    max-width: 320px;
-    margin: 0;
+    order: 2;
+    max-width: 360px;
+    margin-left: auto;
   }
 
   .hero-copy {
-    order: 2;
+    order: 1;
+  }
+
+  h1 {
+    max-width: 18ch;
+  }
+
+  .hero-lead {
+    max-width: 42rem;
   }
 
   .use-grid {
