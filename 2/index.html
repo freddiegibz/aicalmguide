@@ -38,15 +38,15 @@
               A practical small business guide that shows exactly how to use AI for enquiries, follow-ups,
               invoices, emails, reviews, marketing, and admin, with ready-to-use prompts you can apply today.
             </p>
+            <div class="cta-row cta-row-hero">
+              <a class="cta-button" href="https://your-checkout-link.com">Get the Guide + Prompts</a>
+              <a class="ghost-button" href="#inside">See What You Get</a>
+            </div>
             <ul class="hero-points">
               <li>Reply to customers faster without writing every message from scratch</li>
               <li>Follow up on quotes and overdue invoices without sounding awkward or pushy</li>
               <li>Turn rough notes into clean emails, posts, summaries, and next actions in minutes</li>
             </ul>
-            <div class="cta-row">
-              <a class="cta-button" href="https://your-checkout-link.com">Get the Guide + Prompts</a>
-              <a class="ghost-button" href="#inside">See What You Get</a>
-            </div>
             <div class="hero-meta">
               <span class="chip">Made for owner-operators</span>
               <span class="chip">No theory-heavy AI training</span>
@@ -392,12 +392,35 @@
     </main>
   </div>
 
-  <div class="sticky-bar">
+  <div class="sticky-bar" id="sticky-bar">
     <div class="sticky-copy">
       <div class="sticky-title">Small Business AI Task Pack</div>
       <div class="sticky-sub">Guide + prompts for everyday business tasks</div>
     </div>
     <a class="mini-button" href="https://your-checkout-link.com">Get Access</a>
   </div>
+
+  <script>
+    (function () {
+      var hero = document.querySelector(".hero");
+      var stickyBar = document.getElementById("sticky-bar");
+
+      if (!hero || !stickyBar || !("IntersectionObserver" in window)) {
+        return;
+      }
+
+      var observer = new IntersectionObserver(
+        function (entries) {
+          var entry = entries[0];
+          stickyBar.classList.toggle("is-visible", !entry.isIntersecting);
+        },
+        {
+          threshold: 0.05
+        }
+      );
+
+      observer.observe(hero);
+    })();
+  </script>
 </body>
 </html>

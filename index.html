@@ -1245,17 +1245,37 @@ Then write:
         var checkoutLinks = document.querySelectorAll(".checkout-link");
         var params = new URLSearchParams(window.location.search);
         var geo = (params.get("geo") || "").toLowerCase();
+        var productName = "AI for Local Service Businesses";
         var defaultCheckoutUrl = "https://buy.stripe.com/4gM7sKdrdboE7iwgSubZe0t";
         var checkoutUrls = {
           uk: "https://buy.stripe.com/4gM7sKdrdboE7iwgSubZe0t",
           us: "https://buy.stripe.com/4gM7sKdrdboE7iwgSubZe0t"
         };
 
+        function trackInitiateCheckout(link) {
+          if (!window.fbq || link.dataset.checkoutTracked === "true") {
+            return;
+          }
+
+          link.dataset.checkoutTracked = "true";
+
+          fbq("track", "InitiateCheckout", {
+            content_name: productName,
+            content_category: "Digital Product",
+            content_type: "product",
+            contents: [{ id: "ai-local-service-businesses", quantity: 1 }],
+            num_items: 1
+          });
+        }
+
         checkoutLinks.forEach(function (link) {
           link.href = checkoutUrls[geo] || defaultCheckoutUrl;
           link.addEventListener("click", function () {
-            if (window.fbq) {
-              fbq("track", "InitiateCheckout");
+            trackInitiateCheckout(link);
+          });
+          link.addEventListener("auxclick", function (event) {
+            if (event.button === 1) {
+              trackInitiateCheckout(link);
             }
           });
         });

@@ -199,6 +199,10 @@ h2 {
   margin-top: 24px;
 }
 
+.cta-row-hero {
+  margin-top: 20px;
+}
+
 .cta-button,
 .ghost-button,
 .mini-button {
@@ -573,6 +577,16 @@ details[open] summary::after {
   color: #fff;
   box-shadow: 0 18px 36px rgba(0, 0, 0, 0.24);
   backdrop-filter: blur(10px);
+  opacity: 0;
+  transform: translateY(16px);
+  pointer-events: none;
+  transition: opacity 0.22s ease, transform 0.22s ease;
+}
+
+.sticky-bar.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 .sticky-copy {
