@@ -113,6 +113,31 @@
         white-space: nowrap;
       }
 
+      .topbar-actions {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-shrink: 0;
+      }
+
+      .nav-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 40px;
+        padding: 0 14px;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        font-size: 0.88rem;
+        font-weight: 800;
+      }
+
+      .nav-link:hover,
+      .nav-link:focus-visible {
+        background: rgba(63, 74, 50, 0.05);
+        border-color: var(--line-strong);
+      }
+
       .button {
         display: inline-flex;
         align-items: center;
@@ -745,6 +770,10 @@
         .site-header .button {
           display: none;
         }
+
+        .topbar-actions {
+          gap: 6px;
+        }
       }
 
       @media (min-width: 760px) {
@@ -825,14 +854,17 @@
     <main class="page">
       <header class="site-header shell">
         <p class="brand">AI for Local Service Businesses</p>
-        <a
-          class="button button-secondary button-small checkout-link"
-          href="https://buy.stripe.com/4gM7sKdrdboE7iwgSubZe0t"
-          target="_blank"
-          rel="noopener"
-        >
-          Get Instant Access
-        </a>
+        <div class="topbar-actions">
+          <a class="nav-link" href="#faq">Questions</a>
+          <a
+            class="button button-primary button-small checkout-link"
+            href="https://buy.stripe.com/4gM7sKdrdboE7iwgSubZe0t"
+            target="_blank"
+            rel="noopener"
+          >
+            Get Instant Access
+          </a>
+        </div>
       </header>
 
       <section class="hero shell">
@@ -1015,7 +1047,7 @@
         </div>
       </section>
 
-      <section class="shell section faq">
+      <section class="shell section faq" id="faq">
         <div class="section-heading">
           <p class="eyebrow">FAQ</p>
           <h2>Quick answers before buying.</h2>
