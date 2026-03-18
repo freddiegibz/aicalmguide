@@ -96,20 +96,7 @@
       }
 
       .site-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 1rem;
-        padding: 0.95rem 0 0.6rem;
-      }
-
-      .brand {
-        margin: 0;
-        color: var(--navy-deep);
-        font-size: 0.8rem;
-        font-weight: 800;
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
+        display: none;
       }
 
       .header-link {
@@ -204,6 +191,14 @@
         max-width: 39rem;
         font-size: 0.99rem;
         line-height: 1.62;
+      }
+
+      .action-line {
+        margin-top: 0.75rem;
+        color: var(--navy-deep);
+        font-size: 0.94rem;
+        font-weight: 800;
+        line-height: 1.45;
       }
 
       .section-heading {
@@ -552,6 +547,13 @@
           width: min(calc(100% - 2.25rem), var(--max));
         }
 
+        .site-header {
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+          padding: 0.95rem 0 0.6rem;
+        }
+
         .header-link {
           display: inline-flex;
         }
@@ -642,8 +644,7 @@
   <body>
     <div class="page">
       <header class="shell site-header">
-        <p class="brand">AI Message Kit</p>
-        <a class="header-link" href="#buy">Get the AI Message Pack</a>
+        <a class="header-link" href="#buy">Get Instant Access</a>
       </header>
 
       <main>
@@ -652,22 +653,22 @@
             <p class="eyebrow">For plumbers, cleaners, contractors, consultants, freelancers, and other busy small business owners</p>
             <h1>Stop thinking about what to say. Send it in seconds.</h1>
             <p class="lead">
-              Ready-to-use AI messages for customer replies, quote follow-ups, invoice reminders,
-              and awkward situations, plus a quick guide so you know exactly where to use them first.
+              Ready-to-use messages for follow-ups, replies, invoices, and awkward situations -
+              just copy, paste, and send.
             </p>
+            <p class="action-line">Copy, paste, and send - no thinking required.</p>
 
             <div class="button-row">
               <a
                 class="button button-primary checkout-link"
                 href="https://buy.stripe.com/4gM7sKdrdboE7iwgSubZe0t"
               >
-                Get the AI Message Pack
+                Get Instant Access
               </a>
               <a class="button button-secondary" href="#examples">See real situations</a>
             </div>
 
-            <p class="trust-line">Everything you need is free and simple to use. No setup required.</p>
-            <p class="microcopy">Instant digital download. Copy -> Send.</p>
+            <p class="trust-line">Works with tools you already have. No setup required.</p>
           </div>
 
           <div class="hero-visual">
@@ -741,7 +742,7 @@
               class="button button-primary checkout-link"
               href="https://buy.stripe.com/4gM7sKdrdboE7iwgSubZe0t"
             >
-              Get the AI Message Pack
+              Get Instant Access
             </a>
           </div>
         </section>
@@ -855,7 +856,7 @@
                   class="button button-primary button-full checkout-link"
                   href="https://buy.stripe.com/4gM7sKdrdboE7iwgSubZe0t"
                 >
-                  Get the AI Message Pack
+                  Get Instant Access
                 </a>
               </div>
               <p class="microcopy">Simple. Practical. Ready to use as soon as you open it.</p>
