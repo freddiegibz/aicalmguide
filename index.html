@@ -47,7 +47,7 @@
         --line: rgba(45, 36, 29, 0.14);
         --line-strong: rgba(45, 36, 29, 0.22);
         --radius: 10px;
-        --max: 1080px;
+        --max: 1180px;
       }
 
       * {
@@ -302,14 +302,6 @@
         margin: 0 auto;
       }
 
-      .purchase-note {
-        margin-top: 12px;
-        color: var(--primary-deep);
-        font-size: 0.94rem;
-        font-weight: 600;
-      }
-
-      .signal-row,
       .hero-actions,
       .final-badges {
         display: flex;
@@ -318,17 +310,26 @@
         margin-top: 18px;
       }
 
-      .signal-pill {
-        display: inline-flex;
+      .hero-actions {
         align-items: center;
-        min-height: 34px;
-        padding: 0 12px;
-        border: 1px solid var(--line);
-        border-radius: 999px;
-        background: var(--surface);
-        color: var(--muted);
-        font-size: 0.87rem;
+      }
+
+      .hero-link {
+        color: var(--primary-deep);
+        font-size: 0.92rem;
         font-weight: 700;
+      }
+
+      .hero-link:hover,
+      .hero-link:focus-visible {
+        text-decoration: underline;
+      }
+
+      .hero-support {
+        margin-top: 14px;
+        color: var(--muted);
+        font-size: 0.93rem;
+        line-height: 1.55;
       }
 
       .hero-list,
@@ -416,11 +417,28 @@
       .product-book {
         position: relative;
         overflow: hidden;
-        min-height: 318px;
+        min-height: 282px;
         padding: 22px;
         border-color: rgba(45, 36, 29, 0.18);
         background: linear-gradient(180deg, #49563c 0%, #313925 100%);
         color: #fff;
+      }
+
+      .product-book-copy {
+        position: relative;
+        z-index: 1;
+        max-width: 15.5rem;
+      }
+
+      .product-cover {
+        position: absolute;
+        top: 20px;
+        right: 18px;
+        z-index: 1;
+        width: 88px;
+        border-radius: 6px;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        box-shadow: 0 10px 24px rgba(18, 22, 12, 0.28);
       }
 
       .product-book::after {
@@ -449,33 +467,33 @@
         max-width: 8ch;
         margin-top: 14px;
         color: #fff;
-        font-size: clamp(1.9rem, 5vw, 2.7rem);
+        font-size: clamp(1.65rem, 3.5vw, 2.1rem);
       }
 
       .product-book p {
         position: relative;
         z-index: 1;
-        max-width: 15rem;
         margin-top: 12px;
         color: rgba(255, 255, 255, 0.78);
         line-height: 1.58;
+        font-size: 0.94rem;
       }
 
       .hero-task-list {
         position: relative;
         z-index: 1;
         display: grid;
-        gap: 10px;
-        margin-top: 18px;
+        gap: 8px;
+        margin-top: 14px;
       }
 
       .hero-task-list li {
-        padding: 10px 12px;
+        padding: 8px 10px;
         border: 1px solid rgba(255, 255, 255, 0.12);
         border-radius: 6px;
         background: rgba(255, 255, 255, 0.08);
         color: rgba(255, 255, 255, 0.92);
-        font-size: 0.92rem;
+        font-size: 0.86rem;
         font-weight: 700;
         line-height: 1.42;
       }
@@ -778,20 +796,33 @@
 
       @media (min-width: 760px) {
         .hero {
-          grid-template-columns: minmax(260px, 320px) minmax(0, 1fr);
+          grid-template-columns: minmax(0, 1.18fr) minmax(320px, 0.82fr);
           align-items: center;
-          gap: 30px;
-          padding: 28px;
-        }
-
-        .hero-product {
-          order: 1;
-          max-width: 320px;
-          margin: 0;
+          gap: 42px;
+          padding: 34px;
         }
 
         .hero-copy {
-          order: 2;
+          max-width: 44rem;
+        }
+
+        .hero-copy h1 {
+          max-width: 15ch;
+          font-size: clamp(2.35rem, 3.7vw, 3.55rem);
+        }
+
+        .hero-copy .lead {
+          max-width: 42rem;
+          font-size: 1.04rem;
+        }
+
+        .hero-product {
+          max-width: 100%;
+          margin: 0 0 0 auto;
+        }
+
+        .product-cover {
+          width: 96px;
         }
 
         .benefit-grid {
@@ -885,41 +916,32 @@
             >
               Get the Prompt Pack + Guide
             </a>
-            <a class="button button-ghost" href="#inside">See What You Get</a>
+            <a class="hero-link" href="#inside">See what you get</a>
           </div>
 
-          <div class="signal-row">
-            <span class="signal-pill">Prompt pack + guide</span>
-            <span class="signal-pill">Follow-ups, messages, admin</span>
-            <span class="signal-pill">Instant digital download</span>
-          </div>
-
-          <p class="purchase-note">
-            Less writing hanging over you after the job.
+          <p class="hero-support">
+            Instant digital download. One-time purchase. Built for local service business owners
+            who want less writing hanging over them after the job.
           </p>
         </div>
 
         <div class="hero-product">
           <div class="product-stack">
             <div class="product-book">
-              <div class="book-kicker">Use it for</div>
-              <h2>The work that follows you home after the job.</h2>
-              <p>The writing and admin that gets delayed when you are on jobs, driving, or already behind.</p>
-              <ul class="hero-task-list">
-                <li>Write quote follow-ups without staring at a blank screen</li>
-                <li>Draft customer replies and updates faster</li>
-                <li>Handle repetitive office-side writing with less effort</li>
-              </ul>
-            </div>
-
-            <div class="product-card">
-              <p class="card-label">What you get</p>
-              <h3>Prompt pack + practical guide</h3>
-              <ul class="simple-list">
-                <li>Copy-and-use prompts for follow-ups, customer messages, quote wording, reminders, and admin writing</li>
-                <li>A short guide showing where to use AI first so you do not waste time figuring it out</li>
-                <li>A simple setup sheet to make the outputs fit your business better</li>
-              </ul>
+              <img
+                class="product-cover"
+                src="2/book cover.jpg"
+                alt="Cover of the AI for Local Service Businesses guide and prompt pack"
+              />
+              <div class="product-book-copy">
+                <div class="book-kicker">What it includes</div>
+                <h2>Prompt pack + practical guide</h2>
+                <p>Built for follow-ups, customer replies, quote wording, reminders, and admin writing.</p>
+                <ul class="hero-task-list">
+                  <li>Ready-to-use prompts you can copy and use straight away</li>
+                  <li>A short guide showing where AI is worth using first</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
