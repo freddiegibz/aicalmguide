@@ -286,6 +286,19 @@ details {
   gap: 12px;
 }
 
+.section-cta {
+  display: grid;
+  gap: 12px;
+  margin-top: 18px;
+  max-width: 38rem;
+}
+
+.section-cta p {
+  margin: 0;
+  color: var(--primary-deep);
+  font-weight: 600;
+}
+
 .author-head {
   display: grid;
   gap: 16px;
