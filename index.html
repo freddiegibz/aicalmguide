@@ -342,15 +342,9 @@
       }
 
       .product-stack,
-      .snap-grid,
       .benefit-grid,
-      .inside-grid,
-      .steps-grid,
-      .compare-grid,
       .trust-grid,
-      .prompt-layout,
-      .delivery-grid,
-      .example-stack {
+      .delivery-grid {
         display: grid;
         gap: 14px;
       }
@@ -461,32 +455,14 @@
         line-height: 1.42;
       }
 
-      .snap-grid,
-      .decision-banner,
       .section,
       .final-panel {
         margin-top: 28px;
       }
 
-      .snap-grid,
       .section {
         padding-top: 28px;
         border-top: 1px solid var(--line);
-      }
-
-      .decision-banner {
-        padding: 18px 20px;
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        background: #e8ddcc;
-      }
-
-      .decision-banner p {
-        max-width: 42rem;
-        color: var(--primary-deep);
-        font-size: 1.08rem;
-        font-weight: 800;
-        line-height: 1.42;
       }
 
       .section.section-contrast {
@@ -542,6 +518,28 @@
       .delivery-panel,
       .quickstart-panel {
         margin-top: 16px;
+      }
+
+      .offer-block {
+        display: grid;
+        gap: 16px;
+        margin-top: 0;
+      }
+
+      .offer-intro {
+        display: grid;
+        gap: 10px;
+        max-width: 42rem;
+      }
+
+      .offer-intro p:last-child,
+      .offer-note {
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .offer-block .simple-list {
+        margin-top: 0;
       }
 
       .delivery-item,
@@ -767,20 +765,15 @@
           order: 2;
         }
 
-        .snap-grid,
-        .benefit-grid,
-        .compare-grid {
+        .benefit-grid {
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
 
-        .inside-grid,
-        .delivery-grid,
-        .steps-grid {
+        .delivery-grid {
           grid-template-columns: repeat(3, minmax(0, 1fr));
         }
 
         .trust-grid,
-        .prompt-layout,
         .final-panel {
           grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
           align-items: start;
@@ -900,29 +893,6 @@
         </div>
       </section>
 
-      <section class="shell snap-grid">
-        <article class="snap-card">
-          <h3>What it is</h3>
-          <p>A practical AI guide + prompt pack for local service businesses.</p>
-        </article>
-        <article class="snap-card">
-          <h3>Who it is for</h3>
-          <p>Busy owners who handle jobs, messages, quotes, follow-ups, and office admin themselves.</p>
-        </article>
-        <article class="snap-card">
-          <h3>What it helps with</h3>
-          <p>Faster follow-ups, cleaner quote wording, quicker customer replies, and less admin writing.</p>
-        </article>
-        <article class="snap-card">
-          <h3>Why it matters</h3>
-          <p>The office-side work around the job keeps piling up and usually spills into evenings and weekends.</p>
-        </article>
-      </section>
-
-      <section class="shell decision-banner">
-        <p>Less writing hanging over you. Less office work pushed into evenings. Less mental clutter after the job.</p>
-      </section>
-
       <section class="shell section">
         <div class="trust-grid">
           <article class="trust-card">
@@ -993,47 +963,25 @@
           <p class="eyebrow">What you get</p>
           <h2>Exactly what arrives after checkout.</h2>
           <p class="section-subcopy">
-            You get three simple digital resources designed to help with the paperwork, writing,
-            follow-ups, and customer communication around the job.
+            One purchase gives you a compact toolkit for the follow-ups, customer messages,
+            quote wording, reminders, and admin writing that usually pile up after the job.
           </p>
         </div>
 
-        <div class="inside-grid">
-          <article class="inside-card featured">
-            <p class="card-label">Core guide</p>
-            <h3>The practical guide</h3>
-            <ul class="simple-list">
-              <li>Shows where AI is genuinely useful first for local service businesses</li>
-              <li>Focuses on follow-ups, customer messages, quote wording, reminders, and admin writing</li>
-              <li>Keeps the advice practical instead of technical</li>
-            </ul>
-          </article>
-          <article class="inside-card">
-            <p class="card-label">Included with purchase</p>
-            <h3>The ready-to-use prompt pack</h3>
-            <ul class="simple-list">
-              <li>Ready-made prompts for replies, quote wording, follow-ups, reminders, and admin writing</li>
-              <li>Built to copy, paste, tweak, and use immediately</li>
-              <li>Removes the "what do I ask?" problem</li>
-            </ul>
-          </article>
-          <article class="inside-card">
-            <p class="card-label">Quick-start tool</p>
-            <h3>The business setup sheet</h3>
-            <ul class="simple-list">
-              <li>Add your business type, offer, customer, and tone once</li>
-              <li>Helps outputs feel more relevant and less generic</li>
-              <li>Makes the prompts easier to reuse every week</li>
-            </ul>
-          </article>
-        </div>
+        <div class="delivery-panel offer-block">
+          <div class="offer-intro">
+            <p class="card-label">Delivered immediately</p>
+            <h3>Guide, prompt pack, and setup sheet in one low-friction offer.</h3>
+            <p>
+              Everything is built to help you stop staring at a blank screen when you need to send
+              a follow-up, customer reply, quote message, reminder, or other piece of office-side writing.
+            </p>
+          </div>
 
-        <div class="delivery-panel">
-          <p class="card-label">Delivered immediately</p>
           <div class="delivery-grid">
             <div class="delivery-item">
               <h3>The guide</h3>
-              <p>A practical guide showing where AI fits into the office-side work around the job and how to use it without overcomplicating it.</p>
+              <p>A practical guide showing where AI is worth using first and where to keep it simple.</p>
             </div>
             <div class="delivery-item">
               <h3>The prompt pack</h3>
@@ -1041,131 +989,29 @@
             </div>
             <div class="delivery-item">
               <h3>The setup sheet</h3>
-              <p>A quick way to add your business details so the prompts feel more relevant and easier to reuse.</p>
+              <p>A simple way to add your business details once so the outputs feel more relevant and reusable.</p>
             </div>
           </div>
-        </div>
 
-        <div class="quickstart-panel">
-          <h3>What happens next</h3>
-          <div class="steps-grid">
-            <article class="step-card">
-              <span class="step-number">1</span>
-              <h3>Pick one task</h3>
-              <p>Start with a follow-up, customer reply, quote draft, reminder, or admin task.</p>
-            </article>
-            <article class="step-card">
-              <span class="step-number">2</span>
-              <h3>Copy a prompt</h3>
-              <p>Add a few business details so the output feels more relevant to your business.</p>
-            </article>
-            <article class="step-card">
-              <span class="step-number">3</span>
-              <h3>Use it in real work</h3>
-              <p>Send the message, adapt the draft, or reuse the framework next time.</p>
-            </article>
+          <ul class="simple-list">
+            <li>Built for local service business owners, not AI hobbyists</li>
+            <li>Works with ChatGPT, Claude, and Gemini</li>
+            <li>One-time purchase with instant digital access</li>
+            <li>Covered by a 14-day money-back guarantee</li>
+          </ul>
+
+          <p class="offer-note">Buy it once, use it on real tasks this week, and keep the parts that save you time.</p>
+
+          <div class="hero-actions">
+            <a
+              class="button button-primary checkout-link"
+              href="https://buy.stripe.com/4gM7sKdrdboE7iwgSubZe0t"
+              target="_blank"
+              rel="noopener"
+            >
+              Get the Prompt Pack + Guide
+            </a>
           </div>
-        </div>
-
-        <div class="hero-actions">
-          <a
-            class="button button-primary checkout-link"
-            href="https://buy.stripe.com/4gM7sKdrdboE7iwgSubZe0t"
-            target="_blank"
-            rel="noopener"
-          >
-            Get the Prompt Pack + Guide
-          </a>
-        </div>
-      </section>
-
-      <section class="shell section section-contrast">
-        <div class="section-heading">
-          <p class="eyebrow">Example</p>
-          <h2>What this looks like when you use it on real work.</h2>
-        </div>
-
-        <div class="prompt-layout">
-          <div class="prompt-box">
-            <pre id="sample-prompt">Act as an assistant for my local service business.
-
-Business type: [plumber / electrician / cleaner / landscaper / etc.]
-Main service: [insert service]
-Ideal customer: [insert customer type]
-Tone: [friendly / professional / direct]
-
-Write a reply to a new customer enquiry that:
-1. Thanks them for getting in touch
-2. Confirms I can help
-3. Asks for the key details I need to quote properly
-4. Sounds clear, helpful, and professional
-5. Stays short enough to send as a text or email
-
-Then write:
-- a simple quote follow-up message for 2 days later
-- a polite chase-up message if they have gone quiet
-- a short version I can send from my phone</pre>
-            <button class="button button-secondary" id="copy-prompt" type="button">Copy Sample Prompt</button>
-          </div>
-
-          <aside class="proof-panel">
-            <p class="card-label">What that turns into</p>
-            <h3>From a real job-related message to something you can actually send.</h3>
-            <div class="example-stack">
-              <div class="example-card">
-                <p class="message-label">Incoming enquiry</p>
-                <p class="message-box">
-                  "Hi, I need a quote for a yard cleanup and hedge trimming next week. Do you cover
-                  Tampa and what availability do you have?"
-                </p>
-              </div>
-              <div class="example-card">
-                <p class="message-label">Reply draft</p>
-                <p class="message-box">
-                  Hi, thanks for getting in touch. Yes, I cover Tampa and I'd be happy to quote
-                  for that. If you send over the yard size, a couple of photos, and whether all
-                  debris needs hauling away, I can give you a clearer quote and let you know the next
-                  available slot.
-                </p>
-              </div>
-            </div>
-            <p class="section-subcopy" style="margin-top: 0.8rem;">
-              The same approach works for quote wording, reminder texts, review replies, and other office-side writing.
-            </p>
-          </aside>
-        </div>
-      </section>
-
-      <section class="shell section">
-        <div class="section-heading">
-          <p class="eyebrow">Why buy now</p>
-          <h2>The office work you put off during the day still ends up waiting for you at night.</h2>
-          <p class="section-subcopy">
-            If follow-ups, reminders, customer replies, and quote wording keep getting pushed back,
-            they usually come back in the evening when you are already tired. This helps you clear
-            that work faster.
-          </p>
-        </div>
-
-        <div class="compare-grid">
-          <article class="compare-card">
-            <p class="card-label">Without a shortcut</p>
-            <h3>The paperwork and writing keep piling up.</h3>
-            <ul class="simple-list">
-              <li>Follow-ups get delayed or forgotten</li>
-              <li>Customer messages take longer than they should</li>
-              <li>The office-side work spills into evenings again</li>
-            </ul>
-          </article>
-          <article class="compare-card highlight">
-            <p class="card-label">With this product</p>
-            <h3>You use AI where it saves time and mental effort first.</h3>
-            <ul class="simple-list">
-              <li>You know exactly where AI is useful first</li>
-              <li>You use prompts for real office-side tasks already on your plate</li>
-              <li>You reduce the writing and admin that keeps hanging over you</li>
-            </ul>
-          </article>
         </div>
       </section>
 
@@ -1243,8 +1089,6 @@ Then write:
 
     <script>
       (function () {
-        var button = document.getElementById("copy-prompt");
-        var prompt = document.getElementById("sample-prompt");
         var checkoutLinks = document.querySelectorAll(".checkout-link");
         var params = new URLSearchParams(window.location.search);
         var geo = (params.get("geo") || "").toLowerCase();
@@ -1280,19 +1124,6 @@ Then write:
             if (event.button === 1) {
               trackInitiateCheckout(link);
             }
-          });
-        });
-
-        if (!button || !prompt || !navigator.clipboard) {
-          return;
-        }
-
-        button.addEventListener("click", function () {
-          navigator.clipboard.writeText(prompt.textContent).then(function () {
-            button.textContent = "Copied";
-            window.setTimeout(function () {
-              button.textContent = "Copy Sample Prompt";
-            }, 1500);
           });
         });
       })();
