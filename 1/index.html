@@ -96,14 +96,24 @@
       }
 
       .site-header {
-        display: none;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 0.95rem 0 0.6rem;
+      }
+
+      .brand {
+        margin: 0;
+        color: var(--navy-deep);
+        font-size: 0.82rem;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
       }
 
       .header-link {
-        display: none;
-        color: var(--navy);
-        font-size: 0.9rem;
-        font-weight: 700;
+        display: inline-flex;
       }
 
       .hero,
@@ -261,6 +271,12 @@
         transition: transform 160ms ease, opacity 160ms ease;
       }
 
+      .button-small {
+        min-height: 2.6rem;
+        padding: 0.65rem 0.95rem;
+        font-size: 0.86rem;
+      }
+
       .button-row .button,
       .button-row a {
         width: 100%;
@@ -278,15 +294,9 @@
       }
 
       .button-secondary {
-        justify-content: flex-start;
-        min-height: auto;
-        padding: 0.2rem 0;
-        border: 0;
+        border: 1px solid var(--line);
         background: transparent;
         color: var(--navy-deep);
-        border-radius: 0;
-        font-size: 0.9rem;
-        font-weight: 700;
       }
 
       .button-full {
@@ -547,17 +557,6 @@
           width: min(calc(100% - 2.25rem), var(--max));
         }
 
-        .site-header {
-          display: flex;
-          align-items: center;
-          justify-content: flex-end;
-          padding: 0.95rem 0 0.6rem;
-        }
-
-        .header-link {
-          display: inline-flex;
-        }
-
         .hero {
           grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
           align-items: stretch;
@@ -601,12 +600,6 @@
 
         .button-secondary {
           justify-content: center;
-          min-height: 3.2rem;
-          padding: 0.85rem 1.15rem;
-          border: 1px solid var(--line);
-          border-radius: 999px;
-          font-size: 0.96rem;
-          font-weight: 800;
         }
 
         .microcopy {
@@ -644,7 +637,10 @@
   <body>
     <div class="page">
       <header class="shell site-header">
-        <a class="header-link" href="#buy">Get Instant Access</a>
+        <p class="brand">AI for Small Business Owners</p>
+        <a class="button button-secondary button-small checkout-link header-link" href="https://buy.stripe.com/4gM7sKdrdboE7iwgSubZe0t">
+          Get Instant Access
+        </a>
       </header>
 
       <main>
@@ -689,39 +685,44 @@
         <section class="shell section" id="examples">
           <div class="section-heading">
             <p class="eyebrow">Use it for situations like these</p>
-            <h2>The messages you keep meaning to send, but keep delaying.</h2>
-            <p class="subcopy">These are the exact messages that slow you down during the week.</p>
+            <h2>The exact messages small business owners put off every week.</h2>
+            <p class="subcopy">Built for the customer messages that slow you down, get delayed, or feel awkward to send.</p>
           </div>
 
           <div class="card-grid four-up">
             <article class="card">
               <p class="case-label">Scenario</p>
               <h3>Client has not replied to your quote</h3>
-              <p>Get a polite follow-up that nudges them without sounding pushy.</p>
-              <p class="case-action">Send a clearer follow-up today.</p>
+              <p>Send a clear follow-up without sounding pushy or desperate.</p>
+              <p class="case-action">Copy, paste, send.</p>
             </article>
 
             <article class="card">
               <p class="case-label">Scenario</p>
               <h3>Customer is late paying</h3>
-              <p>Get a firm but professional reminder that moves payment forward.</p>
-              <p class="case-action">Chase invoices without awkward wording.</p>
+              <p>Chase an invoice professionally without awkward wording.</p>
+              <p class="case-action">Copy, paste, send.</p>
             </article>
 
             <article class="card">
               <p class="case-label">Scenario</p>
               <h3>You need to reply quickly while busy</h3>
-              <p>Turn a rough thought into a clean customer reply in seconds.</p>
-              <p class="case-action">Respond faster without stopping work.</p>
+              <p>Turn a rough thought into a customer-ready reply in seconds.</p>
+              <p class="case-action">Copy, paste, send.</p>
             </article>
 
             <article class="card">
               <p class="case-label">Scenario</p>
               <h3>A bad review comes in</h3>
-              <p>Get a measured response that protects your reputation and stays professional.</p>
-              <p class="case-action">Reply calmly with less risk.</p>
+              <p>Respond calmly and protect your reputation without overthinking it.</p>
+              <p class="case-action">Copy, paste, send.</p>
             </article>
           </div>
+
+          <article class="card" style="margin-top: 0.95rem">
+            <p class="mini-label">And more inside the full pack</p>
+            <p>Follow-ups, replies, reminders, awkward messages, and everyday customer communication.</p>
+          </article>
 
           <article class="testimonial" style="margin-top: 0.95rem">
             <p class="testimonial-quote">"I did not buy this to learn AI. I just needed help replying to customers faster."</p>
