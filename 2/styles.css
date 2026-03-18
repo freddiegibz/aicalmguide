@@ -108,6 +108,16 @@ img {
   background: var(--surface-strong);
 }
 
+.hero-copy {
+  order: 1;
+}
+
+.hero-book {
+  order: 2;
+  max-width: 240px;
+  margin: 0 auto;
+}
+
 .hero-book img {
   border-radius: 6px;
   border: 1px solid var(--line);
@@ -346,12 +356,12 @@ details p {
     font-size: 0.92rem;
   }
 
-.nav-link,
-.topbar-cta {
-  min-height: 40px;
-  padding: 0 12px;
-  font-size: 0.88rem;
-}
+  .nav-link,
+  .topbar-cta {
+    min-height: 40px;
+    padding: 0 12px;
+    font-size: 0.88rem;
+  }
 
   .topbar-actions {
     gap: 6px;
@@ -364,6 +374,16 @@ details p {
     align-items: center;
     gap: 30px;
     padding: 28px;
+  }
+
+  .hero-book {
+    order: 1;
+    max-width: none;
+    margin: 0;
+  }
+
+  .hero-copy {
+    order: 2;
   }
 
   .use-grid {
