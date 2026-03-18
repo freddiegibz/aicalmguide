@@ -8,6 +8,27 @@
       name="description"
       content="Purchase confirmed. See what happens next and how to get your first quick win with AI for Local Service Businesses."
     />
+    <script>
+      !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+          n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = "2.0";
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      })(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+      fbq("init", "928793366363543");
+      fbq("track", "PageView");
+      fbq("track", "Purchase");
+    </script>
     <style>
       :root {
         --bg: #f4efe7;
@@ -375,6 +396,15 @@
     </style>
   </head>
   <body>
+    <noscript>
+      <img
+        height="1"
+        width="1"
+        style="display: none"
+        src="https://www.facebook.com/tr?id=928793366363543&ev=Purchase&noscript=1"
+        alt=""
+      />
+    </noscript>
     <main class="page">
       <div class="shell">
         <div class="topbar">
