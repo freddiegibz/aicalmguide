@@ -8,6 +8,26 @@
     name="description"
     content="A practical AI guide and prompt pack for small business owners who want faster replies, cleaner follow-ups, and less admin without trial and error."
   >
+  <script>
+    !(function (f, b, e, v, n, t, s) {
+      if (f.fbq) return;
+      n = f.fbq = function () {
+        n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+      };
+      if (!f._fbq) f._fbq = n;
+      n.push = n;
+      n.loaded = !0;
+      n.version = "2.0";
+      n.queue = [];
+      t = b.createElement(e);
+      t.async = !0;
+      t.src = v;
+      s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s);
+    })(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+    fbq("init", "928793366363543");
+    fbq("track", "PageView");
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -17,6 +37,15 @@
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body id="top">
+  <noscript>
+    <img
+      height="1"
+      width="1"
+      style="display:none"
+      src="https://www.facebook.com/tr?id=928793366363543&ev=PageView&noscript=1"
+      alt=""
+    >
+  </noscript>
   <div class="site-shell">
     <div class="container">
       <header class="topbar">
@@ -331,5 +360,41 @@
       </section>
     </main>
   </div>
+  <script>
+    (function () {
+      var productName = "Small Business AI Guide + Prompt Pack";
+      var checkoutLinks = Array.prototype.slice.call(
+        document.querySelectorAll('a[href*="buy.stripe.com"]')
+      );
+
+      function trackInitiateCheckout(link) {
+        if (!window.fbq || link.dataset.checkoutTracked === "true") {
+          return;
+        }
+
+        link.dataset.checkoutTracked = "true";
+
+        fbq("track", "InitiateCheckout", {
+          content_name: productName,
+          content_category: "Digital Product",
+          content_type: "product",
+          contents: [{ id: "ai-small-business-guide-prompt-pack", quantity: 1 }],
+          num_items: 1
+        });
+      }
+
+      checkoutLinks.forEach(function (link) {
+        link.addEventListener("click", function () {
+          trackInitiateCheckout(link);
+        });
+
+        link.addEventListener("auxclick", function (event) {
+          if (event.button === 1) {
+            trackInitiateCheckout(link);
+          }
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
