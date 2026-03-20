@@ -2,1147 +2,364 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <title>AI Prompt Pack for Local Service Businesses</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Missed Call Lead Recovery System</title>
     <meta
       name="description"
-      content="A practical AI guide and ready-to-use prompt pack for local service businesses that want faster follow-ups, cleaner quotes, quicker customer messages, and less office-side admin."
+      content="A low-ticket digital system for plumbers, electricians, roofers, cleaners, and local service businesses to instantly text back missed callers, capture the lead, and turn more missed calls into booked jobs."
     />
-    <script>
-      !(function (f, b, e, v, n, t, s) {
-        if (f.fbq) return;
-        n = f.fbq = function () {
-          n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
-        };
-        if (!f._fbq) f._fbq = n;
-        n.push = n;
-        n.loaded = !0;
-        n.version = "2.0";
-        n.queue = [];
-        t = b.createElement(e);
-        t.async = !0;
-        t.src = v;
-        s = b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t, s);
-      })(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
-      fbq("init", "928793366363543");
-      fbq("track", "PageView");
-    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <style>
-      :root {
-        --bg: #efe6d9;
-        --surface: #f5ede1;
-        --surface-strong: #fbf6ef;
-        --ink: #2d241d;
-        --muted: #65594f;
-        --primary: #3f4a32;
-        --primary-deep: #303726;
-        --accent: #d8c5a6;
-        --line: rgba(45, 36, 29, 0.14);
-        --line-strong: rgba(45, 36, 29, 0.22);
-        --radius: 10px;
-        --max: 1180px;
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      html {
-        scroll-behavior: smooth;
-        -webkit-text-size-adjust: 100%;
-      }
-
-      body {
-        margin: 0;
-        font-family: "Source Sans 3", sans-serif;
-        color: var(--ink);
-        background: var(--surface-strong);
-        line-height: 1.55;
-      }
-
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
-
-      img {
-        display: block;
-        max-width: 100%;
-      }
-
-      button {
-        font: inherit;
-      }
-
-      p {
-        margin: 0;
-      }
-
-      .page {
-        padding: 0 0 calc(5.7rem + env(safe-area-inset-bottom));
-      }
-
-      .shell {
-        width: min(calc(100% - 32px), var(--max));
-        margin: 0 auto;
-      }
-
-      .site-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 12px;
-        padding: 10px 0 16px;
-        border-bottom: 1px solid var(--line);
-      }
-
-      .brand {
-        margin: 0;
-        font-size: 1rem;
-        font-weight: 800;
-        letter-spacing: 0.01em;
-        white-space: nowrap;
-      }
-
-      .topbar-actions {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        flex-shrink: 0;
-      }
-
-      .nav-link {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 40px;
-        padding: 0 14px;
-        border: 1px solid var(--line);
-        border-radius: 6px;
-        font-size: 0.88rem;
-        font-weight: 800;
-      }
-
-      .nav-link:hover,
-      .nav-link:focus-visible {
-        background: rgba(63, 74, 50, 0.05);
-        border-color: var(--line-strong);
-      }
-
-      .button {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 46px;
-        padding: 0 18px;
-        border: 1px solid transparent;
-        border-radius: 6px;
-        font-size: 0.95rem;
-        font-weight: 800;
-        transition: transform 160ms ease, background-color 160ms ease, border-color 160ms ease,
-          opacity 160ms ease;
-      }
-
-      .button:hover,
-      .button:focus-visible {
-        opacity: 0.98;
-        transform: translateY(-1px);
-      }
-
-      .button-primary {
-        background: var(--primary);
-        color: #fff;
-      }
-
-      .button-primary:hover,
-      .button-primary:focus-visible {
-        background: var(--primary-deep);
-      }
-
-      .button-secondary,
-      .button-ghost {
-        border-color: var(--line);
-        background: transparent;
-        color: var(--ink);
-      }
-
-      .button-secondary:hover,
-      .button-secondary:focus-visible,
-      .button-ghost:hover,
-      .button-ghost:focus-visible {
-        background: rgba(63, 74, 50, 0.05);
-        border-color: var(--line-strong);
-      }
-
-      .button-small {
-        min-height: 40px;
-        padding: 0 14px;
-        font-size: 0.88rem;
-      }
-
-      .button-full {
-        width: 100%;
-      }
-
-      .eyebrow,
-      .card-label,
-      .buy-label {
-        display: block;
-        margin: 0 0 10px;
-        padding: 0;
-        color: var(--primary-deep);
-        font-size: 0.72rem;
-        font-weight: 700;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-      }
-
-      h1,
-      h2,
-      h3 {
-        margin: 0;
-        color: var(--ink);
-        line-height: 1.15;
-      }
-
-      h1,
-      h2 {
-        font-family: "Libre Baskerville", serif;
-        letter-spacing: -0.01em;
-      }
-
-      h1 {
-        max-width: 13ch;
-        font-size: clamp(2rem, 5vw, 3.05rem);
-      }
-
-      h2 {
-        max-width: 15ch;
-        font-size: clamp(1.5rem, 3.2vw, 2.15rem);
-      }
-
-      h3 {
-        font-size: 1.03rem;
-      }
-
-      .product-card h3,
-      .snap-card h3,
-      .benefit-card h3,
-      .inside-card h3,
-      .step-card h3,
-      .compare-card h3,
-      .proof-panel h3,
-      .trust-card h3,
-      .guarantee-card h3,
-      .delivery-item h3,
-      .quickstart-panel h3,
-      .buy-box h3 {
-        font-family: "Libre Baskerville", serif;
-        line-height: 1.28;
-      }
-
-      .lead,
-      .section-subcopy,
-      .simple-list li,
-      .buy-list li,
-      .snap-card p,
-      .benefit-card p,
-      .inside-card p,
-      .step-card p,
-      .compare-card p,
-      .delivery-item p,
-      .example-card p,
-      .faq details p,
-      .buy-box p,
-      .product-card p,
-      .proof-panel p,
-      .trust-card p,
-      .guarantee-card p {
-        color: var(--muted);
-      }
-
-      .lead {
-        margin-top: 14px;
-        max-width: 38rem;
-        font-size: 1rem;
-        line-height: 1.62;
-      }
-
-      .hero {
-        display: grid;
-        gap: 24px;
-        margin-top: 26px;
-        padding: 22px 22px 26px;
-        border: 1px solid var(--line);
-        background: #f6ede2;
-      }
-
-      .hero-copy {
-        order: 1;
-      }
-
-      .hero-product {
-        order: 2;
-        width: 100%;
-        max-width: 320px;
-        margin: 0 auto;
-      }
-
-      .hero-actions,
-      .final-badges {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-top: 18px;
-      }
-
-      .hero-actions {
-        align-items: center;
-      }
-
-      .hero-link {
-        color: var(--primary-deep);
-        font-size: 0.92rem;
-        font-weight: 700;
-      }
-
-      .hero-link:hover,
-      .hero-link:focus-visible {
-        text-decoration: underline;
-      }
-
-      .hero-support {
-        margin-top: 14px;
-        color: var(--muted);
-        font-size: 0.93rem;
-        line-height: 1.55;
-      }
-
-      .hero-list,
-      .simple-list,
-      .buy-list {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-      }
-
-      .simple-list,
-      .buy-list {
-        display: grid;
-        gap: 10px;
-        margin-top: 14px;
-      }
-
-      .simple-list li,
-      .buy-list li {
-        display: flex;
-        align-items: flex-start;
-        gap: 10px;
-        font-weight: 600;
-      }
-
-      .simple-list li::before,
-      .buy-list li::before {
-        content: "";
-        width: 6px;
-        height: 6px;
-        margin-top: 11px;
-        border-radius: 50%;
-        background: var(--primary);
-        flex: 0 0 auto;
-      }
-
-      .product-stack,
-      .benefit-grid,
-      .trust-grid,
-      .delivery-grid {
-        display: grid;
-        gap: 14px;
-      }
-
-      .product-book,
-      .product-card,
-      .snap-card,
-      .benefit-card,
-      .inside-card,
-      .step-card,
-      .compare-card,
-      .proof-panel,
-      .trust-card,
-      .guarantee-card,
-      .delivery-panel,
-      .delivery-item,
-      .example-card,
-      .prompt-box,
-      .quickstart-panel,
-      .buy-box,
-      .faq details {
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        background: var(--surface-strong);
-      }
-
-      .product-card,
-      .snap-card,
-      .benefit-card,
-      .inside-card,
-      .step-card,
-      .compare-card,
-      .proof-panel,
-      .trust-card,
-      .guarantee-card,
-      .delivery-panel,
-      .prompt-box,
-      .quickstart-panel,
-      .buy-box,
-      .faq details {
-        padding: 18px;
-      }
-
-      .product-book {
-        position: relative;
-        overflow: hidden;
-        min-height: auto;
-        padding: 0;
-        border-color: transparent;
-        border-radius: 0;
-        background: transparent;
-        color: var(--ink);
-      }
-
-      .product-book-copy {
-        position: relative;
-        z-index: 1;
-        max-width: none;
-        margin-top: 14px;
-      }
-
-      .product-cover {
-        position: static;
-        z-index: 1;
-        width: min(100%, 240px);
-        margin-bottom: 0;
-        border-radius: 0;
-        border: 1px solid var(--line);
-        box-shadow: none;
-      }
-
-      .product-book::after {
-        display: none;
-      }
-
-      .book-kicker {
-        position: relative;
-        z-index: 1;
-        color: var(--primary-deep);
-        font-size: 0.74rem;
-        font-weight: 700;
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
-      }
-
-      .product-book h2 {
-        position: relative;
-        z-index: 1;
-        max-width: none;
-        margin-top: 4px;
-        color: var(--ink);
-        font-size: clamp(1.2rem, 2vw, 1.45rem);
-      }
-
-      .section,
-      .final-panel {
-        margin-top: 28px;
-      }
-
-      .section {
-        padding: 28px 22px;
-        border: 1px solid var(--line);
-        background: #f2e8dc;
-      }
-
-      .section.section-contrast {
-        background: #fbf6ee;
-      }
-
-      .section.tone-sand {
-        background: #efe4d6;
-      }
-
-      .section.tone-warm {
-        background: #eadccc;
-      }
-
-      .section.tone-plain {
-        background: #fffaf3;
-      }
-
-      .section-heading {
-        display: grid;
-        gap: 10px;
-        max-width: 44rem;
-        margin-bottom: 18px;
-      }
-
-      .section-subcopy {
-        line-height: 1.6;
-      }
-
-      .benefit-card strong {
-        display: inline-block;
-        margin-bottom: 10px;
-        color: var(--primary-deep);
-        font-size: 0.74rem;
-        font-weight: 700;
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
-      }
-
-      .inside-card.featured,
-      .compare-card.highlight,
-      .buy-box {
-        background: transparent;
-      }
-
-      .creator-row {
-        display: grid;
-        gap: 16px;
-      }
-
-      .creator-photo {
-        width: 88px;
-        height: 88px;
-        border-radius: 6px;
-        object-fit: cover;
-      }
-
-      .guarantee-card {
-        background: transparent;
-      }
-
-      .benefit-card,
-      .trust-card,
-      .guarantee-card,
-      .delivery-panel,
-      .delivery-item,
-      .buy-box,
-      .faq details {
-        border-radius: 0;
-        background: transparent;
-      }
-
-      .delivery-panel,
-      .quickstart-panel {
-        margin-top: 16px;
-      }
-
-      .offer-block {
-        display: grid;
-        gap: 16px;
-        margin-top: 0;
-      }
-
-      .offer-intro {
-        display: grid;
-        gap: 10px;
-        max-width: 42rem;
-      }
-
-      .offer-intro p:last-child,
-      .offer-note {
-        color: var(--muted);
-        line-height: 1.6;
-      }
-
-      .offer-block .simple-list {
-        margin-top: 0;
-      }
-
-      .delivery-item,
-      .example-card {
-        padding: 14px 16px;
-        background: transparent;
-      }
-
-      .quickstart-panel h3 {
-        margin-bottom: 14px;
-      }
-
-      .step-number {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 32px;
-        height: 32px;
-        margin-bottom: 10px;
-        border-radius: 999px;
-        background: var(--primary);
-        color: #fff;
-        font-size: 0.92rem;
-        font-weight: 800;
-      }
-
-      .prompt-box {
-        display: grid;
-        gap: 14px;
-      }
-
-      pre {
-        margin: 0;
-        padding: 16px;
-        border: 1px solid var(--line);
-        border-radius: 6px;
-        background: #efe5d6;
-        color: var(--ink);
-        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
-        font-size: 0.86rem;
-        line-height: 1.6;
-        white-space: pre-wrap;
-        word-break: break-word;
-      }
-
-      .message-label {
-        margin-bottom: 6px;
-        color: var(--primary-deep);
-        font-size: 0.74rem;
-        font-weight: 700;
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
-      }
-
-      .message-box {
-        color: var(--ink);
-        line-height: 1.58;
-      }
-
-      .faq details + details {
-        margin-top: 12px;
-      }
-
-      summary {
-        position: relative;
-        padding-right: 24px;
-        list-style: none;
-        cursor: pointer;
-        font-weight: 800;
-      }
-
-      summary::-webkit-details-marker {
-        display: none;
-      }
-
-      summary::after {
-        content: "+";
-        position: absolute;
-        top: 0;
-        right: 0;
-        color: var(--primary);
-        font-size: 1.1rem;
-        line-height: 1;
-      }
-
-      details[open] summary::after {
-        content: "-";
-      }
-
-      .faq details p {
-        margin-top: 10px;
-        line-height: 1.58;
-      }
-
-      .final-panel {
-        display: grid;
-        gap: 20px;
-        padding: 28px 22px;
-        border: 1px solid var(--line);
-        border-radius: 0;
-        background: #e3e8da;
-      }
-
-      .final-panel h2,
-      .final-panel h3 {
-        color: var(--ink);
-      }
-
-      .final-panel h2 {
-        max-width: 17ch;
-      }
-
-      .final-panel .eyebrow {
-        background: transparent;
-      }
-
-      .final-badges span {
-        display: inline-block;
-        padding: 0;
-        border: 0;
-        border-radius: 0;
-        background: transparent;
-        color: var(--muted);
-        font-size: 0.92rem;
-        font-weight: 600;
-      }
-
-      .buy-subtitle,
-      .guarantee-note {
-        margin-top: 12px;
-        color: var(--muted);
-        line-height: 1.58;
-      }
-
-      .buy-box .button {
-        margin-top: 16px;
-      }
-
-      .mobile-buybar {
-        position: fixed;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: 20;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 12px;
-        padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
-        border-top: 1px solid var(--line);
-        background: rgba(239, 230, 217, 0.96);
-        backdrop-filter: blur(10px);
-      }
-
-      .mobile-buycopy {
-        display: grid;
-        gap: 2px;
-      }
-
-      .mobile-buycopy strong {
-        font-size: 0.92rem;
-        color: var(--ink);
-      }
-
-      .mobile-buycopy span {
-        color: var(--muted);
-        font-size: 0.78rem;
-      }
-
-      .mobile-buybar .button {
-        min-height: 42px;
-        padding: 0 14px;
-        flex-shrink: 0;
-      }
-
-      @media (max-width: 419px) {
-        .brand {
-          font-size: 0.92rem;
-        }
-
-        .hero-actions .button,
-        .prompt-box .button,
-        .buy-box .button {
-          width: 100%;
-        }
-
-        .hero-actions {
-          flex-direction: column;
-        }
-
-        .mobile-buycopy strong {
-          font-size: 0.88rem;
-        }
-
-        .mobile-buycopy span {
-          font-size: 0.74rem;
-        }
-      }
-
-      @media (max-width: 719px) {
-        .site-header .button {
-          display: none;
-        }
-
-        .topbar-actions {
-          gap: 6px;
-        }
-      }
-
-      @media (min-width: 760px) {
-        .hero {
-          grid-template-columns: minmax(0, 1.18fr) minmax(320px, 0.82fr);
-          align-items: center;
-          gap: 42px;
-          padding: 34px;
-        }
-
-        .hero-copy {
-          max-width: 44rem;
-        }
-
-        .hero-copy h1 {
-          max-width: 15ch;
-          font-size: clamp(2.35rem, 3.7vw, 3.55rem);
-        }
-
-        .hero-copy .lead {
-          max-width: 42rem;
-          font-size: 1.04rem;
-        }
-
-        .hero-product {
-          max-width: 100%;
-          margin: 0 0 0 auto;
-        }
-
-        .product-cover {
-          width: min(100%, 280px);
-        }
-
-        .benefit-grid {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-
-        .delivery-grid {
-          grid-template-columns: repeat(3, minmax(0, 1fr));
-        }
-
-        .trust-grid,
-        .final-panel {
-          grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
-          align-items: start;
-        }
-
-        .creator-row {
-          grid-template-columns: 88px minmax(0, 1fr);
-          align-items: start;
-        }
-      }
-
-      @media (min-width: 721px) {
-        .mobile-buybar {
-          display: none;
-        }
-
-        .page {
-          padding-bottom: 36px;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <noscript>
-      <img
-        height="1"
-        width="1"
-        style="display: none"
-        src="https://www.facebook.com/tr?id=928793366363543&ev=PageView&noscript=1"
-        alt=""
-      />
-    </noscript>
-
-    <div class="mobile-buybar">
-      <div class="mobile-buycopy">
-        <strong>Guide + Prompt Pack</strong>
-        <span>Instant access. One-time purchase.</span>
-      </div>
-      <a
-        class="button button-primary checkout-link"
-        href="https://buy.stripe.com/4gM7sKdrdboE7iwgSubZe0t"
-        target="_blank"
-        rel="noopener"
-      >
-        Get Access
-      </a>
-    </div>
-
-    <main class="page">
-      <header class="site-header shell">
-        <p class="brand">AI for Local Service Businesses</p>
-        <a
-          class="button button-primary button-small checkout-link"
-          href="https://buy.stripe.com/4gM7sKdrdboE7iwgSubZe0t"
-          target="_blank"
-          rel="noopener"
-        >
-          Get Instant Access
-        </a>
+    <div class="site-shell">
+      <header class="topbar">
+        <div class="container topbar__inner">
+          <a class="brand" href="#top">
+            <span class="brand__full">Missed Call Lead Recovery System</span>
+            <span class="brand__short">Lead Recovery</span>
+          </a>
+          <div class="topbar__actions">
+            <a class="topbar__contact" href="#founder">Contact</a>
+            <a class="topbar__cta checkout-link" href="#offer">Get $27</a>
+          </div>
+        </div>
       </header>
 
-      <section class="hero shell">
-        <div class="hero-copy">
-          <p class="eyebrow">For local service business owners</p>
-          <h1>Stop wasting evenings on follow-ups, customer messages, and admin writing.</h1>
-          <p class="lead">
-            A practical prompt pack + guide that helps you send follow-ups faster, handle customer
-            messages quicker, and get the office-side writing around the job done with less effort.
-          </p>
+      <main id="top">
+        <section class="hero" data-hero>
+          <div class="container hero__grid">
+            <div class="hero__content">
+              <p class="eyebrow">For local service businesses that miss calls while working</p>
+              <h1>Turn missed calls into booked jobs with a simple text-back setup</h1>
+              <p class="hero__lede">
+                Get this live in around an hour with prewritten texts, copy-and-paste messages, and a simple setup guide that helps you reply fast, get the job details, and turn more missed calls into real jobs.
+              </p>
 
-          <div class="hero-actions">
-            <a
-              class="button button-primary checkout-link"
-              href="https://buy.stripe.com/4gM7sKdrdboE7iwgSubZe0t"
-              target="_blank"
-              rel="noopener"
-            >
-              Get the Prompt Pack + Guide
-            </a>
-            <a class="hero-link" href="#inside">See what you get</a>
+              <div class="hero__actions">
+                <a class="btn btn--primary checkout-link" href="#offer">Get the system for $27</a>
+                <a class="btn btn--ghost" href="#included">See what is inside</a>
+              </div>
+              <p class="hero__cost-anchor">Costs less than one missed job.</p>
+
+              <ul class="hero__proof">
+                <li>Get it live in around an hour</li>
+                <li>Copy, paste, and switch it on</li>
+                <li>Built for missed calls, after-hours calls, and follow-up</li>
+              </ul>
+            </div>
+
+            <aside class="hero__visual" aria-label="Product preview">
+              <div class="hero-panel">
+                <img
+                  class="hero-panel__image"
+                  src="bookimage.jpg"
+                  alt="Automated Lead Recovery System product cover"
+                />
+              </div>
+            </aside>
           </div>
+        </section>
 
-          <p class="hero-support">
-            Instant digital download. One-time purchase.
-          </p>
-        </div>
+        <section class="reassurance-strip" aria-label="Quick reassurance">
+          <div class="container reassurance-strip__inner">
+            <p>Digital download</p>
+            <p>No coding</p>
+            <p>Uses simple tools</p>
+            <p>Live tonight</p>
+          </div>
+        </section>
 
-        <div class="hero-product">
-          <div class="product-stack">
-            <div class="product-book">
+        <section class="section problem">
+          <div class="container split-section">
+            <div class="section-heading section-heading--left">
+              <p class="eyebrow">Why leads slip away</p>
+              <h2>The leak happens between the missed call and your reply</h2>
+              <p>
+                This is not really a lead generation problem. It is a speed-to-response problem. When calls come in while you are busy, the inquiry goes cold before you ever get a chance to quote it.
+              </p>
+            </div>
+
+            <div class="problem-timeline">
+              <article class="timeline-card">
+                <span class="timeline-card__step">01</span>
+                <h3>You're on-site, driving, quoting, or already talking to a customer</h3>
+                <p>The phone rings at exactly the time you cannot stop what you are doing.</p>
+              </article>
+              <article class="timeline-card">
+                <span class="timeline-card__step">02</span>
+                <h3>The caller hits voicemail and loses patience fast</h3>
+                <p>Cold leads rarely wait around. Most move straight to the next business that answers faster.</p>
+              </article>
+              <article class="timeline-card">
+                <span class="timeline-card__step">03</span>
+                <h3>You paid for that opportunity and never even got the chance to quote it</h3>
+                <p>Ads, referrals, Google, yard signs, and repeat customers all become wasted demand if missed calls die cold.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section tasks" id="included">
+          <div class="container split-section">
+            <div class="section-heading section-heading--left">
+              <p class="eyebrow">What you get</p>
+              <h2>Everything laid out so you can get it live fast</h2>
+              <p>
+                Every piece is built to cut setup time, remove guesswork, and give you a simple way to text back missed callers without building the whole thing from scratch.
+              </p>
+            </div>
+
+            <div class="task-grid">
+              <article class="task-card">
+                <span class="task-card__index">01</span>
+                <h3>Prewritten missed-call replies</h3>
+                <p>Copy these straight in so every missed caller gets an instant reply instead of dropping into voicemail.</p>
+              </article>
+              <article class="task-card">
+                <span class="task-card__index">02</span>
+                <h3>Messages that get the job details</h3>
+                <p>Use ready-made messages that get the job type, location, and urgency without you having to write them yourself.</p>
+              </article>
+              <article class="task-card">
+                <span class="task-card__index">03</span>
+                <h3>Messages that move the job forward</h3>
+                <p>Use simple replies that sort serious leads and move them toward a callback, estimate, or booking.</p>
+              </article>
+              <article class="task-card">
+                <span class="task-card__index">04</span>
+                <h3>Follow-up messages for no-replies</h3>
+                <p>Send quick follow-ups without stopping to think about what to say when a lead goes quiet.</p>
+              </article>
+              <article class="task-card">
+                <span class="task-card__index">05</span>
+                <h3>Quick-start setup checklist</h3>
+                <p>Follow the checklist step by step and get the whole thing in place fast without missing pieces.</p>
+              </article>
+              <article class="task-card">
+                <span class="task-card__index">06</span>
+                <h3>Simple missed-call tracker</h3>
+                <p>Keep missed-call leads in one simple place so nothing slips through after setup.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section founder-proof" id="founder">
+          <div class="container founder-proof__grid">
+            <div class="founder-proof__image-wrap">
               <img
-                class="product-cover"
-                src="2/book cover.jpg"
-                alt="Cover of the AI for Local Service Businesses guide and prompt pack"
+                class="founder-proof__image"
+                src="me.jpg"
+                alt="Founder portrait"
               />
-              <div class="product-book-copy">
-                <div class="book-kicker">What it includes</div>
-                <h2>Prompt pack + practical guide</h2>
+            </div>
+
+            <div class="founder-proof__content">
+              <p class="eyebrow">Built from real setup work</p>
+              <h2>Already tested in 30+ local businesses, then stripped down into a fast copy-and-paste setup</h2>
+              <p class="founder-proof__lede">
+                This was not made as a theory product. I built this out for 30+ local businesses, saw where owners got stuck, and cut out the parts that made setup take longer than it should.
+              </p>
+              <p class="founder-proof__lede">
+                What you get is the simplified version: the messages, the steps, and the setup order already laid out so you can get it running fast without paying for a custom build or piecing it together yourself.
+              </p>
+
+              <div class="founder-proof__points">
+                <div class="founder-proof__point">
+                  <span>30+ local businesses</span>
+                  <p>Worked through with real small business owners who miss calls regularly and need something practical, not theoretical.</p>
+                </div>
+                <div class="founder-proof__point">
+                  <span>Hard part already figured out</span>
+                  <p>The wording, steps, and setup order have already been worked out so you are not starting from a blank page.</p>
+                </div>
+                <div class="founder-proof__point">
+                  <span>Built to go live fast</span>
+                  <p>Designed for busy owners who need something they can set up quickly and start using right away.</p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section class="shell section tone-sand">
-        <div class="section-heading">
-          <p class="eyebrow">What this helps with</p>
-          <h2>Get the repetitive office-side work off your plate faster.</h2>
-          <p class="section-subcopy">
-            The value is not "AI for everything." It is faster writing, less admin drag, and fewer
-            loose ends hanging over you after the job.
-          </p>
-        </div>
-
-        <div class="benefit-grid">
-          <article class="benefit-card">
-            <strong>Customer replies</strong>
-            <h3>Write customer messages faster without starting from scratch.</h3>
-            <p>Use prompts for updates, replies, check-ins, and the messages you keep rewriting every week.</p>
-          </article>
-          <article class="benefit-card">
-            <strong>Follow-ups</strong>
-            <h3>Send quote follow-ups and reminders without it hanging over you.</h3>
-            <p>Useful for estimate chases, reminder texts, and the follow-up jobs that are easy to forget.</p>
-          </article>
-          <article class="benefit-card">
-            <strong>Quote wording</strong>
-            <h3>Turn rough notes into cleaner written quotes and proposals.</h3>
-            <p>Helpful when you know what needs saying but do not want to spend time polishing the wording.</p>
-          </article>
-          <article class="benefit-card">
-            <strong>Admin writing</strong>
-            <h3>Reduce the desk work that usually gets pushed to evenings.</h3>
-            <p>Use it for reminders, review replies, invoice nudges, and other repetitive office-side writing.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="shell section section-contrast tone-plain" id="inside">
-        <div class="section-heading">
-          <p class="eyebrow">What you get</p>
-          <h2>Exactly what arrives after checkout.</h2>
-          <p class="section-subcopy">
-            One purchase gives you a compact toolkit for the follow-ups, customer messages,
-            quote wording, reminders, and admin writing that usually pile up after the job.
-          </p>
-        </div>
-
-        <div class="delivery-panel offer-block">
-          <div class="offer-intro">
-            <p class="card-label">Delivered immediately</p>
-            <h3>Guide, prompt pack, and setup sheet in one low-friction offer.</h3>
-            <p>
-              Everything is built to help you stop staring at a blank screen when you need to send
-              a follow-up, customer reply, quote message, reminder, or other piece of office-side writing.
-            </p>
-          </div>
-
-          <div class="delivery-grid">
-            <div class="delivery-item">
-              <h3>The guide</h3>
-              <p>A practical guide showing where AI is worth using first and where to keep it simple.</p>
+        <section class="section mechanism" id="how-it-works">
+          <div class="container split-section">
+            <div class="section-heading section-heading--left">
+              <p class="eyebrow">How it works</p>
+              <h2>Three simple moves from missed call to real job</h2>
+              <p>You do not need a complicated funnel. You just need a fast, clear way to reply.</p>
             </div>
-            <div class="delivery-item">
-              <h3>The prompt pack</h3>
-              <p>Ready-to-use prompts for follow-ups, customer messages, quote wording, reminders, and admin writing.</p>
-            </div>
-            <div class="delivery-item">
-              <h3>The setup sheet</h3>
-              <p>A simple way to add your business details once so the outputs feel more relevant and reusable.</p>
+
+            <div class="steps steps--timeline">
+              <article class="step-card">
+                <span class="step-card__number">01</span>
+                <h3>Set up your missed-call text-back</h3>
+                <p>Follow the checklist, paste in the messages, and connect the pieces so missed calls trigger a text back automatically.</p>
+              </article>
+              <article class="step-card">
+                <span class="step-card__number">02</span>
+                <h3>Let the messages get the first job details</h3>
+                <p>The caller shares what they need, where they are, and how urgent the job is before you even pick up your phone again.</p>
+              </article>
+              <article class="step-card">
+                <span class="step-card__number">03</span>
+                <h3>Call back later with a better shot at the job</h3>
+                <p>When you get a moment, you are not starting from zero. The lead is still warm and easier to close.</p>
+              </article>
             </div>
           </div>
+        </section>
 
-          <ul class="simple-list">
-            <li>Built for local service business owners, not AI hobbyists</li>
-            <li>Works with ChatGPT, Claude, and Gemini</li>
-            <li>One-time purchase with instant digital access</li>
-            <li>Covered by a 14-day money-back guarantee</li>
-          </ul>
+        <section class="section results">
+          <div class="container split-section">
+            <div class="section-heading section-heading--left">
+              <p class="eyebrow">Where it helps most</p>
+              <h2>The situations this is built to cover</h2>
+              <p>
+                The system works best when calls come in at inconvenient moments and the first reply needs to happen before the lead gives up and moves on.
+              </p>
+            </div>
 
-          <p class="offer-note">Buy it once, use it on real tasks this week, and keep the parts that save you time.</p>
+            <div class="results-stack">
+              <div class="scenario-grid scenario-grid--compact">
+                <article class="scenario-card">
+                <h3>You're halfway through a job</h3>
+                <p>You cannot answer, but the caller still gets an immediate response and a next step.</p>
+                </article>
+                <article class="scenario-card">
+                  <h3>Calls come in after hours</h3>
+                  <p>Evening and weekend inquiries do not sit untouched until the next business day.</p>
+                </article>
+                <article class="scenario-card">
+                  <h3>Cold leads from ads or referrals</h3>
+                  <p>You already paid or worked for the attention, so this helps you respond while the caller still wants the job done.</p>
+                </article>
+                <article class="scenario-card">
+                  <h3>Busy days where follow-up slips</h3>
+                  <p>The lead does not depend on memory, paper notes, or you finding time later.</p>
+                </article>
+              </div>
 
-          <div class="hero-actions">
-            <a
-              class="button button-primary checkout-link"
-              href="https://buy.stripe.com/4gM7sKdrdboE7iwgSubZe0t"
-              target="_blank"
-              rel="noopener"
-            >
-              Get the Prompt Pack + Guide
-            </a>
+              <div class="comparison-grid comparison-grid--inline">
+                <article class="comparison-card comparison-card--before">
+                  <h3>Without it</h3>
+                  <ul>
+                    <li>Missed calls fall into voicemail</li>
+                    <li>Most callers move on before you reply</li>
+                    <li>You lose jobs without seeing the full leak</li>
+                  </ul>
+                </article>
+                <article class="comparison-card comparison-card--after">
+                  <h3>With it</h3>
+                  <ul>
+                    <li>Every missed call gets an immediate response</li>
+                    <li>Leads share details while they are still engaged</li>
+                    <li>You keep more inquiries alive long enough to estimate and book them</li>
+                  </ul>
+                </article>
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section class="shell section tone-warm">
-        <div class="trust-grid">
-          <article class="trust-card">
-            <div class="creator-row">
-              <img src="me.jpg" alt="Creator of AI for Small Business Owners" class="creator-photo" />
-              <div>
-                <p class="eyebrow">Why trust this</p>
-                <h2>Built from real one-to-one implementation work in 100+ local service businesses.</h2>
-                <p class="section-subcopy">
-                  This comes from actually helping owners use AI in the messy, everyday office-side
-                  work around jobs, not just talking about it in theory. The same problems keep
-                  showing up: follow-ups that never get sent, awkward customer messages, rough
-                  quote wording, reminders that get delayed, and too much admin stuck in your head.
+        <section class="section offer" id="offer">
+          <div class="container">
+            <div class="offer-card">
+              <div class="offer-card__content">
+                <p class="eyebrow">Get the system</p>
+                <h2>Get it live fast and stop relying on voicemail to save the job</h2>
+                <p class="offer-card__summary">
+                  Get the Missed Call Lead Recovery System today and use the prebuilt messages and setup steps to put a simple text-back setup behind every call you cannot answer.
                 </p>
+
+                <div class="offer-card__list-wrap">
+                  <ul class="offer-list">
+                    <li>Missed-call SMS response templates</li>
+                    <li>Ready-made messages to get job details</li>
+                    <li>Quick-start setup checklist</li>
+                    <li>Messages that sort serious jobs and move them forward</li>
+                    <li>Follow-up messages for non-responders</li>
+                    <li>After-hours handling guidance</li>
+                    <li>Instant digital access</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="offer-card__checkout">
+                <p class="offer-card__price-label">Today's price</p>
+                <p class="offer-card__price">$27</p>
+                <p class="offer-card__meta">One-time payment. Instant digital delivery.</p>
+                <a class="btn btn--primary btn--full checkout-link" href="#offer">Get instant access now</a>
+                <p class="offer-card__microcopy">Get it live fast. Keep more missed-call leads alive.</p>
               </div>
             </div>
-          </article>
-
-          <article class="guarantee-card">
-            <p class="eyebrow">14-day guarantee</p>
-            <h3>Go through it properly. Use the prompts in your business. If it does not feel useful, get your money back.</h3>
-            <p style="margin-top: 0.7rem;">
-              You have 14 days to try it on real tasks like follow-ups, customer messages, quote
-              wording, reminders, or admin writing. If it does not help you feel faster, clearer,
-              or more on top of things,
-              you can ask for a refund.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section class="shell section faq tone-plain" id="faq">
-        <div class="section-heading">
-          <p class="eyebrow">FAQ</p>
-          <h2>Quick answers before buying.</h2>
-        </div>
-
-        <details open>
-          <summary>What exactly am I buying?</summary>
-          <p>You get a practical guide + ready-to-use prompt pack for local service businesses, plus a simple setup sheet to make the outputs fit your business better.</p>
-        </details>
-        <details>
-          <summary>Do I need prior AI experience?</summary>
-          <p>No. It is designed for people who know AI exists but have not implemented it properly in their business yet.</p>
-        </details>
-        <details>
-          <summary>Who is this best for?</summary>
-          <p>It is best for local service business owners who want help with follow-ups, customer messages, quote wording, reminders, and repetitive office-side writing.</p>
-        </details>
-        <details>
-          <summary>Is this a subscription or a one-time purchase?</summary>
-          <p>It is a one-time purchase with instant digital access, and you are covered by a 14-day money-back guarantee if it does not feel genuinely useful in your business.</p>
-        </details>
-      </section>
-
-      <section class="shell final-panel" id="buy">
-        <div class="final-copy">
-          <p class="eyebrow">Simple first step</p>
-          <h2>Get the guide and prompt pack that help you handle the office-side work around the job faster.</h2>
-          <p class="lead" style="max-width: 40rem">
-            If you want a low-friction way to handle follow-ups, customer messages, quote wording,
-            reminders, and repetitive admin writing more efficiently, this is the fastest way to get started.
-          </p>
-          <div class="final-badges">
-            <span>Guide, prompt pack, and setup sheet</span>
-            <span>Built from 100+ implementations</span>
-            <span>14-day guarantee</span>
           </div>
+        </section>
+
+        <section class="section faq-section">
+          <div class="container">
+            <div class="section-heading section-heading--left">
+              <p class="eyebrow">FAQ</p>
+              <h2>Questions people will ask before they buy</h2>
+            </div>
+
+            <div class="faq" data-faq>
+              <article class="faq-item">
+                <button class="faq-item__trigger" type="button" aria-expanded="true">
+                  <span>What exactly is this?</span>
+                  <span class="faq-item__plus" aria-hidden="true"></span>
+                </button>
+                <div class="faq-item__content">
+                  <p>It is a digital system with prewritten messages and setup guidance to help you text back missed callers and turn more of them into jobs.</p>
+                </div>
+              </article>
+              <article class="faq-item">
+                <button class="faq-item__trigger" type="button" aria-expanded="false">
+                  <span>Is this for trades only?</span>
+                  <span class="faq-item__plus" aria-hidden="true"></span>
+                </button>
+                <div class="faq-item__content" hidden>
+                  <p>It is built for trades and local service businesses where calls often come in while the owner or team is busy and unable to answer.</p>
+                </div>
+              </article>
+              <article class="faq-item">
+                <button class="faq-item__trigger" type="button" aria-expanded="false">
+                  <span>Do I need to be technical?</span>
+                  <span class="faq-item__plus" aria-hidden="true"></span>
+                </button>
+                <div class="faq-item__content" hidden>
+                  <p>No. The setup is designed to be straightforward, with the key wording and steps already thought through for you.</p>
+                </div>
+              </article>
+              <article class="faq-item">
+                <button class="faq-item__trigger" type="button" aria-expanded="false">
+                  <span>Why buy this instead of just using voicemail?</span>
+                  <span class="faq-item__plus" aria-hidden="true"></span>
+                </button>
+                <div class="faq-item__content" hidden>
+                  <p>Voicemail makes the customer do the work. This gives them an immediate response and a simple path to stay engaged with you.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <div class="sticky-cta" data-sticky-cta>
+        <div class="sticky-cta__meta">
+          <p class="sticky-cta__label">Missed Call Recovery System</p>
+          <p class="sticky-cta__price">$27 one-time</p>
         </div>
+        <a class="btn btn--primary checkout-link" href="#offer">Get access</a>
+      </div>
+    </div>
 
-        <div class="buy-box">
-          <p class="buy-label">Instant digital download</p>
-          <h3>AI for Local Service Businesses</h3>
-          <p class="buy-subtitle">Practical guide + ready-to-use prompt pack for busy local business owners.</p>
-          <ul class="buy-list">
-            <li>Practical guide for follow-ups, customer messages, quote wording, and admin writing</li>
-            <li>Ready-to-use prompt pack included with purchase</li>
-            <li>Business setup sheet for more relevant outputs</li>
-            <li>Built from 100+ one-to-one implementations with local service businesses</li>
-            <li>Works with ChatGPT, Claude, and Gemini</li>
-            <li>One-time purchase and 14-day money-back guarantee</li>
-          </ul>
-          <a
-            class="button button-primary button-full checkout-link"
-            href="https://buy.stripe.com/4gM7sKdrdboE7iwgSubZe0t"
-            target="_blank"
-            rel="noopener"
-          >
-            Get the Prompt Pack + Guide
-          </a>
-          <p class="guarantee-note">Buy once, use it on real office-side work for 14 days, and if it does not feel useful in your business, you can ask for your money back.</p>
-        </div>
-      </section>
-    </main>
-
-    <script>
-      (function () {
-        var checkoutLinks = document.querySelectorAll(".checkout-link");
-        var params = new URLSearchParams(window.location.search);
-        var geo = (params.get("geo") || "").toLowerCase();
-        var productName = "AI for Local Service Businesses";
-        var defaultCheckoutUrl = "https://buy.stripe.com/4gM7sKdrdboE7iwgSubZe0t";
-        var checkoutUrls = {
-          uk: "https://buy.stripe.com/4gM7sKdrdboE7iwgSubZe0t",
-          us: "https://buy.stripe.com/4gM7sKdrdboE7iwgSubZe0t"
-        };
-
-        function trackInitiateCheckout(link) {
-          if (!window.fbq || link.dataset.checkoutTracked === "true") {
-            return;
-          }
-
-          link.dataset.checkoutTracked = "true";
-
-          fbq("track", "InitiateCheckout", {
-            content_name: productName,
-            content_category: "Digital Product",
-            content_type: "product",
-            contents: [{ id: "ai-local-service-businesses", quantity: 1 }],
-            num_items: 1
-          });
-        }
-
-        checkoutLinks.forEach(function (link) {
-          link.href = checkoutUrls[geo] || defaultCheckoutUrl;
-          link.addEventListener("click", function () {
-            trackInitiateCheckout(link);
-          });
-          link.addEventListener("auxclick", function (event) {
-            if (event.button === 1) {
-              trackInitiateCheckout(link);
-            }
-          });
-        });
-      })();
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
-
