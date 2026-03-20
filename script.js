@@ -1,4 +1,6 @@
 const CHECKOUT_URL = "https://buy.stripe.com/9B63cufzl9gwdGU59MbZe0v";
+const PRODUCT_PRICE = 27.0;
+const PRODUCT_CURRENCY = "USD";
 const faqTriggers = document.querySelectorAll(".faq-item__trigger");
 const checkoutLinks = document.querySelectorAll(".checkout-link");
 const checkoutNote = document.querySelector("[data-checkout-note]");
@@ -14,6 +16,34 @@ if (CHECKOUT_URL) {
     checkoutNote.hidden = true;
   }
 }
+
+checkoutLinks.forEach((link) => {
+  link.addEventListener("click", (event) => {
+    const href = link.getAttribute("href");
+    const canTrack = typeof window.fbq === "function";
+    const isPrimaryClick = event.button === 0 && !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey;
+
+    if (canTrack) {
+      window.fbq("track", "InitiateCheckout", {
+        value: PRODUCT_PRICE,
+        currency: PRODUCT_CURRENCY,
+      });
+    }
+
+    if (!href || !isPrimaryClick) {
+      return;
+    }
+
+    if (!canTrack) {
+      return;
+    }
+
+    event.preventDefault();
+    window.setTimeout(() => {
+      window.location.href = href;
+    }, 140);
+  });
+});
 
 if (heroSection && stickyCta) {
   const updateStickyCta = () => {
