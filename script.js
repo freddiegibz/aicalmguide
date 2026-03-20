@@ -1,4 +1,4 @@
-const CHECKOUT_URL = "";
+const CHECKOUT_URL = "https://buy.stripe.com/9B63cufzl9gwdGU59MbZe0v";
 const faqTriggers = document.querySelectorAll(".faq-item__trigger");
 const checkoutLinks = document.querySelectorAll(".checkout-link");
 const checkoutNote = document.querySelector("[data-checkout-note]");
