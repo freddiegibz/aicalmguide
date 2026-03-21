@@ -595,6 +595,15 @@ p {
   padding: 1.4rem;
 }
 
+.task-card__summary {
+  margin-top: 0.55rem;
+  margin-bottom: 0.45rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.45;
+  color: var(--color-secondary);
+}
+
 .task-card__index {
   display: inline-flex;
   margin-bottom: 0.8rem;
