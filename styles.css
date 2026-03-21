@@ -236,6 +236,14 @@ p {
   line-height: 1.62;
 }
 
+.hero__format {
+  max-width: 38rem;
+  margin-top: 0.85rem;
+  font-size: 0.98rem;
+  line-height: 1.55;
+  color: var(--color-secondary-soft);
+}
+
 .hero__content {
   max-width: 42rem;
 }
@@ -975,10 +983,6 @@ p {
     gap: 1.5rem;
   }
 
-  .hero__visual {
-    order: -1;
-  }
-
   .hero-panel {
     margin: 0 auto;
   }
@@ -994,6 +998,7 @@ p {
 
   .hero__content h1,
   .hero__content .hero__lede,
+  .hero__content .hero__format,
   .hero__content .hero__trust-line,
   .hero__content .hero__testimonial {
     margin-left: auto;
