@@ -704,6 +704,14 @@ p {
   margin-bottom: 1rem;
 }
 
+.offer-card__guarantee {
+  margin-top: 0.8rem;
+  font-size: 0.94rem;
+  font-weight: 600;
+  line-height: 1.45;
+  color: var(--color-secondary-soft);
+}
+
 .offer-card__microcopy {
   margin-top: 0.85rem;
   font-size: 0.95rem;
