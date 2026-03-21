@@ -279,18 +279,11 @@ p {
   box-shadow: 0 10px 24px rgba(23, 23, 23, 0.06);
 }
 
-.hero__guarantee {
-  margin-top: 0.65rem;
+.hero__trust-line {
+  margin-top: 0.7rem;
   font-size: 0.95rem;
   font-weight: 600;
   line-height: 1.45;
-  color: var(--color-secondary-soft);
-}
-
-.hero__cost-anchor {
-  margin-top: 0.85rem;
-  font-size: 0.96rem;
-  font-weight: 600;
   color: #6b5200;
 }
 
@@ -1010,13 +1003,9 @@ p {
     text-align: center;
   }
 
-  .hero__content .eyebrow {
-    justify-content: center;
-  }
-
   .hero__content h1,
   .hero__content .hero__lede,
-  .hero__content .hero__cost-anchor,
+  .hero__content .hero__trust-line,
   .hero__content .hero__testimonial {
     margin-left: auto;
     margin-right: auto;
