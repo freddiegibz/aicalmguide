@@ -521,6 +521,10 @@ p {
   background: #ffffff;
 }
 
+.social-proof {
+  background: #f8f2e6;
+}
+
 .offer {
   background: #f7f1e3;
 }
@@ -586,6 +590,23 @@ p {
 .results-stack {
   display: grid;
   gap: 1.25rem;
+}
+
+.social-proof__panel {
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: #fffdf8;
+  box-shadow: 0 2px 10px rgba(23, 23, 23, 0.03);
+}
+
+.social-proof__image {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 14px 28px rgba(23, 23, 23, 0.08);
 }
 
 .offer-card {
