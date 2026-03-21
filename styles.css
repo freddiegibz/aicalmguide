@@ -235,9 +235,34 @@ p {
 
 .hero__actions {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.9rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.8rem;
   margin-top: 1.6rem;
+}
+
+.btn--hero {
+  min-height: 3.7rem;
+  padding: 0.96rem 1.7rem;
+  font-size: 1.06rem;
+  box-shadow: 0 14px 28px rgba(242, 183, 5, 0.24);
+}
+
+.hero__inline-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: var(--color-secondary-soft);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+.hero__inline-link:hover,
+.hero__inline-link:focus-visible {
+  color: var(--color-secondary);
 }
 
 .hero__testimonial {
@@ -1004,7 +1029,11 @@ p {
   }
 
   .hero__actions {
-    justify-content: center;
+    align-items: center;
+  }
+
+  .btn--hero {
+    width: min(100%, 22rem);
   }
 
   .hero__proof {
