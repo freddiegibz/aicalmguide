@@ -543,6 +543,10 @@ p {
   background: #ffffff;
 }
 
+.decision-reminder {
+  background: #efe6d6;
+}
+
 .social-proof {
   background: #f8f2e6;
 }
@@ -612,6 +616,28 @@ p {
 .results-stack {
   display: grid;
   gap: 1.25rem;
+}
+
+.decision-reminder__panel {
+  max-width: 58rem;
+  margin: 0 auto;
+  padding: 1.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: #fffdf8;
+  box-shadow: 0 2px 10px rgba(23, 23, 23, 0.03);
+}
+
+.decision-reminder__panel h2 {
+  max-width: 20ch;
+  margin-top: 0.85rem;
+}
+
+.decision-reminder__panel p:last-child {
+  max-width: 48rem;
+  margin-top: 0.9rem;
+  font-size: 1.05rem;
+  color: var(--color-muted);
 }
 
 .social-proof__panel {
