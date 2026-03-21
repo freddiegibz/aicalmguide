@@ -827,6 +827,12 @@ p {
     grid-template-columns: 1fr;
   }
 
+  .problem .social-proof__panel {
+    grid-column: 2;
+    max-width: none;
+    margin-top: 0;
+  }
+
   .task-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
