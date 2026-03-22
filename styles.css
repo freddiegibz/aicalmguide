@@ -837,6 +837,28 @@ p {
   background: #fff4cd;
 }
 
+.post-purchase-page--downsell .offer-card--downsell .offer-card__content,
+.post-purchase-page--downsell .offer-card--downsell .offer-card__checkout {
+  min-width: 0;
+}
+
+.post-purchase-page--oto1 .offer-card--oto1 .offer-card__content,
+.post-purchase-page--oto1 .offer-card--oto1 .offer-card__checkout {
+  min-width: 0;
+}
+
+.post-purchase-page--downsell .offer-card--downsell .offer-card__checkout {
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.post-purchase-page--oto1 .offer-card--oto1 .offer-card__checkout {
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+}
+
 .offer-card__price {
   margin-top: 0.15rem;
   font-family: "Bitter", serif;
@@ -1266,6 +1288,32 @@ p {
 
   .post-purchase-page .offer-card {
     grid-template-columns: minmax(0, 42rem);
+  }
+
+  .post-purchase-page--downsell .offer-card {
+    grid-template-columns: minmax(0, 1.2fr) minmax(20rem, 0.85fr);
+  }
+
+  .post-purchase-page--downsell .offer-card--downsell {
+    grid-template-columns: minmax(0, 1fr) minmax(21rem, 24rem);
+    align-items: start;
+    column-gap: 1.6rem;
+  }
+
+  .post-purchase-page--downsell .offer-card--downsell .offer-card__checkout {
+    max-width: 24rem;
+    justify-self: end;
+  }
+
+  .post-purchase-page--oto1 .offer-card--oto1 {
+    grid-template-columns: minmax(0, 1fr) minmax(21rem, 24rem);
+    align-items: start;
+    column-gap: 1.6rem;
+  }
+
+  .post-purchase-page--oto1 .offer-card--oto1 .offer-card__checkout {
+    max-width: 24rem;
+    justify-self: end;
   }
 
   .dual-actions {
