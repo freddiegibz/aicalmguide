@@ -791,6 +791,139 @@ p {
   font-size: 0.88rem;
 }
 
+.hero__cost-anchor {
+  margin-top: 0.95rem;
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: var(--color-secondary-soft);
+}
+
+.price-stack {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.price-stack__label {
+  display: inline-flex;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--color-text-soft);
+}
+
+.price-stack__price {
+  margin: 0;
+  font-family: "Bitter", serif;
+  font-size: clamp(2.4rem, 4vw, 3.5rem);
+  font-weight: 600;
+  line-height: 1;
+}
+
+.price-stack__meta {
+  color: var(--color-muted);
+}
+
+.dual-actions {
+  display: grid;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.muted-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-secondary-soft);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+.muted-link:hover,
+.muted-link:focus-visible {
+  color: var(--color-secondary);
+}
+
+.btn.is-disabled,
+.btn[aria-disabled="true"] {
+  opacity: 0.55;
+  box-shadow: none;
+  pointer-events: none;
+}
+
+.offer-card__addon {
+  margin-top: 1rem;
+  padding: 1rem 1.05rem;
+  border: 1px dashed rgba(20, 20, 20, 0.16);
+  border-radius: 14px;
+  background: rgba(255, 251, 238, 0.9);
+}
+
+.offer-card__addon h3 {
+  margin-top: 0.15rem;
+}
+
+.reassurance-strip {
+  padding: 1rem 0;
+  border-top: 1px solid rgba(20, 20, 20, 0.08);
+  border-bottom: 1px solid rgba(20, 20, 20, 0.08);
+  background: #fff7df;
+}
+
+.reassurance-strip__inner {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.reassurance-strip__inner p {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-secondary);
+}
+
+.service-panel {
+  display: grid;
+  gap: 1.4rem;
+  padding: 1.5rem;
+  border: 1px solid rgba(242, 183, 5, 0.34);
+  border-radius: var(--radius-card);
+  background: #fffdf9;
+  box-shadow: var(--shadow-heavy);
+}
+
+.service-panel__content {
+  display: grid;
+  gap: 1rem;
+}
+
+.highlight-list {
+  display: grid;
+  gap: 0.85rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.highlight-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  color: var(--color-muted);
+}
+
+.highlight-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.62rem;
+  width: 0.68rem;
+  height: 0.68rem;
+  border-radius: 999px;
+  background: var(--color-primary);
+  box-shadow: 0 0 0 0.18rem rgba(242, 183, 5, 0.16);
+}
+
 .faq {
   display: grid;
   gap: 0.9rem;
@@ -904,6 +1037,10 @@ p {
     width: min(calc(100% - 3rem), var(--container-width));
   }
 
+  .reassurance-strip__inner {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
   .founder-proof__points {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -918,6 +1055,15 @@ p {
 
   .offer-card {
     grid-template-columns: minmax(0, 1.2fr) minmax(20rem, 0.85fr);
+    align-items: center;
+  }
+
+  .dual-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .service-panel {
+    grid-template-columns: minmax(0, 1.2fr) minmax(19rem, 0.8fr);
     align-items: center;
   }
 }
@@ -1091,7 +1237,8 @@ p {
 
   .hero-panel,
   .offer-card,
-  .offer-card__checkout {
+  .offer-card__checkout,
+  .service-panel {
     border-radius: 16px;
   }
 
