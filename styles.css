@@ -535,6 +535,51 @@ p {
   gap: 1rem;
 }
 
+.problem-flow {
+  display: grid;
+  gap: 0.35rem;
+  align-self: start;
+}
+
+.problem-flow__line {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.9rem;
+  align-items: start;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(20, 20, 20, 0.1);
+}
+
+.problem-flow__line:first-child {
+  padding-top: 0.2rem;
+}
+
+.problem-flow__line:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.problem-flow__step {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  background: #fff0bf;
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--color-primary-deep);
+}
+
+.problem-flow__line p {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--color-secondary);
+}
+
 .timeline-card,
 .task-card,
 .scenario-card {
@@ -892,6 +937,10 @@ p {
     align-items: start;
   }
 
+  .problem .split-section {
+    grid-template-columns: minmax(0, 0.95fr) minmax(24rem, 1.05fr);
+  }
+
   .split-section > .section-heading {
     position: sticky;
     top: 6.5rem;
@@ -910,7 +959,7 @@ p {
   }
 
   .task-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .scenario-grid--compact,
