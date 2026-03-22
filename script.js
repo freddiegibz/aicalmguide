@@ -1,11 +1,13 @@
 // Launch flow:
 // 1. Front-end checkout success URL -> oto1.html
 // 2. OTO1 checkout success URL -> thank-you.html
-// 3. Downsell checkout success URL -> thank-you.html
+// 3. OTO decline path -> downsell.html
+// 4. Downsell checkout success URL -> thank-you.html
 const OFFER_LINKS = {
   frontEnd: "https://buy.stripe.com/9B63cufzl9gwdGU59MbZe0v",
-  oto1: "",
-  downsell: "",
+  frontEndWithBump: "https://buy.stripe.com/fZueVc2Mz64kgT60TwbZe0w",
+  oto1: "https://buy.stripe.com/5kQ4gy86T64k0U8eKmbZe0x",
+  downsell: "https://buy.stripe.com/00w14m86TdwMauIeKmbZe0yv",
   service:
     "mailto:adsbyalfred@protonmail.com?subject=Done-For-You%20Missed%20Call%20Recovery%20Setup&body=Hi%2C%20I%27d%20like%20to%20ask%20about%20the%20Done-For-You%20Missed%20Call%20Recovery%20Setup.%0A%0ABusiness%20type%3A%0ALocation%3A%0AApprox.%20missed%20calls%20per%20week%3A%0AWhat%20I%20need%20help%20with%3A%0A",
 };
@@ -15,6 +17,47 @@ const faqTriggers = document.querySelectorAll(".faq-item__trigger");
 const offerLinks = document.querySelectorAll("[data-offer-key]");
 const heroSection = document.querySelector("[data-hero]");
 const stickyCta = document.querySelector("[data-sticky-cta]");
+const orderBumpModal = document.querySelector("[data-order-bump-modal]");
+const modalCloseButtons = document.querySelectorAll("[data-modal-close]");
+const bumpHelper = document.querySelector("[data-bump-helper]");
+
+let lastFocusedElement = null;
+
+const openOrderBumpModal = (trigger) => {
+  if (!orderBumpModal) {
+    return;
+  }
+
+  lastFocusedElement = trigger;
+  orderBumpModal.hidden = false;
+  document.body.classList.add("is-modal-open");
+
+  window.requestAnimationFrame(() => {
+    orderBumpModal.classList.add("is-open");
+  });
+
+  const preferredAction =
+    orderBumpModal.querySelector('[data-modal-choice="with-bump"]:not(.is-disabled)') ||
+    orderBumpModal.querySelector('[data-modal-choice="base"]');
+
+  preferredAction?.focus();
+};
+
+const closeOrderBumpModal = () => {
+  if (!orderBumpModal || orderBumpModal.hidden) {
+    return;
+  }
+
+  orderBumpModal.classList.remove("is-open");
+  document.body.classList.remove("is-modal-open");
+
+  window.setTimeout(() => {
+    orderBumpModal.hidden = true;
+    if (lastFocusedElement instanceof HTMLElement) {
+      lastFocusedElement.focus();
+    }
+  }, 180);
+};
 
 offerLinks.forEach((link) => {
   const offerKey = link.dataset.offerKey;
@@ -32,6 +75,10 @@ offerLinks.forEach((link) => {
   }
 });
 
+if (bumpHelper) {
+  bumpHelper.hidden = Boolean(OFFER_LINKS.frontEndWithBump);
+}
+
 offerLinks.forEach((link) => {
   link.addEventListener("click", (event) => {
     if (link.classList.contains("is-disabled")) {
@@ -39,6 +86,7 @@ offerLinks.forEach((link) => {
       return;
     }
 
+    const offerKey = link.dataset.offerKey;
     const href = link.getAttribute("href");
     const canTrack = typeof window.fbq === "function";
     const eventName = link.dataset.trackEvent;
@@ -50,6 +98,15 @@ offerLinks.forEach((link) => {
       !event.ctrlKey &&
       !event.shiftKey &&
       !event.altKey;
+
+    const shouldOpenBumpModal =
+      offerKey === "frontEnd" && !link.dataset.modalChoice && Boolean(orderBumpModal) && isPrimaryClick;
+
+    if (shouldOpenBumpModal) {
+      event.preventDefault();
+      openOrderBumpModal(link);
+      return;
+    }
 
     if (canTrack && eventName) {
       const payload = {};
@@ -103,3 +160,21 @@ faqTriggers.forEach((trigger) => {
     }
   });
 });
+
+modalCloseButtons.forEach((button) => {
+  button.addEventListener("click", closeOrderBumpModal);
+});
+
+if (orderBumpModal) {
+  orderBumpModal.addEventListener("click", (event) => {
+    if (event.target === orderBumpModal) {
+      closeOrderBumpModal();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && !orderBumpModal.hidden) {
+      closeOrderBumpModal();
+    }
+  });
+}
