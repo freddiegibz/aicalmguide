@@ -607,6 +607,10 @@ p {
   background: #ffffff;
 }
 
+.message-proof {
+  background: #f7f2e7;
+}
+
 .decision-reminder {
   background: #efe6d6;
 }
@@ -684,6 +688,75 @@ p {
   border-color: rgba(242, 183, 5, 0.38);
   background: #fff9e8;
   box-shadow: inset 0 0 0 1px rgba(242, 183, 5, 0.12);
+}
+
+.message-proof__stack {
+  display: grid;
+  gap: 1.15rem;
+}
+
+.message-proof__example {
+  padding: 1.4rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: #fffdf9;
+  box-shadow: 0 2px 10px rgba(23, 23, 23, 0.03);
+}
+
+.message-proof__intro {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.message-proof__scenario {
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--color-primary-deep);
+  text-transform: none;
+}
+
+.message-proof__grid {
+  display: grid;
+  gap: 0.95rem;
+  margin-top: 1rem;
+}
+
+.message-proof__card {
+  padding: 1.15rem;
+  border: 1px solid rgba(20, 20, 20, 0.1);
+  border-radius: 16px;
+  background: #ffffff;
+}
+
+.message-proof__card--after {
+  border-color: rgba(242, 183, 5, 0.38);
+  background: #fff9e8;
+  box-shadow: inset 0 0 0 1px rgba(242, 183, 5, 0.12);
+}
+
+.message-proof__label {
+  display: inline-flex;
+  margin-bottom: 0.7rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--color-text-soft);
+}
+
+.message-proof__text {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--color-secondary);
+}
+
+.message-proof__impact {
+  margin-top: 0.95rem;
+  padding: 0.95rem 1rem;
+  border-radius: 14px;
+  background: #f5efe2;
+  font-size: 0.98rem;
+  font-weight: 600;
+  line-height: 1.55;
+  color: var(--color-secondary);
 }
 
 .results-stack {
@@ -775,6 +848,10 @@ p {
 .offer-card__meta {
   margin-top: 0.45rem;
   margin-bottom: 1rem;
+}
+
+.offer-card__proof {
+  margin-top: 1rem;
 }
 
 .offer-card__guarantee {
@@ -1154,6 +1231,16 @@ p {
   pointer-events: auto;
 }
 
+.post-purchase-page .hero {
+  padding-top: 4rem;
+}
+
+.post-purchase-page .offer-card,
+.post-purchase-page .offer-card__checkout {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .sticky-cta__meta {
   display: grid;
   gap: 0.08rem;
@@ -1194,13 +1281,18 @@ p {
   .task-grid,
   .steps,
   .scenario-grid,
-  .comparison-grid {
+  .comparison-grid,
+  .message-proof__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .offer-card {
     grid-template-columns: minmax(0, 1.2fr) minmax(20rem, 0.85fr);
     align-items: center;
+  }
+
+  .post-purchase-page .offer-card {
+    grid-template-columns: minmax(0, 42rem);
   }
 
   .dual-actions {
