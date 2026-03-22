@@ -289,6 +289,17 @@ p {
   margin-top: 1rem;
 }
 
+.hero__visual {
+  display: grid;
+  gap: 1rem;
+  align-content: start;
+}
+
+.hero__testimonial--attached {
+  max-width: min(100%, 27rem);
+  margin-top: 0;
+}
+
 .hero__testimonial-image {
   width: 100%;
   height: auto;
@@ -1447,6 +1458,10 @@ p {
 
   .hero-panel {
     margin: 0 auto;
+  }
+
+  .hero__visual {
+    justify-items: center;
   }
 
   .hero__content {
