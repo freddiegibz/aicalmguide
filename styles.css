@@ -1066,6 +1066,7 @@ p {
 
 .thank-you__intro {
   max-width: 46rem;
+  min-width: 0;
 }
 
 .thank-you__intro h1 {
@@ -1114,6 +1115,8 @@ p {
 
 .thank-you__sidebar {
   max-width: 22rem;
+  min-width: 0;
+  width: 100%;
   padding: 1.4rem 1.35rem 1.3rem;
   border: 1px solid rgba(20, 20, 20, 0.1);
   border-radius: 24px;
@@ -1123,6 +1126,8 @@ p {
 }
 
 .thank-you__service-aside {
+  min-width: 0;
+  width: 100%;
   padding: 1.5rem;
   border: 1px solid rgba(20, 20, 20, 0.1);
   border-radius: 24px;
@@ -1186,6 +1191,7 @@ p {
 
 .thank-you__rail {
   max-width: 15rem;
+  min-width: 0;
 }
 
 .thank-you__rail h2 {
@@ -1194,6 +1200,7 @@ p {
 
 .thank-you__body {
   max-width: 48rem;
+  min-width: 0;
   display: grid;
   gap: 0;
 }
@@ -1205,6 +1212,7 @@ p {
 }
 
 .thank-you__micro-card {
+  min-width: 0;
   padding: 1.25rem 1.2rem;
   border: 1px solid rgba(20, 20, 20, 0.1);
   border-radius: 20px;
@@ -1306,6 +1314,7 @@ p {
 
 .thank-you__service-copy {
   max-width: 48rem;
+  min-width: 0;
   display: grid;
   gap: 1rem;
 }
@@ -1355,10 +1364,12 @@ p {
 
 .thank-you__service-price {
   margin: 0.25rem 0 1rem;
+  max-width: 100%;
   font-family: "Bitter", serif;
-  font-size: clamp(2.6rem, 5vw, 3.7rem);
+  font-size: clamp(2.2rem, 4vw, 3.35rem);
   font-weight: 600;
   line-height: 1;
+  overflow-wrap: anywhere;
 }
 
 .thank-you-page .btn--primary {
@@ -1641,12 +1652,15 @@ p {
   }
 
   .thank-you__hero-grid {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 1.6rem;
+    grid-template-columns: minmax(0, 1fr) minmax(18rem, 24rem);
+    gap: 1.75rem;
+    align-items: end;
   }
 
   .thank-you__sidebar {
-    max-width: 46rem;
+    max-width: 24rem;
+    margin-top: 7rem;
+    justify-self: end;
   }
 
   .thank-you__content-grid {
@@ -1663,7 +1677,7 @@ p {
   }
 
   .thank-you__service {
-    grid-template-columns: minmax(0, 1.12fr) minmax(18rem, 22rem);
+    grid-template-columns: minmax(0, 1.12fr) minmax(16rem, 20rem);
     align-items: start;
   }
 
@@ -1735,7 +1749,8 @@ p {
   }
 
   .thank-you__sidebar {
-    max-width: 32rem;
+    max-width: 23rem;
+    margin-top: 8.5rem;
   }
 
   .thank-you__content-grid {
