@@ -1014,16 +1014,41 @@ p {
 
 .thank-you-page {
   background:
-    radial-gradient(circle at top left, rgba(242, 183, 5, 0.16), transparent 32%),
-    linear-gradient(180deg, #f7f1e3 0%, #fcfaf4 18%, #f9f4e8 100%);
+    radial-gradient(circle at top left, rgba(242, 183, 5, 0.22), transparent 28%),
+    radial-gradient(circle at 85% 8%, rgba(36, 34, 31, 0.09), transparent 22%),
+    linear-gradient(180deg, #f3ecde 0%, #fbf8f1 18%, #f6efe2 58%, #f9f5ec 100%);
 }
 
 .thank-you {
-  padding: 2rem 0 4.5rem;
+  padding: 0 0 5rem;
 }
 
 .thank-you__hero {
-  padding: 2.5rem 0 2rem;
+  position: relative;
+  padding: 4.75rem 0 3rem;
+  overflow: hidden;
+}
+
+.thank-you__hero::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 32rem;
+  background:
+    linear-gradient(135deg, rgba(255, 251, 241, 0.94) 0%, rgba(249, 239, 209, 0.76) 44%, rgba(244, 228, 180, 0.36) 100%);
+  pointer-events: none;
+}
+
+.thank-you__hero::after {
+  content: "";
+  position: absolute;
+  right: -5rem;
+  top: 2rem;
+  width: 18rem;
+  height: 18rem;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(242, 183, 5, 0.22) 0%, rgba(242, 183, 5, 0) 70%);
+  pointer-events: none;
 }
 
 .thank-you__hero-grid,
@@ -1033,26 +1058,43 @@ p {
   gap: 1.8rem;
 }
 
+.thank-you__hero-grid {
+  position: relative;
+  z-index: 1;
+  align-items: end;
+}
+
 .thank-you__intro {
-  max-width: 44rem;
+  max-width: 46rem;
 }
 
 .thank-you__intro h1 {
-  max-width: 14ch;
+  max-width: 11ch;
+  font-size: clamp(3rem, 7vw, 5.4rem);
+  line-height: 0.94;
+}
+
+.thank-you__kicker {
+  margin-top: 1rem;
+  font-family: "Bitter", serif;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: rgba(26, 26, 26, 0.72);
 }
 
 .thank-you__lede {
   max-width: 42rem;
-  margin-top: 1rem;
-  font-size: clamp(1.18rem, 3.1vw, 1.45rem);
-  line-height: 1.48;
+  margin-top: 1.2rem;
+  font-size: clamp(1.2rem, 2.6vw, 1.5rem);
+  line-height: 1.52;
   color: var(--color-secondary);
 }
 
 .thank-you__subnote {
   max-width: 38rem;
-  margin-top: 1rem;
-  font-size: 1rem;
+  margin-top: 1.1rem;
+  font-size: 0.98rem;
   font-weight: 600;
   line-height: 1.5;
   color: var(--color-secondary-soft);
@@ -1061,19 +1103,31 @@ p {
 .thank-you__actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.85rem;
-  margin-top: 1.5rem;
+  gap: 0.95rem;
+  margin-top: 1.8rem;
 }
 
 .thank-you__sidebar,
 .thank-you__service-aside {
   align-self: start;
-  padding-left: 1.1rem;
-  border-left: 2px solid rgba(20, 20, 20, 0.12);
 }
 
 .thank-you__sidebar {
   max-width: 22rem;
+  padding: 1.4rem 1.35rem 1.3rem;
+  border: 1px solid rgba(20, 20, 20, 0.1);
+  border-radius: 24px;
+  background: rgba(255, 252, 245, 0.78);
+  box-shadow: 0 18px 40px rgba(23, 23, 23, 0.06);
+  backdrop-filter: blur(14px);
+}
+
+.thank-you__service-aside {
+  padding: 1.5rem;
+  border: 1px solid rgba(20, 20, 20, 0.1);
+  border-radius: 24px;
+  background: linear-gradient(180deg, rgba(255, 251, 239, 0.94) 0%, rgba(255, 247, 223, 0.88) 100%);
+  box-shadow: 0 20px 48px rgba(23, 23, 23, 0.08);
 }
 
 .thank-you__sidebar-label,
@@ -1086,8 +1140,23 @@ p {
   color: var(--color-text-soft);
 }
 
+.thank-you__sidebar-headline {
+  margin-top: 0.7rem;
+  font-family: "Bitter", serif;
+  font-size: 1.6rem;
+  line-height: 1.08;
+  color: var(--color-secondary);
+}
+
+.thank-you__sidebar-divider {
+  width: 100%;
+  height: 1px;
+  margin-top: 1rem;
+  background: rgba(20, 20, 20, 0.1);
+}
+
 .thank-you__summary-list {
-  margin: 0.95rem 0 0 1.15rem;
+  margin: 1rem 0 0 1.15rem;
   padding: 0;
   display: grid;
   gap: 0.7rem;
@@ -1108,16 +1177,11 @@ p {
 }
 
 .thank-you__section {
-  padding: 2.2rem 0;
-  border-top: 1px solid rgba(20, 20, 20, 0.08);
-}
-
-.thank-you__section--soft {
-  background: rgba(255, 255, 255, 0.34);
+  padding: 3rem 0;
 }
 
 .thank-you__section--accent {
-  background: linear-gradient(180deg, rgba(255, 248, 224, 0.7) 0%, rgba(248, 241, 227, 0.72) 100%);
+  margin-top: 1.2rem;
 }
 
 .thank-you__rail {
@@ -1131,31 +1195,20 @@ p {
 .thank-you__body {
   max-width: 48rem;
   display: grid;
-  gap: 1.2rem;
-}
-
-.thank-you__body--copy {
-  gap: 1rem;
-}
-
-.thank-you__body--copy p {
-  margin: 0;
-  font-size: 1.03rem;
-  line-height: 1.68;
-  color: var(--color-secondary);
+  gap: 0;
 }
 
 .thank-you__micro-grid {
   display: grid;
   gap: 1rem;
-  margin-top: 0.2rem;
+  margin-top: 0.8rem;
 }
 
 .thank-you__micro-card {
-  padding: 1.1rem 1.15rem;
+  padding: 1.25rem 1.2rem;
   border: 1px solid rgba(20, 20, 20, 0.1);
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.74);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.76);
 }
 
 .thank-you__micro-card h3 {
@@ -1165,25 +1218,27 @@ p {
 .thank-you__step {
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: 1rem;
+  gap: 1.1rem;
   align-items: start;
-  padding-top: 1rem;
-  border-top: 1px solid rgba(20, 20, 20, 0.1);
+  padding: 1.25rem 0;
+  border-top: 1px solid rgba(20, 20, 20, 0.08);
 }
 
 .thank-you__step:first-child {
-  padding-top: 0;
+  padding-top: 0.2rem;
   border-top: 0;
 }
 
 .thank-you__step h3 {
   margin-top: 0;
+  font-size: 1.18rem;
 }
 
 .thank-you__step p {
-  margin: 0.35rem 0 0;
-  font-size: 1.02rem;
-  line-height: 1.64;
+  margin: 0.42rem 0 0;
+  max-width: 38rem;
+  font-size: 1rem;
+  line-height: 1.6;
   color: var(--color-muted);
 }
 
@@ -1191,13 +1246,14 @@ p {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 2.1rem;
-  height: 2.1rem;
+  min-width: 2.35rem;
+  height: 2.35rem;
   border-radius: 999px;
-  background: #fff0bf;
-  font-size: 0.9rem;
+  background: linear-gradient(180deg, #ffe7a3 0%, #f2b705 100%);
+  box-shadow: 0 10px 22px rgba(242, 183, 5, 0.2);
+  font-size: 0.88rem;
   font-weight: 700;
-  color: var(--color-primary-deep);
+  color: #5d4300;
 }
 
 .thank-you__plain-list {
@@ -1240,23 +1296,36 @@ p {
 
 .thank-you__service {
   align-items: start;
+  padding: 2rem;
+  border: 1px solid rgba(20, 20, 20, 0.08);
+  border-radius: 32px;
+  background:
+    linear-gradient(180deg, rgba(255, 252, 244, 0.86) 0%, rgba(249, 241, 221, 0.86) 100%);
+  box-shadow: 0 24px 60px rgba(23, 23, 23, 0.08);
 }
 
 .thank-you__service-copy {
   max-width: 48rem;
   display: grid;
-  gap: 0.95rem;
+  gap: 1rem;
 }
 
 .thank-you__service-copy h2 {
-  max-width: 12ch;
+  max-width: 11ch;
+  font-size: clamp(2rem, 4vw, 3.3rem);
 }
 
 .thank-you__service-copy p {
   margin: 0;
-  font-size: 1.04rem;
-  line-height: 1.68;
+  max-width: 43rem;
+  font-size: 1.02rem;
+  line-height: 1.65;
   color: var(--color-secondary);
+}
+
+.thank-you__service-lede {
+  font-size: 1.08rem;
+  font-weight: 700;
 }
 
 .thank-you__service-summary {
@@ -1267,17 +1336,18 @@ p {
 .thank-you__package-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.7rem;
+  gap: 0.75rem;
+  margin-top: 0.2rem;
 }
 
 .thank-you__package-pill {
   display: inline-flex;
   align-items: center;
-  min-height: 2.45rem;
-  padding: 0.55rem 0.95rem;
-  border: 1px solid rgba(20, 20, 20, 0.12);
+  min-height: 2.55rem;
+  padding: 0.58rem 1rem;
+  border: 1px solid rgba(20, 20, 20, 0.1);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.84);
+  background: rgba(255, 255, 255, 0.92);
   font-size: 0.94rem;
   font-weight: 700;
   color: var(--color-secondary);
@@ -1286,9 +1356,17 @@ p {
 .thank-you__service-price {
   margin: 0.25rem 0 1rem;
   font-family: "Bitter", serif;
-  font-size: clamp(2.3rem, 5vw, 3.3rem);
+  font-size: clamp(2.6rem, 5vw, 3.7rem);
   font-weight: 600;
   line-height: 1;
+}
+
+.thank-you-page .btn--primary {
+  box-shadow: 0 14px 30px rgba(242, 183, 5, 0.26);
+}
+
+.thank-you-page .btn--ghost {
+  background: rgba(255, 255, 255, 0.65);
 }
 
 .highlight-list {
@@ -1711,6 +1789,33 @@ p {
 @media (max-width: 719px) {
   body {
     font-size: 16px;
+  }
+
+  .thank-you {
+    padding-bottom: 4rem;
+  }
+
+  .thank-you__hero {
+    padding: 3.4rem 0 2.2rem;
+  }
+
+  .thank-you__intro h1 {
+    max-width: 12ch;
+    font-size: clamp(2.6rem, 12vw, 4rem);
+  }
+
+  .thank-you__actions .btn {
+    width: min(100%, 22rem);
+  }
+
+  .thank-you__sidebar,
+  .thank-you__service-aside,
+  .thank-you__service {
+    border-radius: 22px;
+  }
+
+  .thank-you__service {
+    padding: 1.4rem;
   }
 
   .topbar__inner {
