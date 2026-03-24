@@ -1640,18 +1640,31 @@ p {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .thank-you__hero-grid,
-  .thank-you__service {
-    grid-template-columns: minmax(0, 1fr) minmax(18rem, 22rem);
+  .thank-you__hero-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.6rem;
+  }
+
+  .thank-you__sidebar {
+    max-width: 46rem;
   }
 
   .thank-you__content-grid {
-    grid-template-columns: minmax(13rem, 15rem) minmax(0, 1fr);
-    align-items: start;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.25rem;
+  }
+
+  .thank-you__rail {
+    max-width: 40rem;
   }
 
   .thank-you__micro-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .thank-you__service {
+    grid-template-columns: minmax(0, 1.12fr) minmax(18rem, 22rem);
+    align-items: start;
   }
 
   .problem-timeline,
@@ -1709,6 +1722,30 @@ p {
 }
 
 @media (min-width: 940px) {
+  .thank-you__hero {
+    padding: 5rem 0 3.4rem;
+  }
+
+  .thank-you__hero-grid {
+    gap: 2rem;
+  }
+
+  .thank-you__intro {
+    max-width: 52rem;
+  }
+
+  .thank-you__sidebar {
+    max-width: 32rem;
+  }
+
+  .thank-you__content-grid {
+    gap: 1.4rem;
+  }
+
+  .thank-you__body {
+    max-width: 52rem;
+  }
+
   .hero {
     padding-top: 5.75rem;
   }
