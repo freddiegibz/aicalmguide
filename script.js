@@ -9,7 +9,7 @@ const OFFER_LINKS = {
   oto1: "https://buy.stripe.com/5kQ4gy86T64k0U8eKmbZe0x",
   downsell: "https://buy.stripe.com/00w14m86TdwMauIeKmbZe0yv",
   service:
-    "mailto:adsbyalfred@protonmail.com?subject=Done-For-You%20Missed%20Call%20Recovery%20Setup&body=Hi%2C%20I%27d%20like%20to%20ask%20about%20the%20Done-For-You%20Missed%20Call%20Recovery%20Setup.%0A%0ABusiness%20type%3A%0ALocation%3A%0AApprox.%20missed%20calls%20per%20week%3A%0AWhat%20I%20need%20help%20with%3A%0A",
+    "mailto:adsbyalfred@protonmail.com?subject=Revenue-Leak%20Implementation%20Enquiry&body=Hi%2C%20I%27d%20like%20to%20ask%20about%20the%20revenue-leak%20implementation%20service.%0A%0ABusiness%20type%3A%0ALocation%3A%0ABiggest%20leaks%20I%20want%20fixed%3A%0AApprox.%20inbound%20enquiries%20per%20week%3A%0AWhat%20I%20need%20help%20with%3A%0A",
 };
 
 const DEFAULT_CURRENCY = "USD";
