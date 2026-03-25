@@ -1145,6 +1145,14 @@ p {
   color: var(--color-text-soft);
 }
 
+.thank-you__service-anchor {
+  margin-top: 0.7rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.45;
+  color: var(--color-secondary-soft);
+}
+
 .thank-you__sidebar-headline {
   margin-top: 0.7rem;
   font-family: "Bitter", serif;
