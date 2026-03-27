@@ -308,6 +308,14 @@ p {
   margin-top: 1rem;
 }
 
+.hero__micro-testimonial {
+  margin: 0.15rem 0 0;
+  max-width: 30rem;
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--color-muted);
+}
+
 .hero__visual {
   display: grid;
   gap: 1rem;
@@ -556,6 +564,15 @@ p {
 
 .mini-list li {
   color: rgba(255, 248, 235, 0.88);
+}
+
+.trust-panel__quote {
+  margin: 0.25rem 0 0;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 248, 235, 0.14);
+  font-size: 0.98rem;
+  line-height: 1.55;
+  color: rgba(255, 248, 235, 0.82);
 }
 
 .mini-list li::before {
