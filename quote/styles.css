@@ -372,6 +372,28 @@ ul {
   gap: 10px;
 }
 
+.inline-testimonial {
+  width: 100%;
+}
+
+.inline-testimonial--hero {
+  max-width: 340px;
+  margin-top: 14px;
+}
+
+.inline-testimonial--trust {
+  margin-top: 12px;
+}
+
+.inline-testimonial__image {
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: var(--shadow-md);
+}
+
 .trust-strip span {
   display: inline-flex;
   align-items: center;
