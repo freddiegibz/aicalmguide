@@ -488,6 +488,9 @@ p {
 .feature-list {
   display: grid;
   gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .feature-list--tight {
@@ -547,6 +550,8 @@ p {
   display: grid;
   gap: 0.75rem;
   margin-top: 1rem;
+  padding: 0;
+  list-style: none;
 }
 
 .mini-list li {
