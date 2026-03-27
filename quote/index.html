@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Quotes go quiet. Follow-up slips. Jobs get lost. Quote Follow-Up System gives you what to send, when to send it, and when to stop.">
   <title>Quote Follow-Up System | Stop Losing Jobs After You Send The Quote</title>
+  <base href="/quote/">
+  <script>
+    if (window.location.pathname === "/quote") {
+      window.location.replace("/quote/index.html");
+    }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700;800&family=Merriweather:wght@700&display=swap" rel="stylesheet">
