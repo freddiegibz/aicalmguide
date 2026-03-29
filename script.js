@@ -23,17 +23,6 @@ const bumpHelper = document.querySelector("[data-bump-helper]");
 
 let lastFocusedElement = null;
 
-const buildPixelPayload = (offerPrice, offerCurrency) => {
-  const payload = {};
-
-  if (Number.isFinite(offerPrice) && offerPrice > 0) {
-    payload.value = offerPrice;
-    payload.currency = offerCurrency;
-  }
-
-  return payload;
-};
-
 const openOrderBumpModal = (trigger) => {
   if (!orderBumpModal) {
     return;
@@ -113,10 +102,6 @@ offerLinks.forEach((link) => {
     const shouldOpenBumpModal =
       offerKey === "frontEnd" && !link.dataset.modalChoice && Boolean(orderBumpModal) && isPrimaryClick;
 
-    if (canTrack && Number.isFinite(offerPrice) && offerPrice > 0) {
-      window.fbq("track", "AddToCart", buildPixelPayload(offerPrice, offerCurrency));
-    }
-
     if (shouldOpenBumpModal) {
       event.preventDefault();
       openOrderBumpModal(link);
@@ -124,7 +109,14 @@ offerLinks.forEach((link) => {
     }
 
     if (canTrack && eventName) {
-      window.fbq("track", eventName, buildPixelPayload(offerPrice, offerCurrency));
+      const payload = {};
+
+      if (Number.isFinite(offerPrice) && offerPrice > 0) {
+        payload.value = offerPrice;
+        payload.currency = offerCurrency;
+      }
+
+      window.fbq("track", eventName, payload);
     }
 
     if (!href || !isPrimaryClick || !canTrack || !/^https?:/i.test(href)) {
