@@ -762,6 +762,10 @@ p {
   gap: 1.1rem;
 }
 
+.includes-proof {
+  margin-top: 0.25rem;
+}
+
 .tasks {
   background: #fcfbf8;
 }
