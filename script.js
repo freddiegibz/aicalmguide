@@ -124,6 +124,21 @@ offerLinks.forEach((link) => {
       window.fbq("track", eventName, payload);
     }
 
+    if (typeof window.gtag === "function" && Number.isFinite(offerPrice) && offerPrice > 0) {
+      window.gtag("event", "begin_checkout", {
+        currency: offerCurrency,
+        value: offerPrice,
+        items: [
+          {
+            item_id: offerKey,
+            item_name: offerKey,
+            price: offerPrice,
+            quantity: 1,
+          },
+        ],
+      });
+    }
+
     if (!href || !isPrimaryClick || !canTrack || !/^https?:/i.test(href)) {
       return;
     }
