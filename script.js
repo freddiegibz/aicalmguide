@@ -11,6 +11,7 @@ const OFFER_LINKS = {
   service:
     "mailto:adsbyalfred@protonmail.com?subject=LEAKS&body=LEAKS",
 };
+const ORDER_BUMP_ENABLED = false;
 
 const DEFAULT_CURRENCY = "USD";
 const faqTriggers = document.querySelectorAll(".faq-item__trigger");
@@ -76,7 +77,7 @@ offerLinks.forEach((link) => {
 });
 
 if (bumpHelper) {
-  bumpHelper.hidden = Boolean(OFFER_LINKS.frontEndWithBump);
+  bumpHelper.hidden = !ORDER_BUMP_ENABLED || Boolean(OFFER_LINKS.frontEndWithBump);
 }
 
 offerLinks.forEach((link) => {
@@ -100,7 +101,11 @@ offerLinks.forEach((link) => {
       !event.altKey;
 
     const shouldOpenBumpModal =
-      offerKey === "frontEnd" && !link.dataset.modalChoice && Boolean(orderBumpModal) && isPrimaryClick;
+      ORDER_BUMP_ENABLED &&
+      offerKey === "frontEnd" &&
+      !link.dataset.modalChoice &&
+      Boolean(orderBumpModal) &&
+      isPrimaryClick;
 
     if (shouldOpenBumpModal) {
       event.preventDefault();
