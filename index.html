@@ -1,490 +1,1004 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Missed Call Recovery System</title>
-    <meta
-      name="description"
-      content="A simple missed-call system for local service businesses so missed calls stop turning into lost work, you know what to send next, and more callers turn into jobs."
-    />
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GLY77P45H3"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Missed Call Recovery System</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap');
+
+    :root {
+      --paper: #fbf6ee;
+      --ink: #1f1b18;
+      --muted: #5f554b;
+      --accent: #be4b1d;
+      --accent-dark: #8d3210;
+      --olive: #6a7550;
+      --shadow: 0 24px 80px rgba(45, 25, 11, 0.12);
+      --radius: 28px;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Space Grotesk", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(190, 75, 29, 0.12), transparent 28%),
+        radial-gradient(circle at 85% 15%, rgba(106, 117, 80, 0.16), transparent 20%),
+        linear-gradient(180deg, #f8f0e5 0%, #f2eadf 30%, #efe4d6 100%);
+      color: var(--ink);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page-shell {
+      overflow: hidden;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(248, 240, 229, 0.75);
+      border-bottom: 1px solid rgba(31, 27, 24, 0.08);
+    }
+
+    .site-header__inner,
+    .section__inner,
+    .hero__content {
+      width: min(var(--max), calc(100% - 2rem));
+      margin: 0 auto;
+    }
+
+    .site-header__inner {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.9rem;
+      font-size: 0.92rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .brand__mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 35% 30%, #ffd8c3, transparent 32%),
+        linear-gradient(145deg, #c75422, #8d3210);
+      position: relative;
+    }
+
+    .brand__mark::after {
+      content: "";
+      position: absolute;
+      inset: 11px;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 248, 240, 0.9);
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .nav-cta__price {
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 56px;
+      padding: 0 1.4rem;
+      border-radius: 999px;
+      border: 0;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      transform: translateY(-2px);
+    }
+
+    .button--primary {
+      background: linear-gradient(135deg, var(--accent), #d1622d);
+      color: #fff9f3;
+      box-shadow: 0 18px 40px rgba(141, 50, 16, 0.28);
+    }
+
+    .button--ghost {
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid rgba(31, 27, 24, 0.14);
+    }
+
+    .hero {
+      position: relative;
+      padding: 3.5rem 0 2rem;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(251, 246, 238, 0.96) 0%, rgba(251, 246, 238, 0.92) 45%, rgba(251, 246, 238, 0.4) 70%, rgba(251, 246, 238, 0.24) 100%);
+      pointer-events: none;
+    }
+
+    .hero__content {
+      position: relative;
+      min-height: calc(100svh - 72px - 3rem);
+      display: grid;
+      grid-template-columns: minmax(0, 1.02fr) minmax(320px, 0.98fr);
+      gap: clamp(2rem, 4vw, 4rem);
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      padding: 0.7rem 1rem;
+      border: 1px solid rgba(31, 27, 24, 0.12);
+      border-radius: 999px;
+      background: rgba(255, 250, 244, 0.72);
+      color: var(--muted);
+      font-size: 0.82rem;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 6px rgba(190, 75, 29, 0.12);
+    }
+
+    .hero h1,
+    h2,
+    h3 {
+      margin: 0;
+      letter-spacing: -0.04em;
+      line-height: 0.95;
+    }
+
+    .hero h1 {
+      max-width: 11ch;
+      font-size: clamp(2.6rem, 4.8vw, 4.45rem);
+    }
+
+    .hero h1 .serif {
+      display: block;
+      font-family: "Instrument Serif", serif;
+      font-style: italic;
+      font-weight: 400;
+      color: var(--accent-dark);
+    }
+
+    .hero__subhead {
+      max-width: 34rem;
+      margin: 1.4rem 0 1rem;
+      font-size: clamp(1.08rem, 2vw, 1.28rem);
+      line-height: 1.55;
+      color: var(--muted);
+    }
+
+    .hero__body,
+    .section__intro p,
+    .problem-copy p,
+    .contrast-copy,
+    .promise-box p,
+    .final-offer p,
+    .faq-item p {
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    .hero__actions,
+    .hero__meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .hero__actions {
+      margin: 1.8rem 0 1rem;
+    }
+
+    .hero-proof {
+      margin-top: 1.4rem;
+      padding-left: 1rem;
+      border-left: 3px solid rgba(31, 27, 24, 0.12);
+      max-width: 31rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .price-tag {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0.2rem;
+      color: var(--ink);
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .price-tag strong {
+      font-size: 2rem;
+      letter-spacing: -0.05em;
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 680px;
+      display: grid;
+      place-items: center;
+      isolation: isolate;
+    }
+
+    .hero-visual img {
+      width: min(100%, 620px);
+      height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 28px 60px rgba(45, 25, 11, 0.2));
+    }
+
+    .hero-visual::before,
+    .hero-visual::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      z-index: -2;
+    }
+
+    .hero-visual::before {
+      width: 520px;
+      height: 520px;
+      background: radial-gradient(circle, rgba(190, 75, 29, 0.18), transparent 62%);
+      top: 10%;
+      right: 4%;
+      animation: drift 9s ease-in-out infinite alternate;
+    }
+
+    .hero-visual::after {
+      width: 420px;
+      height: 420px;
+      background: radial-gradient(circle, rgba(106, 117, 80, 0.16), transparent 68%);
+      bottom: 2%;
+      left: 3%;
+      animation: drift 8s ease-in-out infinite alternate-reverse;
+    }
+
+    .tracker-cell strong,
+    .timeline strong,
+    .consequence-list strong,
+    .component strong,
+    .benefit strong,
+    .proof-item strong,
+    .expect-item strong,
+    .audience-item strong,
+    .contrast-point strong {
+      display: block;
+      color: var(--ink);
+      margin-bottom: 0.25rem;
+    }
+
+    .section {
+      padding: clamp(4rem, 8vw, 7rem) 0;
+      position: relative;
+    }
+
+    .section--divider {
+      border-top: 1px solid rgba(31, 27, 24, 0.08);
+    }
+
+    .section__intro {
+      max-width: 44rem;
+      margin-bottom: 2.4rem;
+    }
+
+    .section-label {
+      display: inline-block;
+      margin-bottom: 0.85rem;
+      color: var(--accent-dark);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    h2 {
+      font-size: clamp(2.1rem, 5vw, 4.1rem);
+      max-width: 12ch;
+    }
+
+    .problem-grid,
+    .components-grid,
+    .steps-grid,
+    .benefits-grid,
+    .proof-grid,
+    .expect-grid,
+    .audience-grid,
+    .close-grid {
+      display: grid;
+      gap: 1.2rem;
+    }
+
+    .problem-grid {
+      grid-template-columns: 1.08fr 0.92fr;
+      align-items: start;
+      gap: 2rem;
+    }
+
+    .timeline,
+    .component,
+    .benefit,
+    .proof-item,
+    .expect-item,
+    .audience-item,
+    .faq-item {
+      padding: 1.5rem 1.4rem;
+      border-radius: 24px;
+      border: 1px solid rgba(31, 27, 24, 0.08);
+      background: rgba(255, 251, 246, 0.56);
+    }
+
+    .timeline ol,
+    .consequence-list,
+    .components-grid,
+    .steps-grid,
+    .benefits-grid,
+    .proof-grid,
+    .expect-grid,
+    .audience-grid,
+    .offer-list,
+    .faq-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .timeline ol {
+      display: grid;
+      gap: 1.05rem;
+      counter-reset: step;
+    }
+
+    .timeline li {
+      display: grid;
+      grid-template-columns: 46px minmax(0, 1fr);
+      gap: 1rem;
+      align-items: start;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .timeline li::before {
+      counter-increment: step;
+      content: "0" counter(step);
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: rgba(190, 75, 29, 0.1);
+      color: var(--accent-dark);
+      font-weight: 700;
+    }
+
+    .consequence-list {
+      display: grid;
+      gap: 0.95rem;
+    }
+
+    .consequence-list li {
+      display: grid;
+      grid-template-columns: 20px minmax(0, 1fr);
+      gap: 0.9rem;
+      align-items: start;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .consequence-list li::before,
+    .offer-list li::before {
+      content: "";
+      border-radius: 50%;
+      flex: 0 0 auto;
+    }
+
+    .consequence-list li::before {
+      width: 12px;
+      height: 12px;
+      background: var(--accent);
+      margin-top: 0.45rem;
+      box-shadow: 0 0 0 8px rgba(190, 75, 29, 0.1);
+    }
+
+    .components-grid,
+    .benefits-grid,
+    .proof-grid,
+    .expect-grid,
+    .audience-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .component span,
+    .benefit span,
+    .proof-item span,
+    .expect-item span,
+    .audience-item span {
+      display: inline-block;
+      margin-bottom: 0.75rem;
+      color: var(--accent-dark);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.76rem;
+      font-weight: 700;
+    }
+
+    .component p,
+    .benefit p,
+    .proof-item p,
+    .expect-item p,
+    .audience-item p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: 0.96rem;
+    }
+
+    .steps-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .step,
+    .contrast-layout,
+    .promise-box,
+    .final-offer {
+      border: 1px solid rgba(31, 27, 24, 0.08);
+      background:
+        linear-gradient(135deg, rgba(255, 250, 244, 0.95), rgba(247, 237, 225, 0.9));
+      box-shadow: 0 18px 40px rgba(45, 25, 11, 0.06);
+    }
+
+    .step {
+      padding: 1.6rem 1.4rem 1.4rem;
+      border-radius: 28px;
+    }
+
+    .step::before {
+      content: attr(data-step);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+      background: rgba(190, 75, 29, 0.12);
+      color: var(--accent-dark);
+      font-weight: 700;
+    }
+
+    .step p,
+    .contrast-point,
+    .checkout-box p,
+    .checkout-note {
+      margin: 0.45rem 0 0;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .contrast-layout,
+    .promise-box,
+    .final-offer {
+      display: grid;
+      gap: 1.6rem;
+      border-radius: 32px;
+      padding: clamp(1.6rem, 4vw, 2.6rem);
+    }
+
+    .contrast-layout {
+      grid-template-columns: 0.95fr 1.05fr;
+      align-items: start;
+    }
+
+    .contrast-points {
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .contrast-point {
+      padding: 1rem 1.1rem;
+      border-radius: 18px;
+      background: rgba(31, 27, 24, 0.04);
+      margin: 0;
+    }
+
+    .proof-item blockquote {
+      margin: 0;
+      color: var(--ink);
+      line-height: 1.65;
+    }
+
+    .proof-item cite {
+      display: block;
+      margin-top: 0.9rem;
+      color: var(--muted);
+      font-style: normal;
+      font-size: 0.92rem;
+    }
+
+    .promise-box {
+      grid-template-columns: 1fr auto;
+      align-items: center;
+    }
+
+    .promise-box h2,
+    .final-offer h2 {
+      max-width: none;
+    }
+
+    .close-grid {
+      grid-template-columns: 1.06fr 0.94fr;
+      align-items: start;
+    }
+
+    .offer-list {
+      display: grid;
+      gap: 0.75rem;
+      margin-top: 1.4rem;
+    }
+
+    .offer-list li {
+      display: flex;
+      gap: 0.8rem;
+      align-items: flex-start;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .offer-list li::before {
+      width: 11px;
+      height: 11px;
+      background: var(--olive);
+      margin-top: 0.42rem;
+    }
+
+    .checkout-box {
+      padding: 1.6rem;
+      border-radius: 28px;
+      background: #1f1b18;
+      color: #fbf6ee;
+      box-shadow: var(--shadow);
+    }
+
+    .checkout-box__label {
+      display: inline-flex;
+      padding: 0.5rem 0.75rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(251, 246, 238, 0.78);
+    }
+
+    .checkout-box__price {
+      margin: 1rem 0 0.3rem;
+      font-size: 4rem;
+      line-height: 0.9;
+      letter-spacing: -0.06em;
+    }
+
+    .checkout-box__price small {
+      font-size: 1rem;
+      color: rgba(251, 246, 238, 0.68);
+    }
+
+    .faq-list {
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .faq-item summary {
+      list-style: none;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: center;
+      font-weight: 700;
+    }
+
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-item summary::after {
+      content: "+";
+      font-size: 1.4rem;
+      color: var(--accent-dark);
+    }
+
+    .faq-item[open] summary::after {
+      content: "-";
+    }
+
+    .site-footer {
+      padding: 2rem 0 3rem;
+      color: var(--muted);
+    }
+
+    .site-footer__inner {
+      width: min(var(--max), calc(100% - 2rem));
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(31, 27, 24, 0.08);
+      padding-top: 1.5rem;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 650ms ease, transform 650ms ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes drift {
+      from { transform: translate3d(0, 0, 0) scale(1); }
+      to { transform: translate3d(16px, -12px, 0) scale(1.04); }
+    }
+
+    @media (max-width: 980px) {
+      .hero__content,
+      .problem-grid,
+      .contrast-layout,
+      .close-grid,
+      .promise-box {
+        grid-template-columns: 1fr;
       }
-      gtag("js", new Date());
-      gtag("config", "G-GLY77P45H3");
-    </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <script>
-      !(function (f, b, e, v, n, t, s) {
-        if (f.fbq) return;
-        n = f.fbq = function () {
-          n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
-        };
-        if (!f._fbq) f._fbq = n;
-        n.push = n;
-        n.loaded = true;
-        n.version = "2.0";
-        n.queue = [];
-        t = b.createElement(e);
-        t.async = true;
-        t.src = v;
-        s = b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t, s);
-      })(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
-      fbq("init", "928793366363543");
-      fbq("track", "PageView");
-    </script>
-    <noscript>
-      <img
-        height="1"
-        width="1"
-        style="display: none"
-        src="https://www.facebook.com/tr?id=928793366363543&ev=PageView&noscript=1"
-        alt=""
-      />
-    </noscript>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <div class="site-shell">
-      <header class="topbar">
-        <div class="container topbar__inner">
-          <a class="brand" href="#top">
-            <span class="brand__full">Missed Call Recovery System</span>
-            <span class="brand__short">Missed Call System</span>
-          </a>
-          <div class="topbar__actions">
-            <a class="topbar__contact" href="mailto:adsbyalfred@protonmail.com">Contact</a>
-             <a
-               class="topbar__cta"
-               data-offer-key="frontEnd"
-               data-offer-price="27"
-               data-track-event="InitiateCheckout"
-               href="#offer"
-               >Get the system for $27</a
-             >
+
+      .hero__content {
+        min-height: auto;
+      }
+
+      .hero-visual {
+        min-height: 540px;
+        order: 0;
+      }
+
+      .steps-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .nav-cta__price {
+        display: none;
+      }
+
+      .hero__actions,
+      .hero__meta,
+      .site-footer__inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .components-grid,
+      .benefits-grid,
+      .proof-grid,
+      .expect-grid,
+      .audience-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.35rem, 13vw, 3.6rem);
+      }
+
+      h2 {
+        max-width: none;
+        font-size: clamp(2rem, 11vw, 3rem);
+      }
+
+      .hero-visual {
+        min-height: 460px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="brand" href="#top" aria-label="Missed Call Recovery System">
+          <span class="brand__mark" aria-hidden="true"></span>
+          <span>Missed Call Recovery System</span>
+        </a>
+        <div class="nav-cta">
+          <span class="nav-cta__price">Instant download &middot; $27 one-time</span>
+          <a class="button button--ghost" href="#buy">Get The System</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero__content">
+          <div class="hero-copy reveal">
+            <div class="eyebrow">For local service businesses that rely on calls and quotes</div>
+            <h1>
+              Missed calls
+              <span class="serif">should not</span>
+              turn into lost jobs
+            </h1>
+            <p class="hero__subhead">
+              When you are on a job, after hours, or too busy to pick up, most people do not leave a voicemail. They call the next business.
+            </p>
+            <p class="hero__body">
+              The Missed Call Recovery System gives you the exact reply messages, follow-up scripts, and simple tracking process to respond right away, recover silent leads, and move more missed calls toward quotes and bookings without extra admin or complicated software.
+            </p>
+            <div class="hero__actions">
+              <a class="button button--primary" href="#buy">Get Instant Access For $27</a>
+              <a class="button button--ghost" href="#contents">See Everything Included</a>
+            </div>
+            <div class="hero__meta">
+              <span class="price-tag"><strong>$27</strong><span>one-time</span></span>
+              <span>Instant download</span>
+              <span>No software</span>
+              <span>Use it today</span>
+            </div>
+            <p class="hero-proof">
+              Built for owner-operators who know the first person to call usually wins the job. This is a practical product, not a SaaS, not a CRM, and not another thing to manage.
+            </p>
+          </div>
+
+          <div class="hero-visual reveal" aria-hidden="true">
+            <img src="productimg.png" alt="Missed Call Recovery System product mockup">
           </div>
         </div>
-      </header>
+      </section>
 
-      <main id="top">
-        <section class="hero" data-hero>
-          <div class="container hero__grid">
-            <div class="hero__content">
-              <div class="hero__intro-row">
-                <p class="eyebrow">For local service businesses</p>
-              </div>
-              <h1>Stop Losing Jobs From Missed Calls</h1>
-              <p class="hero__lede">Most people do not leave a voicemail and wait. They call the next business.</p>
-              <p class="hero__format">
-                This gives you the exact missed-call recovery system already used in 30+ local
-                service businesses to reply fast, ask the right questions, follow up properly, and
-                stop good jobs from going cold.
-              </p>
-
-              <div class="hero__actions">
-                <a
-                  class="btn btn--primary btn--hero"
-                  data-offer-key="frontEnd"
-                  data-offer-price="27"
-                  data-track-event="InitiateCheckout"
-                  href="#offer"
-                  >Get the system for $27</a
-                >
-                <a class="hero__inline-link" href="#included">What you get</a>
-              </div>
-              <div class="trust-strip" aria-label="Quick reassurance points">
-                <span>One-time payment</span>
-                <span>No software setup</span>
-                <span>Use it today</span>
-              </div>
-              <div class="hero__testimonial">
-                <img
-                  class="hero__testimonial-image"
-                  src="emailtestimonial.png"
-                  alt="Customer email testimonial for the Missed Call Recovery System"
-                />
-                <p class="hero__trust-line">Already used in 30+ local businesses to turn missed calls into callbacks, quotes, and booked work.</p>
-              </div>
-            </div>
-
-            <aside class="hero__visual" aria-label="Product preview">
-              <div class="hero-panel">
-                <img
-                  class="hero-panel__image"
-                  src="bookimage.jpg"
-                  alt="Missed Call Recovery System product cover"
-                />
-              </div>
-            </aside>
-          </div>
-        </section>
-
-        <section class="section problem">
-          <div class="container">
-            <div class="section-heading section-heading--left problem__intro">
-              <p class="eyebrow">What is really going wrong</p>
-              <h2>You aren&apos;t losing jobs on the missed call. You&apos;re losing jobs on the follow-up after it.</h2>
+      <section class="section section--divider">
+        <div class="section__inner">
+          <div class="problem-grid">
+            <div class="problem-copy reveal">
+              <span class="section-label">The Problem + Cost</span>
+              <h2>The leak happens in the middle of the working day</h2>
               <p>
-                The call gets missed. Nothing useful happens next. Then the day gets busy and the
-                job goes to the next business.
+                You are on-site, under a sink, loading a van, quoting another job, driving, or finally off the clock. The phone rings. You cannot answer properly, so it goes to voicemail or gets ignored for later.
               </p>
-            </div>
-
-            <div class="plain-steps">
-              <article class="plain-step">
-                <span class="number-marker">01</span>
-                <div>
-                  <h3>The call gets missed</h3>
-                  <p>It goes to voicemail, they hear nothing useful back, and the job is still up for grabs.</p>
-                </div>
-              </article>
-              <article class="plain-step">
-                <span class="number-marker">02</span>
-                <div>
-                  <h3>You mean to follow up later</h3>
-                  <p>Then work gets busy. You forget, follow up late, or end up sending something rushed that feels awkward, desperate, or unprofessional.</p>
-                </div>
-              </article>
-              <article class="plain-step">
-                <span class="number-marker">03</span>
-                <div>
-                  <h3>The job goes elsewhere</h3>
-                  <p>By the time you reply, they have already moved on, gone cold, or booked someone else.</p>
-                </div>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        <section class="section tasks" id="included">
-          <div class="container">
-            <div class="section-heading section-heading--left max-read">
-              <p class="eyebrow">What you get</p>
-              <h2>Everything you need to stop missed calls turning into lost jobs</h2>
               <p>
-                Before, the missed call hit voicemail and then it was on you to remember. This
-                gives you the simple missed-call process already being used to handle it properly,
-                from the first reply through to the callback, quote, or booking.
+                But nobody leaves voicemails anymore. There is no clear next step. By the time you call back, they have already moved on or called the next business. That turns a busy day into lost work, silent quotes, and jobs going to whoever replied first.
               </p>
             </div>
-
-            <div class="includes-layout">
-              <div class="includes-list">
-                <article class="include-row">
-                  <span class="include-row__tag">01</span>
-                  <div>
-                    <h3>Step 1: Stop the missed call from dying</h3>
-                    <p>Use the first reply so the missed call does not just sit there, go cold, and disappear into nothing.</p>
-                  </div>
-                </article>
-                <article class="include-row">
-                  <span class="include-row__tag">02</span>
-                  <div>
-                    <h3>Step 2: Get the right details fast</h3>
-                    <p>Ask the next questions so you know the job type, area, and urgency without messy back-and-forth.</p>
-                  </div>
-                </article>
-                <article class="include-row">
-                  <span class="include-row__tag">03</span>
-                  <div>
-                    <h3>Step 3: Move it toward the job</h3>
-                    <p>Send the next reply that moves the conversation toward the callback, quote, or booking without sounding awkward or pushy.</p>
-                  </div>
-                </article>
-                <article class="include-row">
-                  <span class="include-row__tag">04</span>
-                  <div>
-                    <h3>Step 4: Keep control until it is done</h3>
-                    <p>Use the simple tracker and follow-up steps so nothing slips and you always know who still needs action.</p>
-                  </div>
-                </article>
-                <div class="social-proof__panel includes-proof">
-                  <img
-                    class="social-proof__image"
-                    src="landingpagetestimonial.png"
-                    alt="Customer Instagram DM testimonial for the Missed Call Recovery System"
-                  />
-                  <p class="proof-line">Not just message ideas. A tried-and-tested way to reply, follow up, and recover more missed-call work.</p>
-                </div>
-              </div>
-              <aside class="snapshot-card">
-              <span class="snapshot-card__label">What changes</span>
-              <h3>What happens when you use it</h3>
-              <ul class="feature-list feature-list--tight">
-                <li>You stop leaving missed callers with nothing</li>
-                <li>You stop guessing what to send next</li>
-                <li>You stop sounding rushed, awkward, or desperate when you reply late</li>
-                <li>You stop forgetting who still needs a callback</li>
-                <li>You stop following up when the job is already cold</li>
-                <li>More of the calls you already get turn back into callbacks, quotes, and booked work</li>
-              </ul>
-              <p class="proof-line">This is not lead gen, CRM setup, or software bloat. It is the simple system for what happens after the missed call.</p>
-              </aside>
+            <div class="timeline reveal">
+              <ol>
+                <li><div><strong>A lead calls while you are busy</strong>They want a quote, a callback, or a job sorted quickly.</div></li>
+                <li><div><strong>You miss the call or cannot respond properly</strong>The lead gets voicemail, silence, or a delayed callback.</div></li>
+                <li><div><strong>No simple process takes over</strong>Nothing reminds you what to send, when to follow up, or how to move them forward.</div></li>
+                <li><div><strong>The lead cools off and the job goes elsewhere</strong>Not because they did not need the work, but because someone else replied first.</div></li>
+              </ol>
             </div>
           </div>
-        </section>
+          <ul class="consequence-list reveal">
+            <li><div><strong>The first person to respond usually gets the job</strong>If you are not the first useful reply, your quote is already competing from behind.</div></li>
+            <li><div><strong>Prospects rarely leave voicemails now</strong>A missed call often means a lead disappears unless you follow up right away.</div></li>
+            <li><div><strong>Quotes go silent when there is no follow-up plan</strong>Sending the price and hoping for a reply leaves too much money sitting idle.</div></li>
+            <li><div><strong>Memory is not a system</strong>When you are juggling jobs, callbacks, and after-hours enquiries, things slip through the cracks.</div></li>
+            <li><div><strong>One recovered job covers this many times over</strong>At $27, this costs less than the work you lose from a single missed lead.</div></li>
+          </ul>
+        </div>
+      </section>
 
-        <section class="section trust-block" id="founder">
-          <div class="container trust-layout">
-            <div class="trust-copy">
-              <p class="eyebrow">Why this works</p>
-              <h2>This is the part most businesses never put in place.</h2>
+      <section class="section section--divider" id="contents">
+        <div class="section__inner">
+          <div class="section__intro reveal">
+            <span class="section-label">What The Product Gives You</span>
+            <h2>A complete little system, not just a few messages</h2>
+            <p>
+              Everything inside is there to solve one sharp problem: what to do right after a missed call or silent quote so the lead does not drift away.
+            </p>
+          </div>
+          <div class="components-grid">
+            <article class="component reveal"><span>01</span><strong>Start Here Guide</strong><p>A short walkthrough showing exactly how to put the system in place today without turning it into a project.</p></article>
+            <article class="component reveal"><span>02</span><strong>Missed Call Reply Templates</strong><p>Ready-to-send first replies for when you are on a job, after hours, or simply too busy to pick up.</p></article>
+            <article class="component reveal"><span>03</span><strong>Lead Capture Message Flow</strong><p>A simple back-and-forth script that helps you gather the right details and move the lead toward the next step.</p></article>
+            <article class="component reveal"><span>04</span><strong>Callback, Quote, and Booking Scripts</strong><p>Exact wording to move from missed call to callback, from quote to decision, and from enquiry to booked work.</p></article>
+            <article class="component reveal"><span>05</span><strong>No-Reply Follow-Up Messages</strong><p>Helpful follow-ups that keep things moving without sounding salesy, awkward, or pushy.</p></article>
+            <article class="component reveal"><span>06</span><strong>Missed Call Tracker</strong><p>An editable spreadsheet that shows who called, what stage they are at, and what needs chasing next.</p></article>
+            <article class="component reveal"><span>07</span><strong>Implementation Guide</strong><p>Simple setup instructions so you are not guessing where to use each script or how often to follow up.</p></article>
+            <article class="component reveal"><span>08</span><strong>After-Hours and Voicemail Guide</strong><p>Defined handling for evening enquiries, unavailable periods, and the awkward gaps where jobs usually go cold.</p></article>
+          </div>
+        </div>
+      </section>
 
-              <div class="proof-list">
-                <div class="proof-item">
-                  <span class="proof-dot" aria-hidden="true"></span>
-                  <p><strong>Already used in 30+ local businesses.</strong> This is not just “think of what to type.” Owners use this process to handle missed calls properly and move them toward callbacks, quotes, and booked work.</p>
-                </div>
-                <div class="proof-item">
-                  <span class="proof-dot" aria-hidden="true"></span>
-                  <p><strong>No software project.</strong> Use it with your phone, notes app, spreadsheet, or whatever simple setup you already use now.</p>
-                </div>
-                <div class="proof-item">
-                  <span class="proof-dot" aria-hidden="true"></span>
-                  <p><strong>This is the missing piece.</strong> The call gets missed, voicemail goes nowhere, and then the follow-up slips. This gives you a proper next step after that.</p>
-                </div>
-              </div>
+      <section class="section">
+        <div class="section__inner">
+          <div class="section__intro reveal">
+            <span class="section-label">How It Works + Why It Helps</span>
+            <h2>You do not need to invent the process</h2>
+            <p>The system is already mapped out. You just follow the next step when a call is missed or a quote goes quiet, and that is what gives you faster replies, less guesswork, and fewer jobs slipping through the cracks.</p>
+          </div>
+          <div class="steps-grid">
+            <article class="step reveal" data-step="01"><strong>Send the first reply fast</strong><p>Use the exact message template for that situation so the lead hears from you right away, even when you cannot jump on a call.</p></article>
+            <article class="step reveal" data-step="02"><strong>Move the lead into a clear next step</strong><p>Use the message flow to collect the right details, offer a callback slot, or tee up the quote without back-and-forth guesswork.</p></article>
+            <article class="step reveal" data-step="03"><strong>Follow up before the job goes cold</strong><p>Use the no-reply scripts and tracker so none slip through the cracks and more leads get pulled back into the conversation.</p></article>
+          </div>
+          <div class="benefits-grid">
+            <article class="benefit reveal"><span>Faster response</span><strong>Reply while the lead still cares</strong><p>Instead of calling back hours later, you have a useful response ready to send in the moment.</p></article>
+            <article class="benefit reveal"><span>Less guesswork</span><strong>Know what to say next</strong><p>You are not writing follow-ups from scratch or wondering whether another message will come across wrong.</p></article>
+            <article class="benefit reveal"><span>Fewer leaks</span><strong>Stop silent leads from disappearing</strong><p>Missed calls and unanswered quotes finally have a process attached to them instead of just good intentions.</p></article>
+            <article class="benefit reveal"><span>More chances to win</span><strong>Stay in the running for the job</strong><p>Quick, clear follow-up gives you more chances to be the business that gets the callback or booking.</p></article>
+            <article class="benefit reveal"><span>Lower admin load</span><strong>Keep it simple and repeatable</strong><p>The product is manual-first on purpose. Copy, paste, track, and move on with your day.</p></article>
+            <article class="benefit reveal"><span>Less mental load</span><strong>Stop relying on memory</strong><p>The tracker and scripts make the process visible so jobs do not get forgotten when things get hectic.</p></article>
+          </div>
+        </div>
+      </section>
 
-              <p class="pull-quote">If calls are already coming in, you do not need more demand first. You need to stop wasting the ones you already have.</p>
-              <div class="social-proof__panel trust-copy__panel">
-                <span class="snapshot-card__label">What this is not</span>
-                <h3 class="includes-proof__title">This is not just a few templates you could write yourself.</h3>
-                <p class="proof-line">
-                  The value is not just in a few words on a page. The value is having the right
-                  reply, the right next step, the right follow-up, and the simple tracking process
-                  already worked out so you can use it the same way every time a call slips.
-                </p>
-              </div>
+      <section class="section">
+        <div class="section__inner">
+          <div class="section__intro reveal">
+            <span class="section-label">Why This Is Different + Who It Is For</span>
+            <h2>This is not another tool to manage</h2>
+            <p>Built for busy owner-operators and small local teams who need a practical fix, not a software project, a CRM rollout, or a pile of vague advice.</p>
+          </div>
+          <div class="contrast-layout reveal">
+            <div class="contrast-copy">
+              Most options in this space either feel too technical, too expensive, too vague, or like they will create more admin than they remove.
+              <br><br>
+              This product goes the other direction. It gives you the exact scripts and process without making you learn a platform, set up automations, or pretend you want a full CRM.
             </div>
+            <div class="contrast-points">
+              <div class="contrast-point"><strong>No software setup</strong>It is a digital product with PDFs, scripts, and a tracker. Open it and use it.</div>
+              <div class="contrast-point"><strong>No tech embarrassment risk</strong>Nothing here needs integrations, dashboards, or a steep learning curve.</div>
+              <div class="contrast-point"><strong>No vague advice</strong>You get exact words, timing, and practical next steps.</div>
+              <div class="contrast-point"><strong>No extra admin spiral</strong>The whole point is to help you respond faster without turning follow-up into a second job.</div>
+              <div class="contrast-point"><strong>No inflated promises</strong>This is a modest, believable fix for one expensive leak in your business.</div>
+            </div>
+          </div>
+          <div class="audience-grid">
+            <article class="audience-item reveal"><span>Trades</span><strong>Plumbers, electricians, roofers, heating engineers</strong><p>For businesses where urgent calls and quote requests can turn into booked work quickly if handled well.</p></article>
+            <article class="audience-item reveal"><span>Home Services</span><strong>Movers, cleaners, landscapers, pest control</strong><p>For teams that are often on-site or in transit when new leads come in.</p></article>
+            <article class="audience-item reveal"><span>Appointment-Based</span><strong>Repair, fitting, installation, local specialists</strong><p>For businesses that win work through fast replies, clear next steps, and organised follow-up.</p></article>
+            <article class="audience-item reveal"><span>Not For</span><strong>Businesses wanting software, AI receptionists, or a CRM project</strong><p>If you want a platform, automation stack, or broad marketing strategy, this is not that.</p></article>
+          </div>
+        </div>
+      </section>
 
-            <div class="trust-visual__media">
-              <div class="trust-panel">
-                <span class="snapshot-card__label">Why people need this</span>
-                <h3>You do not need more message ideas. You need a simple, tried-and-tested way to handle missed calls properly every time.</h3>
-                <ul class="mini-list">
-                  <li>No software headache</li>
-                  <li>No big setup job</li>
-                  <li>No new phone system required</li>
-                  <li>No guessing what to send from scratch</li>
+      <section class="section">
+        <div class="section__inner">
+          <div class="section__intro reveal">
+            <span class="section-label">Proof + Expected Result</span>
+            <h2>This only works if it feels practical and usable</h2>
+            <p>The point is not clever copy. The point is having the right next message ready when a real lead comes in and time is tight, then knowing what changes once that process is finally in place.</p>
+          </div>
+          <div class="proof-grid">
+            <article class="proof-item reveal"><span>Practical Result</span><blockquote>"We recovered jobs just by sending a follow-up message that would never have gone out before."</blockquote><cite>Local service operator</cite></article>
+            <article class="proof-item reveal"><span>Simplicity Proof</span><strong>No apps. No CRM. No complicated setup.</strong><p>Everything is designed to be copied, pasted, and used the same day you buy it.</p></article>
+            <article class="proof-item reveal"><span>Operational Fit</span><strong>Built for when you are on a job</strong><p>The scripts are written for the exact moments where calls are usually missed: on-site, after hours, or too busy to answer properly.</p></article>
+            <article class="proof-item reveal"><span>Believable Promise</span><strong>Not a miracle. A better process.</strong><p>The win here is fewer lost jobs, quicker replies, and more leads moved forward consistently.</p></article>
+          </div>
+          <div class="expect-grid">
+            <article class="expect-item reveal"><span>Before</span><strong>Missed calls sit there until you remember</strong><p>Voicemail gets ignored. Quotes get sent and then forgotten. Follow-up depends on whether you have time later.</p></article>
+            <article class="expect-item reveal"><span>After</span><strong>Every missed lead has a next step</strong><p>You know what to send, when to send it, and how to keep the lead moving without creating extra chaos.</p></article>
+            <article class="expect-item reveal"><span>Before</span><strong>Jobs slip through the cracks quietly</strong><p>You do not always know which lead went cold because nothing tracked the handoff after the missed call.</p></article>
+            <article class="expect-item reveal"><span>After</span><strong>You have a calmer, more consistent process</strong><p>Less mental clutter. Faster replies. Better odds of still being the business they book.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--divider" id="buy">
+        <div class="section__inner">
+          <div class="final-offer reveal">
+            <div class="close-grid">
+              <div>
+                <span class="section-label">Final Offer + FAQ</span>
+                <h2>A practical fix for one expensive leak in your business</h2>
+                <p>The Missed Call Recovery System gives you a ready-to-use process for handling missed calls, silent quotes, and after-hours leads without more admin, more tools, or more guesswork.</p>
+                <ul class="offer-list">
+                  <li>The exact missed-call and no-reply follow-up messages to send</li>
+                  <li>A simple lead capture and callback flow to move jobs forward</li>
+                  <li>Quote, booking, and after-hours scripts for the key situations</li>
+                  <li>A tracker and quick-start guide so nothing slips through the cracks</li>
                 </ul>
               </div>
+              <aside class="checkout-box">
+                <div class="checkout-box__label">One-Time Purchase</div>
+                <div class="checkout-box__price">$27 <small>USD</small></div>
+                <p>Less than the cost of one lost job. Instant digital delivery. Start using it today.</p>
+                <a class="button button--primary" href="mailto:hello@example.com?subject=I%20want%20the%20Missed%20Call%20Recovery%20System">Continue To Secure Checkout</a>
+                <div class="checkout-note">No software required. No complicated setup. Helpful follow-ups that feel practical, not pushy.</div>
+              </aside>
+            </div>
+            <div class="section__intro reveal" style="margin-top: 1rem;">
+              <span class="section-label">Short Answers</span>
+              <h2>Short answers to the practical questions</h2>
+            </div>
+            <div class="faq-list">
+              <details class="faq-item reveal"><summary>What exactly is this?</summary><p>This is a low-ticket digital product made up of PDFs, templates, scripts, and a simple tracker spreadsheet. It is not software and it is not a service.</p></details>
+              <details class="faq-item reveal"><summary>How quickly can I use it?</summary><p>The same day. The whole system is designed around copy-paste usage, simple setup, and clear instructions so you can start with the missed call replies right away.</p></details>
+              <details class="faq-item reveal"><summary>Do I need any software or technical setup?</summary><p>No. You do not need a CRM, automations, integrations, or anything advanced. If you can send a message and open a spreadsheet, you can use this.</p></details>
+              <details class="faq-item reveal"><summary>Will the follow-ups annoy customers?</summary><p>No. The scripts are written to sound helpful and useful, not pushy. The goal is to make it easy for people to reply and move forward.</p></details>
+              <details class="faq-item reveal"><summary>Who is this best for?</summary><p>Small local service businesses that rely on phone calls and quotes to book work, especially if you are often on-site, in transit, or handling jobs when new leads come in.</p></details>
+              <details class="faq-item reveal"><summary>What happens after purchase?</summary><p>You receive instant access to the digital files so you can download them, review the Start Here guide, and begin using the reply templates immediately.</p></details>
             </div>
           </div>
-        </section>
-
-        <section class="section decision-reminder">
-          <div class="container">
-            <div class="decision-reminder__panel">
-              <p class="eyebrow">Why this matters now</p>
-              <h2>The expensive part already happened. The phone rang.</h2>
-              <p>
-                If calls are already coming in, then the demand is already there. When the
-                follow-up slips after that, you are not just missing a call. You are wasting work
-                you already paid to generate through ads, referrals, SEO, or the time it took to
-                get that phone ringing in the first place.
-              </p>
-              <p>
-                Every week this stays loose, more missed calls go cold, more jobs go elsewhere, and
-                more of your marketing, referrals, and time get wasted after the opportunity was
-                already in front of you.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section class="section offer" id="offer">
-          <div class="container">
-            <div class="offer-card">
-              <div class="offer-card__content">
-                <p class="eyebrow">Get the system</p>
-                <h2>Buy this if you are tired of missed calls turning into nothing.</h2>
-                <p class="offer-card__summary">
-                  Buy this if you keep missing calls, meaning to follow up later, and losing work
-                  after the phone already rang and the lead was already in your hands.
-                </p>
-
-                <div class="offer-card__list-wrap">
-                  <ul class="offer-list">
-                    <li>The first reply that stops the missed call from dying in voicemail</li>
-                    <li>The next-step questions that get the details you need fast</li>
-                    <li>The follow-up replies that keep the job moving toward the callback, quote, or booking</li>
-                    <li>The simple tracker that shows who still needs action and what to do next</li>
-                    <li>The missed-call process you can use every time instead of winging it</li>
-                    <li>The structure that stops voicemail and memory from holding it all together</li>
-                  </ul>
-                </div>
-                <p class="offer-card__summary">
-                  No software headache. No big setup. Just a simple way to handle missed calls
-                  properly before the job goes elsewhere.
-                </p>
-              </div>
-
-              <div class="offer-card__checkout">
-                <p class="offer-card__price-label">Today&apos;s price</p>
-                <p class="offer-card__price">$27</p>
-                <p class="offer-card__meta">One missed job pays for this many times over.</p>
-                <a
-                  class="btn btn--primary btn--full"
-                  data-offer-key="frontEnd"
-                  data-offer-price="27"
-                  data-track-event="InitiateCheckout"
-                  href="#offer"
-                  >Get the system for $27</a
-                >
-                <p class="offer-card__guarantee">If it does not help, I&apos;ll refund you.</p>
-                <div class="offer-card__addon">
-                  <p class="offer-card__price-label">Optional at checkout</p>
-                  <h3>Reply Pack for Real Missed-Call Scenarios</h3>
-                  <p class="offer-card__meta">
-                    Add it for $14 if you want extra replies for after-hours calls, emergencies,
-                    price shoppers, and no-response follow-ups.
-                  </p>
-                </div>
-                <p class="offer-card__microcopy">Keep losing jobs to voicemail, or fix it for $27.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="section faq-section">
-          <div class="container">
-            <div class="section-heading section-heading--left faq-section__intro">
-              <p class="eyebrow">FAQ</p>
-              <h2>Three quick questions</h2>
-            </div>
-
-            <div class="faq" data-faq>
-              <article class="faq-item">
-                <button class="faq-item__trigger" type="button" aria-expanded="true">
-                  <span>What exactly is this?</span>
-                  <span class="faq-item__plus" aria-hidden="true"></span>
-                </button>
-                <div class="faq-item__content">
-                  <p>It is a simple missed-call recovery system with the messages, follow-up steps, and tracker to help you reply properly without trying to remember everything in your head.</p>
-                </div>
-              </article>
-              <article class="faq-item">
-                <button class="faq-item__trigger" type="button" aria-expanded="false">
-                  <span>Is this just a few templates I could write myself?</span>
-                  <span class="faq-item__plus" aria-hidden="true"></span>
-                </button>
-                <div class="faq-item__content" hidden>
-                  <p>No. The value is not just in a few messages. It is the full missed-call process: what to send first, what to ask next, how to follow up properly, how to track who still needs action, and how to stop relying on memory every time a call slips.</p>
-                </div>
-              </article>
-              <article class="faq-item">
-                <button class="faq-item__trigger" type="button" aria-expanded="false">
-                  <span>Do I need to be technical?</span>
-                  <span class="faq-item__plus" aria-hidden="true"></span>
-                </button>
-                <div class="faq-item__content" hidden>
-                  <p>No. It is made to be simple to follow, even if you are not good with tech.</p>
-                </div>
-              </article>
-              <article class="faq-item">
-                <button class="faq-item__trigger" type="button" aria-expanded="false">
-                  <span>How quickly can I put this in place?</span>
-                  <span class="faq-item__plus" aria-hidden="true"></span>
-                </button>
-                <div class="faq-item__content" hidden>
-                  <p>You can put the basic process in place today. It is designed for busy owners who need something simple they can start using straight away, without software setup or a big admin job.</p>
-                </div>
-              </article>
-              <article class="faq-item">
-                <button class="faq-item__trigger" type="button" aria-expanded="false">
-                  <span>Do I need any other software?</span>
-                  <span class="faq-item__plus" aria-hidden="true"></span>
-                </button>
-                <div class="faq-item__content" hidden>
-                  <p>No. You can use it manually straight away. If you want the first message to go out automatically later, that is optional.</p>
-                </div>
-              </article>
-            </div>
-          </div>
-        </section>
-      </main>
-
-      <div class="sticky-cta" data-sticky-cta>
-        <div class="sticky-cta__meta">
-          <p class="sticky-cta__label">Stop losing jobs from missed calls</p>
-          <p class="sticky-cta__price">$27 one-time</p>
         </div>
-        <a
-          class="btn btn--primary"
-          data-offer-key="frontEnd"
-          data-offer-price="27"
-          data-track-event="InitiateCheckout"
-          href="#offer"
-          >Get the system for $27</a
-        >
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <span>Missed Call Recovery System</span>
+        <span>Practical follow-up for busy local service businesses</span>
       </div>
+    </footer>
+  </div>
 
-      <div
-        class="modal-backdrop"
-        data-order-bump-modal
-        hidden
-        role="presentation"
-      >
-        <div
-          class="modal"
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="order-bump-title"
-          aria-describedby="order-bump-description"
-        >
-          <button class="modal__close" type="button" data-modal-close aria-label="Close modal">
-            <span aria-hidden="true">×</span>
-          </button>
-          <p class="eyebrow">Optional at checkout</p>
-          <h2 id="order-bump-title">Add the missed-call scenario pack?</h2>
-          <p class="modal__lede" id="order-bump-description">
-            Extra replies for the missed-call situations that lose jobs fastest: after-hours, emergencies, price shoppers, and no-response follow-ups.
-          </p>
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.16, rootMargin: "0px 0px -6% 0px" });
 
-          <div class="modal__callout">
-            <p class="modal__price">$14 one-time</p>
-          </div>
-
-          <div class="modal__actions">
-            <a
-              class="btn btn--primary btn--full"
-              data-offer-key="frontEndWithBump"
-              data-modal-choice="with-bump"
-              data-offer-price="41"
-              data-track-event="InitiateCheckout"
-              data-require-checkout="true"
-              href="#offer"
-              >Yes, add the $14 pack</a
-            >
-            <a
-              class="btn btn--ghost btn--full"
-              data-offer-key="frontEnd"
-              data-modal-choice="base"
-              data-offer-price="27"
-              data-track-event="InitiateCheckout"
-              href="#offer"
-              >No thanks</a
-            >
-          </div>
-
-          <p class="modal__helper" data-bump-helper hidden>
-            Add your Stripe bump link in <code>script.js</code> to enable the $14 option.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <script src="script.js"></script>
-  </body>
+    document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
+  </script>
+</body>
 </html>
-
