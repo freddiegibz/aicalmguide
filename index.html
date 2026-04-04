@@ -184,9 +184,12 @@
       content: "";
       width: 9px;
       height: 9px;
+      min-width: 9px;
+      min-height: 9px;
       border-radius: 50%;
       background: var(--accent);
       box-shadow: 0 0 0 6px rgba(190, 75, 29, 0.12);
+      flex: 0 0 auto;
     }
 
     .hero h1,
@@ -200,14 +203,6 @@
     .hero h1 {
       max-width: 11ch;
       font-size: clamp(2.6rem, 4.8vw, 4.45rem);
-    }
-
-    .hero h1 .serif {
-      display: block;
-      font-family: "Instrument Serif", serif;
-      font-style: italic;
-      font-weight: 400;
-      color: var(--accent-dark);
     }
 
     .hero__subhead {
@@ -243,11 +238,81 @@
 
     .hero-proof {
       margin-top: 1.4rem;
-      padding-left: 1rem;
-      border-left: 3px solid rgba(31, 27, 24, 0.12);
       max-width: 31rem;
+    }
+
+    .hero-proof img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 18px;
+      box-shadow: 0 16px 34px rgba(45, 25, 11, 0.12);
+    }
+
+    .stat-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.9rem;
+      max-width: 42rem;
+      margin-top: 1.5rem;
+    }
+
+    .stat-card {
+      padding: 1rem 1rem 0.95rem;
+      border-radius: 22px;
+      border: 1px solid rgba(31, 27, 24, 0.08);
+      background: rgba(255, 251, 246, 0.58);
+      box-shadow: 0 12px 30px rgba(45, 25, 11, 0.05);
+    }
+
+    .stat-card__top,
+    .benefit__head {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      margin-bottom: 0.55rem;
+    }
+
+    .icon-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: inline-block;
+      position: relative;
+      background: rgba(190, 75, 29, 0.1);
+      color: var(--accent-dark);
+      flex: 0 0 auto;
+      overflow: hidden;
+    }
+
+    .icon-mark svg {
+      width: 16px;
+      height: 16px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      display: block;
+      overflow: visible;
+      transform: translate(-50%, -50%);
+    }
+
+    .stat-card strong {
+      display: block;
+      font-size: 1.55rem;
+      letter-spacing: -0.05em;
+      color: var(--ink);
+    }
+
+    .stat-card p {
+      margin: 0.18rem 0 0;
       color: var(--muted);
-      line-height: 1.6;
+      line-height: 1.45;
+      font-size: 0.92rem;
     }
 
     .price-tag {
@@ -719,6 +784,41 @@
     }
 
     @media (max-width: 760px) {
+      .site-header__inner {
+        min-height: 60px;
+        padding: 0.55rem 0;
+        flex-wrap: nowrap;
+        align-items: center;
+      }
+
+      .brand {
+        gap: 0.7rem;
+        font-size: 0.68rem;
+        letter-spacing: 0.05em;
+        min-width: 0;
+      }
+
+      .brand__mark {
+        width: 30px;
+        height: 30px;
+      }
+
+      .brand__mark::after {
+        inset: 8px;
+      }
+
+      .nav-cta {
+        width: auto;
+        justify-content: flex-end;
+        flex: 0 0 auto;
+      }
+
+      .nav-cta .button {
+        min-height: 40px;
+        padding: 0 0.9rem;
+        font-size: 0.82rem;
+      }
+
       .nav-cta__price {
         display: none;
       }
@@ -728,6 +828,10 @@
       .site-footer__inner {
         flex-direction: column;
         align-items: flex-start;
+      }
+
+      .stat-strip {
+        grid-template-columns: 1fr;
       }
 
       .components-grid,
@@ -778,31 +882,58 @@
       <section class="hero">
         <div class="hero__content">
           <div class="hero-copy reveal">
-            <div class="eyebrow">For local service businesses that rely on calls and quotes</div>
-            <h1>
-              Missed calls
-              <span class="serif">should not</span>
-              turn into lost jobs
-            </h1>
+            <div class="eyebrow">For local service businesses that win work by phone</div>
+            <h1>Stop losing jobs to missed calls</h1>
             <p class="hero__subhead">
-              When you are on a job, after hours, or too busy to pick up, most people do not leave a voicemail. They call the next business.
+              Miss the call, and most people do not leave a voicemail. They call the next business.
             </p>
             <p class="hero__body">
-              The Missed Call Recovery System gives you the exact reply messages, follow-up scripts, and simple tracking process to respond right away, recover silent leads, and move more missed calls toward quotes and bookings without extra admin or complicated software.
+              Get a downloadable system of reply messages, follow-up scripts, and a tracker to reply fast, chase silent quotes, and stop good leads going cold.
+            </p>
+            <p class="hero__body">
+              If you run a local service business, you already know how this goes. The phone rings while you're on a job, driving, quoting, or already dealing with something else. You mean to call back later, but later is often too late.
             </p>
             <div class="hero__actions">
-              <a class="button button--primary" href="#buy">Get Instant Access For $27</a>
-              <a class="button button--ghost" href="#contents">See Everything Included</a>
+              <a class="button button--primary" href="#buy">Get The System For $27</a>
+              <a class="button button--ghost" href="#contents">See What's Inside</a>
             </div>
             <div class="hero__meta">
               <span class="price-tag"><strong>$27</strong><span>one-time</span></span>
               <span>Instant download</span>
               <span>No software</span>
-              <span>Use it today</span>
             </div>
-            <p class="hero-proof">
-              Built for owner-operators who know the first person to call usually wins the job. This is a practical product, not a SaaS, not a CRM, and not another thing to manage.
-            </p>
+            <div class="hero-proof reveal">
+              <img src="emailtestimonial.png" alt="Customer testimonial about the Missed Call Recovery System">
+            </div>
+            <div class="stat-strip reveal">
+              <div class="stat-card">
+                <div class="stat-card__top">
+                  <span class="icon-mark" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M7.5 16.5c0-1.7 1.7-3 4.5-3s4.5 1.3 4.5 3"></path><circle cx="12" cy="8" r="2.8"></circle><path d="M4 16c0-1.2 1-2.2 2.7-2.7"></path><path d="M20 16c0-1.2-1-2.2-2.7-2.7"></path></svg>
+                  </span>
+                  <strong>30+</strong>
+                </div>
+                <p>local service businesses use this system</p>
+              </div>
+              <div class="stat-card">
+                <div class="stat-card__top">
+                  <span class="icon-mark" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 7.5v9"></path><path d="M15 9.5c0-1.1-1.3-2-3-2s-3 .9-3 2 1 1.7 3 2 3 .9 3 2-1.3 2-3 2-3-.9-3-2"></path></svg>
+                  </span>
+                  <strong>$27</strong>
+                </div>
+                <p>If it saves one missed job, it pays for itself many times over</p>
+              </div>
+              <div class="stat-card">
+                <div class="stat-card__top">
+                  <span class="icon-mark" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M12 7v5l3 2"></path><circle cx="12" cy="12" r="8.5"></circle></svg>
+                  </span>
+                  <strong>No setup</strong>
+                </div>
+                <p>Open it, use it, and send the message the same day</p>
+              </div>
+            </div>
           </div>
 
           <div class="hero-visual reveal" aria-hidden="true">
@@ -815,30 +946,33 @@
         <div class="section__inner">
           <div class="problem-grid">
             <div class="problem-copy reveal">
-              <span class="section-label">The Problem + Cost</span>
-              <h2>The leak happens in the middle of the working day</h2>
+              <span class="section-label">Where Jobs Get Lost</span>
+              <h2>You miss the call. They move on. The job goes elsewhere.</h2>
               <p>
-                You are on-site, under a sink, loading a van, quoting another job, driving, or finally off the clock. The phone rings. You cannot answer properly, so it goes to voicemail or gets ignored for later.
+                You are on a job, driving, quoting, or trying to get through the day. The phone rings. You cannot answer properly, so it gets missed and pushed to later.
               </p>
               <p>
-                But nobody leaves voicemails anymore. There is no clear next step. By the time you call back, they have already moved on or called the next business. That turns a busy day into lost work, silent quotes, and jobs going to whoever replied first.
+                But later is usually too late. Nobody leaves voicemails anymore. There is no clear next step. By the time you call back, they have already called the next business.
+              </p>
+              <p>
+                That is the frustrating part. You are not losing the job because you do bad work. You are losing it because the call came at the wrong time and nothing useful took over once it was missed.
               </p>
             </div>
             <div class="timeline reveal">
               <ol>
                 <li><div><strong>A lead calls while you are busy</strong>They want a quote, a callback, or a job sorted quickly.</div></li>
-                <li><div><strong>You miss the call or cannot respond properly</strong>The lead gets voicemail, silence, or a delayed callback.</div></li>
-                <li><div><strong>No simple process takes over</strong>Nothing reminds you what to send, when to follow up, or how to move them forward.</div></li>
-                <li><div><strong>The lead cools off and the job goes elsewhere</strong>Not because they did not need the work, but because someone else replied first.</div></li>
+                <li><div><strong>The call gets missed</strong>They get silence, voicemail, or a callback that comes too late.</div></li>
+                <li><div><strong>Nothing useful happens next</strong>There is no ready reply, no follow-up rhythm, and no tracker keeping it moving.</div></li>
+                <li><div><strong>The lead goes cold or books elsewhere</strong>The job was there. Someone else just got back first.</div></li>
               </ol>
             </div>
           </div>
           <ul class="consequence-list reveal">
             <li><div><strong>The first person to respond usually gets the job</strong>If you are not the first useful reply, your quote is already competing from behind.</div></li>
             <li><div><strong>Prospects rarely leave voicemails now</strong>A missed call often means a lead disappears unless you follow up right away.</div></li>
-            <li><div><strong>Quotes go silent when there is no follow-up plan</strong>Sending the price and hoping for a reply leaves too much money sitting idle.</div></li>
-            <li><div><strong>Memory is not a system</strong>When you are juggling jobs, callbacks, and after-hours enquiries, things slip through the cracks.</div></li>
-            <li><div><strong>One recovered job covers this many times over</strong>At $27, this costs less than the work you lose from a single missed lead.</div></li>
+            <li><div><strong>Quotes go quiet when there is no follow-up plan</strong>Sending the price and hoping for a reply leaves too much work sitting there unpaid.</div></li>
+            <li><div><strong>Memory is not a system</strong>When you are juggling jobs, callbacks, and after-hours leads, things slip through the cracks.</div></li>
+            <li><div><strong>One recovered job pays for this many times over</strong>At $27, this costs less than the work you lose from a single missed lead.</div></li>
           </ul>
         </div>
       </section>
@@ -846,21 +980,21 @@
       <section class="section section--divider" id="contents">
         <div class="section__inner">
           <div class="section__intro reveal">
-            <span class="section-label">What The Product Gives You</span>
-            <h2>A complete little system, not just a few messages</h2>
+            <span class="section-label">What's Inside</span>
+            <h2>Everything you need to follow up properly</h2>
             <p>
-              Everything inside is there to solve one sharp problem: what to do right after a missed call or silent quote so the lead does not drift away.
+              This is a practical system for one job: what to send, what to do next, and how to stop leads getting forgotten.
             </p>
           </div>
           <div class="components-grid">
-            <article class="component reveal"><span>01</span><strong>Start Here Guide</strong><p>A short walkthrough showing exactly how to put the system in place today without turning it into a project.</p></article>
-            <article class="component reveal"><span>02</span><strong>Missed Call Reply Templates</strong><p>Ready-to-send first replies for when you are on a job, after hours, or simply too busy to pick up.</p></article>
-            <article class="component reveal"><span>03</span><strong>Lead Capture Message Flow</strong><p>A simple back-and-forth script that helps you gather the right details and move the lead toward the next step.</p></article>
-            <article class="component reveal"><span>04</span><strong>Callback, Quote, and Booking Scripts</strong><p>Exact wording to move from missed call to callback, from quote to decision, and from enquiry to booked work.</p></article>
-            <article class="component reveal"><span>05</span><strong>No-Reply Follow-Up Messages</strong><p>Helpful follow-ups that keep things moving without sounding salesy, awkward, or pushy.</p></article>
-            <article class="component reveal"><span>06</span><strong>Missed Call Tracker</strong><p>An editable spreadsheet that shows who called, what stage they are at, and what needs chasing next.</p></article>
-            <article class="component reveal"><span>07</span><strong>Implementation Guide</strong><p>Simple setup instructions so you are not guessing where to use each script or how often to follow up.</p></article>
-            <article class="component reveal"><span>08</span><strong>After-Hours and Voicemail Guide</strong><p>Defined handling for evening enquiries, unavailable periods, and the awkward gaps where jobs usually go cold.</p></article>
+            <article class="component reveal"><span>01</span><strong>Missed Call Reply Templates</strong><p>Exact first replies for missed calls, after-hours leads, and the times you are too busy to pick up.</p></article>
+            <article class="component reveal"><span>02</span><strong>Lead Capture Message Flow</strong><p>A simple message sequence that helps you get the right details and move the job forward.</p></article>
+            <article class="component reveal"><span>03</span><strong>Callback, Quote, and Booking Scripts</strong><p>Short scripts for getting the callback booked, the quote answered, and the lead moving again.</p></article>
+            <article class="component reveal"><span>04</span><strong>No-Reply Follow-Up Messages</strong><p>Helpful follow-ups for the leads that go quiet so the job does not die in silence.</p></article>
+            <article class="component reveal"><span>05</span><strong>Missed Call Tracker</strong><p>A simple tracker showing who called, what stage they are at, and what needs following up next.</p></article>
+            <article class="component reveal"><span>06</span><strong>Start Here Guide</strong><p>The quick-start setup so you can put the system to work today.</p></article>
+            <article class="component reveal"><span>07</span><strong>Implementation Guide</strong><p>A practical guide showing where each script fits and when to use it.</p></article>
+            <article class="component reveal"><span>08</span><strong>After-Hours and Voicemail Guide</strong><p>Clear handling for evening calls, missed messages, and the awkward gaps where jobs usually get lost.</p></article>
           </div>
         </div>
       </section>
@@ -868,22 +1002,22 @@
       <section class="section">
         <div class="section__inner">
           <div class="section__intro reveal">
-            <span class="section-label">How It Works + Why It Helps</span>
-            <h2>You do not need to invent the process</h2>
-            <p>The system is already mapped out. You just follow the next step when a call is missed or a quote goes quiet, and that is what gives you faster replies, less guesswork, and fewer jobs slipping through the cracks.</p>
+            <span class="section-label">How It Works</span>
+            <h2>You do not need to figure out what to do next</h2>
+            <p>When a call gets missed or a quote goes quiet, you already know what to send, what to ask, and how to follow up before the lead goes cold.</p>
           </div>
           <div class="steps-grid">
-            <article class="step reveal" data-step="01"><strong>Send the first reply fast</strong><p>Use the exact message template for that situation so the lead hears from you right away, even when you cannot jump on a call.</p></article>
-            <article class="step reveal" data-step="02"><strong>Move the lead into a clear next step</strong><p>Use the message flow to collect the right details, offer a callback slot, or tee up the quote without back-and-forth guesswork.</p></article>
-            <article class="step reveal" data-step="03"><strong>Follow up before the job goes cold</strong><p>Use the no-reply scripts and tracker so none slip through the cracks and more leads get pulled back into the conversation.</p></article>
+            <article class="step reveal" data-step="01"><strong>Send the first reply fast</strong><p>Use the exact message for that situation so the lead hears from you right away, even when you cannot jump on a call.</p></article>
+            <article class="step reveal" data-step="02"><strong>Move the lead to the next step</strong><p>Use the message flow to get the right details, offer a callback slot, or tee up the quote without guesswork.</p></article>
+            <article class="step reveal" data-step="03"><strong>Follow up before it goes cold</strong><p>Use the no-reply scripts and tracker so more leads get pulled back into the conversation.</p></article>
           </div>
           <div class="benefits-grid">
-            <article class="benefit reveal"><span>Faster response</span><strong>Reply while the lead still cares</strong><p>Instead of calling back hours later, you have a useful response ready to send in the moment.</p></article>
-            <article class="benefit reveal"><span>Less guesswork</span><strong>Know what to say next</strong><p>You are not writing follow-ups from scratch or wondering whether another message will come across wrong.</p></article>
-            <article class="benefit reveal"><span>Fewer leaks</span><strong>Stop silent leads from disappearing</strong><p>Missed calls and unanswered quotes finally have a process attached to them instead of just good intentions.</p></article>
-            <article class="benefit reveal"><span>More chances to win</span><strong>Stay in the running for the job</strong><p>Quick, clear follow-up gives you more chances to be the business that gets the callback or booking.</p></article>
-            <article class="benefit reveal"><span>Lower admin load</span><strong>Keep it simple and repeatable</strong><p>The product is manual-first on purpose. Copy, paste, track, and move on with your day.</p></article>
-            <article class="benefit reveal"><span>Less mental load</span><strong>Stop relying on memory</strong><p>The tracker and scripts make the process visible so jobs do not get forgotten when things get hectic.</p></article>
+            <article class="benefit reveal"><span>Faster response</span><div class="benefit__head"><span class="icon-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.63 2.62a2 2 0 0 1-.45 2.11L8 9.91a16 16 0 0 0 6.09 6.09l1.46-1.29a2 2 0 0 1 2.11-.45c.84.3 1.72.51 2.62.63A2 2 0 0 1 22 16.92z"></path></svg></span><strong>Reply while the lead still cares</strong></div><p>Instead of calling back hours later, you have a useful response ready to send in the moment.</p></article>
+            <article class="benefit reveal"><span>Less guesswork</span><div class="benefit__head"><span class="icon-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path><path d="M8 9h8"></path><path d="M8 13h5"></path></svg></span><strong>Know what to say next</strong></div><p>You are not writing replies from scratch or second-guessing the follow-up.</p></article>
+            <article class="benefit reveal"><span>Fewer leaks</span><div class="benefit__head"><span class="icon-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"></path><path d="m9 12 2 2 4-4"></path></svg></span><strong>Stop silent leads from disappearing</strong></div><p>Missed calls and unanswered quotes finally have a process attached to them.</p></article>
+            <article class="benefit reveal"><span>More chances to win</span><div class="benefit__head"><span class="icon-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 4v16"></path><path d="M15.5 7.5c0-1.4-1.6-2.5-3.5-2.5s-3.5 1.1-3.5 2.5 1.2 2.1 3.5 2.6 3.5 1.2 3.5 2.8-1.6 2.6-3.5 2.6-3.5-1.1-3.5-2.6"></path></svg></span><strong>Stay in the running for the job</strong></div><p>Quick, clear follow-up gives you a better chance of still being the business they book.</p></article>
+            <article class="benefit reveal"><span>Lower admin load</span><div class="benefit__head"><span class="icon-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="4" rx="1"></rect><path d="M9 5H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-3"></path><path d="M8 11h8"></path><path d="M8 15h5"></path></svg></span><strong>Keep it simple and repeatable</strong></div><p>Copy, paste, track, and move on with the day.</p></article>
+            <article class="benefit reveal"><span>Less mental load</span><div class="benefit__head"><span class="icon-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="16" rx="2"></rect><path d="M9 9h6"></path><path d="M9 13h6"></path><path d="M9 17h4"></path></svg></span><strong>Stop relying on memory</strong></div><p>The tracker makes the process visible so jobs do not get forgotten when things get hectic.</p></article>
           </div>
         </div>
       </section>
@@ -891,15 +1025,15 @@
       <section class="section">
         <div class="section__inner">
           <div class="section__intro reveal">
-            <span class="section-label">Why This Is Different + Who It Is For</span>
+            <span class="section-label">Why It Fits</span>
             <h2>This is not another tool to manage</h2>
-            <p>Built for busy owner-operators and small local teams who need a practical fix, not a software project, a CRM rollout, or a pile of vague advice.</p>
+            <p>Built for busy owner-operators who want a simple fix, not a software project, a CRM rollout, or advice they will never use.</p>
           </div>
           <div class="contrast-layout reveal">
             <div class="contrast-copy">
-              Most options in this space either feel too technical, too expensive, too vague, or like they will create more admin than they remove.
+              Most options in this space feel too technical, too vague, or like they will create more admin than they remove.
               <br><br>
-              This product goes the other direction. It gives you the exact scripts and process without making you learn a platform, set up automations, or pretend you want a full CRM.
+              This goes the other way. You get the exact scripts and follow-up process without learning a platform, setting up automations, or pretending you want a full CRM.
             </div>
             <div class="contrast-points">
               <div class="contrast-point"><strong>No software setup</strong>It is a digital product with PDFs, scripts, and a tracker. Open it and use it.</div>
@@ -910,10 +1044,10 @@
             </div>
           </div>
           <div class="audience-grid">
-            <article class="audience-item reveal"><span>Trades</span><strong>Plumbers, electricians, roofers, heating engineers</strong><p>For businesses where urgent calls and quote requests can turn into booked work quickly if handled well.</p></article>
-            <article class="audience-item reveal"><span>Home Services</span><strong>Movers, cleaners, landscapers, pest control</strong><p>For teams that are often on-site or in transit when new leads come in.</p></article>
-            <article class="audience-item reveal"><span>Appointment-Based</span><strong>Repair, fitting, installation, local specialists</strong><p>For businesses that win work through fast replies, clear next steps, and organised follow-up.</p></article>
-            <article class="audience-item reveal"><span>Not For</span><strong>Businesses wanting software, AI receptionists, or a CRM project</strong><p>If you want a platform, automation stack, or broad marketing strategy, this is not that.</p></article>
+            <article class="audience-item reveal"><span>Trades</span><strong>Plumbers, electricians, roofers, heating engineers</strong></article>
+            <article class="audience-item reveal"><span>Home Services</span><strong>Movers, cleaners, landscapers, pest control</strong></article>
+            <article class="audience-item reveal"><span>Appointment-Based</span><strong>Repair, fitting, installation, local specialists</strong></article>
+            <article class="audience-item reveal"><span>Not For</span><strong>Businesses wanting software, AI receptionists, or a CRM project</strong></article>
           </div>
         </div>
       </section>
@@ -921,15 +1055,15 @@
       <section class="section">
         <div class="section__inner">
           <div class="section__intro reveal">
-            <span class="section-label">Proof + Expected Result</span>
-            <h2>This only works if it feels practical and usable</h2>
-            <p>The point is not clever copy. The point is having the right next message ready when a real lead comes in and time is tight, then knowing what changes once that process is finally in place.</p>
+            <span class="section-label">Proof</span>
+            <h2>Built for real working days</h2>
+            <p>This is for the days when you are on jobs, calls get missed, quotes go quiet, and you still need a simple next step that helps you win the work back. The work was there. Follow-up just happened too late, or not at all.</p>
           </div>
           <div class="proof-grid">
             <article class="proof-item reveal"><span>Practical Result</span><blockquote>"We recovered jobs just by sending a follow-up message that would never have gone out before."</blockquote><cite>Local service operator</cite></article>
             <article class="proof-item reveal"><span>Simplicity Proof</span><strong>No apps. No CRM. No complicated setup.</strong><p>Everything is designed to be copied, pasted, and used the same day you buy it.</p></article>
-            <article class="proof-item reveal"><span>Operational Fit</span><strong>Built for when you are on a job</strong><p>The scripts are written for the exact moments where calls are usually missed: on-site, after hours, or too busy to answer properly.</p></article>
-            <article class="proof-item reveal"><span>Believable Promise</span><strong>Not a miracle. A better process.</strong><p>The win here is fewer lost jobs, quicker replies, and more leads moved forward consistently.</p></article>
+            <article class="proof-item reveal"><span>Operational Fit</span><strong>Made for missed calls, silent quotes, and after-hours leads</strong><p>The scripts are built around the exact moments where local service businesses usually lose the job.</p></article>
+            <article class="proof-item reveal"><span>Believable Promise</span><strong>Not a miracle. A better follow-up process.</strong><p>The win here is fewer lost jobs, quicker replies, and more leads moved forward consistently.</p></article>
           </div>
           <div class="expect-grid">
             <article class="expect-item reveal"><span>Before</span><strong>Missed calls sit there until you remember</strong><p>Voicemail gets ignored. Quotes get sent and then forgotten. Follow-up depends on whether you have time later.</p></article>
@@ -945,26 +1079,26 @@
           <div class="final-offer reveal">
             <div class="close-grid">
               <div>
-                <span class="section-label">Final Offer + FAQ</span>
-                <h2>A practical fix for one expensive leak in your business</h2>
-                <p>The Missed Call Recovery System gives you a ready-to-use process for handling missed calls, silent quotes, and after-hours leads without more admin, more tools, or more guesswork.</p>
+                <span class="section-label">Get The System</span>
+                <h2>Get the system that stops missed calls going cold</h2>
+                <p>Use the exact replies, follow-up scripts, and tracker that help you respond faster, chase silent leads, and keep more jobs from slipping away.</p>
                 <ul class="offer-list">
-                  <li>The exact missed-call and no-reply follow-up messages to send</li>
-                  <li>A simple lead capture and callback flow to move jobs forward</li>
-                  <li>Quote, booking, and after-hours scripts for the key situations</li>
-                  <li>A tracker and quick-start guide so nothing slips through the cracks</li>
+                  <li>The exact missed-call and no-reply messages to send</li>
+                  <li>A simple lead capture and callback flow</li>
+                  <li>Quote, booking, and after-hours scripts</li>
+                  <li>A tracker and quick-start guide so nothing gets missed</li>
                 </ul>
               </div>
               <aside class="checkout-box">
                 <div class="checkout-box__label">One-Time Purchase</div>
                 <div class="checkout-box__price">$27 <small>USD</small></div>
-                <p>Less than the cost of one lost job. Instant digital delivery. Start using it today.</p>
+                <p>Less than the cost of one lost job. Instant digital delivery. Ready to use the same day.</p>
                 <a class="button button--primary" href="mailto:hello@example.com?subject=I%20want%20the%20Missed%20Call%20Recovery%20System">Continue To Secure Checkout</a>
-                <div class="checkout-note">No software required. No complicated setup. Helpful follow-ups that feel practical, not pushy.</div>
+                <div class="checkout-note">No software required. No complicated setup. Replace the placeholder checkout link with your real checkout URL before launch.</div>
               </aside>
             </div>
             <div class="section__intro reveal" style="margin-top: 1rem;">
-              <span class="section-label">Short Answers</span>
+              <span class="section-label">Questions</span>
               <h2>Short answers to the practical questions</h2>
             </div>
             <div class="faq-list">
