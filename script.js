@@ -1,13 +1,14 @@
 // Launch flow:
 // 1. Front-end checkout success URL -> oto1.html
 // 2. OTO1 checkout success URL -> thank-you.html
-// 3. OTO decline path -> downsell.html
-// 4. Downsell checkout success URL -> thank-you.html
+// 3. Optional wider-system page -> oto2.html
+// 4. OTO2 checkout success URL -> thank-you.html
 const OFFER_LINKS = {
   frontEnd: "https://buy.stripe.com/9B63cufzl9gwdGU59MbZe0v",
   frontEndWithBump: "https://buy.stripe.com/fZueVc2Mz64kgT60TwbZe0w",
   oto1: "https://buy.stripe.com/5kQ4gy86T64k0U8eKmbZe0x",
   downsell: "https://buy.stripe.com/00w14m86TdwMauIeKmbZe0yv",
+  oto2: "",
   service:
     "mailto:adsbyalfred@protonmail.com?subject=LEAKS&body=LEAKS",
 };
