@@ -1218,10 +1218,26 @@
     const checkoutLinks = document.querySelectorAll('a[href="https://buy.stripe.com/9B63cufzl9gwdGU59MbZe0v"]');
 
     checkoutLinks.forEach((link) => {
-      link.addEventListener("click", () => {
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+
+        const destination = link.href;
+        let redirected = false;
+        const goToCheckout = () => {
+          if (redirected) return;
+          redirected = true;
+          window.location.href = destination;
+        };
+
         if (typeof fbq === "function") {
-          fbq("track", "InitiateCheckout", { value: 27, currency: "USD" });
+          fbq("track", "InitiateCheckout", {
+            value: 27,
+            currency: "USD",
+            eventID: `fe-ic-${Date.now()}`
+          });
         }
+
+        setTimeout(goToCheckout, 180);
       });
     });
 
