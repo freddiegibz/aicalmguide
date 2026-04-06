@@ -1215,6 +1215,16 @@
   </div>
 
   <script>
+    const checkoutLinks = document.querySelectorAll('a[href="https://buy.stripe.com/9B63cufzl9gwdGU59MbZe0v"]');
+
+    checkoutLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        if (typeof fbq === "function") {
+          fbq("track", "InitiateCheckout", { value: 27, currency: "USD" });
+        }
+      });
+    });
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
