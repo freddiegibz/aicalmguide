@@ -5,11 +5,11 @@
 // 4. Optional wider-system page -> oto2.html
 // 5. OTO2 checkout success URL -> thank-you.html
 const OFFER_LINKS = {
-  frontEnd: "https://buy.stripe.com/9B63cufzl9gwdGU59MbZe0v",
+  frontEnd: "https://buy.stripe.com/6oU4gy2MzfEU1YceKmbZe0B",
   frontEndWithBump: "https://buy.stripe.com/fZueVc2Mz64kgT60TwbZe0w",
-  oto1: "https://buy.stripe.com/5kQ4gy86T64k0U8eKmbZe0x",
-  downsell: "",
-  oto2: "",
+  oto1: "https://buy.stripe.com/bJeaEW72PgIYdGU59MbZe0C",
+  downsell: "https://buy.stripe.com/4gMdR85YLcsIauI0TwbZe0E",
+  oto2: "https://buy.stripe.com/00w28q3QD8cs1Yc1XAbZe0D",
   service:
     "mailto:adsbyalfred@protonmail.com?subject=LEAKS&body=LEAKS",
 };
