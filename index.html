@@ -17,14 +17,15 @@
     fbq('track', 'PageView');
   </script>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Bitter:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap');
 
     :root {
-      --paper: #fbf6ee;
-      --ink: #1f1b18;
-      --muted: #5f554b;
-      --accent: #be4b1d;
-      --accent-dark: #8d3210;
+      --paper: #f6efe2;
+      --surface: #fffaf3;
+      --ink: #181310;
+      --muted: #584b43;
+      --accent: #b13214;
+      --accent-dark: #7f220d;
       --olive: #6a7550;
       --shadow: 0 14px 32px rgba(45, 25, 11, 0.08);
       --radius: 14px;
@@ -41,8 +42,8 @@
 
     body {
       margin: 0;
-      font-family: "Space Grotesk", sans-serif;
-      background: linear-gradient(180deg, #f7efe4 0%, #f2e9dd 100%);
+      font-family: "Source Sans 3", sans-serif;
+      background: var(--paper);
       color: var(--ink);
     }
 
@@ -56,11 +57,10 @@
     }
 
     .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      background: rgba(247, 239, 228, 0.96);
-      border-bottom: 1px solid rgba(31, 27, 24, 0.12);
+      position: relative;
+      z-index: 2;
+      background: transparent;
+      border-bottom: 1px solid rgba(24, 19, 16, 0.14);
     }
 
     .site-header__inner,
@@ -82,8 +82,8 @@
       display: inline-flex;
       align-items: center;
       gap: 0.9rem;
-      font-size: 0.92rem;
-      letter-spacing: 0.12em;
+      font-size: 0.88rem;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--muted);
     }
@@ -91,18 +91,16 @@
     .brand__mark {
       width: 42px;
       height: 42px;
-      border-radius: 50%;
-      background:
-        radial-gradient(circle at 35% 30%, #ffd8c3, transparent 32%),
-        linear-gradient(145deg, #c75422, #8d3210);
+      border-radius: 8px;
+      background: var(--accent);
       position: relative;
     }
 
     .brand__mark::after {
       content: "";
       position: absolute;
-      inset: 11px;
-      border-radius: 50%;
+      inset: 10px;
+      border-radius: 2px;
       border: 2px solid rgba(255, 248, 240, 0.9);
     }
 
@@ -142,17 +140,19 @@
       background: var(--accent);
       color: #fff9f3;
       box-shadow: 0 10px 22px rgba(141, 50, 16, 0.18);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
     }
 
     .button--ghost {
-      background: rgba(255, 251, 246, 0.7);
+      background: var(--surface);
       color: var(--ink);
       border: 1px solid rgba(31, 27, 24, 0.16);
     }
 
     .hero {
       position: relative;
-      padding: 3.5rem 0 2rem;
+      padding: 2.8rem 0 1.8rem;
     }
 
     .hero::before {
@@ -160,7 +160,7 @@
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(90deg, rgba(251, 246, 238, 0.96) 0%, rgba(251, 246, 238, 0.94) 48%, rgba(251, 246, 238, 0.62) 72%, rgba(251, 246, 238, 0.52) 100%);
+        linear-gradient(90deg, rgba(246, 239, 226, 0.98) 0%, rgba(246, 239, 226, 0.95) 52%, rgba(246, 239, 226, 0.7) 76%, rgba(246, 239, 226, 0.62) 100%);
       pointer-events: none;
     }
 
@@ -180,10 +180,10 @@
       padding: 0.55rem 0.8rem;
       border: 1px solid rgba(31, 27, 24, 0.12);
       border-radius: 8px;
-      background: rgba(255, 250, 244, 0.42);
+      background: rgba(255, 250, 244, 0.72);
       color: var(--muted);
       font-size: 0.82rem;
-      letter-spacing: 0.11em;
+      letter-spacing: 0.09em;
       text-transform: uppercase;
       margin-bottom: 1.25rem;
     }
@@ -202,9 +202,10 @@
     .hero h1,
     h2,
     h3 {
+      font-family: "Bitter", serif;
       margin: 0;
-      letter-spacing: -0.04em;
-      line-height: 0.95;
+      letter-spacing: -0.03em;
+      line-height: 0.98;
     }
 
     .hero h1 {
@@ -252,8 +253,9 @@
       width: 100%;
       height: auto;
       display: block;
-      border-radius: 10px;
-      box-shadow: 0 10px 22px rgba(45, 25, 11, 0.09);
+      border-radius: 8px;
+      box-shadow: none;
+      border: 1px solid rgba(24, 19, 16, 0.12);
     }
 
     .stat-strip {
@@ -267,8 +269,8 @@
     .stat-card {
       padding: 1rem 1rem 0.95rem;
       border-radius: 12px;
-      border: 1px solid rgba(31, 27, 24, 0.11);
-      background: rgba(255, 251, 246, 0.82);
+      border: 1px solid rgba(24, 19, 16, 0.12);
+      background: var(--surface);
     }
 
     .stat-card__top,
@@ -285,7 +287,7 @@
       border-radius: 10px;
       display: inline-block;
       position: relative;
-      background: rgba(190, 75, 29, 0.08);
+      background: rgba(177, 50, 20, 0.08);
       color: var(--accent-dark);
       flex: 0 0 auto;
       overflow: hidden;
@@ -347,7 +349,7 @@
       width: min(100%, 620px);
       height: auto;
       object-fit: contain;
-      filter: drop-shadow(0 18px 38px rgba(45, 25, 11, 0.14));
+      filter: drop-shadow(0 14px 28px rgba(45, 25, 11, 0.12));
     }
 
     .hero-visual::before,
@@ -393,7 +395,7 @@
     }
 
     .section--divider {
-      border-top: 1px solid rgba(31, 27, 24, 0.08);
+      border-top: 2px solid rgba(24, 19, 16, 0.08);
     }
 
     .section__intro {
@@ -406,14 +408,14 @@
       margin-bottom: 0.85rem;
       color: var(--accent-dark);
       text-transform: uppercase;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.1em;
       font-size: 0.78rem;
       font-weight: 700;
     }
 
     h2 {
       font-size: clamp(2.1rem, 5vw, 4.1rem);
-      max-width: 12ch;
+      max-width: 14ch;
     }
 
     .problem-grid,
@@ -443,8 +445,8 @@
     .faq-item {
       padding: 1.5rem 1.4rem;
       border-radius: 12px;
-      border: 1px solid rgba(31, 27, 24, 0.11);
-      background: rgba(255, 251, 246, 0.84);
+      border: 1px solid rgba(24, 19, 16, 0.12);
+      background: var(--surface);
     }
 
     .timeline ol,
@@ -528,10 +530,10 @@
     .components-grid {
       display: grid;
       gap: 0;
-      max-width: 56rem;
-      border-top: 1px solid rgba(31, 27, 24, 0.12);
-      border-bottom: 1px solid rgba(31, 27, 24, 0.12);
-      background: rgba(255, 251, 246, 0.55);
+      max-width: 100%;
+      border-top: 1px solid rgba(24, 19, 16, 0.16);
+      border-bottom: 1px solid rgba(24, 19, 16, 0.16);
+      background: var(--surface);
     }
 
     .component span,
@@ -563,9 +565,9 @@
       display: grid;
       grid-template-columns: 58px minmax(0, 1fr);
       gap: 1rem;
-      padding: 1.15rem 0.25rem;
+      padding: 1.2rem 0.5rem;
       border: 0;
-      border-bottom: 1px solid rgba(31, 27, 24, 0.1);
+      border-bottom: 1px solid rgba(24, 19, 16, 0.12);
       border-radius: 0;
       background: transparent;
     }
@@ -585,7 +587,14 @@
     }
 
     .component strong {
+      grid-column: 2;
       margin-bottom: 0.18rem;
+      max-width: none;
+    }
+
+    .component p {
+      grid-column: 2;
+      max-width: 48rem;
     }
 
     .steps-grid {
@@ -596,8 +605,8 @@
     .contrast-layout,
     .promise-box,
     .final-offer {
-      border: 1px solid rgba(31, 27, 24, 0.11);
-      background: rgba(255, 250, 244, 0.92);
+      border: 1px solid rgba(24, 19, 16, 0.12);
+      background: var(--surface);
       box-shadow: none;
     }
 
@@ -673,8 +682,9 @@
       width: 100%;
       height: auto;
       display: block;
-      border-radius: 10px;
-      box-shadow: 0 10px 22px rgba(45, 25, 11, 0.08);
+      border-radius: 8px;
+      box-shadow: none;
+      border: 1px solid rgba(24, 19, 16, 0.12);
     }
 
     .promise-box {
@@ -716,7 +726,7 @@
     .checkout-box {
       padding: 1.6rem;
       border-radius: 14px;
-      background: #1f1b18;
+      background: #221915;
       color: #fbf6ee;
       box-shadow: var(--shadow);
     }
@@ -792,8 +802,8 @@
 
     .reveal {
       opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 650ms ease, transform 650ms ease;
+      transform: translateY(20px);
+      transition: opacity 420ms ease, transform 420ms ease;
     }
 
     .reveal.is-visible {
