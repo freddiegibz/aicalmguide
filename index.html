@@ -536,6 +536,85 @@
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
+    .sales-copy-block,
+    .proof-copy {
+      max-width: 52rem;
+      padding: 1.35rem 0 0;
+    }
+
+    .sales-copy-block h3,
+    .proof-copy h3 {
+      margin: 0 0 0.75rem;
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      max-width: 24ch;
+    }
+
+    .sales-copy-block p,
+    .proof-copy p {
+      margin: 0 0 1rem;
+      color: var(--muted);
+      line-height: 1.68;
+      max-width: 46rem;
+    }
+
+    .sales-bullets,
+    .proof-bullets {
+      list-style: none;
+      margin: 1.1rem 0 0;
+      padding: 0;
+      display: grid;
+      gap: 0.85rem;
+      max-width: 48rem;
+    }
+
+    .sales-bullets li,
+    .proof-bullets li {
+      display: grid;
+      grid-template-columns: 16px minmax(0, 1fr);
+      gap: 0.85rem;
+      align-items: start;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .sales-bullets li::before,
+    .proof-bullets li::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      margin-top: 0.42rem;
+    }
+
+    .proof-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      align-items: start;
+    }
+
+    .proof-quote {
+      padding: 1.5rem 1.4rem;
+      border-radius: 12px;
+      border: 1px solid rgba(24, 19, 16, 0.15);
+      background: var(--surface);
+    }
+
+    .proof-quote blockquote {
+      margin: 0;
+      color: var(--ink);
+      line-height: 1.65;
+    }
+
+    .proof-quote cite {
+      display: block;
+      margin-top: 0.9rem;
+      color: var(--muted);
+      font-style: normal;
+      font-size: 0.92rem;
+    }
+
     .components-grid {
       display: grid;
       gap: 0;
@@ -829,6 +908,7 @@
     @media (max-width: 980px) {
       .hero__content,
       .problem-grid,
+      .proof-layout,
       .contrast-layout,
       .close-grid,
       .promise-box {
@@ -904,7 +984,8 @@
       .benefits-grid,
       .proof-grid,
       .expect-grid,
-      .audience-grid {
+      .audience-grid,
+      .proof-layout {
         grid-template-columns: 1fr;
       }
 
@@ -1074,13 +1155,20 @@
             <article class="step reveal" data-step="02"><strong>Get the key details by text</strong><p>Use the text questions to find out what they need.</p></article>
             <article class="step reveal" data-step="03"><strong>Track it until it moves</strong><p>Use the tracker so it does not get forgotten.</p></article>
           </div>
-          <div class="benefits-grid">
-            <article class="benefit reveal"><span>Reply fast</span><div class="benefit__head"><span class="icon-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.63 2.62a2 2 0 0 1-.45 2.11L8 9.91a16 16 0 0 0 6.09 6.09l1.46-1.29a2 2 0 0 1 2.11-.45c.84.3 1.72.51 2.62.63A2 2 0 0 1 22 16.92z"></path></svg></span><strong>Reply while the lead still cares</strong></div><p>You have a useful response ready to send in the moment.</p></article>
-            <article class="benefit reveal"><span>Know what to send</span><div class="benefit__head"><span class="icon-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path><path d="M8 9h8"></path><path d="M8 13h5"></path></svg></span><strong>Know what to say next</strong></div><p>You are not writing replies from scratch or second-guessing the follow-up.</p></article>
-            <article class="benefit reveal"><span>Keep it moving</span><div class="benefit__head"><span class="icon-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"></path><path d="m9 12 2 2 4-4"></path></svg></span><strong>Give each missed call a next step</strong></div><p>The lead does not just sit there waiting for you to remember later.</p></article>
-            <article class="benefit reveal"><span>Win more jobs</span><div class="benefit__head"><span class="icon-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 4v16"></path><path d="M15.5 7.5c0-1.4-1.6-2.5-3.5-2.5s-3.5 1.1-3.5 2.5 1.2 2.1 3.5 2.6 3.5 1.2 3.5 2.8-1.6 2.6-3.5 2.6-3.5-1.1-3.5-2.6"></path></svg></span><strong>Stay in the running for the job</strong></div><p>Quick, clear follow-up gives you a better chance of still being the business they book.</p></article>
-            <article class="benefit reveal"><span>Keep it simple</span><div class="benefit__head"><span class="icon-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="4" rx="1"></rect><path d="M9 5H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-3"></path><path d="M8 11h8"></path><path d="M8 15h5"></path></svg></span><strong>Keep it simple and repeatable</strong></div><p>Copy, paste, track, and move on with the day.</p></article>
-            <article class="benefit reveal"><span>Stop forgetting leads</span><div class="benefit__head"><span class="icon-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="16" rx="2"></rect><path d="M9 9h6"></path><path d="M9 13h6"></path><path d="M9 17h4"></path></svg></span><strong>Stop relying on memory</strong></div><p>The tracker makes the process visible so jobs do not get forgotten when things get hectic.</p></article>
+          <div class="sales-copy-block reveal">
+            <h3>This is what makes the system useful in real life.</h3>
+            <p>
+              You are not buying a few messages and hoping they help. You are buying the next step after the missed call, already thought through.
+            </p>
+            <p>
+              That means less guessing, less relying on memory, and more chances of still being the business they book when you get back to them.
+            </p>
+            <ul class="sales-bullets">
+              <li><div><strong>Reply while the lead still cares</strong>Instead of waiting until the end of the day and hoping they are still there.</div></li>
+              <li><div><strong>Know what to say next</strong>You are not writing from scratch or wondering if another follow-up will come across wrong.</div></li>
+              <li><div><strong>Keep the missed call moving</strong>Each lead has a real next step instead of sitting in voicemail or in your head.</div></li>
+              <li><div><strong>Keep it simple enough to use</strong>Copy, paste, track it, and get back to work.</div></li>
+            </ul>
           </div>
         </div>
       </section>
@@ -1092,18 +1180,23 @@
             <h2>Built for real working days</h2>
             <p>This is for the days when you are on jobs, calls get missed, and you still need a simple next step before they call the next business.</p>
           </div>
-          <div class="proof-grid">
+          <div class="proof-layout">
             <article class="proof-item reveal"><span>See the customer message</span><img src="socialproof.jpg" alt="Customer social proof for the Missed Call Recovery System"></article>
-            <article class="proof-item reveal"><span>What people got back</span><blockquote>"We recovered jobs just by sending a follow-up message that would never have gone out before."</blockquote><cite>Local service operator</cite></article>
-            <article class="proof-item reveal"><span>Use it today</span><strong>No apps. No CRM. No complicated setup.</strong><p>Everything is designed to be copied, pasted, and used the same day you buy it.</p></article>
-            <article class="proof-item reveal"><span>Built for missed calls</span><strong>Made for missed calls and after-hours leads</strong><p>The scripts are built around the exact moment where local service businesses usually lose the job.</p></article>
-            <article class="proof-item reveal"><span>What this really does</span><strong>Not a miracle. A real next step after the missed call.</strong><p>It gives you a working process so fewer missed calls turn into lost jobs.</p></article>
+            <article class="proof-quote reveal"><span>What people got back</span><blockquote>"We recovered jobs just by sending a follow-up message that would never have gone out before."</blockquote><cite>Local service operator</cite></article>
           </div>
-          <div class="expect-grid">
-            <article class="expect-item reveal"><span>Before</span><strong>Missed calls sit there until you remember</strong><p>Voicemail gets ignored and callbacks happen whenever you finally get a minute.</p></article>
-            <article class="expect-item reveal"><span>After</span><strong>Every missed call has a clear next step</strong><p>You know what to send, what to ask, and how to move it toward a callback, quote, or booking.</p></article>
-            <article class="expect-item reveal"><span>Before</span><strong>Jobs slip away quietly</strong><p>You do not always know which missed call went cold because nothing tracked what happened next.</p></article>
-            <article class="expect-item reveal"><span>After</span><strong>You have a calmer missed-call process</strong><p>Less mental clutter. Faster replies. Better odds of still being the business they book.</p></article>
+          <div class="proof-copy reveal">
+            <h3>This is not meant to be clever. It is meant to be used.</h3>
+            <p>
+              No apps. No CRM. No complicated setup. Just the exact messages, follow-up steps, and tracker for the moment where missed calls usually turn into lost work.
+            </p>
+            <p>
+              The difference after buying is simple: instead of missed calls sitting there until you remember, each one has a clear next step and a better chance of still becoming a job.
+            </p>
+            <ul class="proof-bullets">
+              <li><div><strong>Use it the same day</strong>If you can send a message and open a spreadsheet, you can use this.</div></li>
+              <li><div><strong>Built for missed calls and after-hours leads</strong>The system is designed around the exact point where local service businesses usually lose the job.</div></li>
+              <li><div><strong>More control, less mental clutter</strong>You know what has been sent, what happens next, and what still needs following up.</div></li>
+            </ul>
           </div>
         </div>
       </section>
