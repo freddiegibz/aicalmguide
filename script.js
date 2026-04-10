@@ -5,7 +5,7 @@
 // 4. Optional wider-system page -> oto2.html
 // 5. OTO2 checkout success URL -> thank-you.html
 const OFFER_LINKS = {
-  frontEnd: "https://buy.stripe.com/9B63cufzl9gwdGU59MbZe0v",
+  frontEnd: "https://buy.stripe.com/dRmeVc0Er78o9qEeKmbZe0H",
   frontEndWithBump: "",
   oto1: "https://buy.stripe.com/eVqdR8drdeAQbyM8lYbZe0F",
   downsell: "",
@@ -15,7 +15,7 @@ const OFFER_LINKS = {
 };
 const ORDER_BUMP_ENABLED = false;
 
-const DEFAULT_CURRENCY = "USD";
+const DEFAULT_CURRENCY = "GBP";
 const faqTriggers = document.querySelectorAll(".faq-item__trigger");
 const offerLinks = document.querySelectorAll("[data-offer-key]");
 const heroSection = document.querySelector("[data-hero]");
