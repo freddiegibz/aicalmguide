@@ -1311,58 +1311,6 @@
       font-weight: 800;
     }
 
-    .visual-plan {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-
-    .asset-placeholder {
-      padding: 1.1rem;
-      border: 1px dashed rgba(27, 31, 35, 0.28);
-      border-radius: 10px;
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(241, 236, 230, 0.9));
-    }
-
-    .asset-placeholder__tag {
-      display: inline-block;
-      margin-bottom: 0.7rem;
-      padding: 0.28rem 0.5rem;
-      border-radius: 999px;
-      background: var(--surface);
-      color: var(--accent-dark);
-      border: 1px solid rgba(178, 41, 31, 0.14);
-      font-size: 0.72rem;
-      font-weight: 800;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-
-    .asset-placeholder h3 {
-      margin: 0 0 0.55rem;
-      font-size: 1.32rem;
-      line-height: 1.06;
-    }
-
-    .asset-placeholder p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.58;
-    }
-
-    .asset-placeholder code {
-      display: inline-block;
-      margin-top: 0.8rem;
-      padding: 0.25rem 0.45rem;
-      border-radius: 6px;
-      background: rgba(27, 31, 35, 0.06);
-      color: var(--ink);
-      font-family: "Inter", sans-serif;
-      font-size: 0.82rem;
-      font-weight: 700;
-    }
-
     .before-after {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1513,7 +1461,6 @@
       .close-grid,
       .proof-layout,
       .before-after,
-      .visual-plan,
       .components-grid,
       .steps-grid,
       .consequence-list {
@@ -1702,31 +1649,6 @@
             <article class="component reveal"><span>05</span><strong>After-Hours Missed Call Guide</strong><p>What to do with after-hours calls and late enquiries when people still want someone to get back to them right away.</p></article>
             <article class="component reveal"><span>06</span><strong>Start Here Guide</strong><p>A quick guide that shows you what to use first, what to send next, and how to put the whole thing into use fast.</p></article>
           </div>
-          <div class="section__intro reveal" style="margin-top: 1.5rem;">
-            <span class="section-label">Visual Placeholders</span>
-            <h2>These are the product visuals we want next</h2>
-            <p>We are keeping the page practical and ready-to-use, so each image needs to feel like real working materials, not polished brand artwork.</p>
-          </div>
-          <div class="visual-plan reveal">
-            <article class="asset-placeholder">
-              <span class="asset-placeholder__tag">Hero image</span>
-              <h3>Working stack composition</h3>
-              <p>Main product image showing the guide, tracker, scripts, and phone together as a practical toolkit.</p>
-              <code>hero-working-stack.png</code>
-            </article>
-            <article class="asset-placeholder">
-              <span class="asset-placeholder__tag">Phone visual</span>
-              <h3>Missed call + text reply screen</h3>
-              <p>A clean phone screen that shows the actual moment of the problem and the fast follow-up response.</p>
-              <code>missed-call-phone.png</code>
-            </article>
-            <article class="asset-placeholder">
-              <span class="asset-placeholder__tag">Proof / detail</span>
-              <h3>Tracker and documents preview</h3>
-              <p>A tighter detail shot of the tracker, message templates, and follow-up pages to make the product feel complete.</p>
-              <code>tracker-doc-preview.png</code>
-            </article>
-          </div>
         </div>
       </section>
 
@@ -1757,6 +1679,12 @@
                 <li>Follow up on quiet quotes without spending hours on admin work or wondering what to send.</li>
                 <li>Make sure none slip through the cracks with a simple system you can use today.</li>
               </ul>
+            </article>
+          </div>
+          <div class="proof-layout" style="margin-top: 1rem;">
+            <article class="proof-item reveal">
+              <span>What the fast follow-up looks like</span>
+              <img src="missed call.png" alt="Missed call follow-up text example for the Missed Call Recovery System">
             </article>
           </div>
           <div class="proof-copy reveal">
