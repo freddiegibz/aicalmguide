@@ -984,6 +984,593 @@
       .reveal { opacity: 1; transform: none; }
     }
   </style>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+    :root {
+      --paper: #f7f4ef;
+      --surface: #ffffff;
+      --surface-alt: #f1ece6;
+      --ink: #1b1f23;
+      --muted: #5c6570;
+      --accent: #b2291f;
+      --accent-dark: #8d1f17;
+      --olive: #2f6d4f;
+      --gold: #b2291f;
+      --shadow: 0 10px 30px rgba(27, 31, 35, 0.06);
+      --line: #ddd4ca;
+      --line-strong: #a79a8d;
+      --panel: #211d1a;
+      --danger-soft: #f7e8e3;
+      --success-soft: #edf5f0;
+      --max: 1180px;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      background: rgba(247, 244, 239, 0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(27, 31, 35, 0.08);
+    }
+
+    .site-header__inner,
+    .section__inner {
+      width: min(var(--max), calc(100% - 2rem));
+    }
+
+    .brand {
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+    }
+
+    .brand__mark {
+      border-radius: 10px;
+      background: var(--accent);
+      box-shadow: none;
+    }
+
+    .brand__mark::after {
+      inset: 10px;
+      border-radius: 2px;
+      border: 2px solid rgba(255, 255, 255, 0.92);
+      transform: none;
+    }
+
+    .nav-cta {
+      gap: 0.9rem;
+      font-weight: 700;
+    }
+
+    .nav-cta__price {
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .nav-cta__price s {
+      color: var(--line-strong);
+      margin-left: 0.35rem;
+    }
+
+    .button {
+      border-radius: 10px;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+      box-shadow: none;
+    }
+
+    .button--primary {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 10px 20px rgba(178, 41, 31, 0.18);
+    }
+
+    .button--ghost {
+      background: var(--surface);
+      border-color: rgba(27, 31, 35, 0.14);
+    }
+
+    .hero {
+      padding: 2rem 0 3rem;
+      background: var(--paper);
+    }
+
+    .hero::before,
+    .hero::after {
+      background: none;
+      content: none;
+    }
+
+    .hero__content {
+      min-height: auto;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 0.88fr);
+      gap: clamp(2rem, 4vw, 3.5rem);
+      align-items: center;
+    }
+
+    .eyebrow {
+      padding: 0.55rem 0.8rem;
+      border-radius: 6px;
+      background: var(--danger-soft);
+      border-color: rgba(178, 41, 31, 0.12);
+      color: var(--accent-dark);
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+    }
+
+    .eyebrow::before {
+      width: 0.45rem;
+      height: 0.45rem;
+      min-width: 0.45rem;
+      min-height: 0.45rem;
+    }
+
+    h1, h2, h3 {
+      font-family: "Archivo", sans-serif;
+      letter-spacing: -0.035em;
+      line-height: 0.97;
+    }
+
+    .hero h1 {
+      max-width: 11ch;
+      font-size: clamp(2.9rem, 5.4vw, 4.8rem);
+    }
+
+    .hero__subhead {
+      max-width: 36rem;
+      margin: 1rem 0 0.75rem;
+      font-size: clamp(1.12rem, 1.9vw, 1.32rem);
+      line-height: 1.5;
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .hero__body,
+    .section__intro p,
+    .problem-copy p,
+    .final-offer p,
+    .faq-item p,
+    .sales-copy-block p,
+    .proof-copy p {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.68;
+    }
+
+    .hero__body {
+      max-width: 35rem;
+      margin: 0;
+    }
+
+    .hero__actions {
+      margin: 1.5rem 0 0.9rem;
+    }
+
+    .hero__meta {
+      gap: 0.65rem;
+    }
+
+    .hero__meta span {
+      padding: 0.45rem 0.75rem;
+      border-radius: 999px;
+      background: var(--surface);
+      border: 1px solid rgba(27, 31, 35, 0.1);
+      color: var(--ink);
+      font-size: 0.86rem;
+      font-weight: 700;
+    }
+
+    .hero-proof img {
+      border-radius: 10px;
+      border-color: rgba(27, 31, 35, 0.12);
+      box-shadow: none;
+    }
+
+    .stat-strip {
+      max-width: 40rem;
+      gap: 0.75rem;
+    }
+
+    .stat-card {
+      border-radius: 10px;
+      border-color: rgba(27, 31, 35, 0.1);
+      background: var(--surface);
+      box-shadow: none;
+    }
+
+    .stat-card:nth-child(2) {
+      background: var(--surface);
+      border-color: rgba(27, 31, 35, 0.1);
+    }
+
+    .icon-mark {
+      border-radius: 10px;
+      background: var(--danger-soft);
+      color: var(--accent-dark);
+    }
+
+    .stat-card:nth-child(2) .icon-mark {
+      background: var(--danger-soft);
+      color: var(--accent-dark);
+    }
+
+    .stat-card strong {
+      font-family: "Archivo", sans-serif;
+      color: var(--ink);
+    }
+
+    .stat-card strong s {
+      margin-left: 0.25rem;
+      color: var(--line-strong);
+      font-weight: 700;
+    }
+
+    .hero-visual {
+      min-height: auto;
+      padding: 1rem 0;
+    }
+
+    .hero-visual::before,
+    .hero-visual::after {
+      display: none;
+      content: none;
+    }
+
+    .hero-visual img {
+      position: relative;
+      width: min(100%, 580px);
+      filter: none;
+    }
+
+    .section {
+      padding: clamp(3.25rem, 6vw, 5rem) 0;
+    }
+
+    main > .section:nth-of-type(even) {
+      background: transparent;
+    }
+
+    .section--divider {
+      border-top: 1px solid rgba(27, 31, 35, 0.08);
+    }
+
+    .section-label {
+      color: var(--accent);
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .section__intro h2,
+    .problem-copy h2,
+    .sales-copy-block h3,
+    .proof-copy h3,
+    .final-offer h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      max-width: 13ch;
+    }
+
+    .timeline,
+    .proof-quote,
+    .checkout-box,
+    .faq-item,
+    .consequence-list li,
+    .component,
+    .step {
+      border-radius: 10px;
+      box-shadow: none;
+    }
+
+    .timeline,
+    .proof-quote {
+      background: var(--surface);
+      border-color: rgba(27, 31, 35, 0.1);
+    }
+
+    .timeline li::before,
+    .consequence-list li::before,
+    .offer-list li::before {
+      background: var(--accent);
+    }
+
+    .consequence-list li,
+    .component,
+    .step,
+    .faq-item {
+      background: var(--surface);
+      border: 1px solid rgba(27, 31, 35, 0.1);
+    }
+
+    .component span,
+    .step::before {
+      background: var(--danger-soft);
+      color: var(--accent-dark);
+      font-weight: 800;
+    }
+
+    .proof-item img {
+      border-radius: 10px;
+      border-color: rgba(27, 31, 35, 0.12);
+      box-shadow: none;
+    }
+
+    .proof-item span,
+    .proof-quote span {
+      color: var(--accent);
+      font-weight: 800;
+    }
+
+    .visual-plan {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .asset-placeholder {
+      padding: 1.1rem;
+      border: 1px dashed rgba(27, 31, 35, 0.28);
+      border-radius: 10px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(241, 236, 230, 0.9));
+    }
+
+    .asset-placeholder__tag {
+      display: inline-block;
+      margin-bottom: 0.7rem;
+      padding: 0.28rem 0.5rem;
+      border-radius: 999px;
+      background: var(--surface);
+      color: var(--accent-dark);
+      border: 1px solid rgba(178, 41, 31, 0.14);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .asset-placeholder h3 {
+      margin: 0 0 0.55rem;
+      font-size: 1.32rem;
+      line-height: 1.06;
+    }
+
+    .asset-placeholder p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.58;
+    }
+
+    .asset-placeholder code {
+      display: inline-block;
+      margin-top: 0.8rem;
+      padding: 0.25rem 0.45rem;
+      border-radius: 6px;
+      background: rgba(27, 31, 35, 0.06);
+      color: var(--ink);
+      font-family: "Inter", sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .before-after {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .before-after__card {
+      padding: 1.25rem;
+      border: 1px solid rgba(27, 31, 35, 0.1);
+      border-radius: 10px;
+      background: var(--surface);
+    }
+
+    .before-after__card--before {
+      border-top: 4px solid var(--accent);
+      background: #fcf7f5;
+    }
+
+    .before-after__card--after {
+      border-top: 4px solid var(--olive);
+      background: #f6faf7;
+    }
+
+    .before-after__label {
+      display: inline-block;
+      margin-bottom: 0.8rem;
+      color: var(--ink);
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .before-after__card h3 {
+      margin: 0 0 0.8rem;
+      font-size: clamp(1.4rem, 2vw, 1.75rem);
+      line-height: 1.05;
+      max-width: 14ch;
+    }
+
+    .before-after__card ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    .before-after__card li {
+      position: relative;
+      padding-left: 1rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .before-after__card li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.65rem;
+      width: 0.42rem;
+      height: 0.42rem;
+      border-radius: 50%;
+      background: currentColor;
+    }
+
+    .before-after__card--before li::before {
+      background: var(--accent);
+    }
+
+    .before-after__card--after li::before {
+      background: var(--olive);
+    }
+
+    .proof-quote {
+      background: var(--surface);
+      color: var(--ink);
+    }
+
+    .proof-quote blockquote {
+      font-family: "Inter", sans-serif;
+      color: var(--ink);
+      font-size: 1.28rem;
+      line-height: 1.55;
+      letter-spacing: -0.01em;
+      font-weight: 600;
+    }
+
+    .proof-quote cite {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .final-offer {
+      background: var(--surface);
+      border-color: rgba(27, 31, 35, 0.1);
+      box-shadow: none;
+    }
+
+    .checkout-box {
+      top: 90px;
+      background: #261f1b;
+      color: #f8f4ef;
+      border-color: rgba(255, 255, 255, 0.04);
+      box-shadow: none;
+    }
+
+    .checkout-box__label {
+      color: rgba(248, 244, 239, 0.72);
+      font-weight: 800;
+      background: transparent;
+      padding: 0;
+      border-radius: 0;
+    }
+
+    .checkout-box__price {
+      font-family: "Archivo", sans-serif;
+      letter-spacing: -0.05em;
+    }
+
+    .checkout-box__price s {
+      color: rgba(248, 244, 239, 0.46);
+      font-size: 1.35rem;
+      font-weight: 700;
+    }
+
+    .checkout-box p,
+    .checkout-note {
+      color: rgba(248, 244, 239, 0.8);
+    }
+
+    .faq-item summary {
+      font-weight: 800;
+    }
+
+    .site-footer__inner {
+      border-top: 1px solid rgba(27, 31, 35, 0.1);
+    }
+
+    .reveal {
+      transition: opacity 420ms ease, transform 420ms ease;
+    }
+
+    @media (max-width: 980px) {
+      .hero__content,
+      .problem-grid,
+      .close-grid,
+      .proof-layout,
+      .before-after,
+      .visual-plan,
+      .components-grid,
+      .steps-grid,
+      .consequence-list {
+        grid-template-columns: 1fr;
+      }
+
+      .hero__content {
+        min-height: auto;
+      }
+
+      .hero-visual {
+        min-height: auto;
+        order: -1;
+      }
+
+      .checkout-box {
+        position: static;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .site-header__inner {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        padding: 0.8rem 0;
+      }
+
+      .nav-cta {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .button,
+      .button--ghost,
+      .button--primary {
+        width: 100%;
+      }
+
+      .hero__actions,
+      .hero__meta,
+      .site-footer__inner {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .stat-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        max-width: 9.8ch;
+        font-size: clamp(2.7rem, 13vw, 3.8rem);
+      }
+    }
+  </style>
 </head>
 <body>
   <noscript>
@@ -1071,28 +1658,28 @@
           <div class="problem-grid">
             <div class="problem-copy reveal">
               <span class="section-label">Where Jobs Get Lost</span>
-              <h2>You miss the call. They move on. The job goes elsewhere.</h2>
+              <h2>Missed calls usually turn into lost jobs.</h2>
               <p>
-                You are on a job, driving, or quoting. The phone rings. You cannot answer properly, so it gets missed.
+                When you are on a job, driving, or in the middle of a quote, the phone rings and you cannot answer it properly. The call goes missed, or it goes to voicemail.
               </p>
               <p>
-                Later is usually too late. Nobody leaves voicemails anymore. By the time you call back, they have already called the next business.
+                Then you call back later, but later is usually too late. Nobody leaves voicemails anymore. By the time you ring them back, they have already moved on and called the next business.
               </p>
             </div>
             <div class="timeline reveal">
               <ol>
-                <li><div><strong>A lead calls while you are busy</strong>They want help now.</div></li>
-                <li><div><strong>The call gets missed</strong>They get silence or voicemail.</div></li>
-                <li><div><strong>Nothing useful happens next</strong>There is no ready reply.</div></li>
-                <li><div><strong>The lead goes elsewhere</strong>Someone else gets back first.</div></li>
+                <li><div><strong>A lead calls while you are busy</strong>They are looking for a solution right away.</div></li>
+                <li><div><strong>The call gets missed</strong>It goes to voicemail, and most people do not leave one.</div></li>
+                <li><div><strong>You mean to deal with it later</strong>But later often turns into no follow-up or a slow callback.</div></li>
+                <li><div><strong>The job goes elsewhere</strong>The first person to call back usually wins.</div></li>
               </ol>
             </div>
           </div>
           <ul class="consequence-list reveal">
-            <li><div><strong>The first person to respond usually gets the job</strong>If you are not the first useful reply, you are already behind.</div></li>
-            <li><div><strong>Prospects rarely leave voicemails now</strong>A missed call often means the lead disappears unless you follow up fast.</div></li>
-            <li><div><strong>A missed call with no reply is usually gone</strong>If nothing useful happens quickly, most callers move straight on to the next business.</div></li>
-            <li><div><strong>Memory is not a system</strong>When you are juggling jobs, callbacks, and after-hours leads, things get missed.</div></li>
+            <li><div><strong>The first person to call usually wins the job</strong>If you are not the first useful reply, you are already behind.</div></li>
+            <li><div><strong>Nobody leaves voicemails anymore</strong>A missed call often means the lead disappears unless you reply quickly.</div></li>
+            <li><div><strong>Quotes go cold for the same reason</strong>If you send a quote and wait, faster competitors pick up first.</div></li>
+            <li><div><strong>Memory is not enough when you are busy</strong>When follow-ups live in your head, some leads slip through the cracks.</div></li>
             <li><div><strong>One recovered job pays for this many times over</strong>At &pound;19, this costs less than a single missed lead.</div></li>
           </ul>
         </div>
@@ -1102,18 +1689,90 @@
         <div class="section__inner">
           <div class="section__intro reveal">
             <span class="section-label">What's Inside</span>
-            <h2>Everything you need after a missed call</h2>
+            <h2>Everything you need when a call gets missed or a quote goes quiet</h2>
             <p>
-              One simple missed-call process: what to send first, what to ask next, and how to keep the job alive.
+              A simple follow-up system for what to send first, what to ask next, and how to make sure none of those leads slip through the cracks.
             </p>
           </div>
           <div class="components-grid">
-            <article class="component reveal"><span>01</span><strong>First Reply Messages</strong><p>The exact first messages to send when the call gets missed.</p></article>
-            <article class="component reveal"><span>02</span><strong>What To Ask Next</strong><p>The follow-up questions that help you get the basics and keep the conversation moving.</p></article>
-            <article class="component reveal"><span>03</span><strong>Callback, Quote, and Booking Messages</strong><p>The next-step messages that move the missed call toward a callback, quote, or booking.</p></article>
-            <article class="component reveal"><span>04</span><strong>Missed Call Tracker</strong><p>A simple tracker so each missed call has a clear next step instead of getting forgotten.</p></article>
-            <article class="component reveal"><span>05</span><strong>After-Hours Missed Call Guide</strong><p>The reply path for evening calls, late enquiries, and awkward missed-call gaps.</p></article>
-            <article class="component reveal"><span>06</span><strong>Start Here Guide</strong><p>The quick-start guide that shows you the order to use everything.</p></article>
+            <article class="component reveal"><span>01</span><strong>First Reply Messages</strong><p>The exact message to send when you miss the call so you are not relying on voicemail or calling back blind later.</p></article>
+            <article class="component reveal"><span>02</span><strong>What To Ask Next</strong><p>Simple follow-up questions that help you get the basics and keep the conversation moving without sounding pushy.</p></article>
+            <article class="component reveal"><span>03</span><strong>Callback, Quote, and Booking Messages</strong><p>The next-step messages that help move missed callers and quiet quotes toward a callback, quote, or booking.</p></article>
+            <article class="component reveal"><span>04</span><strong>Missed Call Tracker</strong><p>A simple way to keep up with follow-ups so none of your missed calls or quotes slip through the cracks.</p></article>
+            <article class="component reveal"><span>05</span><strong>After-Hours Missed Call Guide</strong><p>What to do with after-hours calls and late enquiries when people still want someone to get back to them right away.</p></article>
+            <article class="component reveal"><span>06</span><strong>Start Here Guide</strong><p>A quick guide that shows you what to use first, what to send next, and how to put the whole thing into use fast.</p></article>
+          </div>
+          <div class="section__intro reveal" style="margin-top: 1.5rem;">
+            <span class="section-label">Visual Placeholders</span>
+            <h2>These are the product visuals we want next</h2>
+            <p>We are keeping the page practical and ready-to-use, so each image needs to feel like real working materials, not polished brand artwork.</p>
+          </div>
+          <div class="visual-plan reveal">
+            <article class="asset-placeholder">
+              <span class="asset-placeholder__tag">Hero image</span>
+              <h3>Working stack composition</h3>
+              <p>Main product image showing the guide, tracker, scripts, and phone together as a practical toolkit.</p>
+              <code>hero-working-stack.png</code>
+            </article>
+            <article class="asset-placeholder">
+              <span class="asset-placeholder__tag">Phone visual</span>
+              <h3>Missed call + text reply screen</h3>
+              <p>A clean phone screen that shows the actual moment of the problem and the fast follow-up response.</p>
+              <code>missed-call-phone.png</code>
+            </article>
+            <article class="asset-placeholder">
+              <span class="asset-placeholder__tag">Proof / detail</span>
+              <h3>Tracker and documents preview</h3>
+              <p>A tighter detail shot of the tracker, message templates, and follow-up pages to make the product feel complete.</p>
+              <code>tracker-doc-preview.png</code>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section__inner">
+          <div class="section__intro reveal">
+            <span class="section-label">Before / After</span>
+            <h2>Before this, missed calls and quiet quotes keep costing you work.</h2>
+            <p>This is the difference between hoping you remember later and having a simple system that gives you a clear next step right away.</p>
+          </div>
+          <div class="before-after reveal">
+            <article class="before-after__card before-after__card--before">
+              <span class="before-after__label">Before</span>
+              <h3>Calls go to voicemail. Quotes go quiet. Jobs go elsewhere.</h3>
+              <ul>
+                <li>When you are on a job, the call gets missed and half the time they have already moved on.</li>
+                <li>Nobody leaves voicemails anymore, so a missed call often just means a lost job.</li>
+                <li>You send the quote, wait for a reply, and then people go quiet or book with whoever followed up first.</li>
+                <li>Follow-ups sit in your head, which means some calls and quotes slip through the cracks.</li>
+              </ul>
+            </article>
+            <article class="before-after__card before-after__card--after">
+              <span class="before-after__label">After</span>
+              <h3>You have a simple way to reply quickly and keep more jobs alive.</h3>
+              <ul>
+                <li>Reply quickly with the exact first message instead of relying on voicemail, memory, or getting around to it later.</li>
+                <li>Use a clear follow-up process to move missed callers toward a callback, quote, or booking.</li>
+                <li>Follow up on quiet quotes without spending hours on admin work or wondering what to send.</li>
+                <li>Make sure none slip through the cracks with a simple system you can use today.</li>
+              </ul>
+            </article>
+          </div>
+          <div class="proof-copy reveal">
+            <h3>That is why this feels different from voicemail, waiting, or another tool you never set up.</h3>
+            <p>
+              It is not an AI receptionist, not a CRM, and not a clunky automation project. It is the exact messages, follow-up steps, and tracker for a problem you already know is costing you jobs.
+            </p>
+            <p>
+              The win is simple and believable: recovered jobs just by sending a follow-up message that would not have gone out before.
+            </p>
+            <p>
+              "We recovered jobs just by sending a follow-up message that would never have gone out before."
+            </p>
+            <p>
+              If you can send a message and open a spreadsheet, you can use it today without adding more overhead to your day.
+            </p>
           </div>
         </div>
       </section>
@@ -1140,32 +1799,6 @@
             </p>
             <p>
               The whole point is simple: give each missed call a useful next step while the lead still cares, and keep more of those jobs alive long enough to call back, quote, or book.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="section__inner">
-          <div class="section__intro reveal">
-            <span class="section-label">Proof</span>
-            <h2>Built for real working days</h2>
-            <p>This is for the days when you are on jobs, calls get missed, and you still need a simple next step before they call the next business.</p>
-          </div>
-          <div class="proof-layout">
-            <article class="proof-item reveal"><span>See the customer message</span><img src="socialproof.jpg" alt="Customer social proof for the Missed Call Recovery System"></article>
-            <article class="proof-quote reveal"><span>What people got back</span><blockquote>"We recovered jobs just by sending a follow-up message that would never have gone out before."</blockquote><cite>Local service operator</cite></article>
-          </div>
-          <div class="proof-copy reveal">
-            <h3>This is not meant to be clever. It is meant to be used.</h3>
-            <p>
-              No apps. No CRM. No complicated setup. Just the exact messages, follow-up steps, and tracker for the moment where missed calls usually turn into lost work.
-            </p>
-            <p>
-              The difference after buying is simple: instead of missed calls sitting there until you remember, each one has a clear next step and a better chance of still becoming a job.
-            </p>
-            <p>
-              If you can send a message and open a spreadsheet, you can use it today. That is why it fits busy local service businesses better than another bit of software you still need to set up.
             </p>
           </div>
         </div>
