@@ -1091,8 +1091,8 @@
 
     .hero__content {
       min-height: auto;
-      grid-template-columns: minmax(0, 1fr) minmax(320px, 0.88fr);
-      gap: clamp(2rem, 4vw, 3.5rem);
+      grid-template-columns: 1fr;
+      gap: 0;
       align-items: center;
     }
 
@@ -1216,7 +1216,8 @@
 
     .hero-visual {
       min-height: auto;
-      padding: 1rem 0;
+      max-width: 40rem;
+      padding: 1.1rem 0 0.8rem;
     }
 
     .hero-visual::before,
@@ -1592,6 +1593,9 @@
             <div class="hero-proof reveal">
               <img src="emailtestimonial.png" alt="Customer testimonial about the Missed Call Recovery System">
             </div>
+            <div class="hero-visual reveal" aria-hidden="true">
+              <img src="productimg.png" alt="Missed Call Recovery System product mockup">
+            </div>
             <div class="stat-strip reveal">
               <div class="stat-card">
                 <div class="stat-card__top">
@@ -1621,10 +1625,6 @@
                 <p>No monthly fee. Nothing complicated. Use it the same day.</p>
               </div>
             </div>
-          </div>
-
-          <div class="hero-visual reveal" aria-hidden="true">
-            <img src="productimg.png" alt="Missed Call Recovery System product mockup">
           </div>
         </div>
       </section>
