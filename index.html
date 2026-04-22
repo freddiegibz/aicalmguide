@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Missed Call Recovery System</title>
+  <link rel="preconnect" href="https://connect.facebook.net" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Bitter:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap">
   <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -17,8 +21,6 @@
     fbq('track', 'PageView');
   </script>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Bitter:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap');
-
     :root {
       --paper: #f1e4cf;
       --surface: #fffaf4;
@@ -366,7 +368,6 @@
       background: radial-gradient(circle, rgba(190, 75, 29, 0.18), transparent 62%);
       top: 10%;
       right: 4%;
-      animation: drift 9s ease-in-out infinite alternate;
     }
 
     .hero-visual::after {
@@ -375,7 +376,6 @@
       background: radial-gradient(circle, rgba(106, 117, 80, 0.16), transparent 68%);
       bottom: 2%;
       left: 3%;
-      animation: drift 8s ease-in-out infinite alternate-reverse;
     }
 
     .tracker-cell strong,
@@ -1009,22 +1009,6 @@
       padding-top: 1.5rem;
     }
 
-    .reveal {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 420ms ease, transform 420ms ease;
-    }
-
-    .reveal.is-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    @keyframes drift {
-      from { transform: translate3d(0, 0, 0) scale(1); }
-      to { transform: translate3d(16px, -12px, 0) scale(1.04); }
-    }
-
     @media (max-width: 980px) {
       .hero__content,
       .problem-grid,
@@ -1130,7 +1114,13 @@
     }
   </style>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     :root {
       --paper: #f7f3e8;
@@ -1152,9 +1142,19 @@
     }
 
     body {
+      margin: 0;
       font-family: "Inter", sans-serif;
       background: var(--paper);
       color: var(--ink);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page-shell {
+      overflow: hidden;
     }
 
     .site-header {
@@ -1247,8 +1247,18 @@
     }
 
     .site-header__inner,
-    .section__inner {
+    .section__inner,
+    .hero__content {
       width: min(var(--max), calc(100% - 2rem));
+      margin: 0 auto;
+    }
+
+    .site-header__inner {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
     }
 
     .brand {
@@ -1302,6 +1312,11 @@
     .button--ghost {
       background: var(--surface);
       border-color: rgba(27, 31, 35, 0.14);
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      transform: translateY(-2px);
     }
 
     .hero {
@@ -1513,8 +1528,20 @@
       padding: clamp(3.25rem, 6vw, 5rem) 0;
     }
 
-    main > .section:nth-of-type(even) {
-      background: transparent;
+    main > .section:nth-of-type(1) {
+      background: linear-gradient(180deg, rgba(244, 235, 214, 0.82) 0%, rgba(240, 227, 199, 0.68) 100%);
+    }
+
+    main > .section:nth-of-type(2) {
+      background: linear-gradient(180deg, rgba(255, 246, 221, 0.88) 0%, rgba(248, 235, 188, 0.58) 100%);
+    }
+
+    main > .section:nth-of-type(3) {
+      background: linear-gradient(180deg, rgba(255, 252, 244, 0.95) 0%, rgba(248, 242, 225, 0.86) 100%);
+    }
+
+    main > .section:nth-of-type(4) {
+      background: linear-gradient(180deg, rgba(238, 228, 205, 0.92) 0%, rgba(230, 216, 187, 0.82) 100%);
     }
 
     .section--divider {
@@ -1683,6 +1710,315 @@
       font-size: 0.92rem;
     }
 
+    .losses-section {
+      display: grid;
+      gap: 2rem;
+    }
+
+    .losses-copy {
+      max-width: 44rem;
+    }
+
+    .losses-copy h2 {
+      max-width: 16ch;
+    }
+
+    .losses-copy p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 1.02rem;
+    }
+
+    .losses-copy p + p {
+      margin-top: 1rem;
+    }
+
+    .losses-card {
+      display: grid;
+      gap: 0;
+      border: 1px solid rgba(27, 31, 35, 0.1);
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.84);
+      box-shadow: 0 20px 48px rgba(23, 23, 23, 0.06);
+      overflow: hidden;
+    }
+
+    .losses-item {
+      display: grid;
+      grid-template-columns: 4.2rem minmax(0, 1fr);
+      gap: 1rem;
+      padding: 1.3rem 1.3rem 1.3rem 1.1rem;
+      align-items: start;
+      position: relative;
+    }
+
+    .losses-item + .losses-item {
+      border-top: 1px solid rgba(27, 31, 35, 0.1);
+    }
+
+    .losses-item:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      left: 2.15rem;
+      top: 4rem;
+      bottom: -1.3rem;
+      width: 2px;
+      background: rgba(242, 194, 48, 0.92);
+    }
+
+    .losses-marker {
+      width: 2.85rem;
+      height: 2.85rem;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Archivo", sans-serif;
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--ink);
+      background: var(--accent);
+      box-shadow: 0 0 0 0.3rem rgba(242, 194, 48, 0.18);
+      position: relative;
+      z-index: 1;
+    }
+
+    .losses-item strong {
+      display: block;
+      margin-bottom: 0.3rem;
+      font-size: 1.05rem;
+      line-height: 1.35;
+      color: var(--ink);
+    }
+
+    .losses-item p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .losses-footer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.9rem;
+      margin-top: 0.25rem;
+      text-align: center;
+    }
+
+    .losses-footer::before,
+    .losses-footer::after {
+      content: "";
+      height: 1px;
+      flex: 1 1 auto;
+      background: rgba(27, 31, 35, 0.12);
+    }
+
+    .losses-footer__badge {
+      width: 2.25rem;
+      height: 2.25rem;
+      min-width: 2.25rem;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--accent);
+      color: var(--ink);
+      font-size: 1rem;
+      font-weight: 800;
+    }
+
+    .losses-footer strong {
+      font-size: clamp(1.15rem, 2.2vw, 1.55rem);
+      line-height: 1.2;
+      color: var(--ink);
+    }
+
+    .what-you-get {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .what-you-get__intro {
+      max-width: 47rem;
+    }
+
+    .what-you-get__intro h2 {
+      max-width: 14ch;
+    }
+
+    .what-you-get__intro p {
+      max-width: 40rem;
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.68;
+      font-size: 1.02rem;
+    }
+
+    .what-you-get__stack {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .what-you-get__card {
+      display: grid;
+      gap: 1rem;
+      padding: 1.35rem 1.3rem;
+      border: 1px solid rgba(27, 31, 35, 0.1);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.86);
+      box-shadow: 0 18px 42px rgba(23, 23, 23, 0.05);
+    }
+
+    .what-you-get__head {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 0.95rem;
+      align-items: center;
+    }
+
+    .what-you-get__icon {
+      width: 3.15rem;
+      height: 3.15rem;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(242, 194, 48, 0.24);
+      color: var(--ink);
+      flex: 0 0 auto;
+    }
+
+    .what-you-get__icon svg {
+      width: 1.55rem;
+      height: 1.55rem;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .what-you-get__head h3 {
+      font-size: clamp(1.55rem, 3vw, 2.1rem);
+      line-height: 1.02;
+      color: var(--ink);
+    }
+
+    .what-you-get__list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 0.95rem;
+    }
+
+    .what-you-get__list li {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 0.85rem;
+      align-items: start;
+      color: var(--muted);
+      line-height: 1.58;
+      font-size: 1rem;
+    }
+
+    .what-you-get__check {
+      width: 1.45rem;
+      height: 1.45rem;
+      min-width: 1.45rem;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--accent);
+      color: var(--surface);
+      margin-top: 0.2rem;
+    }
+
+    .what-you-get__check svg {
+      width: 0.82rem;
+      height: 0.82rem;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2.6;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .what-you-get__list strong {
+      color: var(--ink);
+    }
+
+    .what-you-get__footer {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0;
+      border: 1px solid rgba(27, 31, 35, 0.08);
+      border-radius: 20px;
+      background: rgba(255, 248, 228, 0.72);
+      overflow: hidden;
+    }
+
+    .what-you-get__footer-item {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 0.75rem;
+      align-items: center;
+      padding: 1rem 1.15rem;
+    }
+
+    .what-you-get__footer-item + .what-you-get__footer-item {
+      border-left: 1px solid rgba(27, 31, 35, 0.1);
+    }
+
+    .what-you-get__footer-item span {
+      color: var(--ink);
+      font-weight: 700;
+      line-height: 1.25;
+    }
+
+    .what-you-get__tail {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 0.9rem;
+      align-items: start;
+      padding: 1.2rem 1.25rem;
+      border: 1px solid rgba(27, 31, 35, 0.08);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.72);
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .what-you-get__tail-icon {
+      width: 2.4rem;
+      height: 2.4rem;
+      min-width: 2.4rem;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(242, 194, 48, 0.24);
+      color: var(--ink);
+      margin-top: 0.1rem;
+    }
+
+    .what-you-get__tail-icon svg {
+      width: 1.2rem;
+      height: 1.2rem;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .what-you-get__tail strong {
+      color: var(--ink);
+    }
+
     .final-offer {
       background: var(--surface);
       border-color: rgba(27, 31, 35, 0.1);
@@ -1729,10 +2065,6 @@
       border-top: 1px solid rgba(27, 31, 35, 0.1);
     }
 
-    .reveal {
-      transition: opacity 420ms ease, transform 420ms ease;
-    }
-
     @media (max-width: 980px) {
       .hero__content,
       .problem-grid,
@@ -1741,7 +2073,6 @@
       .close-grid,
       .proof-layout,
       .before-after,
-      .product-grid,
       .components-grid,
       .steps-grid,
       .consequence-list {
@@ -1774,6 +2105,23 @@
         grid-template-areas:
           "box"
           "copy";
+      }
+
+      .losses-item {
+        grid-template-columns: 3.5rem minmax(0, 1fr);
+      }
+
+      .losses-item:not(:last-child)::after {
+        left: 1.8rem;
+      }
+
+      .what-you-get__footer {
+        grid-template-columns: 1fr;
+      }
+
+      .what-you-get__footer-item + .what-you-get__footer-item {
+        border-left: 0;
+        border-top: 1px solid rgba(27, 31, 35, 0.1);
       }
     }
 
@@ -1902,16 +2250,16 @@
               If nothing happens after a missed call, you&apos;re handing the job to the next business.
             </p>
             <p class="hero__body">
-              Get the exact texts to send, when to follow up, and a simple tracker that 120+ local service businesses are using to turn missed calls into paid work.
+              Get the exact texts to send, when to follow up, and a simple tracker you can tailor to your business, so more missed calls turn into paid work.
             </p>
             <div class="hero__actions">
               <a class="button button--primary" href="https://buy.stripe.com/dRmeVc0Er78o9qEeKmbZe0H">GET INSTANT ACCESS &middot; &pound;19</a>
             </div>
             <div class="hero-proof reveal">
-              <img class="testimonial-shot" src="emailtestimonial.png" alt="Customer testimonial about the Missed Call Recovery System">
+              <img class="testimonial-shot" src="emailtestimonial.png" alt="Customer testimonial about the Missed Call Recovery System" width="842" height="195" decoding="async" fetchpriority="high">
             </div>
             <div class="hero-visual reveal" aria-hidden="true">
-              <img src="productimg.png" alt="Missed Call Recovery System product mockup">
+              <img src="productimg.png" alt="Missed Call Recovery System product mockup" width="1254" height="1254" decoding="async" fetchpriority="high">
             </div>
           </div>
         </div>
@@ -1919,38 +2267,59 @@
 
       <section class="section section--divider">
         <div class="section__inner">
-          <div class="leak-layout">
-            <div class="leak-copy reveal">
-              <span class="section-label">WHERE JOBS GET LOST</span>
-              <h2>Missed calls do not turn into booked jobs on their own.</h2>
+          <div class="losses-section">
+            <div class="losses-copy reveal">
+              <span class="section-label">WHAT LOSES THE JOB</span>
+              <h2>Missing the call is normal. Having no next step is what loses the job.</h2>
               <p>
-                When the call gets missed, most businesses do not have a clear next step. Nothing gets sent. They mean to come back to it later. The caller moves on. That is how good jobs quietly disappear.
+                You are on a job, driving, or with a customer. You miss the call. That part is normal.
+              </p>
+              <p>
+                What loses the job is what happens after: no voicemail, no reply, no follow-up, and no clear message to send next.
+              </p>
+              <p>
+                So the lead keeps looking, finds the next business, and the work goes elsewhere.
               </p>
             </div>
-            <ol class="leak-steps">
-              <li class="leak-step reveal">
-                <span class="leak-step__eyebrow">01 &middot; You miss the call</span>
-                <strong>You are on a job, driving, or with a customer.</strong>
-                <p>That part is normal. The problem starts after the call, not during it.</p>
-              </li>
-              <li class="leak-step reveal">
-                <span class="leak-step__eyebrow">02 &middot; Nothing useful happens next</span>
-                <strong>No text goes out. No follow-up gets planned.</strong>
-                <p>Most owners mean to come back later, but later is where leads start slipping away.</p>
-              </li>
-              <li class="leak-step reveal">
-                <span class="leak-step__eyebrow">03 &middot; The caller moves on</span>
-                <strong>Most people do not leave a voicemail.</strong>
-                <p>They call the next business, especially if they want help the same day or after hours.</p>
-              </li>
-              <li class="leak-step reveal">
-                <span class="leak-step__eyebrow">04 &middot; The job is gone</span>
-                <strong>By the time you ring back, someone else is already ahead.</strong>
-                <p>Not because you needed more software. Because there was no clear next step after the missed call.</p>
-              </li>
-            </ol>
+
+            <div class="losses-card reveal">
+              <div class="losses-item">
+                <span class="losses-marker">01</span>
+                <div>
+                  <strong>You miss the call &mdash;</strong>
+                  <p>You are busy and cannot answer properly.</p>
+                </div>
+              </div>
+              <div class="losses-item">
+                <span class="losses-marker">02</span>
+                <div>
+                  <strong>Nothing happens next &mdash;</strong>
+                  <p>No message goes out. No one follows up.</p>
+                </div>
+              </div>
+              <div class="losses-item">
+                <span class="losses-marker">03</span>
+                <div>
+                  <strong>They keep looking &mdash;</strong>
+                  <p>They search again or call the next business.</p>
+                </div>
+              </div>
+              <div class="losses-item">
+                <span class="losses-marker">04</span>
+                <div>
+                  <strong>The job goes elsewhere &mdash;</strong>
+                  <p>Not because you needed more software &mdash; because you had no simple next step.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="losses-footer reveal">
+              <span class="losses-footer__badge">&rarr;</span>
+              <strong>This system gives you that next step.</strong>
+            </div>
+
             <div class="testimonial-dominant reveal">
-              <img class="testimonial-shot testimonial-shot--secondary" src="landingpagetestimonial.png" alt="Customer testimonial screenshot for the Missed Call Recovery System">
+              <img class="testimonial-shot testimonial-shot--secondary" src="landingpagetestimonial.png" alt="Customer testimonial screenshot for the Missed Call Recovery System" width="413" height="162" loading="lazy" decoding="async">
             </div>
           </div>
         </div>
@@ -1986,30 +2355,130 @@
 
       <section class="section">
         <div class="section__inner">
-          <div class="section__intro reveal">
-            <span class="section-label">WHAT YOU GET</span>
-            <h2>Everything you need for the call after the missed call.</h2>
-            <p>The pack gives you the exact follow-up pieces that stop missed calls from turning into dead ends.</p>
-          </div>
-          <div class="product-grid">
-            <article class="product-card reveal">
-              <span class="product-card__kicker">01 &middot; What to text</span>
-              <strong>Exact first replies for missed-call moments.</strong>
-              <p>Copy, tailor, and send messages for missed calls, no-voicemail callers, and after-hours enquiries that would normally disappear.</p>
-            </article>
-            <article class="product-card reveal">
-              <span class="product-card__kicker">02 &middot; When to follow up</span>
-              <strong>A clear plan for what to send next.</strong>
-              <p>Know when to send the first reply, when to nudge again, and how to keep the conversation moving toward a callback, quote, or booking.</p>
-            </article>
-            <article class="product-card reveal">
-              <span class="product-card__kicker">03 &middot; Simple call tracker</span>
-              <strong>One place to see who still needs action.</strong>
-              <p>Track missed calls, follow-ups due, and live jobs in progress without needing a CRM or trying to remember everything in your head.</p>
-            </article>
-          </div>
-          <div class="testimonial-dominant reveal">
-            <img class="testimonial-shot product-preview-shot" src="screenshot.jpg" alt="Example missed-call text conversation showing the follow-up working">
+          <div class="what-you-get">
+            <div class="what-you-get__intro reveal">
+              <span class="section-label">WHAT YOU GET FOR ANY BUSINESS THAT WINS WORK BY PHONE</span>
+              <h2>A complete missed-call follow-up process &mdash; not just a few texts</h2>
+              <p>When a call gets missed, you should not have to work out the next step yourself. This gives you the exact messages, follow-up steps, and simple tracker to help turn more missed calls into booked jobs.</p>
+            </div>
+
+            <div class="what-you-get__stack">
+              <article class="what-you-get__card reveal">
+                <div class="what-you-get__head">
+                  <span class="what-you-get__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <path d="M7 15h-.5A3.5 3.5 0 0 1 3 11.5v-1A3.5 3.5 0 0 1 6.5 7h11A3.5 3.5 0 0 1 21 10.5v1A3.5 3.5 0 0 1 17.5 15H11l-4 3z"/>
+                      <path d="M8.5 11.2h.01M12 11.2h.01M15.5 11.2h.01"/>
+                    </svg>
+                  </span>
+                  <h3>Reply and capture</h3>
+                </div>
+                <ul class="what-you-get__list">
+                  <li>
+                    <span class="what-you-get__check" aria-hidden="true">
+                      <svg viewBox="0 0 16 16"><path d="m3.5 8.5 2.6 2.6 6.4-6.6"/></svg>
+                    </span>
+                    <span><strong>First reply messages</strong> &mdash; What to send first so the lead does not go cold.</span>
+                  </li>
+                  <li>
+                    <span class="what-you-get__check" aria-hidden="true">
+                      <svg viewBox="0 0 16 16"><path d="m3.5 8.5 2.6 2.6 6.4-6.6"/></svg>
+                    </span>
+                    <span><strong>What to ask next</strong> &mdash; Simple prompts to get the details you need.</span>
+                  </li>
+                </ul>
+              </article>
+
+              <article class="what-you-get__card reveal">
+                <div class="what-you-get__head">
+                  <span class="what-you-get__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <circle cx="12" cy="12" r="8.5"/>
+                      <path d="M12 7.5v5l3 1.8"/>
+                    </svg>
+                  </span>
+                  <h3>Follow up properly</h3>
+                </div>
+                <ul class="what-you-get__list">
+                  <li>
+                    <span class="what-you-get__check" aria-hidden="true">
+                      <svg viewBox="0 0 16 16"><path d="m3.5 8.5 2.6 2.6 6.4-6.6"/></svg>
+                    </span>
+                    <span><strong>No-reply follow-ups</strong> &mdash; What to send if they do not answer the first text.</span>
+                  </li>
+                  <li>
+                    <span class="what-you-get__check" aria-hidden="true">
+                      <svg viewBox="0 0 16 16"><path d="m3.5 8.5 2.6 2.6 6.4-6.6"/></svg>
+                    </span>
+                    <span><strong>Timing guide</strong> &mdash; A simple plan for when to send the next message.</span>
+                  </li>
+                </ul>
+              </article>
+
+              <article class="what-you-get__card reveal">
+                <div class="what-you-get__head">
+                  <span class="what-you-get__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <path d="M9 4.5h6"/>
+                      <path d="M9 3h6v3H9z"/>
+                      <path d="M7 6.5h10a1 1 0 0 1 1 1v11a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-11a1 1 0 0 1 1-1Z"/>
+                      <path d="M9 11h6M9 14h6M9 17h4"/>
+                    </svg>
+                  </span>
+                  <h3>Keep track and cover edge cases</h3>
+                </div>
+                <ul class="what-you-get__list">
+                  <li>
+                    <span class="what-you-get__check" aria-hidden="true">
+                      <svg viewBox="0 0 16 16"><path d="m3.5 8.5 2.6 2.6 6.4-6.6"/></svg>
+                    </span>
+                    <span><strong>After-hours and voicemail</strong> &mdash; What to use when the call comes at the wrong time.</span>
+                  </li>
+                  <li>
+                    <span class="what-you-get__check" aria-hidden="true">
+                      <svg viewBox="0 0 16 16"><path d="m3.5 8.5 2.6 2.6 6.4-6.6"/></svg>
+                    </span>
+                    <span><strong>Simple tracker</strong> &mdash; See who still needs action so no lead slips through the cracks.</span>
+                  </li>
+                </ul>
+              </article>
+            </div>
+
+            <div class="what-you-get__footer reveal" aria-label="Offer summary">
+              <div class="what-you-get__footer-item">
+                <span class="what-you-get__check" aria-hidden="true">
+                  <svg viewBox="0 0 16 16"><path d="m3.5 8.5 2.6 2.6 6.4-6.6"/></svg>
+                </span>
+                <span>Ready to use the same day</span>
+              </div>
+              <div class="what-you-get__footer-item">
+                <span class="what-you-get__check" aria-hidden="true">
+                  <svg viewBox="0 0 16 16"><path d="m3.5 8.5 2.6 2.6 6.4-6.6"/></svg>
+                </span>
+                <span>No software</span>
+              </div>
+              <div class="what-you-get__footer-item">
+                <span class="what-you-get__check" aria-hidden="true">
+                  <svg viewBox="0 0 16 16"><path d="m3.5 8.5 2.6 2.6 6.4-6.6"/></svg>
+                </span>
+                <span>One-time purchase</span>
+              </div>
+            </div>
+
+            <div class="what-you-get__tail reveal">
+              <span class="what-you-get__tail-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M8.5 8.5 5 12l3.5 3.5"/>
+                  <path d="M15.5 8.5 19 12l-3.5 3.5"/>
+                  <path d="M13.5 6 10.5 18"/>
+                </svg>
+              </span>
+              <p><strong>Built to fit your business.</strong> The core process stays the same, but the messages are adaptable and easy to tailor to your service, your area, and the way you normally speak to customers. We also include simple AI prompts for extra personalisation, so it works for any business that wins work by phone.</p>
+            </div>
+
+            <div class="testimonial-dominant reveal">
+              <img class="testimonial-shot product-preview-shot" src="screenshot.jpg" alt="Example missed-call text conversation showing the follow-up working" width="640" height="1280" loading="lazy" decoding="async">
+            </div>
           </div>
         </div>
       </section>
@@ -2045,7 +2514,7 @@
               <details class="faq-item reveal"><summary>What exactly is this?</summary><p>A ready-to-use missed-call follow-up pack with message scripts, a follow-up plan, and a simple tracker. It is not software and it is not a service.</p></details>
               <details class="faq-item reveal"><summary>How quickly can I use it?</summary><p>The same day. You can copy, tailor, and send the first text in minutes.</p></details>
               <details class="faq-item reveal"><summary>Do I need any software or technical setup?</summary><p>No. If you can send a message and open a spreadsheet, you can use this. No monthly fees.</p></details>
-              <details class="faq-item reveal"><summary>Will this work for my type of business?</summary><p>Yes. The messages are easy to tweak for your service and the way you speak to customers.</p></details>
+              <details class="faq-item reveal"><summary>Will this work for my type of business?</summary><p>Yes. The core process stays the same, and the wording is easy to tailor to your service, your area, and the way you normally speak to customers.</p></details>
               <details class="faq-item reveal"><summary>Will the follow-ups annoy customers?</summary><p>No. They are short, helpful, and tied to the call they just made. Not salesy, not spammy.</p></details>
             </div>
           </div>
@@ -2132,16 +2601,6 @@
       });
     });
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.16, rootMargin: "0px 0px -6% 0px" });
-
-    document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
   </script>
 </body>
 </html>
