@@ -1165,87 +1165,6 @@
       border-bottom: 1px solid rgba(27, 31, 35, 0.08);
     }
 
-    .sale-bar {
-      position: sticky;
-      top: 72px;
-      z-index: 3;
-      background: #141414;
-      color: #fff7ea;
-      border-bottom: 2px solid rgba(255, 184, 0, 0.55);
-    }
-
-    .sale-bar__inner {
-      width: min(var(--max), calc(100% - 2rem));
-      margin: 0 auto;
-      padding: 0.65rem 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.85rem;
-      flex-wrap: wrap;
-      text-align: center;
-      font-weight: 800;
-      letter-spacing: 0.02em;
-    }
-
-    .sale-bar__inner s {
-      color: rgba(255, 247, 234, 0.7);
-      font-weight: 700;
-    }
-
-    .sale-bar__badge {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.28rem 0.55rem;
-      border-radius: 999px;
-      background: rgba(255, 184, 0, 0.16);
-      color: #ffd46b;
-      border: 1px solid rgba(255, 184, 0, 0.32);
-      font-size: 0.78rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .sale-bar__timer {
-      font-variant-numeric: tabular-nums;
-      color: #ffd46b;
-      white-space: nowrap;
-    }
-
-    .sale-bar__text {
-      display: inline;
-    }
-
-    .sale-bar__desktop {
-      display: inline;
-    }
-
-    .sale-bar__mobile {
-      display: none;
-    }
-
-    @media (max-width: 720px) {
-      .sale-bar {
-        top: 60px;
-      }
-
-      .sale-bar__inner {
-        padding: 0.55rem 0;
-        gap: 0.6rem;
-        font-size: 0.86rem;
-        line-height: 1.25;
-      }
-
-      .sale-bar__desktop {
-        display: none;
-      }
-
-      .sale-bar__mobile {
-        display: inline;
-      }
-    }
-
     .site-header__inner,
     .section__inner,
     .hero__content {
@@ -1403,8 +1322,32 @@
       margin: 0;
     }
 
+    .hero__fit {
+      margin-top: 0.75rem;
+      color: var(--ink);
+      font-weight: 700;
+    }
+
     .hero__actions {
       margin: 1.5rem 0 0.9rem;
+    }
+
+    .hero__discount {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 0 0.8rem;
+      border-radius: 8px;
+      border: 1px solid rgba(27, 31, 35, 0.12);
+      background: rgba(255, 248, 228, 0.78);
+      color: var(--ink);
+      font-size: 0.92rem;
+      font-weight: 800;
+    }
+
+    .hero__discount s {
+      margin-left: 0.35rem;
+      color: var(--line-strong);
     }
 
     .hero__meta {
@@ -2187,33 +2130,24 @@
       </div>
     </header>
 
-    <div class="sale-bar" data-sale-bar data-sale-days="7" role="status" aria-live="polite">
-      <div class="sale-bar__inner">
-        <span class="sale-bar__badge">Temporary Sale</span>
-        <span class="sale-bar__text">
-          <span class="sale-bar__desktop">Intro price for new customers &middot;</span>
-          <span class="sale-bar__mobile">Limited-time:</span>
-          <strong>&pound;19</strong> <s>&pound;38</s>
-          <span aria-hidden="true">&middot;</span>
-          <span>Ends in</span> <span class="sale-bar__timer" data-sale-timer>7d 00h 00m 00s</span>
-        </span>
-      </div>
-    </div>
-
     <main id="top">
       <section class="hero">
         <div class="hero__content">
           <div class="hero-copy reveal">
-            <div class="eyebrow">FOR TRADES AND LOCAL SERVICE BUSINESSES</div>
+            <div class="eyebrow">FOR TRADES &amp; LOCAL SERVICE BUSINESSES</div>
             <h1>Turn Missed Calls Into Booked Jobs</h1>
             <p class="hero__subhead">
-              If nothing happens after a missed call, you&apos;re handing the job to the next business.
+              If nothing happens after a missed call, the job usually goes to the next business.
             </p>
             <p class="hero__body">
-              Get the exact texts to send, when to follow up, and a simple tracker you can tailor to your business, so more missed calls turn into paid work.
+              Get the exact reply texts, follow-up timing, no-reply messages, and a simple tracker to stop missed calls turning into lost jobs.
+            </p>
+            <p class="hero__body hero__fit">
+              Built for trades and any business that wins jobs by phone.
             </p>
             <div class="hero__actions">
               <a class="button button--primary" href="https://buy.stripe.com/dRmeVc0Er78o9qEeKmbZe0H">GET INSTANT ACCESS &middot; &pound;19</a>
+              <span class="hero__discount">Intro offer: &pound;19 <s>&pound;38</s></span>
             </div>
             <div class="hero-proof reveal">
               <img class="testimonial-shot" src="emailtestimonial.png" alt="Customer testimonial about the Missed Call Recovery System" width="842" height="195" decoding="async" fetchpriority="high">
@@ -2504,50 +2438,6 @@
   </div>
 
   <script>
-    (() => {
-      const bar = document.querySelector("[data-sale-bar]");
-      if (!bar) return;
-
-      const timerEl = bar.querySelector("[data-sale-timer]");
-      const days = Number(bar.getAttribute("data-sale-days") || "7");
-      const storageKey = "mcrs_sale_end_ts_v1";
-
-      const now = Date.now();
-      let endTs = Number(localStorage.getItem(storageKey) || "0");
-
-      // Evergreen 7-day countdown per device (set once, then ticks down). Swap to a fixed date by
-      // replacing this block with a hard-coded timestamp.
-      if (!Number.isFinite(endTs) || endTs <= now) {
-        endTs = now + days * 24 * 60 * 60 * 1000;
-        localStorage.setItem(storageKey, String(endTs));
-      }
-
-      const format = (msLeft) => {
-        const totalSeconds = Math.max(0, Math.floor(msLeft / 1000));
-        const d = Math.floor(totalSeconds / 86400);
-        const h = Math.floor((totalSeconds % 86400) / 3600);
-        const m = Math.floor((totalSeconds % 3600) / 60);
-        const s = totalSeconds % 60;
-        return `${d}d ${String(h).padStart(2, "0")}h ${String(m).padStart(2, "0")}m ${String(s).padStart(2, "0")}s`;
-      };
-
-      const tick = () => {
-        const msLeft = endTs - Date.now();
-        if (msLeft <= 0) {
-          bar.style.display = "none";
-          return false;
-        }
-        if (timerEl) timerEl.textContent = format(msLeft);
-        return true;
-      };
-
-      tick();
-      const id = setInterval(() => {
-        const keepGoing = tick();
-        if (!keepGoing) clearInterval(id);
-      }, 1000);
-    })();
-
     const checkoutLinks = document.querySelectorAll('a[href="https://buy.stripe.com/dRmeVc0Er78o9qEeKmbZe0H"]');
 
     checkoutLinks.forEach((link) => {
