@@ -4,7 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Stop Losing Jobs Without Knowing Why</title>
-  <link rel="preload" as="image" href="heroimg.webp" fetchpriority="high">
+  <link rel="preload" as="image" href="heroimg.webp" media="(max-width: 960px)" fetchpriority="high">
+  <link rel="preload" as="image" href="desktopheroimg.jpg" media="(min-width: 961px)" fetchpriority="high">
   <script>
     !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
@@ -2083,6 +2084,7 @@
         <div class="visual" aria-label="Product preview showing lost jobs and the fix">
           <div class="product-glow" aria-hidden="true"></div>
             <picture>
+              <source media="(max-width: 960px)" srcset="heroimg.webp">
               <source media="(min-width: 961px)" srcset="desktopheroimg.jpg">
               <img class="product-shot" src="heroimg.webp" alt="Diagram showing lost jobs through missed calls, quiet quotes, and weak follow-up, then the steps to spot the problem, see the cost, and fix the right thing." width="1280" height="960" loading="eager" fetchpriority="high" decoding="async">
             </picture>
