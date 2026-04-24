@@ -57,6 +57,70 @@
       overflow: hidden;
     }
 
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      padding: 14px clamp(20px, 5vw, 64px);
+      border-bottom: 1px solid rgba(216, 208, 189, 0.82);
+      background: rgba(248, 246, 238, 0.92);
+      backdrop-filter: blur(10px);
+    }
+
+    .site-nav__inner {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .site-nav__brand {
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 15px;
+      line-height: 1.1;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .site-nav__cta {
+      min-height: 42px;
+      padding: 0 16px;
+      border: 1px solid #d8cfbc;
+      border-radius: 999px;
+      background: #fffaf1;
+      color: #171411;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      white-space: nowrap;
+    }
+
+    .site-nav__cta:hover {
+      background: #f7eecf;
+    }
+
+    .launch-bar {
+      padding: 8px 20px;
+      border-bottom: 1px solid rgba(216, 208, 189, 0.78);
+      background: #f4eddc;
+      color: #2a2418;
+      text-align: center;
+      font-size: 13px;
+      line-height: 1.3;
+      letter-spacing: 0.04em;
+    }
+
+    .launch-bar strong {
+      font-weight: 700;
+    }
+
     .hero {
       min-height: 100svh;
       padding: clamp(28px, 5vw, 56px) clamp(20px, 5vw, 64px) 32px;
@@ -1933,8 +1997,15 @@
     }
   </style>
 </head>
-<body>
-  <main class="page">
+  <body>
+    <main class="page">
+    <nav class="site-nav" aria-label="Primary">
+      <div class="site-nav__inner">
+        <div class="site-nav__brand">The Local Jobs Recovery System</div>
+        <a class="site-nav__cta" href="#final-title">Get Instant Access</a>
+      </div>
+    </nav>
+    <div class="launch-bar">Launch offer <strong><del>&pound;19</del> &pound;9</strong> with code <strong>Launch10</strong></div>
     <section class="hero" aria-labelledby="page-title">
       <div class="hero-grid">
         <div class="copy">
@@ -1943,22 +2014,22 @@
           <p class="lede">Missed calls, quiet quotes, no-shows, weak follow-up, and other hidden gaps can quietly cost you jobs and revenue. This system helps you find the biggest leaks, see what they are costing you, then shows you how to fix them.</p>
 
           <div class="cta-row">
-            <button class="cta" type="button" aria-label="Get instant access for nineteen pounds">
+            <a class="cta" href="https://buy.stripe.com/8x228q86T64k46k6dQbZe0I" aria-label="Get instant access for nineteen pounds">
               <span class="lock" aria-hidden="true">
                 <svg width="17" height="17" viewBox="0 0 24 24" fill="none">
                   <path d="M7 10V8a5 5 0 0 1 10 0v2" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
                   <path d="M6 10h12v10H6V10Z" fill="currentColor"/>
                 </svg>
               </span>
-              Get Instant Access For £19
-            </button>
+              Get Instant Access For &pound;19
+            </a>
             <p class="microcopy">No CRM. No tech setup. No extra admin. No monthly subscription.</p>
           </div>
 
           <div class="price-proof" aria-label="One time price">
             <img class="seal" src="sitic8.jpg" alt="">
             <div>
-              <strong>£19 one time</strong>
+              <strong>&pound;19 one time</strong>
               <span>Yours forever.</span>
             </div>
           </div>
@@ -2397,10 +2468,10 @@
         <h2 id="final-title">Find what&rsquo;s costing you jobs - and fix the right things first</h2>
         <p class="final-lede">If work and money are slipping away somewhere in the business, this gives you a simple way to find the leaks, see what they may be costing you, and take clear action to fix them.</p>
 
-        <button class="final-button" type="button" aria-label="Get instant access for nineteen pounds">
+        <a class="final-button" href="https://buy.stripe.com/8x228q86T64k46k6dQbZe0I" aria-label="Get instant access for nineteen pounds">
           <span>Get Instant Access For &pound;19</span>
           <span class="final-arrow" aria-hidden="true">&rarr;</span>
-        </button>
+        </a>
 
         <p class="final-price">&pound;19 one time. Yours to keep.</p>
 
