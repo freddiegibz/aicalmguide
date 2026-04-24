@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Stop Losing Jobs Without Knowing Why</title>
+  <link rel="preload" as="image" href="heroimg.jpg" fetchpriority="high">
   <script>
     !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
@@ -2073,7 +2074,7 @@
 
         <div class="visual" aria-label="Product preview showing lost jobs and the fix">
           <div class="product-glow" aria-hidden="true"></div>
-          <img class="product-shot" src="heroimg.jpg" alt="Diagram showing lost jobs through missed calls, quiet quotes, and weak follow-up, then the steps to spot the problem, see the cost, and fix the right thing.">
+          <img class="product-shot" src="heroimg.jpg" alt="Diagram showing lost jobs through missed calls, quiet quotes, and weak follow-up, then the steps to spot the problem, see the cost, and fix the right thing." width="1280" height="960" loading="eager" fetchpriority="high" decoding="async">
         </div>
       </div>
 
@@ -2572,13 +2573,14 @@
     document.querySelectorAll('a.buy-link[href^="https://buy.stripe.com/"]').forEach((link) => {
       link.addEventListener('click', (event) => {
         if (typeof fbq === 'function') {
-          fbq('track', 'InitiateCheckout', { value: 9.00, currency: 'GBP' });
+          const eventId = `initiate_checkout_${Date.now()}_${Math.random().toString(36).slice(2, 10)}`;
+          fbq('track', 'InitiateCheckout', { value: 9.00, currency: 'GBP' }, { eventID: eventId });
         }
         event.preventDefault();
         const href = link.href;
         window.setTimeout(() => {
           window.location.href = href;
-        }, 180);
+        }, 650);
       });
     });
   </script>
