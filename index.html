@@ -208,6 +208,29 @@
       line-height: 1.28;
     }
 
+    .hero-testimonial {
+      margin-top: 18px;
+      max-width: 380px;
+    }
+
+    .hero-testimonial-kicker {
+      margin: 0 0 10px;
+      color: #9d7606;
+      font-size: 12px;
+      line-height: 1;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .testimonial-shot--hero {
+      width: min(100%, 380px);
+      height: auto;
+      border-radius: 8px;
+      border: 1px solid rgba(222, 215, 198, 0.94);
+      box-shadow: 0 10px 22px rgba(51, 45, 34, 0.07);
+    }
+
     .visual {
       position: relative;
     }
@@ -309,8 +332,8 @@
     .slipping {
       padding: clamp(62px, 8vw, 102px) clamp(20px, 5vw, 64px) clamp(70px, 9vw, 110px);
       background:
-        radial-gradient(circle at 78% 18%, rgba(242, 189, 22, 0.08), transparent 28rem),
-        linear-gradient(180deg, var(--paper) 0%, #fbfaf4 100%);
+        radial-gradient(circle at 78% 18%, rgba(242, 189, 22, 0.10), transparent 28rem),
+        linear-gradient(180deg, #f7f2e7 0%, #f1eadb 100%);
       border-top: 1px solid rgba(216, 208, 189, 0.9);
       border-bottom: 1px solid rgba(216, 208, 189, 0.9);
     }
@@ -370,22 +393,22 @@
     }
 
     .leak-card {
-      min-height: 255px;
-      padding: 22px 22px 20px;
+      min-height: 0;
+      padding: 13px 15px 13px;
       border: 1px solid rgba(222, 215, 198, 0.94);
       border-radius: 8px;
       background: rgba(255, 253, 247, 0.78);
       box-shadow: 0 12px 28px rgba(51, 45, 34, 0.07);
       display: grid;
-      grid-template-columns: 96px 1fr;
+      grid-template-columns: 80px 1fr;
       align-items: start;
-      gap: 18px;
+      gap: 10px;
       text-align: left;
     }
 
     .leak-visual {
-      width: 96px;
-      height: 96px;
+      width: 80px;
+      height: 80px;
       object-fit: contain;
       align-self: start;
       justify-self: start;
@@ -394,18 +417,18 @@
     }
 
     .leak-card h3 {
-      margin: 4px 0 0;
+      margin: 0;
       color: #171719;
-      font-size: 21px;
+      font-size: 18px;
       line-height: 1.25;
       font-weight: 900;
       letter-spacing: 0;
     }
 
     .mini-rule {
-      width: 39px;
+      width: 30px;
       height: 2px;
-      margin: 14px 0 12px;
+      margin: 8px 0 8px;
       background: var(--gold-deep);
     }
 
@@ -413,8 +436,8 @@
       max-width: 280px;
       margin: 0;
       color: #494540;
-      font-size: 17px;
-      line-height: 1.5;
+      font-size: 14px;
+      line-height: 1.42;
     }
 
     .handoff {
@@ -464,7 +487,7 @@
 
     .outcomes {
       padding: clamp(58px, 7vw, 84px) clamp(20px, 5vw, 64px) clamp(60px, 7vw, 86px);
-      background: #fbfaf4;
+      background: linear-gradient(180deg, #fffaf1 0%, #f6f0e2 100%);
       text-align: center;
       border-bottom: 1px solid rgba(216, 208, 189, 0.9);
     }
@@ -520,7 +543,7 @@
       display: grid;
       grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
       align-items: center;
-      gap: clamp(18px, 3vw, 34px);
+      gap: clamp(14px, 2.5vw, 28px);
       margin-top: 18px;
     }
 
@@ -529,7 +552,7 @@
     }
 
     .comparison-panel img {
-      width: 100%;
+      width: 80%;
       aspect-ratio: 4 / 5;
       object-fit: contain;
       border-radius: 0;
@@ -567,8 +590,8 @@
     .process {
       padding: clamp(58px, 7vw, 86px) clamp(20px, 5vw, 64px) clamp(56px, 7vw, 82px);
       background:
-        radial-gradient(circle at 12% 22%, rgba(42, 79, 46, 0.05), transparent 24rem),
-        linear-gradient(180deg, #fbfaf4 0%, var(--paper) 100%);
+        radial-gradient(circle at 12% 22%, rgba(42, 79, 46, 0.07), transparent 24rem),
+        linear-gradient(180deg, #f4efe1 0%, #f9f6ec 100%);
       text-align: center;
       border-bottom: 1px solid rgba(216, 208, 189, 0.9);
     }
@@ -797,7 +820,7 @@
 
     .situations {
       padding: clamp(58px, 7vw, 86px) clamp(20px, 5vw, 64px) clamp(58px, 7vw, 82px);
-      background: #fbfaf4;
+      background: linear-gradient(180deg, #f8f2e4 0%, #f1eadb 100%);
       text-align: center;
     }
 
@@ -901,8 +924,8 @@
     .diff-section {
       padding: clamp(58px, 7vw, 86px) clamp(20px, 5vw, 64px) clamp(58px, 7vw, 82px);
       background:
-        radial-gradient(circle at 76% 18%, rgba(242, 189, 22, 0.06), transparent 24rem),
-        linear-gradient(180deg, var(--paper) 0%, #fbfaf4 100%);
+        radial-gradient(circle at 76% 18%, rgba(242, 189, 22, 0.08), transparent 24rem),
+        linear-gradient(180deg, #f3ecdf 0%, #fbf7ed 100%);
       border-top: 1px solid rgba(216, 208, 189, 0.9);
       text-align: center;
     }
@@ -929,29 +952,29 @@
     }
 
     .diff-card {
-      min-height: 210px;
-      padding: 26px 24px 22px;
+      min-height: 170px;
+      padding: 20px 19px 17px;
       border: 1px solid rgba(222, 215, 198, 0.94);
       border-radius: 8px;
       background: rgba(255, 253, 247, 0.78);
       box-shadow: 0 14px 30px rgba(51, 45, 34, 0.08);
       display: grid;
-      grid-template-columns: 78px 1fr;
+      grid-template-columns: 62px 1fr;
       align-items: start;
-      gap: 18px;
+      gap: 12px;
       text-align: left;
     }
 
     .diff-icon {
-      width: 74px;
-      height: 74px;
+      width: 62px;
+      height: 62px;
       object-fit: contain;
     }
 
     .diff-card h3 {
       margin: 0 0 8px;
       color: #15161a;
-      font-size: 23px;
+      font-size: 19px;
       line-height: 1.18;
       font-weight: 700;
     }
@@ -959,8 +982,8 @@
     .diff-card p {
       margin: 0;
       color: #302d28;
-      font-size: 17px;
-      line-height: 1.45;
+      font-size: 14px;
+      line-height: 1.4;
     }
 
     .diff-close {
@@ -989,6 +1012,11 @@
       font-weight: 700;
     }
 
+    .diff-close .diff-support {
+      font-size: clamp(16px, 1.5vw, 19px);
+      line-height: 1.38;
+    }
+
     .diff-footer {
       margin-top: 14px;
       color: #1f1d18;
@@ -1009,7 +1037,7 @@
 
     .proof-section {
       padding: clamp(58px, 7vw, 86px) clamp(20px, 5vw, 64px) clamp(56px, 7vw, 80px);
-      background: #fbfaf4;
+      background: linear-gradient(180deg, #fffdf7 0%, #f5efdf 100%);
       border-top: 1px solid rgba(216, 208, 189, 0.9);
       text-align: center;
     }
@@ -1036,8 +1064,8 @@
     }
 
     .proof-card {
-      min-height: 280px;
-      padding: 22px 28px 24px;
+      min-height: 236px;
+      padding: 16px 20px 18px;
       border: 1px solid rgba(222, 215, 198, 0.94);
       border-radius: 8px;
       background: rgba(255, 253, 247, 0.82);
@@ -1045,15 +1073,15 @@
     }
 
     .quote-mark {
-      width: 56px;
-      height: 56px;
-      margin-bottom: 18px;
+      width: 44px;
+      height: 44px;
+      margin-bottom: 12px;
       border-radius: 50%;
       display: grid;
       place-items: center;
       background: #f7f1e4;
       color: var(--gold-deep);
-      font-size: 44px;
+      font-size: 34px;
       line-height: 1;
       font-weight: 900;
     }
@@ -1061,8 +1089,8 @@
     .proof-card p {
       margin: 0;
       color: #1f1d18;
-      font-size: clamp(18px, 2vw, 22px);
-      line-height: 1.45;
+      font-size: clamp(15px, 1.55vw, 18px);
+      line-height: 1.42;
     }
 
     .proof-card footer {
@@ -1099,8 +1127,8 @@
     .faq-section {
       padding: clamp(58px, 7vw, 86px) clamp(20px, 5vw, 64px) clamp(56px, 7vw, 80px);
       background:
-        radial-gradient(circle at 18% 18%, rgba(242, 189, 22, 0.06), transparent 24rem),
-        linear-gradient(180deg, var(--paper) 0%, #fbfaf4 100%);
+        radial-gradient(circle at 18% 18%, rgba(242, 189, 22, 0.08), transparent 24rem),
+        linear-gradient(180deg, #f7f1e5 0%, #f2ebdd 100%);
       border-top: 1px solid rgba(216, 208, 189, 0.9);
       text-align: center;
     }
@@ -1248,40 +1276,122 @@
     }
 
     @media (min-width: 981px) {
-      .section-kicker {
-        font-size: 13px;
+      .hero {
+        padding-top: 34px;
+        padding-bottom: 24px;
+        gap: 24px;
       }
 
-      .slipping h2 {
-        font-size: clamp(30px, 3.8vw, 48px);
+      .hero-grid {
+        gap: 48px;
       }
 
-      .handoff h3 {
-        font-size: clamp(26px, 3.1vw, 35px);
+      h1 {
+        font-size: clamp(36px, 4.2vw, 56px);
       }
 
-      .outcomes h2 {
-        font-size: clamp(31px, 3.9vw, 49px);
-      }
-
-      .process h2 {
-        font-size: clamp(28px, 3.5vw, 44px);
-      }
-
-      .inside-title {
+      .lede {
         font-size: 18px;
       }
 
+      .cta-row {
+        margin-top: 22px;
+      }
+
+      section,
+      .final-cta {
+        padding-top: 54px;
+        padding-bottom: 54px;
+      }
+
+      .section-kicker {
+        font-size: 13px;
+        margin-bottom: 16px;
+        font-weight: 600;
+      }
+
+      .slipping h2 {
+        font-size: clamp(24px, 3vw, 38px);
+        font-weight: 600;
+      }
+
+      .handoff h3 {
+        font-size: clamp(21px, 2.5vw, 29px);
+        font-weight: 600;
+      }
+
+      .outcomes h2 {
+        font-size: clamp(25px, 3.1vw, 39px);
+        font-weight: 600;
+      }
+
+      .process h2 {
+        font-size: clamp(22px, 2.7vw, 34px);
+        font-weight: 600;
+      }
+
+      .inside-title {
+        font-size: 17px;
+        margin-bottom: 14px;
+        font-weight: 600;
+      }
+
       .situations h2 {
-        font-size: clamp(32px, 4.2vw, 52px);
+        font-size: clamp(26px, 3.4vw, 42px);
+        font-weight: 600;
       }
 
       .faq-question h3 {
-        font-size: clamp(18px, 1.8vw, 22px);
+        font-size: clamp(17px, 1.7vw, 20px);
+        font-weight: 600;
       }
 
       .final-cta h2 {
-        font-size: clamp(32px, 4.1vw, 54px);
+        font-size: clamp(26px, 3.4vw, 42px);
+        font-weight: 600;
+      }
+
+      .comparison {
+        gap: 14px;
+        margin-top: 10px;
+      }
+
+      .comparison-panel img {
+        max-width: 80%;
+        margin: 0 auto;
+      }
+
+      .same-business {
+        margin-top: 18px;
+        font-size: 18px;
+      }
+
+      .process-grid,
+      .inside-grid,
+      .situation-grid,
+      .diff-grid {
+        gap: 12px;
+      }
+
+      .process-card,
+      .inside-item,
+      .situation-card,
+      .diff-card,
+      .faq-item {
+        padding: 18px 20px;
+      }
+
+      .final-panel {
+        gap: 14px;
+      }
+
+      .final-step {
+        padding: 14px 16px;
+      }
+
+      .final-step-icon {
+        width: 56px;
+        height: 56px;
       }
     }
 
@@ -1852,6 +1962,7 @@
               <span>Yours forever.</span>
             </div>
           </div>
+
         </div>
 
         <div class="visual" aria-label="Product preview showing lost jobs and the fix">
@@ -1860,61 +1971,6 @@
         </div>
       </div>
 
-      <div class="steps" aria-labelledby="steps-title">
-        <h2 class="steps-title" id="steps-title">How It Works</h2>
-        <div class="step-list">
-          <div class="step">
-            <div class="step-icon" aria-hidden="true">
-              <span class="num">1</span>
-              <svg width="34" height="34" viewBox="0 0 24 24" fill="none">
-                <circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="2.3"/>
-                <path d="m15.5 15.5 5 5" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"/>
-              </svg>
-            </div>
-            <div class="step-copy">
-              <strong>Spot the problems</strong>
-              <span>Find where jobs are slipping through.</span>
-            </div>
-          </div>
-
-          <svg class="arrow" viewBox="0 0 32 16" fill="none" aria-hidden="true">
-            <path d="M1 8h28m0 0-6-6m6 6-6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-
-          <div class="step">
-            <div class="step-icon" aria-hidden="true">
-              <span class="num">2</span>
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-                <rect x="5" y="3" width="14" height="18" rx="1.5" stroke="currentColor" stroke-width="2.2"/>
-                <path d="M8.5 8h7M8.5 12h1.8M13 12h2.5M8.5 16h1.8M13 16h2.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-              </svg>
-            </div>
-            <div class="step-copy">
-              <strong>See the cost</strong>
-              <span>Understand what it’s really costing you.</span>
-            </div>
-          </div>
-
-          <svg class="arrow" viewBox="0 0 32 16" fill="none" aria-hidden="true">
-            <path d="M1 8h28m0 0-6-6m6 6-6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-
-          <div class="step">
-            <div class="step-icon" aria-hidden="true">
-              <span class="num">3</span>
-              <svg width="34" height="34" viewBox="0 0 24 24" fill="none">
-                <circle cx="11" cy="13" r="7" stroke="currentColor" stroke-width="2.2"/>
-                <circle cx="11" cy="13" r="3" stroke="currentColor" stroke-width="2.2"/>
-                <path d="M14 10 21 3m-5 .5H21V8" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </div>
-            <div class="step-copy">
-              <strong>Fix the right things</strong>
-              <span>Take clear action to book more jobs.</span>
-            </div>
-          </div>
-        </div>
-      </div>
     </section>
 
     <section class="slipping" aria-labelledby="slipping-title">
@@ -1988,34 +2044,6 @@
           <div class="next-step">
             <span>First, find the biggest leaks. Then see what they may be costing you. Then use the right playbook to fix them and keep more jobs and revenue in the business.</span>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="outcomes" aria-labelledby="outcomes-title">
-      <div class="outcomes-inner">
-        <p class="center-kicker">Before vs After</p>
-        <h2 id="outcomes-title">The same enquiries can lead to two very different outcomes</h2>
-        <p class="outcomes-lede">The difference is not always the quality of the enquiry. It is what happens next.</p>
-
-        <div class="comparison">
-          <figure class="comparison-panel">
-            <img src="before.jpg" alt="Before: missed calls, unclear quotes, late follow-up, and lost jobs">
-          </figure>
-
-          <svg class="compare-arrow" viewBox="0 0 96 72" fill="none" aria-hidden="true">
-            <path d="M4 36h72" stroke="currentColor" stroke-width="18" stroke-linecap="round"/>
-            <path d="M54 8 88 36 54 64V8Z" fill="currentColor"/>
-          </svg>
-
-          <figure class="comparison-panel">
-            <img src="after.jpg" alt="After: spot leaks, see the cost, fix the right problem, and book more jobs">
-          </figure>
-        </div>
-
-        <div class="same-business">
-          <img class="shield" src="sitic8.jpg" alt="">
-          <span>Same business. Same type of enquiries. Better next steps. Better outcome.</span>
         </div>
       </div>
     </section>
@@ -2114,6 +2142,39 @@
         <div class="process-close">
           <img class="gold-shield" src="sitic8.jpg" alt="">
           <span>Spot the problems. See the cost. Fix the right things.</span>
+        </div>
+
+        <div class="hero-testimonial hero-testimonial--process">
+          <p class="hero-testimonial-kicker">What Customers Are Saying:</p>
+          <img class="testimonial-shot testimonial-shot--hero" src="herotestimonial.jpg" alt="Customer testimonial screenshot" width="1170" height="662" decoding="async" fetchpriority="high">
+        </div>
+      </div>
+    </section>
+
+    <section class="outcomes" aria-labelledby="outcomes-title">
+      <div class="outcomes-inner">
+        <p class="center-kicker">Before vs After</p>
+        <h2 id="outcomes-title">The same enquiries can lead to two very different outcomes</h2>
+        <p class="outcomes-lede">The difference is not always the quality of the enquiry. It is what happens next.</p>
+
+        <div class="comparison">
+          <figure class="comparison-panel">
+            <img src="before.jpg" alt="Before: missed calls, unclear quotes, late follow-up, and lost jobs">
+          </figure>
+
+          <svg class="compare-arrow" viewBox="0 0 96 72" fill="none" aria-hidden="true">
+            <path d="M4 36h72" stroke="currentColor" stroke-width="18" stroke-linecap="round"/>
+            <path d="M54 8 88 36 54 64V8Z" fill="currentColor"/>
+          </svg>
+
+          <figure class="comparison-panel">
+            <img src="after.jpg" alt="After: spot leaks, see the cost, fix the right problem, and book more jobs">
+          </figure>
+        </div>
+
+        <div class="same-business">
+          <img class="shield" src="sitic8.jpg" alt="">
+          <span>Same business. Same type of enquiries. Better next steps. Better outcome.</span>
         </div>
       </div>
     </section>
@@ -2227,7 +2288,7 @@
 
         <div class="diff-close">
           <img class="gold-shield" src="diffbull.jpg" alt="">
-          <strong>This is for local businesses that do not want another system to babysit. They want to find the leaks, see the costs, and fix the right things.</strong>
+          <strong class="diff-support">This is for local businesses that do not want another system to babysit. They want to fix the things costing them work and revenue, in a simple, practical way.</strong>
         </div>
 
         <div class="diff-footer">Simple to use. Practical to act on. Built to help you keep more jobs and more revenue.</div>
