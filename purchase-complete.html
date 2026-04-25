@@ -1,123 +1,106 @@
-<!DOCTYPE html>
+﻿<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Purchase Complete</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Purchase Complete - The Local Jobs Recovery System</title>
   <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '1686151149414910');
     fbq('track', 'PageView');
-    fbq('track', 'Purchase', {
-      value: 17.00,
-      currency: 'GBP'
-    });
+    fbq('track', 'Purchase', { value: 9.00, currency: 'GBP' });
   </script>
   <style>
     :root {
-      --bg: #08172f;
-      --panel: rgba(255, 255, 255, 0.08);
-      --ink: #ffffff;
-      --muted: rgba(255, 255, 255, 0.76);
-      --accent: #ff7a00;
-      --line: rgba(255, 255, 255, 0.12);
+      --paper: #f8f6ee;
+      --ink: #1c1b18;
+      --muted: #5f5b52;
+      --line: #ded7c6;
+      --gold: #f2bd16;
+      --gold-deep: #d99a00;
     }
-
     * { box-sizing: border-box; }
-
     body {
       margin: 0;
+      min-height: 100vh;
+      font-family: Aptos, "Segoe UI", Roboto, Arial, sans-serif;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf4 0%, var(--paper) 100%);
+    }
+    .page {
       min-height: 100vh;
       display: grid;
       place-items: center;
       padding: 24px;
-      background:
-        radial-gradient(circle at top left, rgba(110, 153, 255, 0.18), transparent 24%),
-        radial-gradient(circle at bottom right, rgba(255, 122, 0, 0.16), transparent 24%),
-        linear-gradient(135deg, #071226 0%, #0b1833 48%, #10264a 100%);
-      color: var(--ink);
-      font-family: Arial, Helvetica, sans-serif;
     }
-
     .card {
-      width: min(100%, 760px);
-      padding: 42px 34px;
-      border-radius: 20px;
-      background: var(--panel);
+      width: min(640px, 100%);
+      padding: 34px 28px;
       border: 1px solid var(--line);
-      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.22);
+      border-radius: 18px;
+      background: rgba(255,253,247,.92);
+      box-shadow: 0 24px 60px rgba(48,43,32,.12);
       text-align: center;
-      backdrop-filter: blur(10px);
     }
-
     .eyebrow {
-      margin: 0 0 14px;
-      color: #9bbcff;
-      font-size: 0.92rem;
-      font-weight: 800;
-      letter-spacing: 0.16em;
+      display: inline-block;
+      margin-bottom: 14px;
+      color: #9d7606;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .16em;
       text-transform: uppercase;
     }
-
     h1 {
-      margin: 0;
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      line-height: 0.95;
-      letter-spacing: -0.05em;
-      font-weight: 900;
+      margin: 0 0 12px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(34px, 5vw, 52px);
+      line-height: 1.05;
+      font-weight: 600;
     }
-
     p {
-      margin: 18px auto 0;
-      max-width: 36rem;
+      margin: 0 0 18px;
       color: var(--muted);
-      font-size: clamp(1rem, 2vw, 1.14rem);
-      line-height: 1.55;
+      font-size: 18px;
+      line-height: 1.5;
     }
-
-    .price {
-      margin-top: 24px;
-      color: var(--ink);
-      font-size: clamp(1.4rem, 2.8vw, 2rem);
-      font-weight: 900;
-      letter-spacing: -0.04em;
-    }
-
-    .price strong {
-      color: #ffffff;
-    }
-
-    .cta {
+    .button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      margin-top: 28px;
-      min-height: 60px;
-      padding: 0 22px;
+      min-height: 52px;
+      padding: 0 18px;
       border-radius: 999px;
-      background: linear-gradient(180deg, #ff9224 0%, #ff6a00 100%);
-      color: #ffffff;
+      border: 1px solid #d8cfbc;
+      background: #fffaf1;
+      color: var(--ink);
       text-decoration: none;
-      font-size: 1rem;
-      font-weight: 800;
-      box-shadow: 0 18px 34px rgba(255, 106, 0, 0.24);
+      font-weight: 700;
     }
+    .price {
+      margin-top: 16px;
+      color: #6b655c;
+      font-size: 14px;
+    }
+    noscript img { position:absolute; left:-9999px; }
   </style>
 </head>
 <body>
-  <main class="card">
-    <p class="eyebrow">Purchase Complete</p>
-    <h1>Thanks, you're in.</h1>
-    <p>Your purchase has been recorded and the Meta Pixel `Purchase` event has fired for this page load.</p>
-    <p class="price">Order total: <strong>£17</strong></p>
-    <a class="cta" href="index.html">Back to guide page</a>
+  <noscript>
+    <img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1686151149414910&ev=Purchase&noscript=1">
+  </noscript>
+  <main class="page">
+    <section class="card" aria-labelledby="title">
+      <div class="eyebrow">Purchase Complete</div>
+      <h1 id="title">You're in.</h1>
+      <p>Your payment went through. Next, open your download or folder and start with the main product first.</p>
+      <a class="button" href="https://drive.google.com/drive/folders/1qRprwJPB-L8u1YZJmwd5p6Scynllz7In?usp=drive_link">Open your files</a>
+      <div class="price">Thank you for your order.</div>
+    </section>
   </main>
 </body>
 </html>
