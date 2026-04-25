@@ -1,87 +1,45 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>The Local Jobs Recovery System</title>
-  <meta property="og:title" content="The Local Jobs Recovery System">
-  <meta name="twitter:title" content="The Local Jobs Recovery System">
-  <link rel="preload" as="image" href="heroimg-mobile.webp" media="(max-width: 960px)" fetchpriority="high">
-  <link rel="preload" as="image" href="desktopheroimg.jpg" media="(min-width: 961px)" fetchpriority="high">
-  <script>
-    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1686151149414910');
-    fbq('track', 'PageView');
-  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Starter Guide</title>
   <style>
     :root {
-      --paper: #f8f6ee;
-      --paper-deep: #efeadc;
-      --ink: #1c1b18;
-      --muted: #5f5b52;
-      --line: #ded7c6;
-      --gold: #f2bd16;
-      --gold-deep: #d99a00;
-      --green: #294f2e;
-      --green-soft: #eef3e9;
-      --red: #a74438;
-      --red-soft: #f6ebe6;
-      --white: #fffdf7;
-      --shadow: 0 26px 70px rgba(48, 43, 32, 0.13);
-      --section-title-font: Georgia, "Times New Roman", serif;
+      --bg: #fbf8f4;
+      --ink: #0c1733;
+      --teal: #1e7f8a;
+      --orange: #f57d11;
+      --muted: #53545d;
+      --card-shadow: 0 30px 70px rgba(15, 23, 42, 0.16);
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
+    * { box-sizing: border-box; }
+    html, body {
       margin: 0;
-      min-height: 100vh;
-      color: var(--ink);
+      min-height: 100%;
       background:
-        radial-gradient(circle at 18% 14%, rgba(242, 189, 22, 0.12), transparent 28rem),
-        linear-gradient(180deg, #fbfaf4 0%, var(--paper) 100%);
-      font-family: Aptos, "Segoe UI", Roboto, Arial, sans-serif;
+        radial-gradient(circle at top left, rgba(30, 127, 138, 0.08), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(245, 138, 31, 0.08), transparent 28%),
+        var(--bg);
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
     }
 
-    h1,
-    h2,
-    h3 {
-      font-family: Georgia, "Times New Roman", serif !important;
-      font-weight: 500 !important;
-    }
+    .page { display: block; }
 
-    img,
-    svg {
-      display: block;
-    }
-
-    button {
-      font: inherit;
-    }
-
-    .page {
-      min-height: 100vh;
-      overflow: hidden;
-    }
-
-    .site-nav {
+    .navbar {
       position: sticky;
       top: 0;
       z-index: 20;
-      padding: 14px clamp(20px, 5vw, 64px);
-      border-bottom: 1px solid rgba(216, 208, 189, 0.82);
-      background: rgba(248, 246, 238, 0.92);
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(14px);
+      background: rgba(251, 248, 244, 0.82);
+      border-bottom: 1px solid rgba(12, 23, 51, 0.08);
+      padding: 14px clamp(20px, 3vw, 52px);
     }
 
-    .site-nav__inner {
-      width: min(1180px, 100%);
+    .navbar__inner {
+      width: min(1280px, 100%);
       margin: 0 auto;
       display: flex;
       align-items: center;
@@ -89,2515 +47,1219 @@
       gap: 18px;
     }
 
-    .site-nav__brand {
+    .navbar__brand {
+      font-size: clamp(0.95rem, 1vw, 1.08rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
       color: var(--ink);
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 13px;
-      line-height: 1.1;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .site-nav__cta {
-      min-height: 42px;
-      padding: 0 16px;
-      border: 1px solid #d8cfbc;
-      border-radius: 999px;
-      background: #fffaf1;
-      color: #171411;
-      font-size: 14px;
-      font-weight: 700;
       text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
       white-space: nowrap;
     }
 
-    .site-nav__cta:hover {
-      background: #f7eecf;
-    }
-
-    .buy-link {
-      cursor: pointer;
-    }
-
-    .launch-bar {
-      padding: 10px 20px;
-      border-top: 1px solid rgba(217, 154, 0, 0.5);
-      border-bottom: 1px solid rgba(217, 154, 0, 0.5);
-      background: #f3c83f;
-      color: #201707;
-      text-align: center;
-      font-size: 14px;
-      line-height: 1.25;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      font-weight: 700;
-      box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.28);
-    }
-
-    .launch-bar strong {
-      font-weight: 700;
-    }
-
-    .launch-bar del {
-      opacity: 0.8;
-    }
-
-    .launch-bar .launch-code {
-      display: inline-block;
-      margin-left: 6px;
-      padding: 2px 8px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.52);
-      color: #16120c;
-      font-weight: 800;
-      letter-spacing: 0.06em;
-    }
-
-    .hero {
-      min-height: 100svh;
-      padding: clamp(28px, 5vw, 56px) clamp(20px, 5vw, 64px) 32px;
-      display: grid;
-      grid-template-rows: 1fr auto;
-      gap: clamp(24px, 4vw, 40px);
-      background: linear-gradient(180deg, #fbfaf4 0%, var(--paper) 100%);
-    }
-
-    .hero-grid {
-      width: min(1180px, 100%);
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: minmax(380px, 1.1fr) minmax(380px, 0.9fr);
-      align-items: center;
-      gap: clamp(34px, 6vw, 72px);
-    }
-
-    .eyebrow {
-      width: fit-content;
-      display: inline-flex;
+    .navbar__actions {
+      display: flex;
       align-items: center;
       gap: 12px;
-      min-height: 38px;
-      padding: 0 16px;
-      border: 1px solid #ebe2cb;
-      border-radius: 4px;
-      background: rgba(255, 253, 247, 0.62);
-      color: #29251e;
-      font-size: clamp(11px, 1vw, 13px);
-      font-weight: 800;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      box-shadow: 0 8px 18px rgba(62, 52, 24, 0.04);
-    }
-
-    .eyebrow::before {
-      content: "";
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: var(--gold);
-      box-shadow: 0 0 0 5px rgba(242, 189, 22, 0.14);
-    }
-
-    h1 {
-      max-width: 760px;
-      margin: 22px 0 18px;
-      font-family: var(--section-title-font);
-      font-size: clamp(44px, 5.8vw, 74px);
-      line-height: 1.02;
-      letter-spacing: 0;
-      font-weight: 700;
-      text-wrap: balance;
-    }
-
-    .lede {
-      max-width: 515px;
-      margin: 0;
-      color: #332f29;
-      font-size: clamp(18px, 2vw, 22px);
-      line-height: 1.54;
-    }
-
-    .cta-row {
-      margin-top: 30px;
-      display: flex;
       flex-wrap: wrap;
-      align-items: center;
-      gap: 14px;
+      justify-content: flex-end;
     }
 
-    .cta {
-      min-width: min(416px, 100%);
-      min-height: 66px;
-      border: 0;
-      border-radius: 4px;
-      color: #18150e;
-      background: linear-gradient(180deg, #f8c51d, var(--gold));
+    .navbar__btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 14px;
-      padding: 0 26px;
-      font-size: clamp(18px, 1.8vw, 21px);
-      font-weight: 900;
-      cursor: pointer;
-      box-shadow: 0 16px 34px rgba(205, 145, 0, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.35);
-      transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
+      min-height: 46px;
+      padding: 0 12px 0 10px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 0.96rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      transition: transform 140ms ease, box-shadow 140ms ease, background 140ms ease;
     }
 
-    .cta:hover {
-      transform: translateY(-2px);
-      filter: saturate(1.04);
-      box-shadow: 0 22px 42px rgba(205, 145, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+    .navbar__btn:hover {
+      transform: translateY(-1px);
     }
 
-    .lock {
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
+    .navbar__btn--primary {
+      background: linear-gradient(180deg, #ff9224 0%, #f57d11 100%);
+      color: #ffffff;
+      box-shadow: 0 10px 20px rgba(245, 125, 17, 0.18);
+    }
+
+    .navbar__btn--secondary {
+      background: rgba(255, 255, 255, 0.72);
+      color: var(--ink);
+      border: 1px solid rgba(12, 23, 51, 0.1);
+    }
+
+    .hero, .section {
+      padding-left: clamp(20px, 3vw, 52px);
+      padding-right: clamp(20px, 3vw, 52px);
+    }
+
+    .section--muted {
+      background: rgba(255, 255, 255, 0.34);
+      border-top: 1px solid rgba(12, 23, 51, 0.04);
+      border-bottom: 1px solid rgba(12, 23, 51, 0.04);
+    }
+
+    .section--warm {
+      background: rgba(245, 125, 17, 0.05);
+      border-top: 1px solid rgba(245, 125, 17, 0.08);
+      border-bottom: 1px solid rgba(245, 125, 17, 0.08);
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 36px;
+      padding-bottom: 36px;
+    }
+
+    .hero__inner {
+      width: min(1280px, 100%);
+      margin: 0 auto;
       display: grid;
-      place-items: center;
-      color: var(--gold);
-      background: var(--white);
-      flex: 0 0 auto;
+      grid-template-columns: minmax(0, 1.06fr) minmax(360px, 0.82fr);
+      gap: clamp(22px, 3vw, 54px);
+      align-items: center;
     }
 
-    .microcopy {
-      width: 100%;
-      margin: 4px 0 0 10px;
-      color: #777168;
-      font-size: 14px;
+    .eyebrow {
+      color: var(--teal);
+      font-size: clamp(0.82rem, 0.9vw, 1rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin: 0 0 14px;
     }
 
-    .price-proof {
-      margin-top: 36px;
+    h1 {
+      margin: 0;
+      font-size: clamp(1.95rem, 3.2vw, 3.75rem);
+      line-height: 0.94;
+      letter-spacing: -0.055em;
+      font-weight: 900;
+      max-width: 14.5ch;
+    }
+
+    .lead {
+      margin: 18px 0 0;
+      max-width: 40rem;
+      font-size: clamp(0.86rem, 0.98vw, 1.02rem);
+      line-height: 1.42;
+      color: #333742;
+    }
+
+    .features {
+      list-style: none;
+      padding: 0;
+      margin: 22px 0 0;
+      display: grid;
+      gap: 11px;
+      max-width: 44rem;
+    }
+
+    .features li,
+    .section__list li {
+      display: grid;
+      grid-template-columns: 24px 1fr;
+      gap: 10px;
+      align-items: start;
+      font-size: clamp(0.84rem, 0.92vw, 0.98rem);
+      line-height: 1.35;
+      color: #1d2230;
+    }
+
+    .check {
+      width: 24px;
+      height: 24px;
+      display: block;
+      transform: translateY(1px);
+      filter: drop-shadow(0 8px 20px rgba(30, 127, 138, 0.25));
+    }
+
+    .cta-block {
+      margin-top: 22px;
+      width: min(100%, 360px);
+    }
+
+    .cta {
       display: inline-flex;
       align-items: center;
-      gap: 14px;
-      min-height: 66px;
-      padding: 10px 18px 10px 14px;
-      border: 1px solid #ebe3cf;
-      border-radius: 4px;
-      background: rgba(255, 253, 247, 0.56);
+      justify-content: center;
+      width: 100%;
+      min-height: 60px;
+      border: 0;
+      border-radius: 10px;
+      background: linear-gradient(180deg, #ff9224 0%, #f57d11 100%);
+      color: white;
+      font-size: clamp(1.1rem, 1.35vw, 1.6rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      box-shadow: 0 10px 24px rgba(245, 125, 17, 0.18);
+      border-bottom: 1px solid rgba(160, 76, 8, 0.22);
     }
 
-    .seal {
-      width: 40px;
-      height: 40px;
-      object-fit: contain;
-      flex: 0 0 auto;
+    .price {
+      margin: 14px 0 0;
+      font-size: clamp(0.92rem, 1vw, 1.12rem);
+      font-weight: 800;
+      color: var(--ink);
+      letter-spacing: -0.03em;
     }
 
-    .price-proof strong,
-    .step-copy strong {
-      display: block;
-      color: #1f1b14;
-      font-size: 15px;
-      line-height: 1.18;
-    }
+    .price strong { color: var(--orange); }
 
-    .price-proof span,
-    .step-copy span {
-      display: block;
-      margin-top: 4px;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.28;
-    }
-
-    .hero-testimonial {
-      margin-top: 18px;
-      max-width: 380px;
-    }
-
-    .hero-testimonial-kicker {
-      margin: 0 0 10px;
-      color: #9d7606;
-      font-size: 12px;
-      line-height: 1;
-      font-weight: 700;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-    }
-
-    .testimonial-shot--hero {
-      width: min(100%, 380px);
-      height: auto;
-      border-radius: 8px;
-      border: 1px solid rgba(222, 215, 198, 0.94);
-      box-shadow: 0 10px 22px rgba(51, 45, 34, 0.07);
+    .fineprint {
+      margin: 8px 0 0;
+      color: #61626d;
+      font-size: clamp(0.8rem, 0.86vw, 0.92rem);
+      line-height: 1.45;
     }
 
     .visual {
       position: relative;
-    }
-
-    .product-shot {
-      width: 100%;
-      max-height: min(62vh, 610px);
-      object-fit: contain;
-      border-radius: 4px;
-      filter: drop-shadow(var(--shadow));
-    }
-
-    .product-glow {
-      position: absolute;
-      inset: 7% -4% -5% 8%;
-      background: rgba(35, 79, 42, 0.07);
-      filter: blur(38px);
-      z-index: -1;
-    }
-
-    .steps {
-      width: min(760px, 100%);
-      margin: 0 auto;
-      align-self: end;
-      position: relative;
-      text-align: center;
-    }
-
-    .steps::before {
-      content: "";
-      position: absolute;
-      left: -10vw;
-      right: -10vw;
-      top: 18px;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, #d8d0bd 20%, #d8d0bd 80%, transparent);
-    }
-
-    .steps-title {
-      position: relative;
-      display: inline-block;
-      margin: 0 0 26px;
-      padding: 0 18px;
-      background: var(--paper);
-      font-family: var(--section-title-font);
-      font-size: 20px;
-      line-height: 1;
-      font-weight: 700;
-    }
-
-    .step-list {
-      display: grid;
-      grid-template-columns: 1fr auto 1fr auto 1fr;
-      align-items: center;
-      gap: clamp(12px, 2vw, 22px);
-      text-align: left;
-    }
-
-    .step {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      align-items: center;
-      gap: 14px;
-      min-width: 0;
-    }
-
-    .step-icon {
-      width: 72px;
-      height: 72px;
-      position: relative;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      color: var(--green);
-      background: rgba(244, 242, 234, 0.96);
-      box-shadow: inset 0 0 0 1px rgba(222, 215, 198, 0.55);
-    }
-
-    .num {
-      position: absolute;
-      top: -5px;
-      left: -5px;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      color: #4b3b07;
-      background: #f4cf55;
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    .arrow {
-      width: 28px;
-      color: #8b8578;
-    }
-
-    .slipping {
-      padding: clamp(62px, 8vw, 102px) clamp(20px, 5vw, 64px) clamp(70px, 9vw, 110px);
-      background:
-        radial-gradient(circle at 78% 18%, rgba(242, 189, 22, 0.10), transparent 28rem),
-        linear-gradient(180deg, #f7f2e7 0%, #f1eadb 100%);
-      border-top: 1px solid rgba(216, 208, 189, 0.9);
-      border-bottom: 1px solid rgba(216, 208, 189, 0.9);
-    }
-
-    .slipping-inner {
-      width: min(1135px, 100%);
-      margin: 0 auto;
-    }
-
-    .section-kicker {
-      display: inline-block;
-      position: relative;
-      margin: 0 0 22px;
-      color: #9d7606;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 15px;
-      line-height: 1;
-      font-weight: 600;
-      letter-spacing: 0.17em;
-      text-transform: uppercase;
-    }
-
-    .section-kicker::after {
-      content: "";
-      display: block;
-      width: 100px;
-      height: 3px;
-      margin-top: 13px;
-      background: var(--gold-deep);
-    }
-
-    .slipping h2 {
-      max-width: 960px;
-      margin: 0 0 14px;
-      color: #15161a;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(40px, 5.1vw, 64px);
-      line-height: 1.05;
-      letter-spacing: 0;
-      font-weight: 600;
-      text-wrap: balance;
-    }
-
-    .section-lede {
-      max-width: 900px;
-      margin: 0;
-      color: #2f2d29;
-      font-size: clamp(17px, 1.6vw, 20px);
-      line-height: 1.75;
-    }
-
-    .leak-grid {
-      margin-top: 28px;
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-    }
-
-    .leak-card {
-      min-height: 0;
-      padding: 13px 15px 13px;
-      border: 1px solid rgba(222, 215, 198, 0.94);
-      border-radius: 8px;
-      background: rgba(255, 253, 247, 0.78);
-      box-shadow: 0 12px 28px rgba(51, 45, 34, 0.07);
-      display: grid;
-      grid-template-columns: 80px 1fr;
-      align-items: start;
-      gap: 10px;
-      text-align: left;
-    }
-
-    .leak-visual {
-      width: 80px;
-      height: 80px;
-      object-fit: contain;
-      align-self: start;
-      justify-self: start;
-      border-radius: 0;
-      background: transparent;
-    }
-
-    .leak-card h3 {
-      margin: 0;
-      color: #171719;
-      font-size: 18px;
-      line-height: 1.25;
-      font-weight: 900;
-      letter-spacing: 0;
-    }
-
-    .mini-rule {
-      width: 30px;
-      height: 2px;
-      margin: 8px 0 8px;
-      background: var(--gold-deep);
-    }
-
-    .leak-card p {
-      max-width: 280px;
-      margin: 0;
-      color: #494540;
-      font-size: 14px;
-      line-height: 1.42;
-    }
-
-    .handoff {
-      width: min(640px, 100%);
-      margin: 28px auto 0;
-      text-align: center;
-    }
-
-    .handoff p {
-      margin: 0;
-      color: #2e2b27;
-      font-size: clamp(18px, 2vw, 22px);
-      line-height: 1.45;
-    }
-
-    .handoff p strong {
-      font-weight: 600;
-      border-bottom: 2px solid var(--gold-deep);
-    }
-
-    .handoff h3 {
-      max-width: 620px;
-      margin: 12px auto 12px;
-      color: #141519;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(34px, 4.1vw, 46px);
-      line-height: 1.12;
-      letter-spacing: 0;
-      font-weight: 600;
-      text-wrap: balance;
-    }
-
-    .underline-swoosh {
-      width: min(500px, 90%);
-      height: 14px;
-      margin: 0 auto 9px;
-      color: var(--gold-deep);
-    }
-
-    .next-step {
-      display: block;
-      margin-top: 7px;
-      color: #504b43;
-      font-size: 16px;
-      line-height: 1.4;
-    }
-
-    .outcomes {
-      padding: clamp(58px, 7vw, 84px) clamp(20px, 5vw, 64px) clamp(60px, 7vw, 86px);
-      background: linear-gradient(180deg, #fffaf1 0%, #f6f0e2 100%);
-      text-align: center;
-      border-bottom: 1px solid rgba(216, 208, 189, 0.9);
-    }
-
-    .outcomes-inner {
-      width: min(1120px, 100%);
-      margin: 0 auto;
-    }
-
-    .center-kicker {
       display: flex;
-      align-items: center;
       justify-content: center;
-      gap: 24px;
-      margin: 0 0 14px;
-      color: #c39100;
-      font-size: 16px;
-      line-height: 1;
-      font-weight: 900;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
+      align-items: center;
+      min-height: 560px;
     }
 
-    .center-kicker::before,
-    .center-kicker::after {
+    .visual::before {
       content: "";
-      width: 64px;
-      height: 2px;
-      background: var(--gold-deep);
+      position: absolute;
+      inset: auto 12% 0 18%;
+      height: 90px;
+      border-radius: 50%;
+      background: rgba(22, 25, 33, 0.18);
+      filter: blur(24px);
+      transform: translateY(14px);
+      z-index: 0;
     }
 
-    .outcomes h2 {
-      max-width: 900px;
-      margin: 0 auto 10px;
-      color: #15161a;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(42px, 5.2vw, 66px);
-      line-height: 1.05;
-      letter-spacing: 0;
-      font-weight: 600;
-      text-wrap: balance;
+    .visual img {
+      position: relative;
+      z-index: 1;
+      width: min(100%, 520px);
+      height: auto;
+      filter: drop-shadow(0 20px 28px rgba(9, 15, 33, 0.22));
+      transform: translateX(8px);
     }
 
-    .outcomes-lede {
-      max-width: 830px;
-      margin: 0 auto 24px;
-      color: #2f2d29;
-      font-size: clamp(18px, 1.8vw, 22px);
-      line-height: 1.45;
+    .section {
+      padding-top: 34px;
+      padding-bottom: 40px;
     }
 
-    .comparison {
+    .section__inner {
+      width: min(1280px, 100%);
+      margin: 0 auto;
       display: grid;
-      grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+      grid-template-columns: minmax(0, 0.95fr) minmax(420px, 1.05fr);
+      gap: clamp(24px, 3vw, 52px);
       align-items: center;
-      gap: clamp(14px, 2.5vw, 28px);
-      margin-top: 18px;
     }
 
-    .comparison-panel {
+    .section__eyebrow {
+      margin: 0 0 12px;
+      color: var(--teal);
+      font-size: clamp(0.82rem, 0.9vw, 1rem);
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+
+    .section__title {
       margin: 0;
-    }
-
-    .comparison-panel img {
-      width: 80%;
-      aspect-ratio: 4 / 5;
-      object-fit: contain;
-      border-radius: 0;
-      box-shadow: none;
-    }
-
-    .compare-arrow {
-      width: clamp(52px, 6vw, 86px);
-      color: var(--gold-deep);
-      filter: drop-shadow(0 12px 16px rgba(217, 154, 0, 0.18));
-    }
-
-    .same-business {
-      width: fit-content;
-      max-width: 100%;
-      margin: 28px auto 0;
-      display: inline-grid;
-      grid-template-columns: auto 1fr;
-      align-items: center;
-      gap: 16px;
-      color: #191918;
-      font-size: clamp(18px, 2vw, 24px);
-      line-height: 1.28;
+      max-width: 11ch;
+      font-size: clamp(1.88rem, 3.2vw, 3.52rem);
+      line-height: 0.95;
+      letter-spacing: -0.055em;
       font-weight: 900;
-      text-align: left;
     }
 
-    .shield {
-      width: 40px;
-      height: 40px;
-      object-fit: contain;
-      flex: 0 0 auto;
+    .section__copy {
+      margin: 16px 0 0;
+      max-width: 34rem;
+      font-size: clamp(0.95rem, 1.05vw, 1.12rem);
+      line-height: 1.48;
+      color: #2f3441;
     }
 
-    .process {
-      padding: clamp(58px, 7vw, 86px) clamp(20px, 5vw, 64px) clamp(56px, 7vw, 82px);
-      background:
-        radial-gradient(circle at 12% 22%, rgba(42, 79, 46, 0.07), transparent 24rem),
-        linear-gradient(180deg, #f4efe1 0%, #f9f6ec 100%);
-      text-align: center;
-      border-bottom: 1px solid rgba(216, 208, 189, 0.9);
+    .pullquote {
+      margin: 24px 0 0;
+      padding: 20px 24px;
+      border-radius: 12px;
+      background: linear-gradient(180deg, #f7f7f7 0%, #eeeeee 100%);
+      border: 1px solid rgba(12, 23, 51, 0.08);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+      color: var(--ink);
+      font-size: clamp(0.98rem, 1.1vw, 1.2rem);
+      line-height: 1.25;
+      font-weight: 800;
+      letter-spacing: -0.035em;
     }
 
-    .process-inner {
-      width: min(1150px, 100%);
-      margin: 0 auto;
-    }
-
-    .process h2 {
-      max-width: 850px;
-      margin: 0 auto 14px;
-      color: #15161a;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(38px, 4.7vw, 58px);
-      line-height: 1.05;
-      letter-spacing: 0;
-      font-weight: 600;
-      text-wrap: balance;
-    }
-
-    .process-lede {
-      max-width: 850px;
-      margin: 0 auto;
-      color: #2f2d29;
-      font-size: clamp(17px, 1.6vw, 20px);
-      line-height: 1.45;
-    }
-
-    .process-grid {
-      margin-top: 28px;
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-      text-align: left;
-    }
-
-    .process-card {
-      min-height: 350px;
-      padding: 20px 20px 16px;
-      border: 1px solid rgba(222, 215, 198, 0.94);
-      border-radius: 8px;
-      background: rgba(255, 253, 247, 0.78);
-      box-shadow: 0 16px 34px rgba(51, 45, 34, 0.09);
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) 42%;
-      grid-template-rows: auto 1fr auto;
-      column-gap: 18px;
-      overflow: hidden;
-    }
-
-    .step-label {
-      width: fit-content;
-      grid-column: 1 / -1;
-      margin-bottom: 18px;
-      padding: 6px 14px;
-      border-radius: 6px;
-      color: var(--white);
-      background: #a97905;
-      font-size: 15px;
-      line-height: 1;
-      font-weight: 900;
-      text-transform: uppercase;
-    }
-
-    .process-copy h3 {
-      margin: 0 0 10px;
-      color: #141519;
-      font-size: 23px;
-      line-height: 1.2;
-      font-weight: 700;
-    }
-
-    .process-copy p {
-      margin: 0 0 15px;
-      color: #2f2d29;
-      font-size: 15px;
-      line-height: 1.55;
-    }
-
-    .check-list {
+    .section__list {
       list-style: none;
-      margin: 0;
       padding: 0;
+      margin: 18px 0 0;
       display: grid;
-      gap: 8px;
-      color: #25221d;
-      font-size: 15px;
-      line-height: 1.25;
+      gap: 11px;
+      max-width: 31rem;
     }
 
-    .check-list li {
-      display: grid;
-      grid-template-columns: 18px 1fr;
-      align-items: start;
-      gap: 8px;
+    .section__note {
+      margin: 26px auto 0;
+      width: min(1280px, 100%);
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      color: #111827;
     }
 
-    .check-list li::before {
-      content: "";
-      width: 17px;
-      height: 17px;
-      margin-top: 1px;
-      border-radius: 50%;
-      background: var(--gold-deep);
-      -webkit-mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='black' d='M8 13.2 4.8 10l-1.4 1.4L8 16 17 7l-1.4-1.4z'/%3E%3C/svg%3E") center / contain no-repeat;
-      mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='black' d='M8 13.2 4.8 10l-1.4 1.4L8 16 17 7l-1.4-1.4z'/%3E%3C/svg%3E") center / contain no-repeat;
+    .section__note-line {
+      flex: 1 1 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent 0%, #f57d11 14%, #f57d11 86%, transparent 100%);
     }
 
-    .process-art {
-      grid-row: 2;
-      grid-column: 2;
+    .section__note-badge {
+      width: 64px;
+      height: 64px;
+      border-radius: 999px;
+      display: block;
+      object-fit: contain;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.16);
+    }
+
+    .section__note-text {
+      margin: 0;
+      font-size: clamp(1rem, 1.2vw, 1.4rem);
+      line-height: 1.15;
+      font-style: italic;
+      font-weight: 800;
+      text-align: center;
+      letter-spacing: -0.04em;
+    }
+
+    .problem-visual {
+      position: relative;
+      min-height: 680px;
+      border-radius: 16px;
+      overflow: hidden;
+      background: #f7f8fb;
+      box-shadow: var(--card-shadow);
+    }
+
+    .problem-visual__bg,
+    .problem-visual__desk {
+      position: absolute;
+      inset: 0;
       width: 100%;
-      height: 190px;
-      align-self: center;
-      object-fit: contain;
-      filter: none;
+      height: 100%;
+      object-fit: cover;
     }
 
-    .included {
-      grid-column: 1 / -1;
-      align-self: end;
-      display: flex;
-      align-items: center;
-      min-height: 42px;
-      margin-top: 18px;
-      padding: 8px 10px;
-      border: 1px solid #e7dfcd;
-      border-radius: 5px;
-      background: rgba(249, 246, 237, 0.78);
-      color: #22201b;
-      font-size: 15px;
-      line-height: 1.25;
+    .problem-visual__bg {
+      filter: saturate(0.95) contrast(0.98);
+      opacity: 1;
     }
 
-    .inside-title {
-      position: relative;
-      width: min(520px, 100%);
-      margin: 22px auto 18px;
-      color: #171719;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 25px;
-      line-height: 1;
-      font-weight: 600;
-    }
-
-    .inside-title::before,
-    .inside-title::after {
-      content: "";
+    .problem-visual__overlay {
       position: absolute;
-      top: 50%;
-      width: 38%;
-      height: 1px;
-      background: #d8d0bd;
-    }
-
-    .inside-title::before {
-      right: calc(100% + 15px);
-    }
-
-    .inside-title::after {
-      left: calc(100% + 15px);
-    }
-
-    .inside-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 16px;
-      text-align: left;
-    }
-
-    .inside-item {
-      min-height: 118px;
-      padding: 16px 16px;
-      border: 1px solid rgba(222, 215, 198, 0.94);
-      border-radius: 8px;
-      background: rgba(255, 253, 247, 0.76);
-      box-shadow: 0 12px 28px rgba(51, 45, 34, 0.07);
-      display: grid;
-      grid-template-columns: 1fr;
-      align-items: start;
-      gap: 8px;
-    }
-
-    .inside-item strong {
-      display: block;
-      color: #171719;
-      font-size: 18px;
-      line-height: 1.18;
-      font-weight: 700;
-    }
-
-    .inside-item span {
-      display: block;
-      margin-top: 6px;
-      color: #3f3b35;
-      font-size: 16px;
-      line-height: 1.4;
-    }
-
-    .process-close {
-      margin: 28px auto 0;
-      display: grid;
-      grid-template-columns: 1fr auto auto 1fr;
-      align-items: center;
-      gap: 22px;
-      color: #191918;
-      font-size: clamp(21px, 2.4vw, 29px);
-      line-height: 1.16;
-      font-weight: 700;
-      text-align: left;
-    }
-
-    .process-close::before,
-    .process-close::after {
-      content: "";
-      height: 1px;
-      background: #d8d0bd;
-    }
-
-    .gold-shield {
-      width: 42px;
-      height: 42px;
-      object-fit: contain;
-    }
-
-    .situations {
-      padding: clamp(58px, 7vw, 86px) clamp(20px, 5vw, 64px) clamp(58px, 7vw, 82px);
-      background: linear-gradient(180deg, #f8f2e4 0%, #f1eadb 100%);
-      text-align: center;
-    }
-
-    .situations-inner {
-      width: min(1080px, 100%);
-      margin: 0 auto;
-    }
-
-    .situations h2 {
-      max-width: 860px;
-      margin: 0 auto 16px;
-      color: #15161a;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(42px, 5.6vw, 70px);
-      line-height: 1.05;
-      letter-spacing: 0;
-      font-weight: 600;
-      text-wrap: balance;
-    }
-
-    .situations-lede {
-      max-width: 690px;
-      margin: 0 auto;
-      color: #2f2d29;
-      font-size: clamp(18px, 1.8vw, 22px);
-      line-height: 1.45;
-    }
-
-    .situation-grid {
-      margin-top: 34px;
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px 24px;
-      text-align: center;
-    }
-
-    .situation-card {
-      min-height: 240px;
-      padding: 26px 26px 22px;
-      border: 1px solid rgba(222, 215, 198, 0.94);
-      border-radius: 8px;
-      background: rgba(255, 253, 247, 0.78);
-      box-shadow: 0 14px 30px rgba(51, 45, 34, 0.08);
-      display: grid;
-      justify-items: center;
-      align-content: start;
-    }
-
-    .situation-icon {
-      width: 92px;
-      height: 92px;
-      object-fit: contain;
-      margin-bottom: 18px;
-    }
-
-    .situation-card h3 {
-      margin: 0 0 9px;
-      color: #15161a;
-      font-size: 24px;
-      line-height: 1.18;
-      font-weight: 700;
-    }
-
-    .situation-card p {
-      max-width: 280px;
-      margin: 0;
-      color: #302d28;
-      font-size: 17px;
-      line-height: 1.45;
-    }
-
-    .situations-close {
-      margin: 28px auto 0;
-      display: grid;
-      grid-template-columns: 1fr auto minmax(0, 680px) 1fr;
-      align-items: center;
-      gap: 24px;
-      color: #181817;
-      text-align: left;
-    }
-
-    .situations-close::before,
-    .situations-close::after {
-      content: "";
-      height: 1px;
-      background: #d2c8ae;
-    }
-
-    .situations-close .gold-shield {
-      width: 52px;
-      height: 52px;
-    }
-
-    .situations-close strong {
-      display: block;
-      font-size: clamp(21px, 2.4vw, 28px);
-      line-height: 1.35;
-      font-weight: 700;
-    }
-
-    .diff-section {
-      padding: clamp(58px, 7vw, 86px) clamp(20px, 5vw, 64px) clamp(58px, 7vw, 82px);
+      inset: 0;
       background:
-        radial-gradient(circle at 76% 18%, rgba(242, 189, 22, 0.08), transparent 24rem),
-        linear-gradient(180deg, #f3ecdf 0%, #fbf7ed 100%);
-      border-top: 1px solid rgba(216, 208, 189, 0.9);
-      text-align: center;
-    }
-
-    .diff-inner {
-      width: min(1120px, 100%);
-      margin: 0 auto;
-    }
-
-    .diff-lede {
-      max-width: 900px;
-      margin: 0 auto;
-      color: #2f2d29;
-      font-size: clamp(18px, 1.8vw, 22px);
-      line-height: 1.45;
-    }
-
-    .diff-grid {
-      margin-top: 34px;
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px 24px;
-      text-align: center;
-    }
-
-    .diff-card {
-      min-height: 170px;
-      padding: 20px 19px 17px;
-      border: 1px solid rgba(222, 215, 198, 0.94);
-      border-radius: 8px;
-      background: rgba(255, 253, 247, 0.78);
-      box-shadow: 0 14px 30px rgba(51, 45, 34, 0.08);
-      display: grid;
-      grid-template-columns: 62px 1fr;
-      align-items: start;
-      gap: 12px;
-      text-align: left;
-    }
-
-    .diff-icon {
-      width: 62px;
-      height: 62px;
-      object-fit: contain;
-    }
-
-    .diff-card h3 {
-      margin: 0 0 8px;
-      color: #15161a;
-      font-size: 19px;
-      line-height: 1.18;
-      font-weight: 700;
-    }
-
-    .diff-card p {
-      margin: 0;
-      color: #302d28;
-      font-size: 14px;
-      line-height: 1.4;
-    }
-
-    .diff-close {
-      margin: 26px auto 0;
-      padding: 18px 22px;
-      border: 1px solid rgba(217, 154, 0, 0.45);
-      border-radius: 10px;
-      background: rgba(255, 251, 243, 0.8);
-      display: grid;
-      grid-template-columns: auto 1fr;
-      align-items: center;
-      gap: 20px;
-      color: #181817;
-      text-align: left;
-    }
-
-    .diff-close .gold-shield {
-      width: 78px;
-      height: 78px;
-    }
-
-    .diff-close strong {
-      display: block;
-      font-size: clamp(21px, 2.6vw, 30px);
-      line-height: 1.22;
-      font-weight: 700;
-    }
-
-    .diff-close .diff-support {
-      font-size: clamp(16px, 1.5vw, 19px);
-      line-height: 1.38;
-    }
-
-    .diff-footer {
-      margin-top: 14px;
-      color: #1f1d18;
-      font-size: clamp(17px, 1.7vw, 20px);
-      line-height: 1.4;
-      text-align: center;
-    }
-
-    .diff-footer::after {
-      content: "";
-      display: block;
-      width: 140px;
-      height: 4px;
-      margin: 12px auto 0;
-      border-radius: 999px;
-      background: linear-gradient(90deg, transparent, var(--gold-deep) 20%, var(--gold-deep) 80%, transparent);
-    }
-
-    .proof-section {
-      padding: clamp(58px, 7vw, 86px) clamp(20px, 5vw, 64px) clamp(56px, 7vw, 80px);
-      background: linear-gradient(180deg, #fffdf7 0%, #f5efdf 100%);
-      border-top: 1px solid rgba(216, 208, 189, 0.9);
-      text-align: center;
-    }
-
-    .proof-inner {
-      width: min(1120px, 100%);
-      margin: 0 auto;
-    }
-
-    .proof-lede {
-      max-width: 920px;
-      margin: 0 auto;
-      color: #2f2d29;
-      font-size: clamp(18px, 1.8vw, 22px);
-      line-height: 1.45;
-    }
-
-    .proof-grid {
-      margin-top: 34px;
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 20px;
-      text-align: left;
-    }
-
-    .proof-card {
-      min-height: 236px;
-      padding: 16px 20px 18px;
-      border: 1px solid rgba(222, 215, 198, 0.94);
-      border-radius: 8px;
-      background: rgba(255, 253, 247, 0.82);
-      box-shadow: 0 14px 30px rgba(51, 45, 34, 0.08);
-    }
-
-    .quote-mark {
-      width: 44px;
-      height: 44px;
-      margin-bottom: 12px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      background: #f7f1e4;
-      color: var(--gold-deep);
-      font-size: 34px;
-      line-height: 1;
-      font-weight: 900;
-    }
-
-    .proof-card p {
-      margin: 0;
-      color: #1f1d18;
-      font-size: clamp(15px, 1.55vw, 18px);
-      line-height: 1.42;
-    }
-
-    .proof-card footer {
-      margin-top: 18px;
-      color: #2f2d29;
-      font-size: 17px;
-      line-height: 1.35;
-    }
-
-    .proof-card strong {
-      font-weight: 950;
-    }
-
-    .proof-footer {
-      width: fit-content;
-      max-width: 100%;
-      margin: 26px auto 0;
-      color: #1f1d18;
-      font-size: clamp(17px, 1.8vw, 20px);
-      line-height: 1.4;
-      text-align: center;
-    }
-
-    .proof-footer::before {
-      content: "";
-      display: block;
-      width: 84px;
-      height: 3px;
-      margin: 0 auto 14px;
-      border-radius: 999px;
-      background: var(--gold-deep);
-    }
-
-    .faq-section {
-      padding: clamp(58px, 7vw, 86px) clamp(20px, 5vw, 64px) clamp(56px, 7vw, 80px);
-      background:
-        radial-gradient(circle at 18% 18%, rgba(242, 189, 22, 0.08), transparent 24rem),
-        linear-gradient(180deg, #f7f1e5 0%, #f2ebdd 100%);
-      border-top: 1px solid rgba(216, 208, 189, 0.9);
-      text-align: center;
-    }
-
-    .faq-inner {
-      width: min(1040px, 100%);
-      margin: 0 auto;
-    }
-
-    .faq-lede {
-      max-width: 780px;
-      margin: 0 auto;
-      color: #2f2d29;
-      font-size: clamp(18px, 1.8vw, 21px);
-      line-height: 1.45;
-    }
-
-    .faq-list {
-      margin-top: 32px;
-      display: grid;
-      gap: 14px;
-      text-align: left;
-    }
-
-    .faq-item {
-      border: 1px solid rgba(222, 215, 198, 0.94);
-      border-radius: 8px;
-      background: rgba(255, 253, 247, 0.82);
-      box-shadow: 0 14px 30px rgba(51, 45, 34, 0.06);
-      overflow: hidden;
-    }
-
-    .faq-question {
-      list-style: none;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 22px 24px 14px;
-    }
-
-    .faq-question::-webkit-details-marker {
-      display: none;
-    }
-
-    .faq-question h3 {
-      margin: 0;
-      color: #15161a;
-      font-size: clamp(21px, 2.1vw, 26px);
-      line-height: 1.2;
-      font-weight: 700;
-    }
-
-    .faq-toggle {
-      flex: 0 0 auto;
-      width: 34px;
-      height: 34px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      color: #15161a;
-      background: #f7f1e4;
-      font-size: 22px;
-      line-height: 1;
-      font-weight: 700;
-    }
-
-    .faq-item[open] .faq-toggle {
-      transform: rotate(45deg);
-    }
-
-    .faq-answer {
-      padding: 0 24px 22px;
-    }
-
-    .faq-answer p {
-      max-width: 860px;
-      margin: 0;
-      color: #302d28;
-      font-size: 17px;
-      line-height: 1.55;
-    }
-
-    .final-cta {
-      padding: clamp(64px, 8vw, 104px) clamp(20px, 5vw, 64px) clamp(60px, 8vw, 96px);
-      background:
-        radial-gradient(circle at 20% 10%, rgba(255, 193, 48, 0.08), transparent 26rem),
-        radial-gradient(circle at 88% 40%, rgba(255, 193, 48, 0.08), transparent 22rem),
-        linear-gradient(180deg, #121821 0%, #0d141d 100%);
-      color: #f7f4ea;
-      border-top: 1px solid rgba(217, 154, 0, 0.24);
-      text-align: center;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .final-cta::before,
-    .final-cta::after {
-      content: "";
-      position: absolute;
-      width: 420px;
-      height: 420px;
-      border: 1px solid rgba(255, 211, 99, 0.08);
-      border-radius: 50%;
+        linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.04)),
+        radial-gradient(circle at 30% 20%, rgba(30, 127, 138, 0.06), transparent 18%);
       pointer-events: none;
     }
 
-    .final-cta::before {
-      left: -220px;
-      top: -140px;
+    .simple-section {
+      padding-top: 36px;
+      padding-bottom: 48px;
+      background: rgba(30, 95, 179, 0.035);
+      border-top: 1px solid rgba(30, 95, 179, 0.08);
     }
 
-    .final-cta::after {
-      right: -240px;
-      bottom: -120px;
-    }
-
-    .final-inner {
-      width: min(1040px, 100%);
+    .simple-section__inner {
+      width: min(1280px, 100%);
       margin: 0 auto;
-      position: relative;
-      z-index: 1;
-    }
-
-    .final-cta .center-kicker {
-      color: #f0bd44;
-    }
-
-    .final-cta .center-kicker::before,
-    .final-cta .center-kicker::after {
-      background: #d99a00;
-    }
-
-    .final-cta h2 {
-      max-width: 860px;
-      margin: 0 auto 18px;
-      color: #fffaf0;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(42px, 5.4vw, 72px);
-      line-height: 1.05;
-      font-weight: 600;
-      letter-spacing: 0;
-      text-wrap: balance;
-    }
-
-    @media (min-width: 981px) {
-      .hero {
-        padding-top: 34px;
-        padding-bottom: 24px;
-        gap: 24px;
-      }
-
-      .hero-grid {
-        gap: 48px;
-      }
-
-      h1 {
-        font-size: clamp(36px, 4.2vw, 56px);
-      }
-
-      .lede {
-        font-size: 18px;
-      }
-
-      .cta-row {
-        margin-top: 22px;
-      }
-
-      section,
-      .final-cta {
-        padding-top: 54px;
-        padding-bottom: 54px;
-      }
-
-      .section-kicker {
-        font-size: 13px;
-        margin-bottom: 16px;
-        font-weight: 600;
-      }
-
-      .slipping h2 {
-        font-size: clamp(24px, 3vw, 38px);
-        font-weight: 600;
-      }
-
-      .handoff h3 {
-        font-size: clamp(21px, 2.5vw, 29px);
-        font-weight: 600;
-      }
-
-      .outcomes h2 {
-        font-size: clamp(25px, 3.1vw, 39px);
-        font-weight: 600;
-      }
-
-      .process h2 {
-        font-size: clamp(22px, 2.7vw, 34px);
-        font-weight: 600;
-      }
-
-      .inside-title {
-        font-size: 17px;
-        margin-bottom: 14px;
-        font-weight: 600;
-      }
-
-      .situations h2 {
-        font-size: clamp(26px, 3.4vw, 42px);
-        font-weight: 600;
-      }
-
-      .faq-question h3 {
-        font-size: clamp(17px, 1.7vw, 20px);
-        font-weight: 600;
-      }
-
-      .final-cta h2 {
-        font-size: clamp(26px, 3.4vw, 42px);
-        font-weight: 600;
-      }
-
-      .comparison {
-        gap: 14px;
-        margin-top: 10px;
-      }
-
-      .comparison-panel img {
-        max-width: 80%;
-        margin: 0 auto;
-      }
-
-      .same-business {
-        margin-top: 18px;
-        font-size: 18px;
-      }
-
-      .process-grid,
-      .inside-grid,
-      .situation-grid,
-      .diff-grid {
-        gap: 12px;
-      }
-
-      .process-card,
-      .inside-item,
-      .situation-card,
-      .diff-card,
-      .faq-item {
-        padding: 18px 20px;
-      }
-
-      .final-panel {
-        gap: 14px;
-      }
-
-      .final-step {
-        padding: 14px 16px;
-      }
-
-      .final-step-icon {
-        width: 56px;
-        height: 56px;
-      }
-    }
-
-    .final-lede {
-      max-width: 720px;
-      margin: 0 auto 26px;
-      color: rgba(247, 244, 234, 0.88);
-      font-size: clamp(19px, 2vw, 24px);
-      line-height: 1.45;
-    }
-
-    .final-button {
-      min-width: min(520px, 100%);
-      min-height: 78px;
-      border: 0;
-      border-radius: 12px;
-      color: #16120c;
-      background: linear-gradient(180deg, #f7c44b 0%, #e6a51b 100%);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 18px;
-      padding: 0 28px;
-      font-size: clamp(22px, 2.2vw, 28px);
-      font-weight: 950;
-      box-shadow: 0 18px 40px rgba(230, 165, 27, 0.28), 0 0 24px rgba(255, 199, 72, 0.24);
-      cursor: pointer;
-    }
-
-    .final-arrow {
-      font-size: 36px;
-      line-height: 1;
-      font-weight: 400;
-    }
-
-    .final-price {
-      margin-top: 12px;
-      color: #f0bd44;
-      font-size: clamp(18px, 1.7vw, 21px);
-      line-height: 1.3;
-    }
-
-    .final-badges {
-      margin-top: 18px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 16px;
-    }
-
-    .final-badge {
-      min-height: 38px;
-      padding: 0 18px;
-      border: 1px solid rgba(255, 211, 99, 0.14);
-      border-radius: 12px;
-      background: rgba(255, 255, 255, 0.04);
-      color: #f7f4ea;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 16px;
-      line-height: 1;
-    }
-
-    .final-badge::before {
-      content: "";
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      border: 1.5px solid #f0bd44;
-      background:
-        radial-gradient(circle at 50% 50%, #f0bd44 0 22%, transparent 24%);
-      flex: 0 0 auto;
-    }
-
-    .final-panel {
-      margin-top: 22px;
-      padding: 20px 22px;
-      border: 1px solid rgba(255, 211, 99, 0.18);
-      border-radius: 14px;
-      background: rgba(255, 255, 255, 0.03);
-      display: grid;
-      grid-template-columns: 1fr auto 1fr auto 1fr;
-      align-items: center;
-      gap: 18px;
-      text-align: left;
-    }
-
-    .final-step {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 14px;
-      align-items: center;
-      min-width: 0;
-    }
-
-    .final-step-icon {
-      width: 68px;
-      height: 68px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      color: #f0bd44;
-      border: 1px solid rgba(240, 189, 68, 0.4);
-      background: rgba(240, 189, 68, 0.04);
-    }
-
-    .final-step strong {
       display: block;
-      color: #fffaf0;
-      font-size: 18px;
-      line-height: 1.2;
+    }
+
+    .simple-section__eyebrow {
+      margin: 0 0 12px;
+      color: #1e5fb3;
+      font-size: clamp(0.82rem, 0.9vw, 1rem);
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+
+    .simple-section__title {
+      margin: 0;
+      max-width: 14.5ch;
+      font-size: clamp(1.88rem, 3.2vw, 3.48rem);
+      line-height: 0.94;
+      letter-spacing: -0.055em;
       font-weight: 900;
     }
 
-    .final-step span {
-      display: block;
-      margin-top: 5px;
-      color: rgba(247, 244, 234, 0.82);
-      font-size: 16px;
-      line-height: 1.42;
+    .simple-section__rule {
+      width: 82px;
+      height: 4px;
+      border-radius: 999px;
+      margin: 18px 0 22px;
+      background: #1e5fb3;
     }
 
-    .final-step-arrow {
-      color: #f0bd44;
-      font-size: 38px;
-      line-height: 1;
-      text-align: center;
+    .simple-section__copy {
+      max-width: 52rem;
+      margin: 0 0 12px;
+      font-size: clamp(0.94rem, 1.05vw, 1.12rem);
+      line-height: 1.48;
+      color: #2f3441;
     }
 
-    .final-footer {
-      max-width: 900px;
-      margin: 18px auto 0;
-      color: rgba(247, 244, 234, 0.84);
-      font-size: clamp(18px, 1.7vw, 21px);
+    .simple-section__copy strong {
+      font-weight: 800;
+      color: #111827;
+    }
+
+    .info-box {
+      margin-top: 18px;
+      padding: 18px 20px;
+      border-radius: 14px;
+      background: #eaf2ff;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+      width: min(100%, 52rem);
+    }
+
+    .info-box__title {
+      margin: 0 0 10px;
+      color: #1e5fb3;
+      font-size: clamp(1rem, 1.15vw, 1.3rem);
+      font-weight: 800;
+    }
+
+    .info-box__list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .info-box__list li {
+      display: grid;
+      grid-template-columns: 26px 1fr;
+      gap: 12px;
+      align-items: start;
+      font-size: clamp(0.92rem, 1vw, 1.05rem);
+      line-height: 1.35;
+      color: #1f2533;
+    }
+
+    .benefit-box {
+      margin-top: 22px;
+      display: grid;
+      grid-template-columns: 86px 1fr;
+      gap: 16px;
+      align-items: center;
+      padding: 18px 20px;
+      border-radius: 14px;
+      background: #f9efcf;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+      width: min(100%, 52rem);
+    }
+
+    .benefit-box__icon {
+      width: 72px;
+      height: 72px;
+      object-fit: contain;
+    }
+
+    .benefit-box__title {
+      margin: 0;
+      font-size: clamp(1rem, 1.15vw, 1.28rem);
+      font-weight: 800;
+      color: #111827;
+    }
+
+    .benefit-box__copy {
+      margin: 6px 0 0;
+      font-size: clamp(0.92rem, 1vw, 1.02rem);
       line-height: 1.45;
+      color: #323744;
     }
 
-    @media (max-width: 980px) {
-      .hero {
-        min-height: auto;
-      }
-
-      .hero-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-      }
-
-      .copy {
-        max-width: 680px;
-      }
-
-      .product-shot {
-        max-height: none;
-      }
-
-      .step-list {
-        grid-template-columns: 1fr;
-      }
-
-      .arrow {
-        display: none;
-      }
-
-      .steps {
-        text-align: left;
-      }
-
-      .steps::before {
-        display: none;
-      }
-
-      .steps-title {
-        padding: 0;
-        background: transparent;
-      }
-
-      .leak-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .comparison {
-        grid-template-columns: 1fr;
-      }
-
-      .compare-arrow {
-        justify-self: center;
-        transform: rotate(90deg);
-      }
-
-      .process-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .process-card {
-        min-height: auto;
-      }
-
-      .inside-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .inside-title::before,
-      .inside-title::after {
-        display: none;
-      }
-
-      .situation-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .situations-close {
-        grid-template-columns: 1fr auto minmax(0, 620px) 1fr;
-      }
-
-      .diff-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .diff-close {
-        grid-template-columns: auto 1fr;
-      }
-
-      .proof-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .faq-list {
-        gap: 12px;
-      }
-
-      .final-button {
-        min-width: min(100%, 520px);
-      }
-
-      .final-panel {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 14px;
-      }
-
-      .final-step {
-        grid-template-columns: 1fr;
-        justify-items: center;
-        text-align: center;
-      }
-
-      .final-step-arrow {
-        transform: rotate(90deg);
-        font-size: 32px;
-      }
-
+    .uses-section {
+      padding: 44px clamp(20px, 3vw, 52px) 56px;
+      background: rgba(255, 255, 255, 0.42);
+      border-top: 1px solid rgba(12, 23, 51, 0.05);
     }
 
-    @media (max-width: 620px) {
-      .hero {
-        padding: 14px 14px 18px;
-      }
+    .uses-section__inner {
+      width: min(1280px, 100%);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(420px, 1.05fr);
+      gap: clamp(24px, 3vw, 54px);
+      align-items: start;
+    }
 
-      h1 {
-        margin-top: 18px;
-        font-size: clamp(38px, 12vw, 52px);
-        font-weight: 900;
-      }
+    .uses-section__eyebrow {
+      margin: 0 0 14px;
+      color: #1e5fb3;
+      font-size: clamp(0.82rem, 0.9vw, 1rem);
+      font-weight: 800;
+      letter-spacing: 0.16em;
+    }
 
-      .eyebrow {
-        min-height: 34px;
-        padding: 0 12px;
-        gap: 10px;
-        letter-spacing: 0.11em;
-      }
+    .uses-section__title {
+      margin: 0;
+      max-width: 11ch;
+      font-size: clamp(2rem, 3.4vw, 3.7rem);
+      line-height: 0.96;
+      letter-spacing: -0.055em;
+      font-weight: 900;
+      color: var(--ink);
+    }
 
-      .lede {
-        font-size: 17px;
-      }
+    .uses-section__copy {
+      max-width: 38rem;
+      margin: 24px 0 0;
+      font-size: clamp(0.96rem, 1.05vw, 1.14rem);
+      line-height: 1.55;
+      color: #313744;
+    }
 
-      .cta {
-        min-height: 60px;
-        padding: 0 18px;
-        font-size: 17px;
-      }
+    .uses-list {
+      list-style: none;
+      padding: 0;
+      margin: 28px 0 0;
+      display: grid;
+      gap: 16px;
+      max-width: 36rem;
+    }
 
-      .microcopy {
-        margin-left: 0;
-      }
+    .uses-list li {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 14px;
+      align-items: start;
+      font-size: clamp(0.94rem, 1.02vw, 1.1rem);
+      line-height: 1.35;
+      color: #1d2230;
+    }
 
-      .price-proof {
+    .uses-list .check {
+      width: 28px;
+      height: 28px;
+    }
+
+    .uses-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .use-card {
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid rgba(12, 23, 51, 0.1);
+      border-radius: 14px;
+      padding: 24px 20px 22px;
+      min-height: 216px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.05);
+    }
+
+    .use-card__icon {
+      width: 72px;
+      height: 72px;
+      object-fit: contain;
+      margin-bottom: 18px;
+    }
+
+    .use-card__title {
+      margin: 0;
+      font-size: clamp(1rem, 1.18vw, 1.34rem);
+      line-height: 1.15;
+      font-weight: 800;
+      color: var(--ink);
+    }
+
+    .use-card__copy {
+      margin: 10px 0 0;
+      font-size: clamp(0.92rem, 0.98vw, 1.02rem);
+      line-height: 1.35;
+      color: #4b5363;
+    }
+
+    .uses-callout {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 74px 1fr;
+      gap: 18px;
+      align-items: center;
+      padding: 20px 22px;
+      border-radius: 14px;
+      background: #edf4ff;
+      border: 1px solid rgba(30, 95, 179, 0.18);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.05);
+    }
+
+    .uses-callout__icon {
+      width: 58px;
+      height: 58px;
+      object-fit: contain;
+    }
+
+    .uses-callout__text {
+      margin: 0;
+      font-size: clamp(1.1rem, 1.4vw, 1.8rem);
+      line-height: 1.18;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: var(--ink);
+    }
+
+    .fit-section {
+      padding: 48px clamp(20px, 3vw, 52px) 60px;
+      background: rgba(30, 95, 179, 0.03);
+      border-top: 1px solid rgba(30, 95, 179, 0.08);
+    }
+
+    .fit-section__inner {
+      width: min(1280px, 100%);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 0.96fr) minmax(420px, 0.94fr);
+      gap: clamp(24px, 3vw, 54px);
+      align-items: start;
+    }
+
+    .fit-section__eyebrow {
+      margin: 0 0 14px;
+      color: #1e5fb3;
+      font-size: clamp(0.82rem, 0.9vw, 1rem);
+      font-weight: 800;
+      letter-spacing: 0.1em;
+    }
+
+    .fit-section__title {
+      margin: 0;
+      max-width: 11ch;
+      font-size: clamp(2rem, 3.5vw, 3.9rem);
+      line-height: 0.96;
+      letter-spacing: -0.055em;
+      font-weight: 900;
+      color: var(--ink);
+    }
+
+    .fit-section__copy {
+      max-width: 37rem;
+      margin: 22px 0 0;
+      font-size: clamp(0.96rem, 1.04vw, 1.14rem);
+      line-height: 1.52;
+      color: #313744;
+    }
+
+    .fit-list {
+      list-style: none;
+      padding: 0;
+      margin: 24px 0 0;
+      display: grid;
+      gap: 14px;
+      max-width: 34rem;
+    }
+
+    .fit-list li {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 14px;
+      align-items: start;
+      font-size: clamp(0.96rem, 1.02vw, 1.12rem);
+      line-height: 1.35;
+      color: #1d2230;
+    }
+
+    .fit-list .check {
+      width: 28px;
+      height: 28px;
+    }
+
+    .fit-callout {
+      margin-top: 28px;
+      display: grid;
+      grid-template-columns: 88px 1fr;
+      gap: 18px;
+      align-items: center;
+      max-width: 39rem;
+      padding: 20px 22px;
+      border-radius: 14px;
+      background: #edf4ff;
+      border: 1px solid rgba(30, 95, 179, 0.12);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.05);
+    }
+
+    .fit-callout__icon {
+      width: 70px;
+      height: 70px;
+      object-fit: contain;
+    }
+
+    .fit-callout__text {
+      margin: 0;
+      font-size: clamp(0.98rem, 1.04vw, 1.14rem);
+      line-height: 1.45;
+      color: #252b39;
+    }
+
+    .fit-callout__text strong {
+      font-weight: 800;
+      color: #111827;
+    }
+
+    .fit-panel {
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.84);
+      border: 1px solid rgba(12, 23, 51, 0.08);
+      box-shadow: 0 18px 34px rgba(15, 23, 42, 0.05);
+      padding: 26px;
+    }
+
+    .fit-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .fit-card {
+      min-height: 136px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.96);
+      border: 1px solid rgba(12, 23, 51, 0.08);
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.04);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 18px 14px;
+    }
+
+    .fit-card__icon {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      margin-bottom: 14px;
+    }
+
+    .fit-card__title {
+      margin: 0;
+      font-size: clamp(0.98rem, 1.08vw, 1.24rem);
+      line-height: 1.15;
+      font-weight: 800;
+      color: var(--ink);
+    }
+
+    .guide-section {
+      padding: 56px clamp(20px, 3vw, 52px) 72px;
+      background:
+        radial-gradient(circle at top left, rgba(120, 161, 255, 0.16), transparent 24%),
+        radial-gradient(circle at bottom right, rgba(0, 0, 0, 0.24), transparent 28%),
+        linear-gradient(135deg, #071226 0%, #0b1833 48%, #10264a 100%);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .guide-section__inner {
+      width: min(1280px, 100%);
+      margin: 0 auto;
+      display: block;
+    }
+
+    .guide-section__inner > div {
+      width: min(100%, 39rem);
+      margin: 0;
+      text-align: left;
+    }
+
+    .guide-section__eyebrow {
+      display: inline-block;
+      margin: 0 0 16px;
+      color: #8fb4ff;
+      font-size: clamp(0.84rem, 0.92vw, 1rem);
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      border-bottom: 3px solid rgba(143, 180, 255, 0.88);
+      padding-bottom: 6px;
+    }
+
+    .guide-section__title {
+      margin: 0;
+      max-width: 14ch;
+      font-size: clamp(2.2rem, 4vw, 4.5rem);
+      line-height: 0.94;
+      letter-spacing: -0.06em;
+      font-weight: 900;
+      color: #ffffff;
+    }
+
+    .guide-section__copy {
+      max-width: 38rem;
+      margin: 20px 0 0;
+      font-size: clamp(0.98rem, 1.08vw, 1.2rem);
+      line-height: 1.55;
+      color: rgba(255, 255, 255, 0.84);
+    }
+
+    .guide-section__subhead {
+      margin: 28px 0 0;
+      font-size: clamp(1.2rem, 1.5vw, 1.9rem);
+      line-height: 1.2;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      color: #ffffff;
+    }
+
+    .guide-list {
+      list-style: none;
+      padding: 0;
+      margin: 18px 0 0;
+      display: grid;
+      gap: 16px;
+      max-width: 39rem;
+    }
+
+    .guide-list li {
+      display: grid;
+      grid-template-columns: 30px 1fr;
+      gap: 14px;
+      align-items: start;
+      font-size: clamp(0.98rem, 1.05vw, 1.14rem);
+      line-height: 1.4;
+      color: rgba(255, 255, 255, 0.86);
+    }
+
+    .guide-list .check {
+      width: 30px;
+      height: 30px;
+      filter: drop-shadow(0 8px 18px rgba(30, 95, 179, 0.16));
+    }
+
+    .guide-section__price {
+      margin: 30px 0 0;
+      font-size: clamp(1.55rem, 2vw, 2.6rem);
+      line-height: 1.05;
+      font-weight: 900;
+      letter-spacing: -0.05em;
+      color: #ffffff;
+    }
+
+    .guide-section__price strong {
+      color: #ffffff;
+    }
+
+    .guide-section__cta {
+      margin-top: 16px;
+      width: min(100%, 420px);
+      min-height: 72px;
+      border-radius: 12px;
+      border: 0;
+      background: linear-gradient(180deg, #ff8d1b 0%, #ff6a00 100%);
+      color: #fff;
+      font-size: clamp(1.35rem, 1.7vw, 2.05rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      box-shadow: 0 18px 36px rgba(255, 106, 0, 0.24);
+    }
+
+    .guide-section__fineprint {
+      margin: 12px 0 0;
+      font-size: clamp(0.94rem, 0.98vw, 1.04rem);
+      line-height: 1.4;
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    @media (max-width: 1060px) {
+      .hero { padding-top: 24px; padding-bottom: 28px; }
+      .hero__inner, .section__inner { grid-template-columns: 1fr; }
+      h1 { max-width: 13.5ch; }
+      .visual { min-height: 0; order: -1; }
+      .visual img { width: min(92vw, 460px); transform: none; }
+      .problem-visual { min-height: 0; order: -1; }
+      .section__note-line { width: 100%; }
+
+      .guide-section__inner > div {
         width: 100%;
       }
+    }
 
-      .visual {
-        margin-top: -2px;
+    @media (max-width: 640px) {
+      .navbar {
+        padding-left: 16px;
+        padding-right: 16px;
       }
 
-      .product-shot {
-        max-height: 42vh;
+      .navbar__inner {
+        align-items: center;
+        flex-direction: row;
       }
 
-      .step {
-        grid-template-columns: 58px 1fr;
+      .navbar__actions {
+        width: auto;
+        justify-content: flex-end;
+        flex-wrap: nowrap;
       }
 
-      .step-icon {
-        width: 58px;
-        height: 58px;
+      .navbar__btn {
+        width: auto;
+        min-height: 40px;
+        padding: 0 9px;
+        font-size: 0.88rem;
       }
 
-      .slipping {
-        padding: 58px 16px 68px;
+      .navbar__brand {
+        font-size: 0.74rem;
+        letter-spacing: -0.04em;
       }
 
-      .slipping h2 {
-        font-size: clamp(34px, 11vw, 44px);
+      .hero { padding-left: 16px; padding-right: 16px; }
+      .section { padding-left: 16px; padding-right: 16px; }
+      .lead, .features, .cta-block { max-width: 100%; }
+      .cta { min-height: 54px; }
+      .features li, .section__list li { grid-template-columns: 22px 1fr; gap: 10px; }
+      .check { width: 22px; height: 22px; }
+      .section__note-text { font-size: 1rem; }
+      .section__note-badge { width: 52px; height: 52px; }
+      .simple-section__title,
+      .simple-section__copy,
+      .info-box,
+      .benefit-box {
+        max-width: 100%;
       }
 
-      .section-lede {
-        font-size: 16px;
-        line-height: 1.6;
+      .simple-section__inner {
+        padding-left: 2px;
+        padding-right: 2px;
       }
 
-      .leak-grid {
+      .uses-section__inner {
         grid-template-columns: 1fr;
       }
 
-      .leak-card {
-        min-height: auto;
-        grid-template-columns: 82px 1fr;
-        gap: 14px;
+      .uses-grid {
+        grid-template-columns: 1fr;
       }
 
-      .leak-visual {
-        width: 82px;
-        height: 82px;
-      }
-
-      .handoff h3 {
-        font-size: clamp(31px, 9.5vw, 40px);
-      }
-
-      .next-step {
-        display: block;
-      }
-
-      .outcomes {
-        padding: 54px 16px 64px;
-      }
-
-      .center-kicker {
-        gap: 13px;
-        font-size: 13px;
-        letter-spacing: 0.22em;
-      }
-
-      .center-kicker::before,
-      .center-kicker::after {
-        width: 38px;
-      }
-
-      .outcomes h2 {
-        font-size: clamp(34px, 10vw, 45px);
-      }
-
-      .outcomes-lede {
-        font-size: 17px;
-      }
-
-      .same-business {
+      .uses-callout {
         grid-template-columns: 1fr;
         justify-items: center;
         text-align: center;
       }
 
-      .process {
-        padding: 54px 16px 62px;
-      }
-
-      .process h2 {
-        font-size: clamp(32px, 9.5vw, 43px);
-      }
-
-      .process-card {
+      .fit-section__inner {
         grid-template-columns: 1fr;
       }
 
-      .process-art {
-        grid-column: 1;
-        grid-row: auto;
-        height: 170px;
-        margin-top: 6px;
-      }
-
-      .inside-grid {
+      .fit-grid {
         grid-template-columns: 1fr;
       }
 
-      .inside-item {
-        grid-template-columns: 1fr;
-        min-height: auto;
-      }
-
-      .process-close {
+      .fit-callout {
         grid-template-columns: 1fr;
         justify-items: center;
         text-align: center;
-      }
-
-      .process-close::before,
-      .process-close::after {
-        display: none;
-      }
-
-      .situations {
-        padding: 54px 16px 62px;
-      }
-
-      .situations h2 {
-        font-size: clamp(34px, 10vw, 46px);
-      }
-
-      .situations-lede {
-        font-size: 17px;
-      }
-
-      .situation-grid {
-        grid-template-columns: 1fr;
-        gap: 12px;
-      }
-
-      .situation-card {
-        min-height: auto;
-      }
-
-      .situations-close {
-        grid-template-columns: 1fr;
-        justify-items: center;
-        text-align: center;
-      }
-
-      .situations-close::before,
-      .situations-close::after {
-        display: none;
-      }
-
-      .diff-section {
-        padding: 54px 16px 62px;
-      }
-
-      .diff-lede {
-        font-size: 17px;
-      }
-
-      .diff-grid {
-        grid-template-columns: 1fr;
-        gap: 12px;
-      }
-
-      .diff-card {
-        min-height: auto;
-        grid-template-columns: 70px 1fr;
-        gap: 14px;
-      }
-
-      .diff-close {
-        grid-template-columns: 1fr;
-        justify-items: center;
-        text-align: center;
-      }
-
-      .proof-section {
-        padding: 54px 16px 62px;
-      }
-
-      .proof-lede {
-        font-size: 17px;
-      }
-
-      .proof-card {
-        min-height: auto;
-        padding: 20px 20px 22px;
-      }
-
-      .faq-section {
-        padding: 54px 16px 62px;
-      }
-
-      .faq-lede {
-        font-size: 17px;
-      }
-
-      .faq-item {
-        padding: 0;
-      }
-
-      .faq-question {
-        padding: 18px 18px 12px;
-      }
-
-      .faq-answer {
-        padding: 0 18px 18px;
-      }
-
-      .final-cta {
-        padding: 56px 16px 62px;
-      }
-
-      .final-cta h2 {
-        font-size: clamp(36px, 10vw, 52px);
-      }
-
-      .final-lede {
-        font-size: 17px;
-      }
-
-      .final-button {
-        min-height: 68px;
-        padding: 0 22px;
-        font-size: clamp(20px, 5vw, 24px);
-        gap: 14px;
-      }
-
-      .final-arrow {
-        font-size: 30px;
-      }
-
-      .final-badges {
-        gap: 10px;
-      }
-
-      .final-badge {
-        width: 100%;
-        justify-content: center;
-      }
-
-      .final-panel {
-        padding: 18px;
-      }
-
-      .final-step-icon {
-        width: 60px;
-        height: 60px;
-      }
-
-      .final-footer {
-        font-size: 17px;
       }
 
     }
   </style>
 </head>
-  <body>
-    <noscript>
-      <img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1686151149414910&ev=PageView&noscript=1">
-    </noscript>
-    <main class="page">
-    <nav class="site-nav" aria-label="Primary">
-      <div class="site-nav__inner">
-        <div class="site-nav__brand">The Local Jobs Recovery System</div>
-        <a class="site-nav__cta" href="#final-title">Get Instant Access</a>
+<body>
+  <header class="navbar">
+    <div class="navbar__inner">
+      <a class="navbar__brand" href="#top">The No-Nonsense AI Starter Guide</a>
+      <div class="navbar__actions">
+        <a class="navbar__btn navbar__btn--primary" href="#guide-section">Get The Guide</a>
       </div>
-    </nav>
-    <div class="launch-bar">Launch offer <strong><del>&pound;19</del> &pound;9</strong> with code <strong class="launch-code">Launch10</strong></div>
-    <section class="hero" aria-labelledby="page-title">
-      <div class="hero-grid">
-        <div class="copy">
-          <div class="eyebrow">For Trades And Local Service Businesses</div>
-          <h1 id="page-title">Find What&rsquo;s Costing You Jobs - And Fix It</h1>
-          <p class="lede">Missed calls, quiet quotes, no-shows, weak follow-up, and other hidden gaps can quietly cost you jobs and revenue. This system helps you find the biggest leaks, see what they are costing you, then shows you how to fix them.</p>
+    </div>
+  </header>
+  <main class="page">
+    <section class="hero" id="top">
+      <div class="hero__inner" aria-label="Hero section for AI starter guide">
+        <div class="content">
+          <p class="eyebrow">For UK trades & local service businesses</p>
+          <h1>Finally Understand How AI Can Actually Help Your Local Business</h1>
+          <p class="lead">
+            A plain-English guide that shows what AI is useful for, what to ignore, and how to start using it in simple everyday business situations - without jargon, hype, or complicated setup.
+          </p>
 
-          <div class="cta-row">
-            <a class="cta buy-link" href="https://buy.stripe.com/8x228q86T64k46k6dQbZe0I" aria-label="Get instant access for nineteen pounds">
-              <span class="lock" aria-hidden="true">
-                <svg width="17" height="17" viewBox="0 0 24 24" fill="none">
-                  <path d="M7 10V8a5 5 0 0 1 10 0v2" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
-                  <path d="M6 10h12v10H6V10Z" fill="currentColor"/>
-                </svg>
-              </span>
-              Get Instant Access For <del>&pound;19</del> &pound;9
-            </a>
-            <p class="microcopy">No CRM. No tech setup. No extra admin. No monthly subscription.</p>
-          </div>
-
-          <div class="price-proof" aria-label="One time price">
-            <img class="seal" src="sitic8-small.jpg" alt="">
-            <div>
-              <strong>&pound;19 one time</strong>
-              <span>Yours forever.</span>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="visual" aria-label="Product preview showing lost jobs and the fix">
-          <div class="product-glow" aria-hidden="true"></div>
-            <picture>
-              <source media="(max-width: 960px)" srcset="heroimg-mobile.webp">
-              <source media="(min-width: 961px)" srcset="desktopheroimg.jpg">
-              <img class="product-shot" src="heroimg.webp" alt="Diagram showing lost jobs through missed calls, quiet quotes, and weak follow-up, then the steps to spot the problem, see the cost, and fix the right thing." width="1280" height="960" loading="eager" fetchpriority="high" decoding="async">
-            </picture>
-        </div>
-      </div>
-
-    </section>
-
-    <section class="slipping" aria-labelledby="slipping-title">
-      <div class="slipping-inner">
-        <p class="section-kicker">Where Jobs &amp; Money Can Leak Out</p>
-        <h2 id="slipping-title">Most businesses do not have one big problem. They have a few small leaks adding up.</h2>
-          <p class="section-lede">Sometimes it is a missed call. Sometimes it is a quiet quote, a no-show, weak follow-up, underpricing, or a busy day with no clear system.<br>On their own, each issue can seem small. Together, they can quietly cost you jobs and revenue.</p>
-
-        <div class="leak-grid" aria-label="Common ways jobs are lost">
-          <article class="leak-card">
-            <img class="leak-visual" src="icon1-small.jpg" alt="Missed call illustration">
-            <div>
-              <h3>Missed calls</h3>
-              <div class="mini-rule"></div>
-              <p>Calls come in, but not every one turns into a real conversation.</p>
-            </div>
-          </article>
-
-          <article class="leak-card">
-            <img class="leak-visual" src="icon2-small.jpg" alt="Quote sent then silence illustration">
-            <div>
-              <h3>Quiet quotes</h3>
-              <div class="mini-rule"></div>
-              <p>The quote gets sent, then nothing clear happens next.</p>
-            </div>
-          </article>
-
-          <article class="leak-card">
-            <img class="leak-visual" src="noshow-small.jpg" alt="No-show illustration">
-            <div>
-              <h3>No-shows</h3>
-              <div class="mini-rule"></div>
-              <p>Time gets booked, then the job never happens.</p>
-            </div>
-          </article>
-
-          <article class="leak-card">
-            <img class="leak-visual" src="icon3-small.jpg" alt="Weak follow-up illustration">
-            <div>
-              <h3>Weak follow-up</h3>
-              <div class="mini-rule"></div>
-              <p>A good enquiry stalls because nobody is sure what happens next.</p>
-            </div>
-          </article>
-
-          <article class="leak-card">
-            <img class="leak-visual" src="underpricing-small.jpg" alt="Underpricing illustration">
-            <div>
-              <h3>Underpricing</h3>
-              <div class="mini-rule"></div>
-              <p>Work comes in, but the margin is thinner than it should be.</p>
-            </div>
-          </article>
-
-          <article class="leak-card">
-            <img class="leak-visual" src="icon4-small.jpg" alt="Busy day and no clear system illustration">
-            <div>
-              <h3>Busy day, no clear system</h3>
-              <div class="mini-rule"></div>
-              <p>When everything lives in your head, your phone, or scraps of paper, leaks are hard to see.</p>
-            </div>
-          </article>
-        </div>
-
-        <div class="handoff">
-          <p>The challenge is not always getting more enquiries.<br>It is knowing where work and money are slipping away, how much that may be costing you, and what to do next.</p>
-          <h3>That is what this system helps you do.</h3>
-          <svg class="underline-swoosh" viewBox="0 0 520 14" fill="none" aria-hidden="true">
-            <path d="M5 10c94-12 292-12 510-3" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
-          </svg>
-          <div class="next-step">
-            <span>First, find the biggest leaks. Then see what they may be costing you. Then use the right playbook to fix them and keep more jobs and revenue in the business.</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="process" aria-labelledby="process-title">
-      <div class="process-inner">
-        <p class="center-kicker">How It Works + What&rsquo;s Inside</p>
-        <h2 id="process-title">A simple process for finding the leaks, seeing the cost, and fixing the right things</h2>
-        <p class="process-lede">This is not another CRM, another monthly tool, or another system to wrestle with.<br>It is a practical way to see where jobs and revenue may be slipping away, what that may be costing you, and what to do next.</p>
-
-        <div class="process-grid" aria-label="Three step process">
-          <article class="process-card">
-            <span class="step-label">Step 1</span>
-            <div class="process-copy">
-              <h3>Spot the problems</h3>
-              <p>Start with the checklist to see where work is actually being lost.</p>
-              <ul class="check-list">
-                <li>Missed calls</li>
-                <li>Quotes going quiet</li>
-                <li>Weak follow-up</li>
-                <li>No clear next step</li>
-              </ul>
-            </div>
-            <img class="process-art" src="checklist.jpg" alt="Checklist for spotting where work is slipping away">
-            <div class="included">
-              <span><strong>Included:</strong> Where Work Is Slipping Away Checklist</span>
-            </div>
-          </article>
-
-          <article class="process-card">
-            <span class="step-label">Step 2</span>
-            <div class="process-copy">
-              <h3>See the cost</h3>
-              <p>Once you know where the biggest losses are, use the calculator to put a number on them.</p>
-              <ul class="check-list">
-                <li>Jobs slipping away</li>
-                <li>Missed revenue</li>
-                <li>Biggest cost first</li>
-              </ul>
-            </div>
-            <img class="process-art" src="calc.png" alt="Missed work cost calculator">
-            <div class="included">
-              <span><strong>Included:</strong> Missed Work Cost Calculator</span>
-            </div>
-          </article>
-
-          <article class="process-card">
-            <span class="step-label">Step 3</span>
-            <div class="process-copy">
-              <h3>Fix the right things</h3>
-              <p>Once you know what is going wrong, and what it may be costing you, you can stop guessing and fix the right issues first.</p>
-              <ul class="check-list">
-                <li>Clear next steps</li>
-                <li>Situation-based fixes</li>
-                <li>Stop guessing</li>
-              </ul>
-            </div>
-            <img class="process-art" src="playbook.png" alt="Next move playbook">
-            <div class="included">
-              <span><strong>Included:</strong> The Next Move Playbook</span>
-            </div>
-          </article>
-        </div>
-
-        <h3 class="inside-title">What&rsquo;s inside</h3>
-        <div class="inside-grid" aria-label="What is included">
-          <div class="inside-item">
-            <div>
-              <strong>Where Work Is Slipping Away Checklist</strong>
-              <span>A simple audit to help you spot where jobs are being lost after first contact.</span>
-            </div>
-          </div>
-
-          <div class="inside-item">
-            <div>
-              <strong>Missed Work Cost Calculator</strong>
-              <span>A quick way to estimate what those leaks may be costing in missed jobs and revenue.</span>
-            </div>
-          </div>
-
-          <div class="inside-item">
-            <div>
-              <strong>Situation Playbooks</strong>
-              <span>Clear next steps for the moments where work usually slips away.</span>
-            </div>
-          </div>
-
-          <div class="inside-item">
-            <div>
-              <strong>Simple Tracker</strong>
-              <span>A lightweight way to keep on top of follow-up and stop jobs disappearing into the cracks.</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="process-close">
-          <img class="gold-shield" src="sitic8-small.jpg" alt="">
-          <span>Spot the problems. See the cost. Fix the right things.</span>
-        </div>
-
-        <div class="hero-testimonial hero-testimonial--process">
-          <p class="hero-testimonial-kicker">What Customers Are Saying:</p>
-          <img class="testimonial-shot testimonial-shot--hero" src="herotestimonial.jpg" alt="Customer testimonial screenshot" width="1170" height="662" decoding="async" fetchpriority="high">
-        </div>
-      </div>
-    </section>
-
-    <section class="outcomes" aria-labelledby="outcomes-title">
-      <div class="outcomes-inner">
-        <p class="center-kicker">Before vs After</p>
-        <h2 id="outcomes-title">The same enquiries can lead to two very different outcomes</h2>
-        <p class="outcomes-lede">The difference is not always the quality of the enquiry. It is what happens next.</p>
-
-        <div class="comparison">
-          <figure class="comparison-panel">
-            <img src="before.jpg" alt="Before: missed calls, unclear quotes, late follow-up, and lost jobs">
-          </figure>
-
-          <svg class="compare-arrow" viewBox="0 0 96 72" fill="none" aria-hidden="true">
-            <path d="M4 36h72" stroke="currentColor" stroke-width="18" stroke-linecap="round"/>
-            <path d="M54 8 88 36 54 64V8Z" fill="currentColor"/>
-          </svg>
-
-          <figure class="comparison-panel">
-            <img src="after.jpg" alt="After: spot leaks, see the cost, fix the right problem, and book more jobs">
-          </figure>
-        </div>
-
-        <div class="same-business">
-          <img class="shield" src="sitic8-small.jpg" alt="">
-          <span>Same business. Same type of enquiries. Better next steps. Better outcome.</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="situations" aria-labelledby="situations-title">
-      <div class="situations-inner">
-        <p class="center-kicker">Situations It Helps Fix</p>
-        <h2 id="situations-title">The common places jobs and money tend to leak out</h2>
-        <p class="situations-lede">Built around the real situations where work gets missed, quotes stall, time gets wasted, margins get squeezed, and revenue quietly slips away.</p>
-
-        <div class="situation-grid" aria-label="Situations this process helps fix">
-          <article class="situation-card">
-            <img class="situation-icon" src="sitic1-small.jpg" alt="">
-            <h3>Missed call, no callback</h3>
-            <p>You&rsquo;re on a job. The phone rings. By the time you get back to it, the moment may already have gone.</p>
-          </article>
-
-          <article class="situation-card">
-            <img class="situation-icon" src="sitic2-small.jpg" alt="">
-            <h3>Quote sent, then silence</h3>
-            <p>The quote goes out, but there is no clear next step, no follow-up, and the job slowly goes cold.</p>
-          </article>
-
-          <article class="situation-card">
-            <img class="situation-icon" src="noshow-small.jpg" alt="">
-            <h3>No-show or late cancellation</h3>
-            <p>Time gets blocked out, then the customer does not turn up or drops out too late to fill the gap.</p>
-          </article>
-
-          <article class="situation-card">
-            <img class="situation-icon" src="sitic5-small.jpg" alt="">
-            <h3>Follow-up keeps slipping</h3>
-            <p>You mean to chase it, check in, or call back - but the day gets away from you and good work stalls.</p>
-          </article>
-
-          <article class="situation-card">
-            <img class="situation-icon" src="underpricing-small.jpg" alt="">
-            <h3>Underpricing the work</h3>
-            <p>The job gets booked, but the margin is weaker than it should be, so money is lost even when work comes in.</p>
-          </article>
-
-          <article class="situation-card">
-            <img class="situation-icon" src="sitic7-small.jpg" alt="">
-            <h3>Busy day, no system</h3>
-            <p>Some things are in your phone. Some are in your head. Some are on paper. The leaks are there, but they are hard to see clearly.</p>
-          </article>
-        </div>
-
-        <div class="situations-close">
-          <img class="gold-shield" src="sitic8-small.jpg" alt="">
-          <strong>Wherever the leaks are, this system helps you find them, see what they may be costing you, and fix the right things first.</strong>
-        </div>
-      </div>
-    </section>
-
-    <section class="diff-section" aria-labelledby="diff-title">
-      <div class="diff-inner">
-        <p class="center-kicker">Why This Is Different</p>
-        <h2 id="diff-title">Not another CRM. Not another monthly tool. Just a clearer way to stop jobs and money slipping away.</h2>
-        <p class="diff-lede">Most local businesses do not need more software to manage. They need a simple way to see where work is being lost, what it may be costing them, and what to fix first.</p>
-
-        <div class="diff-grid" aria-label="Why this is different">
-          <article class="diff-card">
-            <img class="diff-icon" src="difficon1-small.jpg" alt="">
-            <div>
-              <h3>No heavy system to learn</h3>
-              <p>You do not need to set up a big platform, train a team, or keep another tool updated just to make this useful.</p>
-            </div>
-          </article>
-
-          <article class="diff-card">
-            <img class="diff-icon" src="difficon2-small.jpg" alt="">
-            <div>
-              <h3>No monthly subscription</h3>
-              <p>Pay once, use it straight away, and keep it. No rolling cost just to stay on top of your own process.</p>
-            </div>
-          </article>
-
-          <article class="diff-card">
-            <img class="diff-icon" src="difficon4-small.jpg" alt="">
-            <div>
-              <h3>Not just message taking</h3>
-              <p>This is not about collecting missed calls and hoping for the best. It helps you see the leaks, size the real issues, and know what to do next.</p>
-            </div>
-          </article>
-
-          <article class="diff-card">
-            <img class="diff-icon" src="difficon3-small.jpg" alt="">
-            <div>
-              <h3>Built around real local business leaks</h3>
-              <p>Missed calls. Quiet quotes. No-shows. Weak follow-up. Underpricing. Busy days with no clear system. The things that quietly cost jobs and revenue.</p>
-            </div>
-          </article>
-
-          <article class="diff-card">
-            <img class="diff-icon" src="diffbull.jpg" alt="">
-            <div>
-              <h3>Find what matters most first</h3>
-              <p>Instead of guessing, you can work out which leaks are doing the most damage and focus on fixing those first.</p>
-            </div>
-          </article>
-
-          <article class="diff-card">
-            <img class="diff-icon" src="sitic7-small.jpg" alt="">
-            <div>
-              <h3>Clear next steps, not more admin</h3>
-              <p>Once you know what is wrong, you get the playbook, scripts, and practical next steps to help you fix it.</p>
-            </div>
-          </article>
-        </div>
-
-        <div class="diff-close">
-          <img class="gold-shield" src="diffbull.jpg" alt="">
-          <strong class="diff-support">This is for local businesses that do not want another system to babysit. They want to fix the things costing them work and revenue, in a simple, practical way.</strong>
-        </div>
-
-        <div class="diff-footer">Simple to use. Practical to act on. Built to help you keep more jobs and more revenue.</div>
-      </div>
-    </section>
-
-    <section class="proof-section" aria-labelledby="proof-title">
-      <div class="proof-inner">
-        <p class="center-kicker">Proof / Credibility</p>
-        <h2 id="proof-title">What business owners say after using it</h2>
-        <p class="proof-lede">Built for busy trades and local service businesses that want clarity, not another system to manage.</p>
-
-        <div class="proof-grid" aria-label="Testimonials">
-          <article class="proof-card">
-            <div class="quote-mark" aria-hidden="true">&ldquo;</div>
-            <p>Didn&rsquo;t expect much for &pound;19 if I&rsquo;m honest. Thought it&rsquo;d be a thin checklist. It&rsquo;s actually a properly thought-through system. Way more in it than I expected.</p>
-            <footer>&ndash; <strong>Mark</strong>, plumbing &amp; heating, reviewed JobLeakFix</footer>
-          </article>
-
-          <article class="proof-card">
-            <div class="quote-mark" aria-hidden="true">&ldquo;</div>
-            <p>I&rsquo;m on the tools all day. I don&rsquo;t need another app to babysit. This was straightforward, made sense fast, and helped me see what needed fixing first.</p>
-            <footer>&ndash; <strong>Ryan</strong>, electrician, reviewed JobLeakFix</footer>
-          </article>
-
-          <article class="proof-card">
-            <div class="quote-mark" aria-hidden="true">&ldquo;</div>
-            <p>Most stuff like this is fluff. This wasn&rsquo;t. It showed where we were leaking work, what it was likely costing, and what to do next. Simple.</p>
-            <footer>&ndash; <strong>Dave</strong>, roofing contractor, reviewed JobLeakFix</footer>
-          </article>
-
-          <article class="proof-card">
-            <div class="quote-mark" aria-hidden="true">&ldquo;</div>
-            <p>What I liked was that it didn&rsquo;t just point out the issues. It actually helped me work out which ones mattered most and gave me something usable to fix them.</p>
-            <footer>&ndash; <strong>Chris</strong>, landscaping, reviewed JobLeakFix</footer>
-          </article>
-        </div>
-
-        <div class="proof-footer">Simple to use. Practical to act on. Built for real local businesses.</div>
-      </div>
-    </section>
-
-    <section class="faq-section" aria-labelledby="faq-title">
-      <div class="faq-inner">
-        <p class="center-kicker">FAQ</p>
-        <h2 id="faq-title">Questions business owners usually ask before buying</h2>
-        <p class="faq-lede">Straight answers for trades and local service businesses that want clarity, not more software to babysit.</p>
-
-        <div class="faq-list" aria-label="Frequently asked questions">
-          <details class="faq-item">
-            <summary class="faq-question">
-              <h3>What exactly is this?</h3>
-              <span class="faq-toggle" aria-hidden="true">+</span>
-            </summary>
-            <div class="faq-answer">
-              <p>It is a practical system that helps you spot where jobs and money may be slipping away after first contact, work out what those issues may be costing you, and then take the right next steps to fix them.</p>
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary class="faq-question">
-              <h3>Who is it for?</h3>
-              <span class="faq-toggle" aria-hidden="true">+</span>
-            </summary>
-            <div class="faq-answer">
-              <p>It is built for local service businesses and trades like plumbing, electrical, roofing, landscaping, heating, cleaning, and similar businesses where missed calls, weak follow-up, no-shows, and underpricing can quietly cost work.</p>
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary class="faq-question">
-              <h3>What kinds of leaks does it help with?</h3>
-              <span class="faq-toggle" aria-hidden="true">+</span>
-            </summary>
-            <div class="faq-answer">
-              <p>It helps with missed calls, quiet quotes, no-shows, follow-up slipping, underpricing, and the general mess that happens when everything lives in your phone, your head, or on scraps of paper.</p>
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary class="faq-question">
-              <h3>How is it different from a CRM?</h3>
-              <span class="faq-toggle" aria-hidden="true">+</span>
-            </summary>
-            <div class="faq-answer">
-              <p>This is not another big system to set up, learn, manage, and keep updated. It is a simpler way to see where work is being lost, size the damage, and get practical guidance on what to fix first.</p>
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary class="faq-question">
-              <h3>What happens after I find the biggest leak?</h3>
-              <span class="faq-toggle" aria-hidden="true">+</span>
-            </summary>
-            <div class="faq-answer">
-              <p>You use the cost calculator to see what that issue may be worth in lost jobs or revenue, then follow the right playbook, script, or next-step process to fix it and keep more work moving.</p>
-            </div>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="final-cta" aria-labelledby="final-title">
-      <div class="final-inner">
-        <p class="center-kicker">Final Step</p>
-        <h2 id="final-title">Find what&rsquo;s costing you jobs - and fix the right things first</h2>
-        <p class="final-lede">If work and money are slipping away somewhere in the business, this gives you a simple way to find the leaks, see what they may be costing you, and take clear action to fix them.</p>
-
-        <a class="final-button buy-link" href="https://buy.stripe.com/8x228q86T64k46k6dQbZe0I" aria-label="Get instant access for nineteen pounds">
-          <span>Get Instant Access For &pound;19</span>
-          <span class="final-arrow" aria-hidden="true">&rarr;</span>
-        </a>
-
-        <p class="final-price">&pound;19 one time. Yours to keep.</p>
-
-        <div class="final-badges" aria-label="Key benefits">
-          <span class="final-badge">No CRM</span>
-          <span class="final-badge">No tech setup</span>
-          <span class="final-badge">No monthly subscription</span>
-        </div>
-
-        <div class="final-panel" aria-label="Three step process">
-          <div class="final-step">
-            <div class="final-step-icon" aria-hidden="true">
-              <svg width="34" height="34" viewBox="0 0 24 24" fill="none">
-                <circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/>
-                <path d="M16 16L21 21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          <ul class="features">
+            <li>
+              <svg class="check" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+                <circle cx="16" cy="16" r="15" fill="#1e7f8a"></circle>
+                <path d="M9.2 16.6l4 4.1 9-9.4" fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"></path>
               </svg>
-            </div>
-            <div>
-              <strong>Find the leaks</strong>
-              <span>See where work and money are slipping.</span>
-            </div>
+              <span>See where AI can actually help with replies, quotes, follow-ups, reviews, and admin</span>
+            </li>
+            <li>
+              <svg class="check" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+                <circle cx="16" cy="16" r="15" fill="#1e7f8a"></circle>
+                <path d="M9.2 16.6l4 4.1 9-9.4" fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+              <span>Know what AI tools, trends, and complicated setups you can ignore for now</span>
+            </li>
+            <li>
+              <svg class="check" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+                <circle cx="16" cy="16" r="15" fill="#1e7f8a"></circle>
+                <path d="M9.2 16.6l4 4.1 9-9.4" fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+              <span>Learn how to use AI without sounding robotic or fake</span>
+            </li>
+            <li>
+              <svg class="check" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+                <circle cx="16" cy="16" r="15" fill="#1e7f8a"></circle>
+                <path d="M9.2 16.6l4 4.1 9-9.4" fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+              <span>Built for busy trades and local service owners who just want the useful bits</span>
+            </li>
+          </ul>
+
+          <div class="cta-block">
+            <button class="cta" type="button">Get The Guide</button>
+            <p class="price">Instant access today for <strong>£17</strong></p>
+            <p class="fineprint">No AI experience needed. No new software to learn. No technical setup.</p>
+          </div>
+        </div>
+
+        <div class="visual">
+          <img src="productimage.jpg" alt="The No-Nonsense AI Starter Guide book cover" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--muted" aria-label="Problem section">
+      <div class="section__inner">
+        <div class="section__content">
+          <p class="section__eyebrow">THE PROBLEM</p>
+          <h2 class="section__title">Everyone's Talking About AI, But Nobody Explains It Properly</h2>
+          <p class="section__copy">You hear about AI everywhere now.</p>
+          <p class="section__copy">People say it can save time, write your content, reply to customers, automate your admin, and help you run your business better.</p>
+          <p class="section__copy">But when you actually look into it, it quickly gets confusing.</p>
+          <div class="pullquote">"What can this actually do for my business?"</div>
+          <p class="section__copy">If you run a trade or local service business, you probably do not have time to mess around with clever tools that sound impressive but never get used.</p>
+          <ul class="section__list">
+            <li>
+              <svg class="check" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+                <circle cx="16" cy="16" r="15" fill="#1e7f8a"></circle>
+                <path d="M9.2 16.6l4 4.1 9-9.4" fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+              <span>Confused by all the AI talk</span>
+            </li>
+            <li>
+              <svg class="check" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+                <circle cx="16" cy="16" r="15" fill="#1e7f8a"></circle>
+                <path d="M9.2 16.6l4 4.1 9-9.4" fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+              <span>Don't want to waste time on the wrong tools</span>
+            </li>
+            <li>
+              <svg class="check" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+                <circle cx="16" cy="16" r="15" fill="#1e7f8a"></circle>
+                <path d="M9.2 16.6l4 4.1 9-9.4" fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+              <span>Not sure what's useful and what's hype</span>
+            </li>
+            <li>
+              <svg class="check" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+                <circle cx="16" cy="16" r="15" fill="#1e7f8a"></circle>
+                <path d="M9.2 16.6l4 4.1 9-9.4" fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+              <span>Want the simple answer in plain English</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="problem-visual">
+          <img class="problem-visual__bg" src="image.jpg" alt="Problem section illustration with AI confusion imagery" />
+          <div class="problem-visual__overlay" aria-hidden="true"></div>
+        </div>
+      </div>
+
+      <div class="section__note">
+        <div class="section__note-line"></div>
+        <img class="section__note-badge" src="lightbulb.png" alt="" aria-hidden="true" />
+        <p class="section__note-text">You don't need to become an AI expert. You just need to know what actually matters.</p>
+        <div class="section__note-line"></div>
+      </div>
+    </section>
+
+    <section class="simple-section section--warm" aria-label="Simple practical AI section">
+      <div class="simple-section__inner">
+        <div>
+          <p class="simple-section__eyebrow">SIMPLE, PRACTICAL AI</p>
+          <h2 class="simple-section__title">You Don’t Need To Become An AI Expert</h2>
+          <div class="simple-section__rule"></div>
+          <p class="simple-section__copy">Most AI advice makes it sound like you need new tools, new systems, prompts, automations, and jargon.</p>
+          <p class="simple-section__copy">But if you run a trade or local service business, that is not where to start.</p>
+          <p class="simple-section__copy"><strong>You just need to know the few places AI can actually help.</strong></p>
+
+          <div class="info-box">
+            <p class="info-box__title">This guide shows you how AI can help with:</p>
+            <ul class="info-box__list">
+              <li><svg class="check" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle cx="16" cy="16" r="15" fill="#1e5fb3"></circle><path d="M9.2 16.6l4 4.1 9-9.4" fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Writing clearer customer replies</span></li>
+              <li><svg class="check" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle cx="16" cy="16" r="15" fill="#1e5fb3"></circle><path d="M9.2 16.6l4 4.1 9-9.4" fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Improving quote wording</span></li>
+              <li><svg class="check" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle cx="16" cy="16" r="15" fill="#1e5fb3"></circle><path d="M9.2 16.6l4 4.1 9-9.4" fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Chasing follow-ups</span></li>
+              <li><svg class="check" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle cx="16" cy="16" r="15" fill="#1e5fb3"></circle><path d="M9.2 16.6l4 4.1 9-9.4" fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Asking for reviews</span></li>
+              <li><svg class="check" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle cx="16" cy="16" r="15" fill="#1e5fb3"></circle><path d="M9.2 16.6l4 4.1 9-9.4" fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Responding to awkward messages</span></li>
+              <li><svg class="check" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle cx="16" cy="16" r="15" fill="#1e5fb3"></circle><path d="M9.2 16.6l4 4.1 9-9.4" fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Turning rough notes into something professional</span></li>
+            </ul>
           </div>
 
-          <div class="final-step-arrow" aria-hidden="true">&rarr;</div>
-
-          <div class="final-step">
-            <div class="final-step-icon" aria-hidden="true">
-              <svg width="34" height="34" viewBox="0 0 24 24" fill="none">
-                <circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.8"/>
-                <path d="M8.5 12H15.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                <path d="M12 8.5V15.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-              </svg>
-            </div>
+          <div class="benefit-box">
+            <img class="benefit-box__icon" src="lightbulb.png" alt="" aria-hidden="true" />
             <div>
-              <strong>See what they&rsquo;re costing you</strong>
-              <span>Understand the real impact on jobs and revenue.</span>
-            </div>
-          </div>
-
-          <div class="final-step-arrow" aria-hidden="true">&rarr;</div>
-
-          <div class="final-step">
-            <div class="final-step-icon" aria-hidden="true">
-              <svg width="34" height="34" viewBox="0 0 24 24" fill="none">
-                <path d="M7 6h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                <path d="M7 10h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                <path d="M7 14h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                <path d="M18 5v14H6V5h12Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-              </svg>
-            </div>
-            <div>
-              <strong>Fix the right things</strong>
-              <span>Get clear, practical next steps that move the needle.</span>
+              <p class="benefit-box__title">No technical background needed.</p>
+              <p class="benefit-box__copy">No complicated setup. No need to become "the AI person". Just a practical guide to what actually matters.</p>
             </div>
           </div>
         </div>
 
-        <p class="final-footer">Built for busy trades and local service businesses that want clarity, practical next steps, and a better handle on what happens after the enquiry comes in.</p>
+      </div>
+    </section>
+
+    <section class="uses-section" aria-label="Real business uses section">
+      <div class="uses-section__inner">
+        <div>
+          <p class="uses-section__eyebrow">REAL BUSINESS USES</p>
+          <h2 class="uses-section__title">What This Helps You Do In Real Business Situations</h2>
+          <p class="uses-section__copy">This guide shows you the simple, practical ways AI can help with the everyday messages and admin jobs that already come up in your business.</p>
+          <p class="uses-section__copy">Not theory. Not complicated systems. Just real situations where better wording can save time, avoid confusion, and make your business look more professional.</p>
+
+          <ul class="uses-list">
+            <li><svg class="check" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle cx="16" cy="16" r="15" fill="#1e5fb3"></circle><path d="M9.2 16.6l4 4.1 9-9.4" fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Reply to new enquiries</span></li>
+            <li><svg class="check" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle cx="16" cy="16" r="15" fill="#1e5fb3"></circle><path d="M9.2 16.6l4 4.1 9-9.4" fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Write clearer quote wording</span></li>
+            <li><svg class="check" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle cx="16" cy="16" r="15" fill="#1e5fb3"></circle><path d="M9.2 16.6l4 4.1 9-9.4" fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Chase follow-ups more easily</span></li>
+            <li><svg class="check" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle cx="16" cy="16" r="15" fill="#1e5fb3"></circle><path d="M9.2 16.6l4 4.1 9-9.4" fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Ask for reviews without awkwardness</span></li>
+            <li><svg class="check" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle cx="16" cy="16" r="15" fill="#1e5fb3"></circle><path d="M9.2 16.6l4 4.1 9-9.4" fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Respond to complaints professionally</span></li>
+            <li><svg class="check" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle cx="16" cy="16" r="15" fill="#1e5fb3"></circle><path d="M9.2 16.6l4 4.1 9-9.4" fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Turn rough notes into clear messages</span></li>
+          </ul>
+        </div>
+
+        <div class="uses-grid">
+          <article class="use-card">
+            <img class="use-card__icon" src="icon1.jpg" alt="" aria-hidden="true" />
+            <p class="use-card__title">Customer Replies</p>
+            <p class="use-card__copy">Clearer, faster replies</p>
+          </article>
+          <article class="use-card">
+            <img class="use-card__icon" src="icon2.jpg" alt="" aria-hidden="true" />
+            <p class="use-card__title">Quote Wording</p>
+            <p class="use-card__copy">Professional wording</p>
+          </article>
+          <article class="use-card">
+            <img class="use-card__icon" src="icon3.jpg" alt="" aria-hidden="true" />
+            <p class="use-card__title">Follow-Ups</p>
+            <p class="use-card__copy">Timely, polite follow-ups</p>
+          </article>
+          <article class="use-card">
+            <img class="use-card__icon" src="icon4.jpg" alt="" aria-hidden="true" />
+            <p class="use-card__title">Review Requests</p>
+            <p class="use-card__copy">Simple review requests</p>
+          </article>
+          <article class="use-card">
+            <img class="use-card__icon" src="icon5.jpg" alt="" aria-hidden="true" />
+            <p class="use-card__title">Bad Review Response</p>
+            <p class="use-card__copy">Calm, professional replies</p>
+          </article>
+          <article class="use-card">
+            <img class="use-card__icon" src="icon6.jpg" alt="" aria-hidden="true" />
+            <p class="use-card__title">Complaint Handling</p>
+            <p class="use-card__copy">Handle issues with care</p>
+          </article>
+
+          <div class="uses-callout">
+            <img class="uses-callout__icon" src="icon7.jpg" alt="" aria-hidden="true" />
+            <p class="uses-callout__text">Less blank-page admin. More clear, usable wording.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="fit-section" aria-label="Trust and fit section">
+      <div class="fit-section__inner">
+        <div>
+          <p class="fit-section__eyebrow">TRUST &amp; FIT</p>
+          <h2 class="fit-section__title">Built For Busy Trades &amp; Local Service Owners</h2>
+          <p class="fit-section__copy">This guide is made for business owners who are busy quoting jobs, replying to customers, managing diaries, chasing payments, and getting the work done.</p>
+
+          <ul class="fit-list">
+            <li><svg class="check" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle cx="16" cy="16" r="15" fill="#1e5fb3"></circle><path d="M9.2 16.6l4 4.1 9-9.4" fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>No jargon</span></li>
+            <li><svg class="check" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle cx="16" cy="16" r="15" fill="#1e5fb3"></circle><path d="M9.2 16.6l4 4.1 9-9.4" fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>No complicated setup</span></li>
+            <li><svg class="check" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle cx="16" cy="16" r="15" fill="#1e5fb3"></circle><path d="M9.2 16.6l4 4.1 9-9.4" fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>No guru hype</span></li>
+            <li><svg class="check" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle cx="16" cy="16" r="15" fill="#1e5fb3"></circle><path d="M9.2 16.6l4 4.1 9-9.4" fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>No new software</span></li>
+            <li><svg class="check" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle cx="16" cy="16" r="15" fill="#1e5fb3"></circle><path d="M9.2 16.6l4 4.1 9-9.4" fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>No technical background needed</span></li>
+          </ul>
+
+          <div class="fit-callout">
+            <img class="fit-callout__icon" src="tficon5.jpg" alt="" aria-hidden="true" />
+            <p class="fit-callout__text"><strong>Just a practical guide</strong> that helps you understand what matters, ignore what doesn't, and start using AI in a way that fits your business.</p>
+          </div>
+        </div>
+
+        <div class="fit-panel">
+          <div class="fit-grid">
+            <article class="fit-card">
+              <img class="fit-card__icon" src="tficon1.jpg" alt="" aria-hidden="true" />
+              <p class="fit-card__title">No Jargon</p>
+            </article>
+            <article class="fit-card">
+              <img class="fit-card__icon" src="tficon2.jpg" alt="" aria-hidden="true" />
+              <p class="fit-card__title">No Setup</p>
+            </article>
+            <article class="fit-card">
+              <img class="fit-card__icon" src="tficon3.jpg" alt="" aria-hidden="true" />
+              <p class="fit-card__title">No New Software</p>
+            </article>
+            <article class="fit-card">
+              <img class="fit-card__icon" src="tficon4.jpg" alt="" aria-hidden="true" />
+              <p class="fit-card__title">Made For Real Businesses</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="guide-section" id="guide-section" aria-label="Get the guide section">
+      <div class="guide-section__inner">
+        <div>
+          <p class="guide-section__eyebrow">GET THE GUIDE</p>
+          <h2 class="guide-section__title">Get The No-Nonsense AI Starter Guide</h2>
+          <p class="guide-section__copy">You do not need to keep guessing what AI is for. This guide shows what AI can actually help with, what to ignore, and where to start first in a real trade or local service business.</p>
+
+          <p class="guide-section__subhead">What you get today:</p>
+          <ul class="guide-list">
+            <li><svg class="check" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle cx="16" cy="16" r="15" fill="#1e5fb3"></circle><path d="M9.2 16.6l4 4.1 9-9.4" fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Plain-English explanation of what AI is useful for</span></li>
+            <li><svg class="check" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle cx="16" cy="16" r="15" fill="#1e5fb3"></circle><path d="M9.2 16.6l4 4.1 9-9.4" fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Real examples for local service businesses</span></li>
+            <li><svg class="check" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle cx="16" cy="16" r="15" fill="#1e5fb3"></circle><path d="M9.2 16.6l4 4.1 9-9.4" fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Guidance on what AI tools and trends to ignore</span></li>
+            <li><svg class="check" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle cx="16" cy="16" r="15" fill="#1e5fb3"></circle><path d="M9.2 16.6l4 4.1 9-9.4" fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Simple starting points for replies, quotes, follow-ups, reviews, and admin</span></li>
+          </ul>
+
+          <p class="guide-section__price">Get clear on AI today for <strong>£17</strong></p>
+          <button class="guide-section__cta" type="button">Get The Guide</button>
+          <p class="guide-section__fineprint">Instant access. No AI experience needed.</p>
+        </div>
+
       </div>
     </section>
   </main>
-  <script>
-    document.querySelectorAll('a.buy-link[href^="https://buy.stripe.com/"]').forEach((link) => {
-      link.addEventListener('click', (event) => {
-        if (typeof fbq === 'function') {
-          const eventId = `initiate_checkout_${Date.now()}_${Math.random().toString(36).slice(2, 10)}`;
-          fbq('track', 'InitiateCheckout', { value: 9.00, currency: 'GBP' }, { eventID: eventId });
-        }
-        event.preventDefault();
-        const href = link.href;
-        window.setTimeout(() => {
-          window.location.href = href;
-        }, 650);
-      });
-    });
-  </script>
 </body>
 </html>
