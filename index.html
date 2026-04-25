@@ -4,6 +4,29 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AI Starter Guide</title>
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1686151149414910');
+    fbq('track', 'PageView');
+
+    function trackInitiateCheckout(url) {
+      if (window.fbq) {
+        fbq('track', 'InitiateCheckout', {
+          value: 17.00,
+          currency: 'GBP'
+        });
+      }
+      window.location.href = url;
+      return false;
+    }
+  </script>
   <style>
     :root {
       --bg: #fbf8f4;
@@ -200,6 +223,7 @@
       letter-spacing: -0.03em;
       box-shadow: 0 10px 24px rgba(245, 125, 17, 0.18);
       border-bottom: 1px solid rgba(160, 76, 8, 0.22);
+      text-decoration: none;
     }
 
     .price {
@@ -879,6 +903,10 @@
       font-weight: 900;
       letter-spacing: -0.04em;
       box-shadow: 0 18px 36px rgba(255, 106, 0, 0.24);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
     }
 
     .guide-section__fineprint {
@@ -1005,7 +1033,7 @@
     <div class="navbar__inner">
       <a class="navbar__brand" href="#top">The No-Nonsense AI Starter Guide</a>
       <div class="navbar__actions">
-        <a class="navbar__btn navbar__btn--primary" href="#guide-section">Get The Guide</a>
+        <a class="navbar__btn navbar__btn--primary" href="purchase-complete.html" onclick="return trackInitiateCheckout('purchase-complete.html');">Get The Guide</a>
       </div>
     </div>
   </header>
@@ -1051,7 +1079,7 @@
           </ul>
 
           <div class="cta-block">
-            <button class="cta" type="button">Get The Guide</button>
+            <a class="cta" href="purchase-complete.html" onclick="return trackInitiateCheckout('purchase-complete.html');">Get The Guide</a>
             <p class="fineprint">No AI experience needed. No new software to learn. No technical setup.</p>
           </div>
         </div>
@@ -1269,7 +1297,7 @@
             <li><svg class="check" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle cx="16" cy="16" r="15" fill="#1e5fb3"></circle><path d="M9.2 16.6l4 4.1 9-9.4" fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Honest framing around automation, chatbots, and technical estimating so the promise stays realistic</span></li>
           </ul>
 
-          <button class="guide-section__cta" type="button">Get The Guide</button>
+          <a class="guide-section__cta" href="purchase-complete.html" onclick="return trackInitiateCheckout('purchase-complete.html');">Get The Guide</a>
           <p class="guide-section__fineprint">Instant access. No AI experience needed.</p>
         </div>
 
