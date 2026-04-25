@@ -26,6 +26,36 @@
       window.location.href = url;
       return false;
     }
+
+    const checkoutUrl = 'https://buy.stripe.com/6oUeVcevhfEUfP2cCebZe0J';
+
+    function openCheckoutModal() {
+      if (window.fbq) {
+        fbq('track', 'InitiateCheckout', {
+          value: 17.00,
+          currency: 'GBP'
+        });
+      }
+      const modal = document.getElementById('checkout-modal');
+      if (modal) {
+        modal.hidden = false;
+        document.body.style.overflow = 'hidden';
+      }
+      return false;
+    }
+
+    function closeCheckoutModal() {
+      const modal = document.getElementById('checkout-modal');
+      if (modal) {
+        modal.hidden = true;
+        document.body.style.overflow = '';
+      }
+    }
+
+    function continueToCheckout() {
+      window.location.href = checkoutUrl;
+      return false;
+    }
   </script>
   <style>
     :root {
@@ -114,6 +144,115 @@
       background: rgba(255, 255, 255, 0.72);
       color: var(--ink);
       border: 1px solid rgba(12, 23, 51, 0.1);
+    }
+
+    .checkout-modal[hidden] {
+      display: none;
+    }
+
+    .checkout-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: grid;
+      place-items: center;
+      padding: 22px;
+      background: rgba(4, 12, 28, 0.62);
+      backdrop-filter: blur(8px);
+    }
+
+    .checkout-modal__card {
+      width: min(100%, 560px);
+      border-radius: 22px;
+      background: linear-gradient(180deg, #fffaf4 0%, #ffffff 100%);
+      box-shadow: 0 28px 70px rgba(6, 18, 39, 0.28);
+      border: 1px solid rgba(12, 23, 51, 0.08);
+      padding: 28px 26px 24px;
+      position: relative;
+      text-align: center;
+    }
+
+    .checkout-modal__close {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 38px;
+      height: 38px;
+      border: 0;
+      border-radius: 999px;
+      background: rgba(12, 23, 51, 0.06);
+      color: #0c1733;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+
+    .checkout-modal__eyebrow {
+      margin: 0;
+      color: #1e5fb3;
+      font-size: 0.86rem;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .checkout-modal__title {
+      margin: 14px 0 0;
+      font-size: clamp(1.7rem, 3vw, 2.35rem);
+      line-height: 0.98;
+      letter-spacing: -0.05em;
+      font-weight: 900;
+      color: #08172f;
+    }
+
+    .checkout-modal__copy {
+      margin: 16px auto 0;
+      max-width: 28rem;
+      font-size: 1.03rem;
+      line-height: 1.5;
+      color: #384153;
+    }
+
+    .checkout-modal__code {
+      margin: 20px auto 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 56px;
+      padding: 0 22px;
+      border-radius: 14px;
+      background: #08172f;
+      color: #ffffff;
+      font-size: 1.35rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      box-shadow: 0 16px 28px rgba(8, 23, 47, 0.18);
+    }
+
+    .checkout-modal__note {
+      margin: 12px auto 0;
+      max-width: 28rem;
+      font-size: 0.95rem;
+      line-height: 1.45;
+      color: #5a6272;
+    }
+
+    .checkout-modal__cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 22px;
+      width: min(100%, 320px);
+      min-height: 62px;
+      border: 0;
+      border-radius: 14px;
+      background: linear-gradient(180deg, #ff9224 0%, #ff6a00 100%);
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      box-shadow: 0 18px 34px rgba(255, 106, 0, 0.24);
+      cursor: pointer;
     }
 
     .hero, .section {
@@ -1033,7 +1172,7 @@
     <div class="navbar__inner">
       <a class="navbar__brand" href="#top">The No-Nonsense AI Starter Guide</a>
       <div class="navbar__actions">
-        <a class="navbar__btn navbar__btn--primary" href="purchase-complete.html" onclick="return trackInitiateCheckout('purchase-complete.html');">Get The Guide</a>
+        <a class="navbar__btn navbar__btn--primary" href="#" onclick="return openCheckoutModal();">Get The Guide</a>
       </div>
     </div>
   </header>
@@ -1079,7 +1218,7 @@
           </ul>
 
           <div class="cta-block">
-            <a class="cta" href="purchase-complete.html" onclick="return trackInitiateCheckout('purchase-complete.html');">Get The Guide</a>
+            <a class="cta" href="#" onclick="return openCheckoutModal();">Get The Guide</a>
             <p class="fineprint">No AI experience needed. No new software to learn. No technical setup.</p>
           </div>
         </div>
@@ -1297,12 +1436,23 @@
             <li><svg class="check" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle cx="16" cy="16" r="15" fill="#1e5fb3"></circle><path d="M9.2 16.6l4 4.1 9-9.4" fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Honest framing around automation, chatbots, and technical estimating so the promise stays realistic</span></li>
           </ul>
 
-          <a class="guide-section__cta" href="purchase-complete.html" onclick="return trackInitiateCheckout('purchase-complete.html');">Get The Guide</a>
+          <a class="guide-section__cta" href="#" onclick="return openCheckoutModal();">Get The Guide</a>
           <p class="guide-section__fineprint">Instant access. No AI experience needed.</p>
         </div>
 
       </div>
     </section>
   </main>
+  <div class="checkout-modal" id="checkout-modal" hidden>
+    <div class="checkout-modal__card" role="dialog" aria-modal="true" aria-labelledby="checkout-modal-title">
+      <button class="checkout-modal__close" type="button" aria-label="Close" onclick="closeCheckoutModal()">x</button>
+      <p class="checkout-modal__eyebrow">Early Access</p>
+      <h2 class="checkout-modal__title" id="checkout-modal-title">You have early access to a 50% discount</h2>
+      <p class="checkout-modal__copy">Use the code below at checkout to claim your early access discount before completing your order.</p>
+      <div class="checkout-modal__code">EARLY50</div>
+      <p class="checkout-modal__note">Click below to continue to secure Stripe checkout with your discount code ready to use.</p>
+      <a class="checkout-modal__cta" href="https://buy.stripe.com/6oUeVcevhfEUfP2cCebZe0J" onclick="return continueToCheckout();">Continue to checkout</a>
+    </div>
+  </div>
 </body>
 </html>
