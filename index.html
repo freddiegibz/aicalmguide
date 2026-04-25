@@ -155,6 +155,111 @@
       border: 1px solid rgba(24, 19, 16, 0.2);
     }
 
+    .modal[hidden] {
+      display: none !important;
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 40;
+      display: grid;
+      place-items: center;
+      padding: 1.25rem;
+    }
+
+    .modal__backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(24, 19, 16, 0.62);
+      backdrop-filter: blur(5px);
+    }
+
+    .modal__panel {
+      position: relative;
+      width: min(100%, 560px);
+      padding: 2rem;
+      border-radius: 22px;
+      background: linear-gradient(180deg, #fff9f0 0%, #f4e6d0 100%);
+      border: 1px solid rgba(24, 19, 16, 0.12);
+      box-shadow: 0 30px 80px rgba(24, 19, 16, 0.28);
+      text-align: center;
+    }
+
+    .modal__close {
+      position: absolute;
+      top: 0.9rem;
+      right: 0.9rem;
+      width: 40px;
+      height: 40px;
+      border: 1px solid rgba(24, 19, 16, 0.12);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.75);
+      color: var(--ink);
+      font: inherit;
+      font-size: 1.3rem;
+      cursor: pointer;
+    }
+
+    .modal__eyebrow {
+      display: inline-block;
+      margin-bottom: 0.9rem;
+      padding: 0.45rem 0.75rem;
+      border-radius: 999px;
+      background: rgba(180, 37, 16, 0.1);
+      color: var(--accent-dark);
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .modal__title {
+      font-family: "Bitter", serif;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      line-height: 1;
+      margin-bottom: 0.85rem;
+    }
+
+    .modal__copy {
+      margin: 0 auto 1.35rem;
+      max-width: 30rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .modal__code {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      padding: 0.8rem 1.2rem;
+      border: 1px dashed rgba(180, 37, 16, 0.45);
+      border-radius: 16px;
+      background: #fffdf8;
+      color: var(--accent-dark);
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 800;
+      letter-spacing: 0.12em;
+    }
+
+    .modal__note {
+      margin: 0 0 1.5rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .modal__actions {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .modal__actions .button {
+      width: min(100%, 320px);
+    }
+
     .hero {
       position: relative;
       padding: 2.8rem 0 1.8rem;
@@ -2518,34 +2623,89 @@
         <span>Practical follow-up for busy local service businesses</span>
       </div>
     </footer>
+
+    <div class="modal" id="early-access-modal" role="dialog" aria-modal="true" aria-labelledby="early-access-title" hidden>
+      <div class="modal__backdrop" data-modal-close="true"></div>
+      <div class="modal__panel">
+        <button class="modal__close" type="button" aria-label="Close early access offer" data-modal-close="true">&times;</button>
+        <span class="modal__eyebrow">Early Access</span>
+        <h2 class="modal__title" id="early-access-title">Use code EARLY50</h2>
+        <p class="modal__copy">
+          Early access customers can use the discount code below at checkout. Click through when you're ready and apply it on the Stripe page.
+        </p>
+        <div class="modal__code">EARLY50</div>
+        <p class="modal__note">Your checkout link is right below.</p>
+        <div class="modal__actions">
+          <a class="button button--primary" href="https://buy.stripe.com/dRmeVc0Er78o9qEeKmbZe0H" data-modal-checkout="true">Go To Stripe Checkout</a>
+          <button class="button button--ghost" type="button" data-modal-close="true">Continue Browsing</button>
+        </div>
+      </div>
+    </div>
   </div>
 
   <script>
     const checkoutLinks = document.querySelectorAll('a[href="https://buy.stripe.com/dRmeVc0Er78o9qEeKmbZe0H"]');
+    const earlyAccessModal = document.getElementById("early-access-modal");
 
-    checkoutLinks.forEach((link) => {
-      link.addEventListener("click", (event) => {
-        event.preventDefault();
+    if (earlyAccessModal) {
+      const modalClosers = earlyAccessModal.querySelectorAll('[data-modal-close="true"]');
+      const modalPrimaryAction = earlyAccessModal.querySelector('[data-modal-checkout="true"]');
 
-        const destination = link.href;
-        let redirected = false;
-        const goToCheckout = () => {
-          if (redirected) return;
-          redirected = true;
-          window.location.href = destination;
-        };
+      const closeModal = () => {
+        earlyAccessModal.hidden = true;
+        document.body.style.overflow = "";
+      };
 
-        if (typeof fbq === "function") {
-          fbq("track", "InitiateCheckout", {
-            value: 19,
-            currency: "GBP",
-            eventID: `fe-ic-${Date.now()}`
-          });
-        }
+      const openModal = () => {
+        earlyAccessModal.hidden = false;
+        document.body.style.overflow = "hidden";
+      };
 
-        setTimeout(goToCheckout, 180);
+      modalClosers.forEach((element) => {
+        element.addEventListener("click", closeModal);
       });
-    });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && !earlyAccessModal.hidden) {
+          closeModal();
+        }
+      });
+      checkoutLinks.forEach((link) => {
+        link.addEventListener("click", (event) => {
+          const isModalCheckout = link.dataset.modalCheckout === "true";
+
+          event.preventDefault();
+
+          if (!isModalCheckout) {
+            openModal();
+            if (modalPrimaryAction) {
+              modalPrimaryAction.focus();
+            }
+            return;
+          }
+
+          closeModal();
+
+          const destination = link.href;
+          let redirected = false;
+          const goToCheckout = () => {
+            if (redirected) return;
+            redirected = true;
+            window.location.href = destination;
+          };
+
+          if (typeof fbq === "function") {
+            fbq("track", "InitiateCheckout", {
+              value: 19,
+              currency: "GBP",
+              eventID: `fe-ic-${Date.now()}`
+            });
+          }
+
+          setTimeout(goToCheckout, 180);
+        });
+      });
+    }
 
   </script>
 </body>
