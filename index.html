@@ -93,6 +93,7 @@
       margin: 0 auto;
       min-height: 40px;
       display: flex;
+      flex-wrap: wrap;
       align-items: center;
       justify-content: center;
       gap: 0.45rem;
@@ -2302,6 +2303,11 @@
 
       .stat-strip {
         grid-template-columns: 1fr;
+      }
+
+      .top-strip__inner {
+        flex-direction: column;
+        gap: 0.1rem;
       }
 
       .hero h1 {
