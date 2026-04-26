@@ -83,6 +83,30 @@
       gap: 1rem;
     }
 
+    .top-strip {
+      border-bottom: 1px solid rgba(24, 19, 16, 0.12);
+      background: #efe0c8;
+    }
+
+    .top-strip__inner {
+      width: min(var(--max), calc(100% - 2rem));
+      margin: 0 auto;
+      min-height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      padding: 0.45rem 0;
+      text-align: center;
+      font-size: 0.9rem;
+      line-height: 1.3;
+      color: var(--ink);
+    }
+
+    .top-strip__inner strong {
+      font-weight: 800;
+    }
+
     .brand {
       display: inline-flex;
       align-items: center;
@@ -2309,17 +2333,12 @@
     >
   </noscript>
   <div class="page-shell">
-    <header class="site-header">
-      <div class="site-header__inner">
-        <a class="brand" href="#top" aria-label="Missed Call Recovery System">
-          <span class="brand__mark" aria-hidden="true"></span>
-          <span>Missed Call Recovery System</span>
-        </a>
-        <div class="nav-cta">
-          <a class="button button--ghost" href="https://buy.stripe.com/dRmeVc0Er78o9qEeKmbZe0H">Get The System</a>
-        </div>
+    <div class="top-strip" aria-label="Missed call stat">
+      <div class="top-strip__inner">
+        <strong>73% of companies send nothing after a missed call.</strong>
+        <span>Don't let yours be one of them.</span>
       </div>
-    </header>
+    </div>
 
     <main id="top">
       <section class="hero">
