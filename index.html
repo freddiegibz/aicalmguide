@@ -543,6 +543,10 @@
       border-top: 2px solid rgba(24, 19, 16, 0.08);
     }
 
+    .section--compact {
+      padding: clamp(2rem, 4vw, 3rem) 0;
+    }
+
     .section__intro {
       max-width: 44rem;
       margin-bottom: 2.4rem;
@@ -1613,6 +1617,10 @@
       background: transparent;
     }
 
+    .testimonials-section .testimonial-dominant {
+      margin-top: 0;
+    }
+
     .product-preview-shot {
       max-width: 28rem;
       border-width: 1px;
@@ -1686,6 +1694,10 @@
 
     .section {
       padding: clamp(3.25rem, 6vw, 5rem) 0;
+    }
+
+    .section.section--compact {
+      padding: clamp(2rem, 4vw, 3rem) 0;
     }
 
     main > .section:nth-of-type(1) {
@@ -2448,7 +2460,7 @@
                 Because missing calls is normal when you are working. You are under a sink, up a ladder, driving between jobs, talking to a customer, or getting a call after hours when you have finally stopped for the day.
               </p>
               <p>
-                The missed call itself is not the real problem. The damage happens when nothing gets sent, the reply is rushed and awkward, or the lead disappears because it was left sitting in your memory.
+                The missed call itself is not the real problem. The damage happens when nothing gets sent, the reply is rushed and awkward, or the lead disappears because it gets lost in your memory when you already have so much else to think about.
               </p>
               <p>
                 You have probably thought about fixing it before. Then you look at the options: a CRM to set up, an AI receptionist at &pound;100 a month, an answering service, another platform, another login, another thing to manage.
@@ -2463,14 +2475,9 @@
             </div>
 
             <div class="losses-footer reveal">
-              <strong>You do not need to answer every call. You need a simple repeatable process that works after the ones you miss.</strong>
+              <strong>You do not need to answer every call. You need a way of handling the ones you do not.</strong>
             </div>
 
-            <div class="testimonial-dominant reveal">
-              <div class="testimonial-label">What customers are saying:</div>
-              <img class="testimonial-shot testimonial-shot--secondary" src="emailtestimonial.png" alt="Customer testimonial about the Missed Call Recovery System" width="842" height="195" loading="lazy" decoding="async">
-              <img class="testimonial-shot testimonial-shot--secondary" src="landingpagetestimonial.png" alt="Customer testimonial screenshot for the Missed Call Recovery System" width="413" height="162" loading="lazy" decoding="async">
-            </div>
           </div>
         </div>
       </section>
@@ -2480,9 +2487,9 @@
           <div class="what-you-get">
             <div class="what-you-get__intro reveal">
               <span class="section-label">WHAT YOU GET</span>
-              <h2>The Process That Turns Missed Calls Into Paid Work</h2>
+              <h2>The System That Turns Missed Calls Into Paid Work</h2>
               <p>When the next call gets missed, you are not trying to write the perfect reply while driving, working, or dealing with another customer. You already have the proven messages, the timing, and the easy-to-use tracker.</p>
-              <p>That means you know what to send to a customer, when to send it, and how to turn a missed call into a job without it slipping through the cracks because you were relying on memory.</p>
+              <p>That means you know what to send to a customer, when to send it, and how to turn a missed call into a job without storing everything in your head.</p>
             </div>
 
             <div class="what-you-get__stack">
@@ -2494,14 +2501,14 @@
                       <path d="M8.5 11.2h.01M12 11.2h.01M15.5 11.2h.01"/>
                     </svg>
                   </span>
-                  <h3>Send the first reply before they go cold</h3>
+                  <h3>Send a message proven to get replies</h3>
                 </div>
                 <ul class="what-you-get__list">
                   <li>
                     <span class="what-you-get__check" aria-hidden="true">
                       <svg viewBox="0 0 16 16"><path d="m3.5 8.5 2.6 2.6 6.4-6.6"/></svg>
                     </span>
-                    <span><strong>First reply messages</strong> &mdash; Texts proven to get replies without feeling awkward.</span>
+                    <span><strong>First reply messages</strong> &mdash; Texts proven to get replies.</span>
                   </li>
                   <li>
                     <span class="what-you-get__check" aria-hidden="true">
@@ -2533,7 +2540,7 @@
                     <span class="what-you-get__check" aria-hidden="true">
                       <svg viewBox="0 0 16 16"><path d="m3.5 8.5 2.6 2.6 6.4-6.6"/></svg>
                     </span>
-                    <span><strong>Timing Guide</strong> &mdash; Tested timing that keeps the conversation flowing professionally.</span>
+                    <span><strong>Timing Guide</strong> &mdash; Tested message timing that feels professional and helps turn leads into buyers.</span>
                   </li>
                 </ul>
               </article>
@@ -2555,7 +2562,7 @@
                     <span class="what-you-get__check" aria-hidden="true">
                       <svg viewBox="0 0 16 16"><path d="m3.5 8.5 2.6 2.6 6.4-6.6"/></svg>
                     </span>
-                    <span><strong>After-hours and voicemail</strong> &mdash; Messages that keep after-hours missed calls in play.</span>
+                    <span><strong>After-hours and voicemail</strong> &mdash; Messages specifically built for after-hours and other common missed-call situations.</span>
                   </li>
                   <li>
                     <span class="what-you-get__check" aria-hidden="true">
@@ -2619,20 +2626,24 @@
         </div>
       </section>
 
+      <section class="section section--divider section--compact testimonials-section">
+        <div class="section__inner">
+          <div class="testimonial-dominant reveal">
+            <span class="section-label">WHAT CUSTOMERS HAVE SAID</span>
+            <img class="testimonial-shot testimonial-shot--secondary" src="emailtestimonial.png" alt="Customer testimonial about the Missed Call Recovery System" width="842" height="195" loading="lazy" decoding="async">
+            <img class="testimonial-shot testimonial-shot--secondary" src="landingpagetestimonial.png" alt="Customer testimonial screenshot for the Missed Call Recovery System" width="413" height="162" loading="lazy" decoding="async">
+          </div>
+        </div>
+      </section>
+
       <section class="section">
         <div class="section__inner">
           <div class="why-layout">
             <div class="why-copy reveal">
               <span class="section-label">WHY THIS WORKS</span>
-              <h2>You do not need a bigger setup. You need the right next step.</h2>
+              <h2>You do not need a bigger setup. You need a practical fix.</h2>
               <p>
-                Missing calls is normal. You are working, driving, with a customer, after hours, or just too busy to answer properly. That is not the part that needs fixing.
-              </p>
-              <p>
-                The part that needs fixing is what happens next. Most options make that feel harder than it should be: a CRM to learn, an AI receptionist to pay for, an answering service to manage, or another monthly subscription.
-              </p>
-              <p>
-                This works because it keeps the fix simple. The first reply is ready. The next follow-up is planned. The lead is tracked. You get the benefit of a system without turning missed calls into a tech project.
+                Missed calls are normal. Complicated fixes are not. You do not need a CRM, an AI receptionist, or another monthly bill. You need a practical way to handle the calls you miss. Most business owners never get this far. If you are still reading, you are already closer to fixing it than they are.
               </p>
             </div>
             <div class="why-points">
