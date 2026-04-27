@@ -2459,7 +2459,7 @@
               Get the proven missed-call process you can set up in under 20 minutes, even if you’re not technical. No complicated tech, no call centre, no £100/month tool.
             </p>
             <div class="hero__actions">
-              <a class="button button--primary" href="https://buy.stripe.com/6oU4gy2MzfEU1YceKmbZe0B">GET INSTANT ACCESS</a>
+              <a class="button button--primary" href="https://buy.stripe.com/9B63cufzl9gwdGU59MbZe0v">GET INSTANT ACCESS</a>
               <a class="button button--secondary" href="#contents">WHAT'S INSIDE?</a>
             </div>
             <p class="hero__guarantee">30-day guarantee, one-time payment</p>
@@ -2676,7 +2676,7 @@
               <aside class="checkout-box">
                 <div class="checkout-box__label">One-Time Purchase</div>
                 <p>One recovered job covers the cost many times over.</p>
-                <a class="button button--primary" href="https://buy.stripe.com/6oU4gy2MzfEU1YceKmbZe0B">Continue To Secure Checkout</a>
+                <a class="button button--primary" href="https://buy.stripe.com/9B63cufzl9gwdGU59MbZe0v">Continue To Secure Checkout</a>
                 <div class="checkout-note">No software required. One-time payment. No monthly fee. No complicated setup. Instant digital delivery.</div>
               </aside>
               <div class="close-copy">
@@ -2720,14 +2720,14 @@
       <div class="modal__panel">
         <button class="modal__close" type="button" aria-label="Close early access offer" data-modal-close="true">&times;</button>
         <span class="modal__eyebrow">Early Access</span>
-        <h2 class="modal__title" id="early-access-title">Use code EARLY50</h2>
+        <h2 class="modal__title" id="early-access-title">50% off — $27 → $13.50</h2>
         <p class="modal__copy">
-          Early access customers can use the discount code below at checkout. Click through when you're ready and apply it on the Stripe page.
+          This is a 50% discount on the regular price: <strong>$27</strong> becomes <strong>$13.50</strong> at checkout. Enter code <strong>EARLY50</strong> on the Stripe page after you click through.
         </p>
         <div class="modal__code">EARLY50</div>
         <p class="modal__note">Your checkout link is right below.</p>
         <div class="modal__actions">
-          <a class="button button--primary" href="https://buy.stripe.com/6oU4gy2MzfEU1YceKmbZe0B" data-modal-checkout="true">Go To Stripe Checkout</a>
+          <a class="button button--primary" href="https://buy.stripe.com/9B63cufzl9gwdGU59MbZe0v" data-modal-checkout="true">Go To Stripe Checkout</a>
           <button class="button button--ghost" type="button" data-modal-close="true">Continue Browsing</button>
         </div>
       </div>
@@ -2735,7 +2735,7 @@
   </div>
 
   <script>
-    const checkoutLinks = document.querySelectorAll('a[href="https://buy.stripe.com/6oU4gy2MzfEU1YceKmbZe0B"]');
+    const checkoutLinks = document.querySelectorAll('a[href="https://buy.stripe.com/9B63cufzl9gwdGU59MbZe0v"]');
     const earlyAccessModal = document.getElementById("early-access-modal");
 
     if (earlyAccessModal) {
@@ -2755,8 +2755,8 @@
       const trackInitiateCheckout = () => {
         if (typeof fbq !== "function") return;
         fbq("track", "InitiateCheckout", {
-          value: 19,
-          currency: "GBP",
+          value: 13.5,
+          currency: "USD",
           eventID: `fe-ic-${Date.now()}`,
         });
       };
