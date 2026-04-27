@@ -2752,6 +2752,15 @@
         document.body.style.overflow = "hidden";
       };
 
+      const trackInitiateCheckout = () => {
+        if (typeof fbq !== "function") return;
+        fbq("track", "InitiateCheckout", {
+          value: 19,
+          currency: "GBP",
+          eventID: `fe-ic-${Date.now()}`,
+        });
+      };
+
       modalClosers.forEach((element) => {
         element.addEventListener("click", closeModal);
       });
@@ -2768,6 +2777,7 @@
           event.preventDefault();
 
           if (!isModalCheckout) {
+            trackInitiateCheckout();
             openModal();
             if (modalPrimaryAction) {
               modalPrimaryAction.focus();
@@ -2785,13 +2795,7 @@
             window.location.href = destination;
           };
 
-          if (typeof fbq === "function") {
-            fbq("track", "InitiateCheckout", {
-              value: 19,
-              currency: "GBP",
-              eventID: `fe-ic-${Date.now()}`
-            });
-          }
+          trackInitiateCheckout();
 
           setTimeout(goToCheckout, 180);
         });
