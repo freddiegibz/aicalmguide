@@ -1798,76 +1798,36 @@
     .before-after {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1rem;
+      gap: 0.9rem;
       margin-top: 1rem;
     }
 
-    .before-after__card {
-      padding: 1.25rem;
-      border: 1px solid rgba(27, 31, 35, 0.1);
-      border-radius: 10px;
-      background: var(--surface);
+    .before-after__panel {
+      display: grid;
+      gap: 0.1rem;
+      justify-items: start;
+      background: transparent;
     }
 
-    .before-after__card--before {
-      border-top: 4px solid var(--accent-dark);
-      background: #f6f0df;
-    }
-
-    .before-after__card--after {
-      border-top: 4px solid var(--accent);
-      background: #fff7d9;
+    .before-after__image {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      margin: 0;
+      border-radius: 12px;
+      background: transparent;
+      box-shadow: none;
     }
 
     .before-after__label {
-      display: inline-block;
-      margin-bottom: 0.8rem;
+      display: block;
+      margin: 0;
       color: var(--ink);
       font-size: 0.76rem;
       font-weight: 800;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-    }
-
-    .before-after__card h3 {
-      margin: 0 0 0.8rem;
-      font-size: clamp(1.4rem, 2vw, 1.75rem);
-      line-height: 1.05;
-      max-width: 14ch;
-    }
-
-    .before-after__card ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: grid;
-      gap: 0.8rem;
-    }
-
-    .before-after__card li {
-      position: relative;
-      padding-left: 1rem;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-
-    .before-after__card li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0.65rem;
-      width: 0.42rem;
-      height: 0.42rem;
-      border-radius: 50%;
-      background: currentColor;
-    }
-
-    .before-after__card--before li::before {
-      background: var(--accent);
-    }
-
-    .before-after__card--after li::before {
-      background: var(--accent-dark);
     }
 
     .proof-quote {
@@ -2339,6 +2299,10 @@
         min-height: auto;
       }
 
+      .before-after {
+        grid-template-columns: 1fr;
+      }
+
       .hero-copy {
         display: block;
       }
@@ -2551,7 +2515,7 @@
         </div>
       </section>
 
-      <section class="section section--divider" id="contents">
+    <section class="section section--divider" id="contents">
         <div class="section__inner">
           <div class="what-you-get">
             <div class="what-you-get__intro reveal">
@@ -2640,6 +2604,28 @@
               <span>Use the messages as-is, or personalise them with AI. Either way, you get the full process for what to send, when to send it, and how to stop missed calls turning into lost jobs.</span>
             </div>
 
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--divider">
+        <div class="section__inner">
+          <div class="section__intro reveal">
+            <span class="section-label">WHAT CHANGES AFTER YOU BUY THIS</span>
+            <h2>Right now, every missed call gets handled differently or not at all.</h2>
+            <p>This gives you a clear follow-up process for what to send, when to follow up, and how to keep track of every caller, so missed calls stop slipping through and start turning into paid work.</p>
+          </div>
+
+          <div class="before-after">
+            <div class="before-after__panel reveal">
+              <span class="before-after__label">Before</span>
+              <img class="before-after__image" src="before.jpg" alt="Before buying: missed calls handled inconsistently" width="1200" height="750" loading="lazy" decoding="async">
+            </div>
+
+            <div class="before-after__panel reveal">
+              <span class="before-after__label">After</span>
+              <img class="before-after__image" src="after.jpg" alt="After buying: a clear missed-call follow-up process" width="1200" height="750" loading="lazy" decoding="async">
+            </div>
           </div>
         </div>
       </section>
