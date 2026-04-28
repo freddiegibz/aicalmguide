@@ -1906,14 +1906,14 @@
     .before-after__panel {
       display: grid;
       gap: 0.1rem;
-      justify-items: start;
+      justify-items: center;
       background: transparent;
     }
 
     .before-after__image {
       display: block;
       width: 100%;
-      max-width: 100%;
+      max-width: 28rem;
       height: auto;
       margin: 0;
       border-radius: 12px;
@@ -2402,6 +2402,14 @@
 
       .before-after {
         grid-template-columns: 1fr;
+      }
+
+      .before-after__panel {
+        justify-items: start;
+      }
+
+      .before-after__image {
+        max-width: 100%;
       }
 
       .hero-copy {
