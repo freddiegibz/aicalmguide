@@ -12,7 +12,22 @@
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '1686151149414910');
     fbq('track', 'PageView');
-    fbq('track', 'Purchase', { value: 9.00, currency: 'GBP' });
+    const getPurchaseEventId = () => {
+      const params = new URLSearchParams(window.location.search);
+      const fromUrl = params.get('event_id') || params.get('client_reference_id');
+      if (fromUrl) return fromUrl;
+      try {
+        return window.sessionStorage.getItem('mcrs_checkout_event_id') || '';
+      } catch {
+        return '';
+      }
+    };
+    const purchaseEventId = getPurchaseEventId();
+    if (purchaseEventId) {
+      fbq('track', 'Purchase', { value: 9.00, currency: 'GBP' }, { eventID: purchaseEventId });
+    } else {
+      fbq('track', 'Purchase', { value: 9.00, currency: 'GBP' });
+    }
   </script>
   <style>
     :root {
