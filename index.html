@@ -1945,6 +1945,62 @@
       text-align: center;
     }
 
+    .section--alternatives {
+      background:
+        radial-gradient(circle at top center, rgba(242, 194, 48, 0.14) 0%, rgba(242, 194, 48, 0) 28%),
+        linear-gradient(180deg, rgba(19, 21, 26, 1) 0%, rgba(10, 11, 15, 1) 100%);
+      color: #f7f1e3;
+      box-shadow: inset 0 1px 0 rgba(255, 248, 232, 0.05), inset 0 -1px 0 rgba(255, 248, 232, 0.04);
+    }
+
+    .section--alternatives .section-label,
+    .section--alternatives .losses-break h3,
+    .section--alternatives .losses-summary {
+      color: #fff8e8;
+    }
+
+    .section--alternatives .section-label {
+      border-bottom-color: rgba(242, 194, 48, 0.4);
+    }
+
+    .section--alternatives .losses-copy {
+      max-width: 64rem;
+      padding: clamp(1.4rem, 3vw, 2rem);
+      border-radius: 26px;
+      background: linear-gradient(180deg, rgba(15, 16, 20, 0.94) 0%, rgba(10, 11, 15, 0.96) 100%);
+      border: 1px solid rgba(255, 248, 232, 0.08);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.34);
+    }
+
+    .section--alternatives .losses-copy p {
+      color: rgba(247, 241, 227, 0.84);
+    }
+
+    .section--alternatives .losses-item {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(255, 248, 232, 0.12);
+      box-shadow: none;
+    }
+
+    .section--alternatives .losses-item strong {
+      color: #fff8e8;
+    }
+
+    .section--alternatives .losses-item p {
+      color: rgba(247, 241, 227, 0.84);
+    }
+
+    .section--alternatives .losses-summary {
+      margin-top: 2rem;
+      padding: 1.35rem 1.5rem;
+      font-size: 1.22rem;
+      line-height: 1.55;
+      font-weight: 600;
+      background: linear-gradient(180deg, rgba(255, 248, 232, 0.16) 0%, rgba(242, 194, 48, 0.2) 100%);
+      border-color: rgba(255, 248, 232, 0.2);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
+    }
+
     .proof-quote {
       background: var(--surface);
       color: var(--ink);
@@ -2031,9 +2087,9 @@
     .losses-break h3 {
       margin: 0.35rem 0 0;
       color: var(--ink);
-      font-size: clamp(1.35rem, 2.2vw, 1.9rem);
-      line-height: 1.2;
-      max-width: 20ch;
+      font-size: clamp(1.95rem, 3vw, 2.8rem);
+      line-height: 1.08;
+      max-width: 14ch;
       margin-left: auto;
       margin-right: auto;
       text-align: center;
@@ -2066,58 +2122,42 @@
 
     .losses-card {
       display: grid;
-      gap: 0;
-      border: 1px solid rgba(27, 31, 35, 0.1);
-      border-radius: 24px;
-      background: rgba(255, 255, 255, 0.84);
-      box-shadow: 0 20px 48px rgba(23, 23, 23, 0.06);
-      overflow: hidden;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1.4rem;
     }
 
     .losses-item {
       display: grid;
-      grid-template-columns: 4.2rem minmax(0, 1fr);
-      gap: 1rem;
-      padding: 1.3rem 1.3rem 1.3rem 1.1rem;
-      align-items: start;
-      position: relative;
-    }
-
-    .losses-item + .losses-item {
-      border-top: 1px solid rgba(27, 31, 35, 0.1);
-    }
-
-    .losses-item:not(:last-child)::after {
-      content: "";
-      position: absolute;
-      left: 2.15rem;
-      top: 4rem;
-      bottom: -1.3rem;
-      width: 2px;
-      background: rgba(242, 194, 48, 0.92);
+      gap: 0.7rem;
+      padding: 1.35rem 1.35rem 1.2rem;
+      border: 1px solid rgba(27, 31, 35, 0.1);
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.84);
+      box-shadow: 0 20px 48px rgba(23, 23, 23, 0.06);
+      align-content: start;
     }
 
     .losses-marker {
-      width: 2.85rem;
-      height: 2.85rem;
-      border-radius: 999px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      width: 2.2rem;
+      height: 2.2rem;
+      border-radius: 999px;
       font-family: "Archivo", sans-serif;
-      font-size: 1.05rem;
-      font-weight: 800;
-      color: var(--ink);
-      background: var(--accent);
-      box-shadow: 0 0 0 0.3rem rgba(242, 194, 48, 0.18);
-      position: relative;
-      z-index: 1;
+      font-size: 1rem;
+      font-weight: 900;
+      color: #8b1e1e;
+      background: rgba(177, 34, 34, 0.08);
+      border: 1px solid rgba(177, 34, 34, 0.18);
+      line-height: 1;
     }
 
     .losses-item strong {
       display: block;
-      margin-bottom: 0.3rem;
-      font-size: 1.05rem;
+      margin-bottom: 0.32rem;
+      font-size: 1.08rem;
       line-height: 1.35;
       color: var(--ink);
     }
@@ -2126,6 +2166,16 @@
       margin: 0;
       color: var(--muted);
       line-height: 1.6;
+    }
+
+    .losses-summary {
+      margin-top: 1.15rem;
+      padding: 1rem 1.2rem;
+      border-radius: 18px;
+      font-size: 1.08rem;
+      color: var(--ink);
+      background: linear-gradient(180deg, rgba(242, 194, 48, 0.24) 0%, rgba(242, 194, 48, 0.12) 100%);
+      border: 1px solid rgba(183, 135, 47, 0.22);
     }
 
     .losses-footer {
@@ -2450,12 +2500,8 @@
           "copy";
       }
 
-      .losses-item {
-        grid-template-columns: 3.5rem minmax(0, 1fr);
-      }
-
-      .losses-item:not(:last-child)::after {
-        left: 1.8rem;
+      .losses-card {
+        grid-template-columns: 1fr;
       }
 
       .what-you-get__footer {
@@ -2611,25 +2657,50 @@
               <p>The reply comes too late.</p>
               <p>The message feels rushed.</p>
               <p>Or the lead disappears because you’re relying on memory when you already have enough to think about.</p>
-	      <p><strong>That is how work that should have been yours slips away to your competition.</p></strong>
-              <div class="losses-break">
-                <span class="section-label">WHY PEOPLE DO NOT FIX IT</span>
-                <h3>Because the obvious fixes feel bigger than the problem.</h3>
-              </div>
-              <p>
-                You have probably thought about fixing it before. Then you look at the options: a CRM to set up, an AI receptionist, an answering service, another platform, another login, another monthly thing to manage.
-              </p>
-              <div class="belief-card">
-                <p>So it stays unfixed.</p>
-                <span>Not because you do not care about the work. Because the fix has been made to look harder and more expensive than the problem.</span>
-              </div>
-              <p>And honestly, you are right.</p>
-              <p>Most of the options out there are too expensive, too overcomplicated, or just too much for what you actually need.</p>
-              <p>That is why this exists.</p>
-              <p>It takes less than 20 minutes to set up, works even if you are not great with tech, and costs a small fraction of what the other tools charge every month.</p>
-              <p>You do not need a receptionist, a CRM, or another platform to manage.</p>
-              <p>You just need a simple way to stop missed calls turning into lost jobs.</p>
+              <p><strong>That is how work that should have been yours slips away to your competition.</strong></p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--divider section--compact section--alternatives">
+        <div class="section__inner">
+          <div class="losses-copy reveal">
+            <div class="losses-break">
+              <span class="section-label">FAILED ALTERNATIVES</span>
+              <h3>Why Most Businesses Never Fix This</h3>
+            </div>
+            <div class="losses-card">
+              <article class="losses-item">
+                <div class="losses-marker">X</div>
+                <div>
+                  <strong>Doing it yourself</strong>
+                  <p>You mean to get back to people, but every missed call gets handled differently and it all depends on what you remember later.</p>
+                </div>
+              </article>
+              <article class="losses-item">
+                <div class="losses-marker">X</div>
+                <div>
+                  <strong>Using a CRM</strong>
+                  <p>It sounds like the proper fix, but for most local businesses it is too much setup, too much admin, and too much to keep updated.</p>
+                </div>
+              </article>
+              <article class="losses-item">
+                <div class="losses-marker">X</div>
+                <div>
+                  <strong>Buying an AI receptionist</strong>
+                  <p>It sounds clever, but it is expensive, monthly, and far more than you need when the real problem is what happens after a missed call.</p>
+                </div>
+              </article>
+              <article class="losses-item">
+                <div class="losses-marker">X</div>
+                <div>
+                  <strong>Using scattered notes</strong>
+                  <p>A note in one place, a message in another, something half-remembered in your head, and the lead still slips away anyway.</p>
+                </div>
+              </article>
+            </div>
+            <p class="losses-summary">The problem is not that you do not care about the work. The problem is that there has never been a simple, complete fix designed specifically for this.</p>
           </div>
         </div>
       </section>
