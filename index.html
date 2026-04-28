@@ -1252,6 +1252,14 @@
       letter-spacing: -0.06em;
     }
 
+    .checkout-box__tag {
+      margin-bottom: 1rem;
+      color: rgba(251, 246, 238, 0.78);
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
     .checkout-box__price small {
       font-size: 1rem;
       color: rgba(251, 246, 238, 0.68);
@@ -1260,6 +1268,60 @@
     .faq-list {
       display: grid;
       gap: 0.9rem;
+    }
+
+    .section--quote-close {
+      background: linear-gradient(180deg, #17372a 0%, #122a21 100%) !important;
+      color: #f7fbf4;
+    }
+
+    .section--quote-close .section__inner {
+      padding-top: clamp(2.2rem, 4vw, 3rem);
+      padding-bottom: clamp(2.4rem, 4vw, 3.2rem);
+      background: transparent;
+    }
+
+    .final-push {
+      width: min(100%, 58rem);
+      margin: 0 auto;
+      display: grid;
+      gap: 0.55rem;
+      color: inherit;
+      text-align: center;
+      justify-items: center;
+    }
+
+    .final-push h2 {
+      margin-bottom: 0;
+      color: #fff;
+      max-width: 18ch;
+      justify-self: center;
+    }
+
+    .final-push p {
+      color: rgba(255, 255, 255, 0.92);
+      max-width: 52rem;
+      margin: 0;
+    }
+
+    .final-push__cta {
+      display: grid;
+      gap: 0.45rem;
+      margin-top: 0.65rem;
+      justify-items: center;
+    }
+
+    .final-push__cta .button {
+      width: fit-content;
+      min-height: 58px;
+      padding: 0 1.6rem;
+      font-size: 1rem;
+    }
+
+    .final-push__cta p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.84);
+      font-size: 0.98rem;
     }
 
     .faq-item summary {
@@ -2705,6 +2767,10 @@
       letter-spacing: -0.05em;
     }
 
+    .checkout-box__tag {
+      color: rgba(248, 244, 239, 0.74);
+    }
+
     .checkout-box__price s {
       color: rgba(248, 244, 239, 0.46);
       font-size: 1.35rem;
@@ -3224,7 +3290,7 @@
             </div>
             <span class="section-label">Risk Reversal</span>
             <h2>Try It Risk-Free For 30 Days</h2>
-            <p>Use the system on the missed calls and open jobs you already have.</p>
+            <p>Use the system on the missed calls, late replies, and leads you already have.</p>
             <p>If it does not feel worth it, email us within 30 days and we will refund you in full.</p>
             <p>No hassle. No awkward back and forth.</p>
             <p>We are confident because once you stop guessing what to send, the value becomes obvious very quickly.</p>
@@ -3237,34 +3303,59 @@
           <div class="final-offer reveal">
             <div class="close-grid">
               <aside class="checkout-box">
-                <div class="checkout-box__label">One-Time Purchase</div>
-                <p>One recovered job covers the cost many times over.</p>
-                <a class="button button--primary" href="https://buy.stripe.com/9B63cufzl9gwdGU59MbZe0v">Continue To Secure Checkout</a>
-                <div class="checkout-note">No software required. One-time payment. No monthly fee. No complicated setup. Instant digital delivery.</div>
+                <div class="checkout-box__label">Get Instant Access Now</div>
+                <div class="checkout-box__price"><s>$47</s> $27</div>
+                <div class="checkout-box__tag">Limited Launch Pricing</div>
+                <a class="button button--primary" href="https://buy.stripe.com/9B63cufzl9gwdGU59MbZe0v">Get Instant Access Now</a>
+                <div class="checkout-note">One-time payment. No monthly fee. Instant digital delivery.</div>
               </aside>
               <div class="close-copy">
-                <span class="section-label">Get The System</span>
-                <h2>Stop worrying about what happens after the next missed call.</h2>
-                <p>The next missed call is coming. Maybe while you are driving. Maybe while you are with a customer. Maybe after hours when you are done for the day.</p>
-                <p>When it happens, you can either wing it again, or you can have the messages, timing, and tracker ready to keep that job in play.</p>
+                <span class="section-label">The Missed Call Recovery System</span>
+                <h2>The complete fix for turning missed calls into booked jobs.</h2>
+                <p>Ready-to-send messages, tested timings, and a simple tracker made for the moments when you miss a call and still want the job.</p>
                 <ul class="offer-list">
-                  <li>First-reply texts for missed calls</li>
-                  <li>A simple follow-up plan so you never guess</li>
-                  <li>A one-glance tracker so none slip through</li>
-                  <li>After-hours, voicemail, and no-reply wording</li>
+                  <li>Ready-to-send missed-call messages</li>
+                  <li>Follow-up timings and reply sequences</li>
+                  <li>Simple tracker and next-step system</li>
+                  <li>After-hours, no-reply, and customization extras</li>
                 </ul>
               </div>
             </div>
-            <div class="section__intro reveal" style="margin-top: 1rem;">
-              <span class="section-label">Questions</span>
-              <h3 class="faq-title">Short answers to the practical questions</h3>
-            </div>
-            <div class="faq-list">
-              <details class="faq-item reveal"><summary>What exactly is this?</summary><p>A ready-to-use missed-call follow-up pack with message scripts, a follow-up plan, and a simple tracker. It is not software and it is not a service.</p></details>
-              <details class="faq-item reveal"><summary>How quickly can I use it?</summary><p>The same day. You can copy, tailor, and send the first text in minutes.</p></details>
-              <details class="faq-item reveal"><summary>Do I need any software or technical setup?</summary><p>No. If you can send a message and open a spreadsheet, you can use this. No monthly fees.</p></details>
-              <details class="faq-item reveal"><summary>Will this work for my type of business?</summary><p>Yes. The core process stays the same, and the wording is easy to tailor to your service, your area, and the way you normally speak to customers.</p></details>
-              <details class="faq-item reveal"><summary>Will the follow-ups annoy customers?</summary><p>No. They are short, helpful, and tied to the call they just made. Not salesy, not spammy.</p></details>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--divider section--compact">
+        <div class="section__inner">
+          <div class="section__intro reveal" style="margin-top: 0;">
+            <span class="section-label">Questions</span>
+            <h3 class="faq-title">Short answers to the practical questions</h3>
+          </div>
+          <div class="faq-list">
+            <details class="faq-item reveal"><summary>What exactly is this?</summary><p>A ready-to-use missed-call recovery system with message scripts, a follow-up plan, and a simple tracker. It is not software and it is not a service.</p></details>
+            <details class="faq-item reveal"><summary>How quickly can I use it?</summary><p>The same day. You can copy, tailor, and send the first missed-call reply in minutes.</p></details>
+            <details class="faq-item reveal"><summary>Do I need any software or technical setup?</summary><p>No. If you can send a message and open a spreadsheet, you can use this. No monthly fees.</p></details>
+            <details class="faq-item reveal"><summary>Will this work for my type of business?</summary><p>Yes. The core process stays the same, and the wording is easy to tailor to your service, your area, and the way you normally speak to customers.</p></details>
+            <details class="faq-item reveal"><summary>Will the follow-ups annoy customers?</summary><p>No. They are short, helpful, and tied to the call they just made. Not salesy, not spammy.</p></details>
+          </div>
+          <div class="before-after__testimonial reveal" style="margin-top: 1.1rem; width: min(100%, 56rem);">
+            <p>"Set this up, saved the templates to my phone, and started using the tracker straight away. For the first time, missed calls do not feel like a guessing game - I know what to send, when to follow up, and who still needs action."</p>
+            <cite>Dan, electrician</cite>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--divider section--compact section--quote-close">
+        <div class="section__inner">
+          <div class="final-push reveal">
+            <h2>Stop Letting Missed Calls Turn Into Lost Jobs</h2>
+            <p>You have probably meant to put a proper follow-up process in place for a while.</p>
+            <p>You know you should. The problem is that busy days, awkward wording, and too much to remember make it easy for missed calls to disappear.</p>
+            <p>This system gives you a simple way to send the right message, follow up at the right time, and keep track of who still needs action.</p>
+            <p>Because good jobs should not be lost because you were working, driving, with a customer, or trying to remember everything in your head.</p>
+            <div class="final-push__cta">
+              <a class="button button--primary" href="https://buy.stripe.com/9B63cufzl9gwdGU59MbZe0v">Get The Missed Call Recovery System - $27</a>
+              <p>Secure checkout. Instant access. Full refund if you are not satisfied.</p>
             </div>
           </div>
         </div>
