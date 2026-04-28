@@ -799,6 +799,68 @@
       gap: 1rem;
     }
 
+    .why-layout {
+      grid-template-columns: 1fr;
+      gap: 1.35rem;
+      justify-items: center;
+    }
+
+    .section--why {
+      background:
+        radial-gradient(circle at top center, rgba(170, 203, 124, 0.16) 0%, rgba(170, 203, 124, 0) 30%),
+        linear-gradient(180deg, rgba(20, 48, 38, 1) 0%, rgba(11, 30, 24, 1) 100%);
+      color: #eef5ea;
+    }
+
+    .section--why .why-layout {
+      width: 100%;
+      padding: clamp(1.6rem, 4vw, 2.6rem);
+      border-radius: 22px;
+      background:
+        radial-gradient(circle at top center, rgba(170, 203, 124, 0.12) 0%, rgba(170, 203, 124, 0) 32%),
+        linear-gradient(180deg, rgba(20, 48, 38, 0.98) 0%, rgba(11, 30, 24, 0.98) 100%);
+      border: 1px solid rgba(219, 236, 204, 0.1);
+      box-shadow: 0 24px 56px rgba(0, 0, 0, 0.22);
+    }
+
+    .why-copy {
+      max-width: 44rem;
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .why-copy h2,
+    .why-copy p {
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+
+    .why-copy h2 {
+      max-width: none;
+      font-size: clamp(2rem, 3.1vw, 3.05rem);
+    }
+
+    .section--why .section-label {
+      color: #dbeccc;
+      border-bottom-color: rgba(170, 203, 124, 0.45);
+    }
+
+    .section--why .why-copy h2 {
+      color: #f5fbf1;
+    }
+
+    .section--why .why-copy p {
+      color: rgba(238, 245, 234, 0.82);
+    }
+
+    .why-points {
+      width: 100%;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
     .product-card {
       display: grid;
       gap: 0.7rem;
@@ -1947,47 +2009,54 @@
 
     .section--alternatives {
       background:
-        radial-gradient(circle at top center, rgba(242, 194, 48, 0.14) 0%, rgba(242, 194, 48, 0) 28%),
-        linear-gradient(180deg, rgba(19, 21, 26, 1) 0%, rgba(10, 11, 15, 1) 100%);
-      color: #f7f1e3;
-      box-shadow: inset 0 1px 0 rgba(255, 248, 232, 0.05), inset 0 -1px 0 rgba(255, 248, 232, 0.04);
+        radial-gradient(circle at top center, rgba(170, 203, 124, 0.16) 0%, rgba(170, 203, 124, 0) 30%),
+        linear-gradient(180deg, rgba(20, 48, 38, 1) 0%, rgba(11, 30, 24, 1) 100%);
+      color: #eef5ea;
+      box-shadow: inset 0 1px 0 rgba(219, 236, 204, 0.05), inset 0 -1px 0 rgba(219, 236, 204, 0.04);
     }
 
     .section--alternatives .section-label,
     .section--alternatives .losses-break h3,
     .section--alternatives .losses-summary {
-      color: #fff8e8;
+      color: #f5fbf1;
     }
 
     .section--alternatives .section-label {
-      border-bottom-color: rgba(242, 194, 48, 0.4);
+      border-bottom-color: rgba(170, 203, 124, 0.45);
+    }
+
+    .section--alternatives .losses-break h3 {
+      max-width: none;
+      font-size: clamp(1.7rem, 2.5vw, 2.5rem);
     }
 
     .section--alternatives .losses-copy {
       max-width: 64rem;
       padding: clamp(1.4rem, 3vw, 2rem);
       border-radius: 26px;
-      background: linear-gradient(180deg, rgba(15, 16, 20, 0.94) 0%, rgba(10, 11, 15, 0.96) 100%);
-      border: 1px solid rgba(255, 248, 232, 0.08);
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.34);
+      background:
+        radial-gradient(circle at top center, rgba(170, 203, 124, 0.12) 0%, rgba(170, 203, 124, 0) 32%),
+        linear-gradient(180deg, rgba(20, 48, 38, 0.98) 0%, rgba(11, 30, 24, 0.98) 100%);
+      border: 1px solid rgba(219, 236, 204, 0.1);
+      box-shadow: 0 24px 56px rgba(0, 0, 0, 0.22);
     }
 
     .section--alternatives .losses-copy p {
-      color: rgba(247, 241, 227, 0.84);
+      color: rgba(238, 245, 234, 0.82);
     }
 
     .section--alternatives .losses-item {
-      background: rgba(255, 255, 255, 0.06);
-      border-color: rgba(255, 248, 232, 0.12);
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(219, 236, 204, 0.12);
       box-shadow: none;
     }
 
     .section--alternatives .losses-item strong {
-      color: #fff8e8;
+      color: #f5fbf1;
     }
 
     .section--alternatives .losses-item p {
-      color: rgba(247, 241, 227, 0.84);
+      color: rgba(238, 245, 234, 0.82);
     }
 
     .section--alternatives .losses-summary {
@@ -1996,8 +2065,8 @@
       font-size: 1.22rem;
       line-height: 1.55;
       font-weight: 600;
-      background: linear-gradient(180deg, rgba(255, 248, 232, 0.16) 0%, rgba(242, 194, 48, 0.2) 100%);
-      border-color: rgba(255, 248, 232, 0.2);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.14) 0%, rgba(170, 203, 124, 0.2) 100%);
+      border-color: rgba(219, 236, 204, 0.2);
       box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
     }
 
@@ -2042,10 +2111,70 @@
       text-align: center;
     }
 
-    .why-copy,
-    .why-points,
     .why-point {
       text-align: left;
+    }
+
+    .section--why .why-point {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(219, 236, 204, 0.12);
+    }
+
+    .section--why .why-point strong {
+      color: #f5fbf1;
+    }
+
+    .section--why .why-point p {
+      color: rgba(238, 245, 234, 0.82);
+    }
+
+    .guarantee-panel {
+      max-width: 48rem;
+      margin: 0 auto;
+      padding: clamp(1.6rem, 4vw, 2.4rem);
+      border-radius: 18px;
+      border: 1px solid rgba(24, 19, 16, 0.12);
+      background: linear-gradient(180deg, rgba(255, 250, 241, 0.98) 0%, rgba(250, 243, 226, 0.98) 100%);
+      box-shadow: 0 18px 40px rgba(23, 23, 23, 0.06);
+      text-align: center;
+    }
+
+    .guarantee-panel__shield {
+      width: 3.4rem;
+      height: 3.4rem;
+      margin: 0 auto 1rem;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      background: linear-gradient(180deg, rgba(20, 48, 38, 1) 0%, rgba(11, 30, 24, 1) 100%);
+      box-shadow: 0 12px 26px rgba(11, 30, 24, 0.18);
+    }
+
+    .guarantee-panel__shield svg {
+      width: 1.8rem;
+      height: 1.8rem;
+      fill: none;
+      stroke: #eef5ea;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .guarantee-panel h2 {
+      max-width: none;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+
+    .guarantee-panel p {
+      margin: 0;
+      color: var(--ink);
+      line-height: 1.72;
+    }
+
+    .guarantee-panel p + p {
+      margin-top: 1rem;
     }
 
     .close-copy,
@@ -2840,30 +2969,46 @@
         </div>
       </section>
 
-      <section class="section">
+      <section class="section section--why">
         <div class="section__inner">
           <div class="why-layout">
             <div class="why-copy reveal">
               <span class="section-label">WHY THIS WORKS</span>
-              <h2>You do not need a bigger setup. You need a practical fix.</h2>
-              <p>
-                Missed calls are normal. Complicated fixes are not. You do not need a CRM, an AI receptionist, or another monthly bill. You need a practical way to handle the calls you miss. Most business owners never get this far. If you are still reading, you are already closer to fixing it than they are.
-              </p>
+              <h2>Why this works when &quot;figuring it out yourself&quot; does not</h2>
             </div>
             <div class="why-points">
               <article class="why-point reveal">
-                <strong>You know what to send first</strong>
-                <p>The first reply is already worked out, so you can send something useful straight away instead of staring at your phone and guessing.</p>
+                <strong>Not another thing to build</strong>
+                <p>You do not have to write the messages from scratch or work out the timing yourself. It is already done for you.</p>
               </article>
               <article class="why-point reveal">
-                <strong>You keep the job in play</strong>
-                <p>The follow-up is already planned, so the lead does not go cold while you are busy doing the actual work.</p>
+                <strong>Not another thing to learn</strong>
+                <p>You do not need a CRM, a receptionist, or a complicated setup. It stays simple enough to actually use when you are busy.</p>
               </article>
               <article class="why-point reveal">
-                <strong>You see what still needs chasing</strong>
-                <p>The tracker shows which calls still need a reply, so nothing gets forgotten between jobs.</p>
+                <strong>Not another monthly bill</strong>
+                <p>You buy it once and move on. No subscription hanging around while you are trying to turn missed calls into jobs.</p>
               </article>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--divider section--compact">
+        <div class="section__inner">
+          <div class="guarantee-panel reveal">
+            <div class="guarantee-panel__shield" aria-hidden="true">
+              <svg viewBox="0 0 24 24" role="presentation" focusable="false">
+                <path d="M12 3l7 3v5c0 5-3.2 8.7-7 10-3.8-1.3-7-5-7-10V6l7-3z"></path>
+                <path d="M9.5 12l1.9 1.9L15.5 10"></path>
+              </svg>
+            </div>
+            <span class="section-label">Risk Reversal</span>
+            <h2>Try It Risk-Free For 30 Days</h2>
+            <p>Use the system on the missed calls and open jobs you already have.</p>
+            <p>If it does not feel worth it, email us within 30 days and we will refund you in full.</p>
+            <p>No hassle. No awkward back and forth.</p>
+            <p>We are confident because once you stop guessing what to send, the value becomes obvious very quickly.</p>
           </div>
         </div>
       </section>
