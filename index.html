@@ -188,33 +188,55 @@
       position: fixed;
       inset: 0;
       z-index: 40;
-      display: grid;
-      place-items: center;
-      padding: 1.25rem;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 1rem 1rem 0;
     }
 
     .modal__backdrop {
       position: absolute;
       inset: 0;
-      background: rgba(24, 19, 16, 0.62);
-      backdrop-filter: blur(5px);
+      background: rgba(24, 19, 16, 0.52);
+      backdrop-filter: blur(6px);
     }
 
     .modal__panel {
       position: relative;
-      width: min(100%, 560px);
-      padding: 2rem;
-      border-radius: 22px;
+      width: min(100%, 680px);
+      max-height: min(92vh, 640px);
+      overflow-y: auto;
+      padding: 1.35rem 1.35rem 1.45rem;
+      border-radius: 24px 24px 0 0;
       background: linear-gradient(180deg, #fff9f0 0%, #f4e6d0 100%);
       border: 1px solid rgba(24, 19, 16, 0.12);
-      box-shadow: 0 30px 80px rgba(24, 19, 16, 0.28);
+      border-bottom: 0;
+      box-shadow: 0 -28px 80px rgba(24, 19, 16, 0.3);
       text-align: center;
+      transform: translateY(100%);
+      animation: modalSheetIn 260ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    .modal__panel::before {
+      content: "";
+      display: block;
+      width: 3.3rem;
+      height: 0.32rem;
+      margin: 0 auto 1rem;
+      border-radius: 999px;
+      background: rgba(24, 19, 16, 0.18);
+    }
+
+    @keyframes modalSheetIn {
+      to {
+        transform: translateY(0);
+      }
     }
 
     .modal__close {
       position: absolute;
-      top: 0.9rem;
-      right: 0.9rem;
+      top: 0.95rem;
+      right: 1rem;
       width: 40px;
       height: 40px;
       border: 1px solid rgba(24, 19, 16, 0.12);
@@ -228,7 +250,7 @@
 
     .modal__eyebrow {
       display: inline-block;
-      margin-bottom: 0.9rem;
+      margin-bottom: 0.75rem;
       padding: 0.45rem 0.75rem;
       border-radius: 999px;
       background: rgba(180, 37, 16, 0.1);
@@ -243,7 +265,7 @@
       font-family: "Bitter", serif;
       font-size: clamp(2rem, 4vw, 2.8rem);
       line-height: 1;
-      margin-bottom: 0.85rem;
+      margin-bottom: 0.75rem;
     }
 
     .modal__copy {
@@ -260,7 +282,7 @@
     }
 
     .modal-discount {
-      margin: 0 auto 1.35rem;
+      margin: 0 auto 1.15rem;
       padding: 1.15rem 1.35rem;
       max-width: 22rem;
       border-radius: 18px;
@@ -317,7 +339,7 @@
     }
 
     .modal-code-field {
-      margin: 0 auto 1.25rem;
+      margin: 0 auto 1.1rem;
       max-width: 22rem;
       text-align: left;
     }
@@ -370,7 +392,7 @@
     }
 
     .modal__note {
-      margin: 0 0 1.5rem;
+      margin: 0 0 1.15rem;
       color: var(--muted);
       font-size: 0.95rem;
     }
@@ -2859,6 +2881,21 @@
     }
 
     @media (max-width: 720px) {
+      .modal {
+        padding: 0;
+      }
+
+      .modal__panel {
+        width: 100%;
+        max-height: 88vh;
+        padding: 1.05rem 1rem 1.15rem;
+        border-radius: 20px 20px 0 0;
+      }
+
+      .modal-code-field__row {
+        flex-direction: column;
+      }
+
       .site-header__inner {
         min-height: 60px;
         padding: 0.55rem 0;
