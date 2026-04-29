@@ -13,7 +13,7 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1686151149414910');
+    fbq('init', '1220651716623827');
     fbq('track', 'PageView');
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -111,11 +111,18 @@
       color: var(--muted);
     }
 
+    .hero__actions {
+      margin-top: 2.1rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.8rem;
+    }
+
     .hero__cta {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      margin-top: 2.1rem;
       min-height: 4rem;
       padding: 0.85rem 1.5rem;
       width: min(100%, 440px);
@@ -138,6 +145,18 @@
       transform: translateY(-2px);
       box-shadow: 0 22px 44px rgba(242, 189, 0, 0.34);
       outline: none;
+    }
+
+    .hero__cta--secondary {
+      background: rgba(255, 255, 255, 0.72);
+      box-shadow: none;
+      border: 1px solid rgba(17, 17, 17, 0.14);
+      color: var(--ink);
+    }
+
+    .hero__cta--secondary:hover,
+    .hero__cta--secondary:focus-visible {
+      box-shadow: 0 14px 28px rgba(17, 17, 17, 0.08);
     }
 
     .hero__visual {
@@ -1227,6 +1246,10 @@
         font-size: 1rem;
       }
 
+      .hero__actions {
+        gap: 0.65rem;
+      }
+
       .hero__cta {
         min-height: 3.8rem;
         font-size: 1.02rem;
@@ -1320,7 +1343,10 @@
         <p class="hero__body">
           Get the exact ready-to-send chase-up messages, timings, and tracker to turn stuck quotes into booked jobs without sounding pushy or keeping it all in your head.
         </p>
-        <a class="hero__cta js-initiate-checkout" href="https://buy.stripe.com/fZudR83QD50gfP2fOqbZe0K">Get Instant Access Now</a>
+        <div class="hero__actions">
+          <a class="hero__cta js-initiate-checkout" href="https://buy.stripe.com/fZudR83QD50gfP2fOqbZe0K">Get Instant Access Now</a>
+          <a class="hero__cta hero__cta--secondary" href="#kit-title">What's Inside?</a>
+        </div>
         <div class="hero__visual">
           <img class="hero__image" src="heroimg.jpg" alt="Quote Recovery Kit hero image">
         </div>
@@ -1424,7 +1450,7 @@
     <section class="testimonial" aria-labelledby="testimonial-title">
       <div class="testimonial__inner">
         <h2 id="testimonial-title" style="position:absolute;left:-9999px;">Customer testimonial</h2>
-        <blockquote class="testimonial__quote">"I had about GBP4k of quotes just floating around in WhatsApp and my head. Sent one of the follow-ups from the kit and got a 'yes mate, let's book it in' the next morning. Feels a lot better than sitting there wondering if I should chase or leave it."</blockquote>
+        <blockquote class="testimonial__quote">"I had about £4k of quotes just floating around in WhatsApp and my head. Sent one of the follow-ups from the kit and got a 'yes mate, let's book it in' the next morning. Feels a lot better than sitting there wondering if I should chase or leave it."</blockquote>
         <p class="testimonial__attribution">- Dan, electrician</p>
       </div>
     </section>
@@ -1667,7 +1693,7 @@
   </script>
   <noscript>
     <img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=1686151149414910&ev=PageView&noscript=1"
+      src="https://www.facebook.com/tr?id=1220651716623827&ev=PageView&noscript=1"
       alt="">
   </noscript>
 </body>
